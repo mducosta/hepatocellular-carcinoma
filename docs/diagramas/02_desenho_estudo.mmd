@@ -1,0 +1,11 @@
+flowchart LR
+    subgraph TCGA["TCGA-LIHC · tumor"]
+        T["369 amostras"]
+    end
+    subgraph GTEx["GTEx Liver · normal"]
+        G["110 amostras"]
+    end
+    T --> X["Matriz de expressão gênica<br/>escala log2 · 212 genes da via"]
+    G --> X
+    X --> Y["Contraste LIHC × Normal<br/>limma"]
+    Y --> Z["42 DEGs<br/>12 up · 30 down"]

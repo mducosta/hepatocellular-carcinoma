@@ -1,0 +1,20 @@
+flowchart TD
+    A["📥 Dados públicos<br/><b>UCSC Xena</b><br/>TCGA-LIHC + GTEx Liver"] --> B["Importar arquivo<br/>TSV / CSV / XLSX"]
+    B --> C["Normalizar colunas<br/>separar metadados × genes"]
+    C --> D["Filtrar amostras de fígado"]
+    D --> E["Definir condições<br/>Normal × LIHC"]
+    E --> F["QC pré-análise<br/>NA · escala · duplicatas<br/>variância zero · PCA · UMAP"]
+    F --> G{"Escala dos dados?"}
+    G -->|"log2"| H["limma direto"]
+    G -->|"contagens"| I["edgeR + voom + limma"]
+    H --> J["Obter genes da via<br/>KEGG hsa05417 · 216 genes"]
+    I --> J
+    J --> K["Análise diferencial<br/>FDR < 0,05 · |log2FC| > 1"]
+    K --> L["Volcano plot"]
+    K --> M["Rede PPI STRING v12.0"]
+    K --> N["Enriquecimento GO / KEGG"]
+    K --> O["Heatmap top DEGs"]
+    L --> P["✅ Resultados + relatórios + benchmark"]
+    M --> P
+    N --> P
+    O --> P

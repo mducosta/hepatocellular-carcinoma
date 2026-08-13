@@ -1,0 +1,8 @@
+flowchart TD
+    A["212 genes da via hsa05417"] --> B["limma · contraste LIHC − Normal"]
+    B --> C{"FDR < 0,05<br/>e |log2FC| > 1"}
+    C -->|"log2FC > +1"| D["Up-regulados em LIHC<br/>12 genes"]
+    C -->|"log2FC < −1"| E["Down-regulados em LIHC<br/>30 genes"]
+    C -->|"demais"| F["Não significativos<br/>170 genes"]
+    D --> G["Análises posteriores<br/>Volcano · PPI · Enriquecimento · Heatmap"]
+    E --> G
