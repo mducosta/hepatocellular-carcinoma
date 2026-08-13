@@ -3,30 +3,29 @@
 Análise exploratória de **expressão diferencial** da via *Lipid and
 Atherosclerosis* (KEGG `hsa05417`) entre **Hepatocarcinoma (LIHC, TCGA)** e
 **fígado normal (GTEx)**, com controle de qualidade pré-análise, rede de
-interação proteína-proteína (STRING), enriquecimento funcional (GO/KEGG) e
-geração automática de relatórios de auditoria.
+interação proteína-proteína (STRING), enriquecimento funcional (ORA + GSEA),
+GSVA e geração automática de relatórios de auditoria.
 
 ---
 
 ## Sumário
 
-- [Visão geral](#visão-geral)
-- [Fluxograma do pipeline](#fluxograma-do-pipeline)
-- [Desenho do estudo](#desenho-do-estudo)
-- [Resumo executivo](#resumo-executivo)
-- [Estrutura do repositório](#estrutura-do-repositório)
-- [Pré-requisitos](#pré-requisitos)
-- [Como executar](#como-executar)
-- [Resultados](#resultados)
-- [Diagramas e esquemas](#diagramas-e-esquemas)
-- [Documentação / auditoria](#documentação--auditoria)
-- [Declaração de uso de IA](#declaração-de-uso-de-inteligência-artificial)
-- [Limitações](#limitações)
-- [Licença](#licença)
+1. [Visão geral](#1-visão-geral)
+2. [Fluxograma do pipeline](#2-fluxograma-do-pipeline)
+3. [Desenho do estudo](#3-desenho-do-estudo)
+4. [Resumo executivo](#4-resumo-executivo)
+5. [Estrutura do repositório](#5-estrutura-do-repositório)
+6. [Pré-requisitos e execução](#6-pré-requisitos-e-execução)
+7. [Resultados](#7-resultados)
+8. [Diagramas e esquemas](#8-diagramas-e-esquemas)
+9. [Documentação / auditoria](#9-documentação--auditoria)
+10. [Declaração de uso de IA](#10-declaração-de-uso-de-inteligência-artificial)
+11. [Limitações](#11-limitações)
+12. [Licença](#12-licença)
 
 ---
 
-## Visão geral
+## 1. Visão geral
 
 | Item | Descrição |
 |------|-----------|
@@ -36,68 +35,36 @@ geração automática de relatórios de auditoria.
 | **Método de DE** | `limma` direto (dados em log2) |
 | **Critérios de significância** | FDR < 0,05 e \|log2FC\| > 1 |
 | **Rede PPI** | STRING v12.0 (interações físicas, score ≥ 700) |
-| **Enriquecimento** | `clusterProfiler` (ORA: `enrichKEGG` + `enrichGO`) |
+| **Enriquecimento** | ORA (`enrichKEGG`/`enrichGO`) + GSEA (`gseKEGG`/`fgsea`) |
+| **GSVA** | Escore de enriquecimento por amostra (Hallmark + via) |
 
 ---
 
-## Fluxograma do pipeline
+## 2. Fluxograma do pipeline
 
-```mermaid
-flowchart TD
-    A["📥 Dados públicos<br/><b>UCSC Xena</b><br/>TCGA-LIHC + GTEx Liver"] --> B["Importar arquivo<br/>TSV / CSV / XLSX"]
-    B --> C["Normalizar colunas<br/>separar metadados × genes"]
-    C --> D["Filtrar amostras de fígado"]
-    D --> E["Definir condições<br/>Normal × LIHC"]
-    E --> F["QC pré-análise<br/>NA · escala · duplicatas<br/>variância zero · PCA · UMAP"]
-    F --> G{"Escala dos dados?"}
-    G -->|"log2"| H["limma direto"]
-    G -->|"contagens"| I["edgeR + voom + limma"]
-    H --> J["Obter genes da via<br/>KEGG hsa05417 · 216 genes"]
-    I --> J
-    J --> K["Análise diferencial<br/>FDR < 0,05 · |log2FC| > 1"]
-    K --> L["Volcano plot"]
-    K --> M["Rede PPI STRING v12.0"]
-    K --> N["Enriquecimento GO / KEGG"]
-    K --> O["Heatmap top DEGs"]
-    L --> P["✅ Resultados + relatórios + benchmark"]
-    M --> P
-    N --> P
-    O --> P
-```
+![Fluxograma do pipeline](docs/diagramas/01_fluxograma_pipeline.png)
 
-> Versão em imagem: [`docs/diagramas/01_fluxograma_pipeline.png`](docs/diagramas/01_fluxograma_pipeline.png)
+O pipeline é **portátil, reprodutível e autodocumentado** (`pipeline_hepato.R`):
+detecta a raiz do projeto, localiza os dados, decide automaticamente entre
+`limma` direto ou `edgeR + voom + limma`, e gera todos os resultados + logs +
+benchmark.
 
 ---
 
-## Desenho do estudo
+## 3. Desenho do estudo
 
-```mermaid
-flowchart LR
-    subgraph TCGA["TCGA-LIHC · tumor"]
-        T["369 amostras"]
-    end
-    subgraph GTEx["GTEx Liver · normal"]
-        G["110 amostras"]
-    end
-    T --> X["Matriz de expressão gênica<br/>escala log2 · 212 genes da via"]
-    G --> X
-    X --> Y["Contraste LIHC × Normal<br/>limma"]
-    Y --> Z["42 DEGs<br/>12 up · 30 down"]
-```
+![Desenho do estudo](docs/diagramas/02_desenho_estudo.png)
 
-> Versão em imagem: [`docs/diagramas/02_desenho_estudo.png`](docs/diagramas/02_desenho_estudo.png)
+Duas coortes públicas foram combinadas a partir do UCSC Xena e restritas à via
+`hsa05417` (216 genes; 212 presentes na matriz de expressão).
 
 ---
 
-## Resumo executivo
+## 4. Resumo executivo
 
-### Amostras
+### 4.1 Amostras
 
-```mermaid
-pie showData
-    "LIHC (TCGA)" : 369
-    "Normal (GTEx)" : 110
-```
+![Amostras](docs/diagramas/05_amostras_pie.png)
 
 | Métrica | Valor |
 |---------|-------|
@@ -107,14 +74,9 @@ pie showData
 | Escala dos dados | log2 (limma direto) |
 | Tempo de execução | ≈ 462 s |
 
-### Genes diferencialmente expressos (DEGs)
+### 4.2 Genes diferencialmente expressos (DEGs)
 
-```mermaid
-pie showData
-    "Up_LIHC (12)" : 12
-    "Down_LIHC (30)" : 30
-    "NS (170)" : 170
-```
+![DEGs](docs/diagramas/06_degs_pie.png)
 
 | Classe | Contagem |
 |--------|----------|
@@ -125,22 +87,22 @@ pie showData
 
 ---
 
-## Estrutura do repositório
+## 5. Estrutura do repositório
 
 ```
 .
 ├── pipeline_hepato.R                 # Pipeline principal (reprodutível)
 ├── scripts/
-│   └── análise_expressão_diferencial.R   # Versão original (legado)
+│   ├── análise_expressão_diferencial.R    # Versão original (legado)
+│   └── analise_enriquecimento_gsea.R      # ORA + GSEA (a partir dos DEGs)
 ├── data/
 │   └── README.md                     # Instruções para obter os dados de entrada
 ├── docs/
-│   ├── APRESENTACAO.md               # Apresentação do projeto (slides)
 │   └── diagramas/                    # Fluxogramas e esquemas (Mermaid + PNG)
 ├── results/
 │   ├── audit/                        # Relatórios, logs, benchmark e sessionInfo
 │   ├── deg/                          # DEGs (CSV)
-│   ├── enrichment/                   # GO BP e KEGG (CSV)
+│   ├── enrichment/                   # GO/KEGG (ORA), GSEA e GSVA (CSV + figuras)
 │   ├── figures/                      # Heatmap dos top DEGs (PNG)
 │   ├── ppi/                          # Rede STRING e métricas topológicas
 │   ├── qc/                           # PCA, UMAP e sumário de QC pré-análise
@@ -152,45 +114,31 @@ pie showData
 
 ---
 
-## Pré-requisitos
+## 6. Pré-requisitos e execução
 
 R ≥ 4.0 e os pacotes:
 
 ```
 dplyr, tidyr, tibble, stringr, ggplot2, ggrepel, limma, edgeR, igraph,
 ggraph, pheatmap, scales, clusterProfiler, org.Hs.eg.db, KEGGREST,
-STRINGdb, readr, readxl, rio, uwot
+STRINGdb, readr, readxl, rio, uwot, fgsea, msigdbr, GSVA
 ```
 
-O script instala automaticamente qualquer pacote ausente. Pacotes do
-Bioconductor (`limma`, `edgeR`, `clusterProfiler`, `org.Hs.eg.db`, `STRINGdb`)
-são baixados pelo gerenciador do Bioconductor quando necessário.
+O script instala automaticamente qualquer pacote ausente (CRAN/Bioconductor).
+
+**Execução:**
+
+```bash
+# 1) Baixe os dados (veja data/README.md) e salve como data/liver_lip_aterosclerose.tsv
+# 2) Rode o pipeline completo
+Rscript pipeline_hepato.R
+```
 
 ---
 
-## Como executar
+## 7. Resultados
 
-1. **Baixe os dados** seguindo as instruções em [`data/README.md`](data/README.md)
-   e salve como `data/liver_lip_aterosclerose.tsv`.
-
-2. Execute o pipeline a partir da raiz do repositório:
-
-   ```bash
-   Rscript pipeline_hepato.R
-   ```
-
-   O script localiza a raiz do projeto automaticamente (inclusive a pasta `data/`),
-   cria a estrutura `results/` e gera todos os outputs, o log
-   (`results/audit/pipeline_log.csv`) e o benchmark
-   (`results/audit/benchmark_pipeline.csv`).
-
----
-
-## Resultados
-
-### 1. Controle de qualidade pré-análise (QC)
-
-Resumo em [`results/qc/qc_summary.md`](results/qc/qc_summary.md):
+### 7.1 Controle de qualidade pré-análise (QC)
 
 | Verificação | Resultado |
 |-------------|-----------|
@@ -203,15 +151,14 @@ Resumo em [`results/qc/qc_summary.md`](results/qc/qc_summary.md):
 | Efeito batch (TCGA/GTEx) | 2 estudos identificados |
 | Decisão metodológica | limma direto (dados log2) |
 
-**Figuras de QC:** [`PCA_pre_analysis.png`](results/qc/PCA_pre_analysis.png),
-[`PCA_pre_analysis_batch.png`](results/qc/PCA_pre_analysis_batch.png),
-[`UMAP_pre_analysis.png`](results/qc/UMAP_pre_analysis.png).
+![PCA pré-análise](results/qc/PCA_pre_analysis.png)
 
-### 2. Análise de expressão diferencial (limma)
+![UMAP pré-análise](results/qc/UMAP_pre_analysis.png)
+
+### 7.2 Análise de expressão diferencial (limma)
 
 Contraste `LIHC − Normal`, com `limma` + `eBayes` (robusto) e correção de
-Benjamini–Hochberg (FDR). Foram identificados **42 DEGs** na via
-`hsa05417` (12 up e 30 down).
+Benjamini–Hochberg (FDR). Foram identificados **42 DEGs** na via `hsa05417`.
 
 **Genes up-regulados em LIHC (12):**
 
@@ -268,50 +215,18 @@ Benjamini–Hochberg (FDR). Foram identificados **42 DEGs** na via
 > Tabela completa (com t, P.Value, AveExpr e B): [`results/deg/DEG_significant_LA.csv`](results/deg/DEG_significant_LA.csv)
 > e [`results/deg/DEG_LA_pathway_only.csv`](results/deg/DEG_LA_pathway_only.csv).
 
-### 3. Volcano plot
+### 7.3 Volcano plot
+
+![Volcano plot — via hsa05417](results/volcano/Volcano_LIHC_LA_pathway.png)
 
 O volcano plot foca exclusivamente nos **212 genes da via `hsa05417`** e rotula
-os 10 genes mais significativos de cada direção.
+os 10 genes mais significativos de cada direção. Limiares: FDR < 0,05 e
+|log2FC| > 1 (linhas tracejadas). Versão vetorial em
+[`Volcano_LIHC_LA_pathway.pdf`](results/volcano/Volcano_LIHC_LA_pathway.pdf).
 
-```mermaid
-flowchart TD
-    A["212 genes da via hsa05417"] --> B["limma · contraste LIHC − Normal"]
-    B --> C{"FDR < 0,05<br/>e |log2FC| > 1"}
-    C -->|"log2FC > +1"| D["Up-regulados em LIHC<br/>12 genes"]
-    C -->|"log2FC < −1"| E["Down-regulados em LIHC<br/>30 genes"]
-    C -->|"demais"| F["Não significativos<br/>170 genes"]
-```
+### 7.4 Rede de interação proteína-proteína (PPI — STRING v12.0)
 
-**Figuras:**
-- [`results/volcano/Volcano_LIHC_LA_pathway.png`](results/volcano/Volcano_LIHC_LA_pathway.png)
-- [`results/volcano/Volcano_LIHC_LA_pathway.pdf`](results/volcano/Volcano_LIHC_LA_pathway.pdf)
-
-**Genes rotulados no volcano** ([`Volcano_labeled_genes.csv`](results/volcano/Volcano_labeled_genes.csv)):
-
-| Gene | log2FC | FDR | Regulação |
-|------|-------:|----:|-----------|
-| CALML5 | −3,08 | 3,2×10⁻⁸³ | Down |
-| CXCL2 | −3,61 | 4,6×10⁻⁵⁶ | Down |
-| CALML6 | −2,82 | 1,7×10⁻⁵² | Down |
-| BAX | +1,28 | 4,5×10⁻⁴⁹ | Up |
-| HSP90AB1 | +1,12 | 7,5×10⁻⁴⁰ | Up |
-| CAMK2B | −3,69 | 4,0×10⁻³⁴ | Down |
-| SELE | −2,55 | 1,3×10⁻²⁷ | Down |
-| CALML3 | −2,53 | 3,9×10⁻²⁵ | Down |
-| PYCARD | +1,63 | 7,0×10⁻²² | Up |
-| CYP2C8 | −2,67 | 3,9×10⁻¹⁸ | Down |
-| MMP1 | +2,36 | 4,9×10⁻¹⁸ | Up |
-| LY96 | +1,64 | 9,3×10⁻¹⁸ | Up |
-| CYP2B6 | −2,23 | 5,7×10⁻¹⁵ | Down |
-| MMP9 | +1,91 | 4,0×10⁻¹⁴ | Up |
-| CYP2A7 | −3,31 | 4,4×10⁻¹³ | Down |
-| CD36 | +1,34 | 6,1×10⁻¹³ | Up |
-| APOA4 | −3,27 | 1,0×10⁻¹² | Down |
-| IKBKE | +1,12 | 1,9×10⁻¹² | Up |
-| VCAM1 | +1,37 | 6,5×10⁻¹¹ | Up |
-| PIK3R2 | +1,40 | 4,7×10⁻⁷ | Up |
-
-### 4. Rede de interação proteína-proteína (PPI — STRING v12.0)
+![Rede PPI STRING](results/ppi/PPI_STRING_network.png)
 
 Interações físicas com score ≥ 700, construídas a partir dos 42 DEGs da via.
 
@@ -324,68 +239,99 @@ Interações físicas com score ≥ 700, construídas a partir dos 42 DEGs da vi
 | Arestas (após simplificação) | 31 |
 | Componentes conexos | 5 |
 | Maior componente | 17 nós |
-| Isolados | 0 |
 | **Hubs (top 20% degree)** | **6** |
 
-**Hubs identificados:**
+**Hubs identificados:** HSP90AB1 (grau 7), TLR2 (5), CALML3 (5), CALML5 (5),
+CALML6 (4) e CAMK2A (4).
 
-| Hub | Degree | Regulação |
-|-----|-------:|-----------|
-| HSP90AB1 | 7 | Up_LIHC |
-| TLR2 | 5 | Down_LIHC |
-| CALML3 | 5 | Down_LIHC |
-| CALML5 | 5 | Down_LIHC |
-| CALML6 | 4 | Down_LIHC |
-| CAMK2A | 4 | Down_LIHC |
+### 7.5 Enriquecimento funcional — ORA (GO/KEGG)
 
-**Figuras e tabelas:** [`PPI_STRING_network.png`](results/ppi/PPI_STRING_network.png),
-[`PPI_topology_metrics.csv`](results/ppi/PPI_topology_metrics.csv),
-[`PPI_STRING_edges_score700.csv`](results/ppi/PPI_STRING_edges_score700.csv),
-[`PPI_STRING_nodes_score700.csv`](results/ppi/PPI_STRING_nodes_score700.csv).
+Análise de super-representação (ORA) via `clusterProfiler`, com **background do
+genoma completo**, separada por genes up e down.
 
-### 5. Enriquecimento funcional (GO / KEGG)
+![Enriquecimento ORA — dotplot](results/enrichment/enrichment_dotplot.png)
 
-**Método:** análise de super-representação (ORA) via `clusterProfiler`
-(`enrichKEGG` e `enrichGO`, ontologia BP), com universo = 212 genes testados,
-`pvalueCutoff = 0.05` e `qvalueCutoff = 0.2`, separadamente para genes up e down.
+**Genes up-regulados** — processos mais enriquecidos:
 
-**Resultado:** **nenhum termo GO/KEGG alcançou significância estatística**
-após correção (FDR < 0,05). Os arquivos
-[`results/enrichment/*.csv`](results/enrichment/) contêm apenas o cabeçalho.
+| Fonte | Termo | FDR |
+|-------|-------|-----|
+| GO BP | regulation of lipid storage | 1,1×10⁻⁴ |
+| GO BP | cholesterol storage | 2,9×10⁻⁴ |
+| GO BP | response to lipopolysaccharide | 4,8×10⁻⁴ |
+| GO BP | regulation of macrophage derived foam cell differentiation | 6,8×10⁻⁴ |
+| KEGG | Lipid and atherosclerosis (hsa05417) | 5,5×10⁻¹⁸ |
+| KEGG | IL-17 signaling pathway | 7,6×10⁻⁴ |
+| KEGG | Fluid shear stress and atherosclerosis | 2,6×10⁻³ |
+| KEGG | PPAR signaling pathway | 6,4×10⁻³ |
 
-**Interpretação:** o conjunto de DEGs é pequeno (42 genes) e o universo é
-restrito (212 genes da via), o que reduz o poder estatístico da ORA. Isso não
-invalida os achados de DEGs individuais — indica apenas que não houve
-enriquecimento de vias *adicionais* além da própria via `hsa05417` já analisada.
+**Genes down-regulados** — processos mais enriquecidos:
 
-### 6. GSEA / GSVA
+| Fonte | Termo | FDR |
+|-------|-------|-----|
+| GO BP | epoxygenase P450 pathway | 1,0×10⁻⁹ |
+| GO BP | arachidonate metabolic process | 1,3×10⁻⁶ |
+| GO BP | xenobiotic catabolic process | 2,0×10⁻⁶ |
+| GO BP | long-chain fatty acid metabolic process | 2,2×10⁻⁵ |
+| KEGG | Lipid and atherosclerosis (hsa05417) | 2,9×10⁻⁴⁸ |
+| KEGG | Kaposi sarcoma-associated herpesvirus infection | 4,4×10⁻⁸ |
+| KEGG | Neurotrophin signaling pathway | 3,0×10⁻⁷ |
+| KEGG | Fluid shear stress and atherosclerosis | 5,7×10⁻⁷ |
 
-**Status:** **não implementado na versão atual do pipeline (v3.0).**
+> Arquivos completos: [`GO_BP_up.csv`](results/enrichment/GO_BP_up.csv),
+> [`GO_BP_down.csv`](results/enrichment/GO_BP_down.csv),
+> [`KEGG_up.csv`](results/enrichment/KEGG_up.csv),
+> [`KEGG_down.csv`](results/enrichment/KEGG_down.csv).
 
-A versão atual emprega enriquecimento por super-representação (ORA). As
-abordagens de enriquecimento baseadas em *ranking* e por amostra são
-complementos recomendados:
+### 7.6 GSEA (enriquecimento por ranking)
 
-| Abordagem | O que faz | Vantagem neste estudo |
-|-----------|-----------|------------------------|
-| **GSEA** (`fgsea` / `gseGO` / `gseKEGG`) | Ordena **todos** os genes por estatística (logFC/t) e testa se um conjunto gênico está enriquecido nas extremidades | Mais sensível que ORA; detecta mudanças coordenadas mesmo sem muitos genes acima do limiar |
-| **GSVA** (`GSVA::gsva`) | Calcula um escore de enriquecimento **por amostra** para cada conjunto gênico | Permite comparar a atividade da via entre LIHC × Normal e associá-la a variáveis clínicas |
+GSEA com os **212 genes ordenados por logFC** (rank-based).
 
-**Recomendação:** implementar como próximo passo. O pipeline já exporta a tabela
-completa ordenável em
-[`results/deg/DEG_LIHC_vs_Normal_full.csv`](results/deg/DEG_LIHC_vs_Normal_full.csv),
-que serve de entrada para o ranking do GSEA.
+![GSEA KEGG](results/enrichment/GSEA_KEGG_barplot.png)
 
-### 7. Heatmap dos top DEGs
+**GSEA KEGG** — 4 vias significativamente enriquecidas (FDR < 0,05), todas com
+NES negativo (down-reguladas em LIHC):
 
-Figura: [`results/figures/Heatmap_Top_DEGs.png`](results/figures/Heatmap_Top_DEGs.png)
-(top 50 DEGs, escala por linha com clamping em ±3, clusterização ward.D2).
+| Via | NES | FDR |
+|-----|----:|----:|
+| Retinol metabolism | −1,80 | 4,3×10⁻³ |
+| Drug metabolism — cytochrome P450 | −1,79 | 7,9×10⁻³ |
+| Metabolism of xenobiotics by cytochrome P450 | −1,77 | 1,1×10⁻² |
+| Chemical carcinogenesis — DNA adducts | −1,77 | 1,1×10⁻² |
+
+**GSEA GO (BP)** — 7 termos significativos, incluindo *long-chain fatty acid
+metabolic process*, *xenobiotic metabolic process*, *epoxygenase P450 pathway*
+(NES < 0, down) e *phagocytosis* / *Wnt signaling pathway* (NES > 0, up).
+
+**GSEA Hallmark (MSigDB)** — nenhum conjunto alcançou FDR < 0,05
+(21 conjuntos testados).
+
+> Arquivos: [`GSEA_KEGG.csv`](results/enrichment/GSEA_KEGG.csv),
+> [`GSEA_GO_BP.csv`](results/enrichment/GSEA_GO_BP.csv),
+> [`GSEA_HALLMARK.csv`](results/enrichment/GSEA_HALLMARK.csv).
+
+### 7.7 GSVA (enriquecimento por amostra)
+
+O GSVA está **implementado no pipeline** (`pipeline_hepato.R`, seção 15b) e
+calcula escores de enriquecimento por amostra para os conjuntos Hallmark e para
+a própria via `hsa05417`, comparando LIHC × Normal (teste t + FDR).
+
+> Os escores GSVA exigem a matriz de expressão (arquivo de dados) e, portanto,
+> são gerados na re-execução do pipeline. Saídas: `GSVA_scores.csv` e
+> `GSVA_summary.csv` em [`results/enrichment/`](results/enrichment/).
+
+### 7.8 Heatmap dos top DEGs
+
+![Heatmap top DEGs](results/figures/Heatmap_Top_DEGs.png)
+
+Top 42 DEGs, escala por linha (clamping ±3), clusterização ward.D2, com
+anotação de condição (Normal × LIHC).
 
 ---
 
-## Diagramas e esquemas
+## 8. Diagramas e esquemas
 
-Todos os diagramas estão em [`docs/diagramas/`](docs/diagramas/) em dois formatos:
+Todos os diagramas estão em [`docs/diagramas/`](docs/diagramas/) em dois
+formatos (Mermaid `.mmd` editável e PNG):
 
 | # | Diagrama | Mermaid | PNG |
 |---|----------|:-------:|:---:|
@@ -393,51 +339,30 @@ Todos os diagramas estão em [`docs/diagramas/`](docs/diagramas/) em dois format
 | 2 | Desenho do estudo | [`.mmd`](docs/diagramas/02_desenho_estudo.mmd) | [`.png`](docs/diagramas/02_desenho_estudo.png) |
 | 3 | Metodologia / classificação DEG | [`.mmd`](docs/diagramas/03_metodologia_degs.mmd) | [`.png`](docs/diagramas/03_metodologia_degs.png) |
 | 4 | Contexto biológico da via | [`.mmd`](docs/diagramas/04_contexto_biologico.mmd) | [`.png`](docs/diagramas/04_contexto_biologico.png) |
-| 5 | Amostras (pie) | [`.mmd`](docs/diagramas/05_amostras_pie.mmd) | [`.png`](docs/diagramas/05_amostras_pie.png) |
-| 6 | DEGs (pie) | [`.mmd`](docs/diagramas/06_degs_pie.mmd) | [`.png`](docs/diagramas/06_degs_pie.png) |
+| 5 | Amostras (pizza) | [`.mmd`](docs/diagramas/05_amostras_pie.mmd) | [`.png`](docs/diagramas/05_amostras_pie.png) |
+| 6 | DEGs (pizza) | [`.mmd`](docs/diagramas/06_degs_pie.mmd) | [`.png`](docs/diagramas/06_degs_pie.png) |
 
 ### Contexto biológico da via `hsa05417`
 
-```mermaid
-flowchart LR
-    subgraph VIA["Via Lipid and Atherosclerosis — KEGG hsa05417"]
-        M1["🫀 Metabolismo lipídico<br/>ABCA1 · ABCG1 · CD36<br/>APOA4 · CYP450"]
-        M2["🔥 Inflamação<br/>CXCL2 · TLR2 · IKBKB<br/>STAT3 · SELE"]
-        M3["⚡ Sinalização de Ca²⁺<br/>CALML3/5/6 · CAMK2A/B"]
-        M4["💀 Apoptose / remodelamento<br/>BAX · TNFRSF10B<br/>MMP1 · MMP9"]
-    end
-    VIA --> HCC["🎗️ Reprogramação transcriptômica<br/>no Hepatocarcinoma"]
-```
-
-> A apresentação completa (slides) está em [`docs/APRESENTACAO.md`](docs/APRESENTACAO.md).
+![Contexto biológico](docs/diagramas/04_contexto_biologico.png)
 
 ---
 
-## Documentação / auditoria
+## 9. Documentação / auditoria
 
-Relatórios de auditoria linha a linha, reanálise e verificação do resumo expandido
-estão em [`results/audit/`](results/audit/):
+Relatórios em [`results/audit/`](results/audit/):
 
 - `RELATORIO_FINAL_LOCK_LIHC.md` — veredito final e resultados consolidados
 - `AUDITORIA_CODIGO_LINHA_A_LINHA.md` — auditoria do código
 - `AUDITORIA_REANALISE_LIHC.md` — auditoria da reanálise
 - `AUDITORIA_RESUMO_EXPANDIDO.md` — cruzamento do resumo com código/dados
-- `pipeline_log.csv` — log passo a passo da execução
+- `pipeline_log.csv` — log passo a passo
 - `benchmark_pipeline.csv` / `benchmark_summary.md` — métricas de execução
 - `sessionInfo.txt` — ambiente R completo
 
 ---
 
-## Reprodução dos resultados publicados
-
-Os outputs em `results/` foram gerados com:
-
-- **R** 4.6.0 (Windows 11 x64) — [`results/audit/sessionInfo.txt`](results/audit/sessionInfo.txt)
-- Tempo total: ≈ 462 s — [`results/audit/benchmark_summary.md`](results/audit/benchmark_summary.md)
-
----
-
-## Declaração de uso de inteligência artificial
+## 10. Declaração de uso de inteligência artificial
 
 > *Portaria CNPq nº 2.664/2026* — Este trabalho contou com o uso de ferramentas
 > de inteligência artificial generativa (ChatGPT-5.5, OpenAI; DeepSeek-V4-Pro,
@@ -447,7 +372,7 @@ Os outputs em `results/` foram gerados com:
 
 ---
 
-## Limitações
+## 11. Limitações
 
 - Estudo exploratório com dados secundários (TCGA/GTEx);
 - Sem validação em coorte independente;
@@ -457,6 +382,6 @@ Os outputs em `results/` foram gerados com:
 
 ---
 
-## Licença
+## 12. Licença
 
 [MIT](LICENSE) © 2026 Ryan de Paulo Santos.

@@ -17,8 +17,8 @@ Pipeline executado com sucesso. Todos os outputs gerados. Resumo expandido corri
 ### 1.1 Dados
 | Métrica | Valor |
 |---------|-------|
-| Amostras totais (fígado) | 481 |
-| LIHC (TCGA) | 371 |
+| Amostras totais (fígado) | 479 |
+| LIHC (TCGA) | 369 |
 | Normal (GTEx Liver) | 110 |
 | Genes via LA (KEGG hsa05417) | 216 |
 | Genes na matriz | 212 |

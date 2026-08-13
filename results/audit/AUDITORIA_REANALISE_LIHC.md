@@ -14,17 +14,17 @@
 | Arquivo de dados | ✅ | liver_lip_aterosclerose.tsv (531 × 230) |
 | Metadados | ✅ | 17 colunas clínicas |
 | Expressão gênica | ✅ | 212 genes da via hsa05417 |
-| Amostras hepáticas | ✅ | 481 (371 LIHC, 110 Normal) |
+| Amostras hepáticas | ✅ | 479 (369 LIHC, 110 Normal) |
 | QC (PCA, UMAP) | ✅ | Gerados |
 | Genes KEGG | ✅ | 216 genes (212 na matriz) |
 | Análise diferencial | ✅ | limma direto (log2 normalizada) |
 | DEGs | ✅ | 42 (12 Up, 30 Down) |
 | Volcano plot | ✅ | PNG + PDF gerados |
 | PPI STRING | ✅ | 62 interações, 6 hubs |
-| Enriquecimento KEGG | ✅ | 182 vias (Up), 182 vias (Down) |
-| GO BP | ✅ | 856 termos cada |
+| Enriquecimento KEGG (ORA) | ✅ | 47 vias (Up), 107 vias (Down) |
+| GO BP (ORA) | ✅ | 78 termos (Up), 44 termos (Down) |
 | Heatmap | ✅ | Top 42 DEGs |
-| Benchmark | ✅ | 598.75 segundos |
+| Benchmark | ✅ | 462.44 segundos |
 
 ---
 

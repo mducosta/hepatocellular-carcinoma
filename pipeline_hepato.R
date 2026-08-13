@@ -90,7 +90,7 @@ required_packages <- c(
   "dplyr", "tidyr", "tibble", "stringr", "ggplot2", "ggrepel",
   "limma", "edgeR", "igraph", "ggraph", "pheatmap", "scales",
   "clusterProfiler", "org.Hs.eg.db", "KEGGREST", "STRINGdb",
-  "readr", "readxl", "rio", "uwot"
+  "readr", "readxl", "rio", "uwot", "fgsea", "msigdbr", "GSVA"
 )
 
 log_entry("PACKAGES", "INFO", "Instalando/carregando pacotes...")
@@ -122,6 +122,9 @@ suppressPackageStartupMessages({
   library(readxl)
   library(rio)
   library(uwot)
+  library(fgsea)
+  library(msigdbr)
+  library(GSVA)
 })
 
 log_entry("PACKAGES", "OK", paste(length(required_packages), "pacotes carregados"))
@@ -1180,21 +1183,19 @@ map_to_entrez <- function(symbols) {
   })
 }
 
-# Universo: genes testados na análise
-universe_symbols <- deg$gene_symbol
-entrez_universe <- map_to_entrez(universe_symbols)
+# Background: genoma completo (ORA padrão — corrige o resultado vazio da
+# versão anterior, que restringia o universo aos 212 genes da via)
 
 # Up regulated
 entrez_up <- map_to_entrez(top_up$gene_symbol)
 entrez_down <- map_to_entrez(top_down$gene_symbol)
 
-cat(sprintf("ENTREZ mapeados: Up=%d Down=%d Universe=%d\n",
-            length(entrez_up), length(entrez_down), length(entrez_universe)))
+cat(sprintf("ENTREZ mapeados: Up=%d Down=%d\n",
+            length(entrez_up), length(entrez_down)))
 
 # KEGG enrichment
 if (length(entrez_up) >= 5) {
   kegg_up <- enrichKEGG(gene = entrez_up, organism = "hsa",
-                         universe = entrez_universe,
                          pvalueCutoff = 0.05, qvalueCutoff = 0.2)
   if (!is.null(kegg_up) && nrow(kegg_up@result) > 0) {
     rio::export(as.data.frame(kegg_up), file.path(PROJECT_ROOT, "results/enrichment/KEGG_up.csv"))
@@ -1209,7 +1210,6 @@ if (length(entrez_up) >= 5) {
 
 if (length(entrez_down) >= 5) {
   kegg_down <- enrichKEGG(gene = entrez_down, organism = "hsa",
-                           universe = entrez_universe,
                            pvalueCutoff = 0.05, qvalueCutoff = 0.2)
   if (!is.null(kegg_down) && nrow(kegg_down@result) > 0) {
     rio::export(as.data.frame(kegg_down), file.path(PROJECT_ROOT, "results/enrichment/KEGG_down.csv"))
@@ -1225,7 +1225,7 @@ if (length(entrez_down) >= 5) {
 # GO Biological Process enrichment
 if (length(entrez_up) >= 5) {
   go_up <- enrichGO(gene = entrez_up, OrgDb = org.Hs.eg.db,
-                    ont = "BP", universe = entrez_universe,
+                    ont = "BP",
                     pvalueCutoff = 0.05, qvalueCutoff = 0.2,
                     readable = TRUE)
   if (!is.null(go_up) && nrow(go_up@result) > 0) {
@@ -1239,7 +1239,7 @@ if (length(entrez_up) >= 5) {
 
 if (length(entrez_down) >= 5) {
   go_down <- enrichGO(gene = entrez_down, OrgDb = org.Hs.eg.db,
-                      ont = "BP", universe = entrez_universe,
+                      ont = "BP",
                       pvalueCutoff = 0.05, qvalueCutoff = 0.2,
                       readable = TRUE)
   if (!is.null(go_down) && nrow(go_down@result) > 0) {
@@ -1285,6 +1285,129 @@ if (nrow(kegg_combined) > 0) {
 }
 
 log_entry("ENRICH_DONE", "OK", "Enriquecimento concluído")
+
+# ------------------------------------------------------------------
+# 15b) GSEA (rank-based) + GSVA (por amostra)
+# ------------------------------------------------------------------
+log_entry("GSEA_START", "OK", "GSEA rank-based + GSVA por amostra")
+
+# Lista ranqueada por logFC (todos os genes testados)
+ranked_deg <- deg |>
+  dplyr::filter(!is.na(logFC)) |>
+  dplyr::arrange(dplyr::desc(logFC))
+
+# Vetor ranqueado por símbolo (para fgsea) e por ENTREZ (para gseKEGG)
+sym_rank_vec <- ranked_deg$logFC
+names(sym_rank_vec) <- ranked_deg$gene_symbol
+sym_rank_vec <- sym_rank_vec[!duplicated(names(sym_rank_vec))]
+
+entrez_rank_map <- map_to_entrez(ranked_deg$gene_symbol)
+if (length(entrez_rank_map) > 0) {
+  entrez_df <- data.frame(SYMBOL = ranked_deg$gene_symbol,
+                          logFC  = ranked_deg$logFC,
+                          stringsAsFactors = FALSE) |>
+    dplyr::inner_join(
+      data.frame(SYMBOL = names(entrez_rank_map),
+                 ENTREZID = unname(entrez_rank_map),
+                 stringsAsFactors = FALSE),
+      by = "SYMBOL") |>
+    dplyr::distinct(ENTREZID, .keep_all = TRUE) |>
+    dplyr::arrange(dplyr::desc(logFC))
+  entrez_rank_vec <- entrez_df$logFC
+  names(entrez_rank_vec) <- entrez_df$ENTREZID
+} else {
+  entrez_rank_vec <- NULL
+}
+
+# GSEA KEGG
+if (!is.null(entrez_rank_vec) && length(entrez_rank_vec) >= 10) {
+  gsea_kegg <- tryCatch(
+    gseKEGG(geneList = entrez_rank_vec, organism = "hsa",
+            eps = 0, pvalueCutoff = 0.1, seed = 4721),
+    error = function(e) NULL)
+  if (!is.null(gsea_kegg) && nrow(gsea_kegg@result) > 0) {
+    gsea_kegg_df <- as.data.frame(gsea_kegg)
+    gsea_kegg_df <- gsea_kegg_df[!is.na(gsea_kegg_df$ID), , drop = FALSE]
+    rio::export(gsea_kegg_df, file.path(PROJECT_ROOT, "results/enrichment/GSEA_KEGG.csv"))
+    log_entry("GSEA_KEGG", "OK", paste(nrow(gsea_kegg_df), "conjuntos testados"))
+  } else {
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/GSEA_KEGG.csv"))
+    log_entry("GSEA_KEGG", "INFO", "Nenhum conjunto enriquecido")
+  }
+}
+
+# GSEA Hallmark (MSigDB) via fgsea
+if (length(sym_rank_vec) >= 10) {
+  hall <- msigdbr::msigdbr(species = "Homo sapiens", collection = "H") |>
+    dplyr::select(gs_name, gene_symbol)
+  hall_list <- split(hall$gene_symbol, hall$gs_name)
+  
+  set.seed(4721)
+  fgsea_res <- fgsea::fgsea(pathways = hall_list, stats = sym_rank_vec,
+                            minSize = 5, maxSize = 500, nPermSimple = 10000)
+  if (nrow(fgsea_res) > 0) {
+    fgsea_out <- fgsea_res |>
+      dplyr::mutate(leadingEdge = vapply(leadingEdge, paste, collapse = ";",
+                                         FUN.VALUE = character(1))) |>
+      dplyr::arrange(padj)
+    rio::export(fgsea_out, file.path(PROJECT_ROOT, "results/enrichment/GSEA_HALLMARK.csv"))
+    log_entry("GSEA_HALLMARK", "OK", paste(nrow(fgsea_out), "conjuntos testados"))
+  } else {
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/GSEA_HALLMARK.csv"))
+    log_entry("GSEA_HALLMARK", "INFO", "Nenhum conjunto testado")
+  }
+}
+
+# GSVA — escore de enriquecimento por amostra
+if (exists("hall_list") && length(hall_list) > 0) {
+  gsva_sets <- hall_list[grep("^HALLMARK", names(hall_list))]
+} else {
+  gsva_sets <- list()
+}
+gsva_sets[["KEGG_hsa05417_Lipid_Atherosclerosis"]] <- genes_via_in_expr
+gsva_sets <- lapply(gsva_sets, function(g) base::intersect(g, rownames(E_all)))
+gsva_sets <- gsva_sets[lengths(gsva_sets) >= 3]
+
+if (length(gsva_sets) >= 2) {
+  gsva_res <- tryCatch({
+    param <- GSVA::gsvaParam(exprData = E_all, geneSets = gsva_sets,
+                             minSize = 3, maxSize = 500)
+    GSVA::gsva(param)
+  }, error = function(e) NULL)
+  
+  if (!is.null(gsva_res) && nrow(gsva_res) > 0) {
+    gsva_mat <- as.data.frame(gsva_res)
+    rio::export(gsva_mat, file.path(PROJECT_ROOT, "results/enrichment/GSVA_scores.csv"))
+    
+    # Comparação LIHC vs Normal por conjunto (teste t)
+    gsva_summary <- lapply(rownames(gsva_res), function(gs) {
+      scores <- as.numeric(gsva_res[gs, ])
+      li <- scores[meta$condition == "LIHC"]
+      no <- scores[meta$condition == "Normal"]
+      tt <- tryCatch(t.test(li, no), error = function(e) NULL)
+      if (is.null(tt)) {
+        c(pathway = gs, diff_score = NA_real_, p.value = NA_real_)
+      } else {
+        c(pathway = gs, diff_score = unname(tt$estimate[1] - tt$estimate[2]),
+          p.value = tt$p.value)
+      }
+    })
+    gsva_summary <- as.data.frame(do.call(rbind, gsva_summary), stringsAsFactors = FALSE)
+    gsva_summary$diff_score <- as.numeric(gsva_summary$diff_score)
+    gsva_summary$p.value <- as.numeric(gsva_summary$p.value)
+    gsva_summary$padj <- p.adjust(gsva_summary$p.value, method = "BH")
+    gsva_summary <- gsva_summary |> dplyr::arrange(p.value)
+    rio::export(gsva_summary, file.path(PROJECT_ROOT, "results/enrichment/GSVA_summary.csv"))
+    log_entry("GSVA", "OK", paste(nrow(gsva_summary), "conjuntos avaliados"))
+  } else {
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/GSVA_scores.csv"))
+    log_entry("GSVA", "INFO", "GSVA não produziu resultados")
+  }
+} else {
+  log_entry("GSVA", "SKIP", "Conjuntos gênicos insuficientes para GSVA")
+}
+
+log_entry("GSEA_DONE", "OK", "GSEA + GSVA concluídos")
 
 # ------------------------------------------------------------------
 # 16) HEATMAP — TOP DEGs
