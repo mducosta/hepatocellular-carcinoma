@@ -96,20 +96,27 @@ Duas coortes públicas foram combinadas a partir do UCSC Xena e restritas à via
 ├── pipeline_hepato.R                 # Pipeline principal (reprodutível)
 ├── scripts/
 │   ├── análise_expressão_diferencial.R    # Versão original (legado)
-│   └── analise_enriquecimento_gsea.R      # ORA + GSEA (a partir dos DEGs)
+│   ├── analise_enriquecimento_gsea.R      # ORA (GO/KEGG) + GSEA
+│   ├── analise_reactome.R                 # Enriquecimento Reactome (ORA + GSEA)
+│   └── analise_3_grupos.R                 # Normal × Adjacente × LIHC + sobrevivência
 ├── data/
-│   └── README.md                     # Instruções para obter os dados de entrada
+│   └── README.md                     # Instruções para baixar os dados
 ├── docs/
-│   └── diagramas/                    # Fluxogramas e esquemas (Mermaid + PNG)
+│   ├── diagramas/                    # Fluxogramas e esquemas (Mermaid + PNG)
+│   ├── implicacoes_clinicas_enfermagem.md  # Implicações clínicas para enfermagem
+│   ├── tutorial_dados_xena.md              # Tutorial para baixar mais dados
+│   └── vias_para_analisar.md               # Vias KEGG/Reactome futuras (principal: hsa00982)
 ├── results/
+│   ├── README.md                     # Índice dos resultados
 │   ├── audit/                        # Relatórios, logs, benchmark e sessionInfo
 │   ├── deg/                          # DEGs (CSV)
-│   ├── enrichment/                   # GO/KEGG (ORA), GSEA e GSVA (CSV + figuras)
+│   ├── enrichment/                   # GO/KEGG/Reactome (ORA), GSEA e GSVA
 │   ├── figures/                      # Heatmap dos top DEGs (PNG)
 │   ├── ppi/                          # Rede STRING e métricas topológicas
 │   ├── qc/                           # PCA, UMAP e sumário de QC pré-análise
 │   ├── tables/                       # Genes da via hsa05417
-│   └── volcano/                      # Volcano plot da via (PNG/PDF)
+│   ├── volcano/                      # Volcano plot da via (PNG/PDF)
+│   └── 3grupos/                      # 3 grupos + Kaplan-Meier
 ├── .gitignore
 └── LICENSE
 ```
@@ -332,7 +339,67 @@ genoma completo**, separada por genes up e down.
 > [`KEGG_up.csv`](results/enrichment/KEGG_up.csv),
 > [`KEGG_down.csv`](results/enrichment/KEGG_down.csv).
 
-### 7.8 Heatmap dos top DEGs
+### 7.8 Enriquecimento Reactome — análise complementar
+
+Enriquecimento por super-representação via `ReactomePA` (genoma completo).
+
+![Reactome dotplot](results/enrichment/Reactome_dotplot.png)
+
+**Genes up-regulados** — principais pathways:
+
+| Pathway | FDR |
+|---------|-----|
+| Interleukin-4 and Interleukin-13 signaling | 5,5×10⁻³ |
+| Signaling by Interleukins | 3,7×10⁻² |
+| The NLRP3 inflammasome | 3,7×10⁻² |
+| Signaling by Nuclear Receptors | 3,7×10⁻² |
+
+**Genes down-regulados** — principais pathways:
+
+| Pathway | FDR |
+|---------|-----|
+| Xenobiotics | 2,5×10⁻⁸ |
+| CYP2E1 reactions | 2,5×10⁻⁸ |
+| Cytochrome P450 — arranged by substrate type | 6,8×10⁻⁶ |
+| Phase I — Functionalization of compounds | 8,2×10⁻⁵ |
+| Toll-like Receptor Cascades | 9,1×10⁻⁴ |
+| Interferon Signaling | 6,2×10⁻³ |
+
+> Arquivos: [`Reactome_ORA_up.csv`](results/enrichment/Reactome_ORA_up.csv),
+> [`Reactome_ORA_down.csv`](results/enrichment/Reactome_ORA_down.csv),
+> [`Reactome_GSEA.csv`](results/enrichment/Reactome_GSEA.csv).
+
+### 7.9 Análise em 3 grupos e sobrevivência
+
+O `liver.tsv` contém **3 tipos de tecido hepático**, separados pelo script
+`scripts/analise_3_grupos.R`:
+
+| Grupo | n | Origem |
+|-------|---|--------|
+| Normal | 110 | GTEx (tecido normal) |
+| Adjacente | 50 | TCGA Solid Tissue Normal (normal adjacente) |
+| LIHC | 369 | TCGA Primary Tumor |
+
+![PCA 3 grupos](results/3grupos/PCA_3grupos.png)
+
+**DEGs por contraste:**
+
+| Contraste | DEGs (Up/Down) |
+|-----------|----------------|
+| LIHC × Normal | 42 (12/30) |
+| **LIHC × Adjacente** | **45 (12/33)** — mesma plataforma, sem lote |
+| Adjacente × Normal | 43 (27/16) |
+
+**Sobrevivência (Kaplan-Meier, LIHC):** MMP1 (p = 0,0009), CXCL2 (p = 0,016)
+e MMP9 (p = 0,023) associaram-se a pior sobrevida global.
+
+![Kaplan-Meier MMP1](results/3grupos/KM_OS_MMP1.png)
+
+> Figuras de KM: [`results/3grupos/KM_OS_*.png`](results/3grupos/),
+> tabela: [`survival_logrank.csv`](results/3grupos/survival_logrank.csv),
+> DEGs dos 3 contrastes: [`results/3grupos/`](results/3grupos/).
+
+### 7.10 Heatmap dos top DEGs
 
 ![Heatmap top DEGs](results/figures/Heatmap_Top_DEGs.png)
 
@@ -372,6 +439,12 @@ Relatórios em [`results/audit/`](results/audit/):
 - `pipeline_log.csv` — log passo a passo
 - `benchmark_pipeline.csv` / `benchmark_summary.md` — métricas de execução
 - `sessionInfo.txt` — ambiente R completo
+
+### Documentação de apoio (`docs/`)
+
+- [`implicacoes_clinicas_enfermagem.md`](docs/implicacoes_clinicas_enfermagem.md) — implicações clínicas para a enfermagem
+- [`tutorial_dados_xena.md`](docs/tutorial_dados_xena.md) — como baixar o transcriptoma completo e dados adicionais
+- [`vias_para_analisar.md`](docs/vias_para_analisar.md) — vias futuras (**principal: `hsa00982` Drug metabolism — cytochrome P450**)
 
 ---
 
