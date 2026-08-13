@@ -12,9 +12,10 @@ flowchart TD
     J --> K["Análise diferencial<br/>FDR < 0,05 · |log2FC| > 1"]
     K --> L["Volcano plot"]
     K --> M["Rede PPI STRING v12.0"]
-    K --> N["Enriquecimento GO / KEGG"]
+    K --> N["GSEA + GSVA<br/>primeiros procedimentos"]
+    N --> N2["ORA GO / KEGG<br/>complementar"]
     K --> O["Heatmap top DEGs"]
     L --> P["✅ Resultados + relatórios + benchmark"]
     M --> P
-    N --> P
+    N2 --> P
     O --> P

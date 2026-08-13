@@ -3,8 +3,9 @@
 Análise exploratória de **expressão diferencial** da via *Lipid and
 Atherosclerosis* (KEGG `hsa05417`) entre **Hepatocarcinoma (LIHC, TCGA)** e
 **fígado normal (GTEx)**, com controle de qualidade pré-análise, rede de
-interação proteína-proteína (STRING), enriquecimento funcional (ORA + GSEA),
-GSVA e geração automática de relatórios de auditoria.
+interação proteína-proteína (STRING), **GSEA e GSVA (primeiros procedimentos)**,
+enriquecimento funcional ORA (complementar) e geração automática de relatórios
+de auditoria.
 
 ---
 
@@ -35,8 +36,9 @@ GSVA e geração automática de relatórios de auditoria.
 | **Método de DE** | `limma` direto (dados em log2) |
 | **Critérios de significância** | FDR < 0,05 e \|log2FC\| > 1 |
 | **Rede PPI** | STRING v12.0 (interações físicas, score ≥ 700) |
-| **Enriquecimento** | ORA (`enrichKEGG`/`enrichGO`) + GSEA (`gseKEGG`/`fgsea`) |
-| **GSVA** | Escore de enriquecimento por amostra (Hallmark + via) |
+| **GSEA** | Enriquecimento por ranking (`gseKEGG`/`fgsea`) — primeiro procedimento |
+| **GSVA** | Escore de enriquecimento por amostra (Hallmark + via) — primeiro procedimento |
+| **ORA** | Super-representação (`enrichKEGG`/`enrichGO`) — análise complementar |
 
 ---
 
@@ -244,7 +246,44 @@ Interações físicas com score ≥ 700, construídas a partir dos 42 DEGs da vi
 **Hubs identificados:** HSP90AB1 (grau 7), TLR2 (5), CALML3 (5), CALML5 (5),
 CALML6 (4) e CAMK2A (4).
 
-### 7.5 Enriquecimento funcional — ORA (GO/KEGG)
+### 7.5 GSEA (enriquecimento por ranking) — primeiro procedimento
+
+GSEA com os **212 genes ordenados por logFC** (rank-based).
+
+![GSEA KEGG](results/enrichment/GSEA_KEGG_barplot.png)
+
+**GSEA KEGG** — 4 vias significativamente enriquecidas (FDR < 0,05), todas com
+NES negativo (down-reguladas em LIHC):
+
+| Via | NES | FDR |
+|-----|----:|----:|
+| Retinol metabolism | −1,80 | 4,3×10⁻³ |
+| Drug metabolism — cytochrome P450 | −1,79 | 7,9×10⁻³ |
+| Metabolism of xenobiotics by cytochrome P450 | −1,77 | 1,1×10⁻² |
+| Chemical carcinogenesis — DNA adducts | −1,77 | 1,1×10⁻² |
+
+**GSEA GO (BP)** — 7 termos significativos, incluindo *long-chain fatty acid
+metabolic process*, *xenobiotic metabolic process*, *epoxygenase P450 pathway*
+(NES < 0, down) e *phagocytosis* / *Wnt signaling pathway* (NES > 0, up).
+
+**GSEA Hallmark (MSigDB)** — nenhum conjunto alcançou FDR < 0,05
+(21 conjuntos testados).
+
+> Arquivos: [`GSEA_KEGG.csv`](results/enrichment/GSEA_KEGG.csv),
+> [`GSEA_GO_BP.csv`](results/enrichment/GSEA_GO_BP.csv),
+> [`GSEA_HALLMARK.csv`](results/enrichment/GSEA_HALLMARK.csv).
+
+### 7.6 GSVA (enriquecimento por amostra) — primeiro procedimento
+
+O GSVA está **implementado no pipeline** (`pipeline_hepato.R`, seção 15) e
+calcula escores de enriquecimento por amostra para os conjuntos Hallmark e para
+a própria via `hsa05417`, comparando LIHC × Normal (teste t + FDR).
+
+> Os escores GSVA exigem a matriz de expressão (arquivo de dados) e, portanto,
+> são gerados na re-execução do pipeline. Saídas: `GSVA_scores.csv` e
+> `GSVA_summary.csv` em [`results/enrichment/`](results/enrichment/).
+
+### 7.7 Enriquecimento funcional — ORA (GO/KEGG) — análise complementar
 
 Análise de super-representação (ORA) via `clusterProfiler`, com **background do
 genoma completo**, separada por genes up e down.
@@ -281,43 +320,6 @@ genoma completo**, separada por genes up e down.
 > [`GO_BP_down.csv`](results/enrichment/GO_BP_down.csv),
 > [`KEGG_up.csv`](results/enrichment/KEGG_up.csv),
 > [`KEGG_down.csv`](results/enrichment/KEGG_down.csv).
-
-### 7.6 GSEA (enriquecimento por ranking)
-
-GSEA com os **212 genes ordenados por logFC** (rank-based).
-
-![GSEA KEGG](results/enrichment/GSEA_KEGG_barplot.png)
-
-**GSEA KEGG** — 4 vias significativamente enriquecidas (FDR < 0,05), todas com
-NES negativo (down-reguladas em LIHC):
-
-| Via | NES | FDR |
-|-----|----:|----:|
-| Retinol metabolism | −1,80 | 4,3×10⁻³ |
-| Drug metabolism — cytochrome P450 | −1,79 | 7,9×10⁻³ |
-| Metabolism of xenobiotics by cytochrome P450 | −1,77 | 1,1×10⁻² |
-| Chemical carcinogenesis — DNA adducts | −1,77 | 1,1×10⁻² |
-
-**GSEA GO (BP)** — 7 termos significativos, incluindo *long-chain fatty acid
-metabolic process*, *xenobiotic metabolic process*, *epoxygenase P450 pathway*
-(NES < 0, down) e *phagocytosis* / *Wnt signaling pathway* (NES > 0, up).
-
-**GSEA Hallmark (MSigDB)** — nenhum conjunto alcançou FDR < 0,05
-(21 conjuntos testados).
-
-> Arquivos: [`GSEA_KEGG.csv`](results/enrichment/GSEA_KEGG.csv),
-> [`GSEA_GO_BP.csv`](results/enrichment/GSEA_GO_BP.csv),
-> [`GSEA_HALLMARK.csv`](results/enrichment/GSEA_HALLMARK.csv).
-
-### 7.7 GSVA (enriquecimento por amostra)
-
-O GSVA está **implementado no pipeline** (`pipeline_hepato.R`, seção 15b) e
-calcula escores de enriquecimento por amostra para os conjuntos Hallmark e para
-a própria via `hsa05417`, comparando LIHC × Normal (teste t + FDR).
-
-> Os escores GSVA exigem a matriz de expressão (arquivo de dados) e, portanto,
-> são gerados na re-execução do pipeline. Saídas: `GSVA_scores.csv` e
-> `GSVA_summary.csv` em [`results/enrichment/`](results/enrichment/).
 
 ### 7.8 Heatmap dos top DEGs
 

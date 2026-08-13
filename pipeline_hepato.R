@@ -1168,10 +1168,8 @@ if (length(deg_la_all) < 3) {
 }
 
 # ------------------------------------------------------------------
-# 15) ENRIQUECIMENTO KEGG (complementar, para auditoria)
+# 15) GSEA (rank-based) + GSVA (por amostra) — PRIMEIROS PROCEDIMENTOS
 # ------------------------------------------------------------------
-log_entry("ENRICH_START", "OK", "Enriquecimento KEGG/GO (análise complementar)")
-
 map_to_entrez <- function(symbols) {
   tryCatch({
     bitr(symbols, fromType = "SYMBOL", toType = "ENTREZID",
@@ -1183,112 +1181,6 @@ map_to_entrez <- function(symbols) {
   })
 }
 
-# Background: genoma completo (ORA padrão — corrige o resultado vazio da
-# versão anterior, que restringia o universo aos 212 genes da via)
-
-# Up regulated
-entrez_up <- map_to_entrez(top_up$gene_symbol)
-entrez_down <- map_to_entrez(top_down$gene_symbol)
-
-cat(sprintf("ENTREZ mapeados: Up=%d Down=%d\n",
-            length(entrez_up), length(entrez_down)))
-
-# KEGG enrichment
-if (length(entrez_up) >= 5) {
-  kegg_up <- enrichKEGG(gene = entrez_up, organism = "hsa",
-                         pvalueCutoff = 0.05, qvalueCutoff = 0.2)
-  if (!is.null(kegg_up) && nrow(kegg_up@result) > 0) {
-    rio::export(as.data.frame(kegg_up), file.path(PROJECT_ROOT, "results/enrichment/KEGG_up.csv"))
-    log_entry("ENRICH_KEGG_UP", "OK", paste(nrow(kegg_up@result), "vias"))
-  } else {
-    log_entry("ENRICH_KEGG_UP", "INFO", "Nenhuma via significativa")
-    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/KEGG_up.csv"))
-  }
-} else {
-  log_entry("ENRICH_KEGG_UP", "SKIP", "Poucos genes up para enriquecimento")
-}
-
-if (length(entrez_down) >= 5) {
-  kegg_down <- enrichKEGG(gene = entrez_down, organism = "hsa",
-                           pvalueCutoff = 0.05, qvalueCutoff = 0.2)
-  if (!is.null(kegg_down) && nrow(kegg_down@result) > 0) {
-    rio::export(as.data.frame(kegg_down), file.path(PROJECT_ROOT, "results/enrichment/KEGG_down.csv"))
-    log_entry("ENRICH_KEGG_DOWN", "OK", paste(nrow(kegg_down@result), "vias"))
-  } else {
-    log_entry("ENRICH_KEGG_DOWN", "INFO", "Nenhuma via significativa")
-    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/KEGG_down.csv"))
-  }
-} else {
-  log_entry("ENRICH_KEGG_DOWN", "SKIP", "Poucos genes down para enriquecimento")
-}
-
-# GO Biological Process enrichment
-if (length(entrez_up) >= 5) {
-  go_up <- enrichGO(gene = entrez_up, OrgDb = org.Hs.eg.db,
-                    ont = "BP",
-                    pvalueCutoff = 0.05, qvalueCutoff = 0.2,
-                    readable = TRUE)
-  if (!is.null(go_up) && nrow(go_up@result) > 0) {
-    rio::export(as.data.frame(go_up), file.path(PROJECT_ROOT, "results/enrichment/GO_BP_up.csv"))
-    log_entry("ENRICH_GO_UP", "OK", paste(nrow(go_up@result), "termos GO"))
-  } else {
-    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/GO_BP_up.csv"))
-    log_entry("ENRICH_GO_UP", "INFO", "Nenhum termo GO significativo")
-  }
-}
-
-if (length(entrez_down) >= 5) {
-  go_down <- enrichGO(gene = entrez_down, OrgDb = org.Hs.eg.db,
-                      ont = "BP",
-                      pvalueCutoff = 0.05, qvalueCutoff = 0.2,
-                      readable = TRUE)
-  if (!is.null(go_down) && nrow(go_down@result) > 0) {
-    rio::export(as.data.frame(go_down), file.path(PROJECT_ROOT, "results/enrichment/GO_BP_down.csv"))
-    log_entry("ENRICH_GO_DOWN", "OK", paste(nrow(go_down@result), "termos GO"))
-  } else {
-    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/GO_BP_down.csv"))
-    log_entry("ENRICH_GO_DOWN", "INFO", "Nenhum termo GO significativo")
-  }
-}
-
-# Dotplot combinado (se houver resultados)
-kegg_up_df <- tryCatch(as.data.frame(kegg_up), error = function(e) NULL)
-kegg_down_df <- tryCatch(as.data.frame(kegg_down), error = function(e) NULL)
-
-if (!is.null(kegg_up_df) && nrow(kegg_up_df) > 0) kegg_up_df$set <- "Up_LIHC"
-if (!is.null(kegg_down_df) && nrow(kegg_down_df) > 0) kegg_down_df$set <- "Down_LIHC"
-
-kegg_combined <- dplyr::bind_rows(kegg_up_df, kegg_down_df)
-
-if (nrow(kegg_combined) > 0) {
-  kegg_combined <- kegg_combined |>
-    dplyr::filter(p.adjust < 0.05) |>
-    dplyr::mutate(logFDR = -log10(p.adjust))
-  
-  if (nrow(kegg_combined) > 0) {
-    p_enrich <- ggplot(kegg_combined,
-                       aes(x = logFDR, y = reorder(Description, logFDR),
-                           size = Count, color = logFDR)) +
-      geom_point(alpha = 0.9) +
-      facet_wrap(~ set, scales = "free_y") +
-      scale_color_gradient(low = "#74add1", high = "#d73027", name = "-log10(FDR)") +
-      scale_size(range = c(3, 9), name = "Gene Count") +
-      labs(x = "-log10(FDR)", y = "KEGG Pathway",
-           title = "KEGG Enrichment — Genes DEG LIHC") +
-      theme_bw(base_size = 13) +
-      theme(axis.text.y = element_text(size = 8),
-            strip.text = element_text(size = 12, face = "bold"))
-    
-    ggsave(file.path(PROJECT_ROOT, "results/enrichment/enrichment_dotplot.png"),
-           p_enrich, width = 12, height = 8, dpi = 300)
-  }
-}
-
-log_entry("ENRICH_DONE", "OK", "Enriquecimento concluído")
-
-# ------------------------------------------------------------------
-# 15b) GSEA (rank-based) + GSVA (por amostra)
-# ------------------------------------------------------------------
 log_entry("GSEA_START", "OK", "GSEA rank-based + GSVA por amostra")
 
 # Lista ranqueada por logFC (todos os genes testados)
@@ -1410,7 +1302,115 @@ if (length(gsva_sets) >= 2) {
 log_entry("GSEA_DONE", "OK", "GSEA + GSVA concluídos")
 
 # ------------------------------------------------------------------
-# 16) HEATMAP — TOP DEGs
+# 16) ENRIQUECIMENTO FUNCIONAL (ORA — analise complementar)
+# ------------------------------------------------------------------
+log_entry("ENRICH_START", "OK", "Enriquecimento KEGG/GO (análise complementar)")
+
+# Background: genoma completo (ORA padrão — corrige o resultado vazio da
+# versão anterior, que restringia o universo aos 212 genes da via)
+
+# Up regulated
+entrez_up <- map_to_entrez(top_up$gene_symbol)
+entrez_down <- map_to_entrez(top_down$gene_symbol)
+
+cat(sprintf("ENTREZ mapeados: Up=%d Down=%d\n",
+            length(entrez_up), length(entrez_down)))
+
+# KEGG enrichment
+if (length(entrez_up) >= 5) {
+  kegg_up <- enrichKEGG(gene = entrez_up, organism = "hsa",
+                         pvalueCutoff = 0.05, qvalueCutoff = 0.2)
+  if (!is.null(kegg_up) && nrow(kegg_up@result) > 0) {
+    rio::export(as.data.frame(kegg_up), file.path(PROJECT_ROOT, "results/enrichment/KEGG_up.csv"))
+    log_entry("ENRICH_KEGG_UP", "OK", paste(nrow(kegg_up@result), "vias"))
+  } else {
+    log_entry("ENRICH_KEGG_UP", "INFO", "Nenhuma via significativa")
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/KEGG_up.csv"))
+  }
+} else {
+  log_entry("ENRICH_KEGG_UP", "SKIP", "Poucos genes up para enriquecimento")
+}
+
+if (length(entrez_down) >= 5) {
+  kegg_down <- enrichKEGG(gene = entrez_down, organism = "hsa",
+                           pvalueCutoff = 0.05, qvalueCutoff = 0.2)
+  if (!is.null(kegg_down) && nrow(kegg_down@result) > 0) {
+    rio::export(as.data.frame(kegg_down), file.path(PROJECT_ROOT, "results/enrichment/KEGG_down.csv"))
+    log_entry("ENRICH_KEGG_DOWN", "OK", paste(nrow(kegg_down@result), "vias"))
+  } else {
+    log_entry("ENRICH_KEGG_DOWN", "INFO", "Nenhuma via significativa")
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/KEGG_down.csv"))
+  }
+} else {
+  log_entry("ENRICH_KEGG_DOWN", "SKIP", "Poucos genes down para enriquecimento")
+}
+
+# GO Biological Process enrichment
+if (length(entrez_up) >= 5) {
+  go_up <- enrichGO(gene = entrez_up, OrgDb = org.Hs.eg.db,
+                    ont = "BP",
+                    pvalueCutoff = 0.05, qvalueCutoff = 0.2,
+                    readable = TRUE)
+  if (!is.null(go_up) && nrow(go_up@result) > 0) {
+    rio::export(as.data.frame(go_up), file.path(PROJECT_ROOT, "results/enrichment/GO_BP_up.csv"))
+    log_entry("ENRICH_GO_UP", "OK", paste(nrow(go_up@result), "termos GO"))
+  } else {
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/GO_BP_up.csv"))
+    log_entry("ENRICH_GO_UP", "INFO", "Nenhum termo GO significativo")
+  }
+}
+
+if (length(entrez_down) >= 5) {
+  go_down <- enrichGO(gene = entrez_down, OrgDb = org.Hs.eg.db,
+                      ont = "BP",
+                      pvalueCutoff = 0.05, qvalueCutoff = 0.2,
+                      readable = TRUE)
+  if (!is.null(go_down) && nrow(go_down@result) > 0) {
+    rio::export(as.data.frame(go_down), file.path(PROJECT_ROOT, "results/enrichment/GO_BP_down.csv"))
+    log_entry("ENRICH_GO_DOWN", "OK", paste(nrow(go_down@result), "termos GO"))
+  } else {
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/GO_BP_down.csv"))
+    log_entry("ENRICH_GO_DOWN", "INFO", "Nenhum termo GO significativo")
+  }
+}
+
+# Dotplot combinado (se houver resultados)
+kegg_up_df <- tryCatch(as.data.frame(kegg_up), error = function(e) NULL)
+kegg_down_df <- tryCatch(as.data.frame(kegg_down), error = function(e) NULL)
+
+if (!is.null(kegg_up_df) && nrow(kegg_up_df) > 0) kegg_up_df$set <- "Up_LIHC"
+if (!is.null(kegg_down_df) && nrow(kegg_down_df) > 0) kegg_down_df$set <- "Down_LIHC"
+
+kegg_combined <- dplyr::bind_rows(kegg_up_df, kegg_down_df)
+
+if (nrow(kegg_combined) > 0) {
+  kegg_combined <- kegg_combined |>
+    dplyr::filter(p.adjust < 0.05) |>
+    dplyr::mutate(logFDR = -log10(p.adjust))
+  
+  if (nrow(kegg_combined) > 0) {
+    p_enrich <- ggplot(kegg_combined,
+                       aes(x = logFDR, y = reorder(Description, logFDR),
+                           size = Count, color = logFDR)) +
+      geom_point(alpha = 0.9) +
+      facet_wrap(~ set, scales = "free_y") +
+      scale_color_gradient(low = "#74add1", high = "#d73027", name = "-log10(FDR)") +
+      scale_size(range = c(3, 9), name = "Gene Count") +
+      labs(x = "-log10(FDR)", y = "KEGG Pathway",
+           title = "KEGG Enrichment — Genes DEG LIHC") +
+      theme_bw(base_size = 13) +
+      theme(axis.text.y = element_text(size = 8),
+            strip.text = element_text(size = 12, face = "bold"))
+    
+    ggsave(file.path(PROJECT_ROOT, "results/enrichment/enrichment_dotplot.png"),
+           p_enrich, width = 12, height = 8, dpi = 300)
+  }
+}
+
+log_entry("ENRICH_DONE", "OK", "Enriquecimento concluído")
+
+# ------------------------------------------------------------------
+# 17) HEATMAP — TOP DEGs
 # ------------------------------------------------------------------
 cat("\n--- Heatmap Top DEGs ---\n")
 top_deg_genes <- deg |>
@@ -1451,7 +1451,7 @@ if (length(top_deg_in_expr) >= 5) {
 }
 
 # ------------------------------------------------------------------
-# 17) BENCHMARK
+# 18) BENCHMARK
 # ------------------------------------------------------------------
 T1 <- Sys.time()
 total_time <- round(as.numeric(difftime(T1, T0, units = "secs")), 2)
@@ -1513,13 +1513,13 @@ sink()
 log_entry("BENCHMARK", "OK", paste("Tempo total:", total_time, "segundos"))
 
 # ------------------------------------------------------------------
-# 18) SALVAR SESSIONINFO
+# 19) SALVAR SESSIONINFO
 # ------------------------------------------------------------------
 writeLines(capture.output(sessionInfo()),
            file.path(PROJECT_ROOT, "results/audit/sessionInfo.txt"))
 
 # ------------------------------------------------------------------
-# 19) SALVAR WORKSPACE
+# 20) SALVAR WORKSPACE
 # ------------------------------------------------------------------
 save.image(file = file.path(PROJECT_ROOT, "results/audit/workspace_LIHC.RData"))
 gc()
