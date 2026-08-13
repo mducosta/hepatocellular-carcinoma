@@ -12,7 +12,7 @@
 |------|-----------|-------------|-------|-----------|-------------|--------|
 | `find_project_root()` | Auto-detecção da raiz do projeto | ✅ SIM | ✅ SIM | ✅ SIM | ✅ SIM | Baixo |
 | `setwd(PROJECT_ROOT)` | Define diretório de trabalho | ✅ SIM | ✅ SIM | ✅ SIM | ✅ SIM | — |
-| Criação de diretórios | `results/`, `results/qc/`, etc. | ✅ SIM | ✅ SIM | ✅ SIM | ✅ SIM | — |
+| Criação de diretórios | `outputs/`, `outputs/qc/`, etc. | ✅ SIM | ✅ SIM | ✅ SIM | ✅ SIM | — |
 | `log_entry()` | Função de log com timestamp | ✅ SIM | ✅ SIM | ✅ SIM | ✅ SIM | — |
 | `T0 <- Sys.time()` | Benchmark inicial | ✅ SIM | ✅ SIM | ✅ SIM | ✅ SIM | — |
 

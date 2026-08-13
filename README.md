@@ -93,32 +93,53 @@ Duas coortes públicas foram combinadas a partir do UCSC Xena e restritas à via
 
 ```
 .
-├── pipeline_hepato.R                 # Pipeline principal (reprodutível)
+├── README.md                         # Guia único do projeto (figuras + fluxogramas)
+├── requirements.txt                  # Dependências R (CRAN + Bioconductor)
+├── .gitignore                        # O que não versionar (dados, credenciais, logs)
+├── LICENSE                           # MIT
+├── pipeline_hepato.R                 # Pipeline principal (entry point)
+│
 ├── scripts/
-│   ├── análise_expressão_diferencial.R    # Versão original (legado)
-│   ├── analise_enriquecimento_gsea.R      # ORA (GO/KEGG) + GSEA
-│   ├── analise_reactome.R                 # Enriquecimento Reactome (ORA + GSEA)
-│   └── analise_3_grupos.R                 # Normal × Adjacente × LIHC + sobrevivência
-├── data/
-│   └── README.md                     # Instruções para baixar os dados
-├── docs/
-│   ├── diagramas/                    # Fluxogramas e esquemas (Mermaid + PNG)
-│   ├── implicacoes_clinicas_enfermagem.md  # Implicações clínicas para enfermagem
-│   ├── tutorial_dados_xena.md              # Tutorial para baixar mais dados
-│   └── vias_para_analisar.md               # Vias KEGG/Reactome futuras (principal: hsa00982)
-├── results/
-│   ├── README.md                     # Índice dos resultados
-│   ├── audit/                        # Relatórios, logs, benchmark e sessionInfo
+│   ├── pipelines/                    # Scripts de análise (ordem de execução)
+│   │   ├── 02_analise_enriquecimento_gsea.R
+│   │   ├── 03_analise_reactome.R
+│   │   └── 04_analise_3_grupos.R
+│   ├── utils/                        # Funções auxiliares
+│   │   └── gerar_figura_gsea_kegg.R
+│   └── legacy/                       # Versões antigas
+│       └── analise_expressao_diferencial.R
+│
+├── dados/
+│   ├── raw/                          # 🔒 Dados brutos (imutáveis) — liver.tsv
+│   ├── interim/                      # ⚙️ Em processamento
+│   ├── processed/                    # ✅ Limpos e prontos
+│   └── external/                     # 🌐 De terceiros
+│
+├── fontes/
+│   ├── referencias/                  # Artigos/PDFs
+│   ├── documentacao/                 # Manuais/tutoriais
+│   └── notas/                        # Anotações/fichamentos
+│
+├── config/
+│   └── credenciais/                  # 🔒 Segredos (gitignored)
+│
+├── outputs/                          # Resultados gerados
+│   ├── audit/                        # Logs, benchmark, sessionInfo, relatórios
 │   ├── deg/                          # DEGs (CSV)
-│   ├── enrichment/                   # GO/KEGG/Reactome (ORA), GSEA e GSVA
-│   ├── figures/                      # Heatmap dos top DEGs (PNG)
-│   ├── ppi/                          # Rede STRING e métricas topológicas
-│   ├── qc/                           # PCA, UMAP e sumário de QC pré-análise
+│   ├── enrichment/                   # GO/KEGG/Reactome (ORA), GSEA, GSVA
+│   ├── figures/                      # Heatmap (PNG)
+│   ├── ppi/                          # Rede STRING e topologia
+│   ├── qc/                           # PCA, UMAP, sumário de QC
 │   ├── tables/                       # Genes da via hsa05417
-│   ├── volcano/                      # Volcano plot da via (PNG/PDF)
+│   ├── volcano/                      # Volcano plot (PNG/PDF)
 │   └── 3grupos/                      # 3 grupos + Kaplan-Meier
-├── .gitignore
-└── LICENSE
+│
+├── logs/                             # Histórico de execuções
+└── docs/
+    ├── diagramas/                    # Fluxogramas e esquemas (Mermaid + PNG)
+    ├── implicacoes_clinicas_enfermagem.md
+    ├── tutorial_dados_xena.md
+    └── vias_para_analisar.md
 ```
 
 ---
@@ -138,10 +159,16 @@ O script instala automaticamente qualquer pacote ausente (CRAN/Bioconductor).
 **Execução:**
 
 ```bash
-# 1) Baixe o dataset pelo bookmark (veja data/README.md) e salve como liver.tsv
+# 1) Baixe o dataset pelo bookmark e salve como dados/raw/liver.tsv
 #    Bookmark: https://xenabrowser.net/?bookmark=98f9d901fdb2e95391fb4f5fdfac9097
+#    (passo a passo em docs/tutorial_dados_xena.md)
 # 2) Rode o pipeline completo
 Rscript pipeline_hepato.R
+
+# 3) Scripts de análise complementar (na ordem):
+Rscript scripts/pipelines/02_analise_enriquecimento_gsea.R
+Rscript scripts/pipelines/03_analise_reactome.R
+Rscript scripts/pipelines/04_analise_3_grupos.R
 ```
 
 ---
@@ -161,9 +188,9 @@ Rscript pipeline_hepato.R
 | Efeito batch (TCGA/GTEx) | 2 estudos identificados |
 | Decisão metodológica | limma direto (dados log2) |
 
-![PCA pré-análise](results/qc/PCA_pre_analysis.png)
+![PCA pré-análise](outputs/qc/PCA_pre_analysis.png)
 
-![UMAP pré-análise](results/qc/UMAP_pre_analysis.png)
+![UMAP pré-análise](outputs/qc/UMAP_pre_analysis.png)
 
 ### 7.2 Análise de expressão diferencial (limma)
 
@@ -222,21 +249,21 @@ Benjamini–Hochberg (FDR). Foram identificados **42 DEGs** na via `hsa05417`.
 | CAMK2A | −1,10 | 4,8×10⁻⁶ |
 | CYP1A1 | −1,82 | 6,0×10⁻⁶ |
 
-> Tabela completa (com t, P.Value, AveExpr e B): [`results/deg/DEG_significant_LA.csv`](results/deg/DEG_significant_LA.csv)
-> e [`results/deg/DEG_LA_pathway_only.csv`](results/deg/DEG_LA_pathway_only.csv).
+> Tabela completa (com t, P.Value, AveExpr e B): [`outputs/deg/DEG_significant_LA.csv`](outputs/deg/DEG_significant_LA.csv)
+> e [`outputs/deg/DEG_LA_pathway_only.csv`](outputs/deg/DEG_LA_pathway_only.csv).
 
 ### 7.3 Volcano plot
 
-![Volcano plot — via hsa05417](results/volcano/Volcano_LIHC_LA_pathway.png)
+![Volcano plot — via hsa05417](outputs/volcano/Volcano_LIHC_LA_pathway.png)
 
 O volcano plot foca exclusivamente nos **212 genes da via `hsa05417`** e rotula
 os 10 genes mais significativos de cada direção. Limiares: FDR < 0,05 e
 |log2FC| > 1 (linhas tracejadas). Versão vetorial em
-[`Volcano_LIHC_LA_pathway.pdf`](results/volcano/Volcano_LIHC_LA_pathway.pdf).
+[`Volcano_LIHC_LA_pathway.pdf`](outputs/volcano/Volcano_LIHC_LA_pathway.pdf).
 
 ### 7.4 Rede de interação proteína-proteína (PPI — STRING v12.0)
 
-![Rede PPI STRING](results/ppi/PPI_STRING_network.png)
+![Rede PPI STRING](outputs/ppi/PPI_STRING_network.png)
 
 Interações físicas com score ≥ 700, construídas a partir dos 42 DEGs da via.
 
@@ -258,7 +285,7 @@ CALML6 (4) e CAMK2A (4).
 
 GSEA com os **212 genes ordenados por logFC** (rank-based).
 
-![GSEA KEGG](results/enrichment/GSEA_KEGG_barplot.png)
+![GSEA KEGG](outputs/enrichment/GSEA_KEGG_barplot.png)
 
 **GSEA KEGG** — 4 vias significativamente enriquecidas (FDR < 0,05), todas com
 NES negativo (down-reguladas em LIHC):
@@ -277,9 +304,9 @@ metabolic process*, *xenobiotic metabolic process*, *epoxygenase P450 pathway*
 **GSEA Hallmark (MSigDB)** — nenhum conjunto alcançou FDR < 0,05
 (21 conjuntos testados).
 
-> Arquivos: [`GSEA_KEGG.csv`](results/enrichment/GSEA_KEGG.csv),
-> [`GSEA_GO_BP.csv`](results/enrichment/GSEA_GO_BP.csv),
-> [`GSEA_HALLMARK.csv`](results/enrichment/GSEA_HALLMARK.csv).
+> Arquivos: [`GSEA_KEGG.csv`](outputs/enrichment/GSEA_KEGG.csv),
+> [`GSEA_GO_BP.csv`](outputs/enrichment/GSEA_GO_BP.csv),
+> [`GSEA_HALLMARK.csv`](outputs/enrichment/GSEA_HALLMARK.csv).
 
 ### 7.6 GSVA (enriquecimento por amostra) — primeiro procedimento
 
@@ -298,15 +325,15 @@ a via `hsa05417`), comparando LIHC × Normal (teste t + correção BH).
 | TNFα signaling via NF-κB | ⬇️ LIHC | 6,4×10⁻¹⁸ |
 | Oxidative phosphorylation | ⬆️ LIHC | 8,8×10⁻¹⁷ |
 
-> Arquivos: [`GSVA_scores.csv`](results/enrichment/GSVA_scores.csv) e
-> [`GSVA_summary.csv`](results/enrichment/GSVA_summary.csv).
+> Arquivos: [`GSVA_scores.csv`](outputs/enrichment/GSVA_scores.csv) e
+> [`GSVA_summary.csv`](outputs/enrichment/GSVA_summary.csv).
 
 ### 7.7 Enriquecimento funcional — ORA (GO/KEGG) — análise complementar
 
 Análise de super-representação (ORA) via `clusterProfiler`, com **background do
 genoma completo**, separada por genes up e down.
 
-![Enriquecimento ORA — dotplot](results/enrichment/enrichment_dotplot.png)
+![Enriquecimento ORA — dotplot](outputs/enrichment/enrichment_dotplot.png)
 
 **Genes up-regulados** — processos mais enriquecidos:
 
@@ -334,16 +361,16 @@ genoma completo**, separada por genes up e down.
 | KEGG | Neurotrophin signaling pathway | 3,0×10⁻⁷ |
 | KEGG | Fluid shear stress and atherosclerosis | 5,7×10⁻⁷ |
 
-> Arquivos completos: [`GO_BP_up.csv`](results/enrichment/GO_BP_up.csv),
-> [`GO_BP_down.csv`](results/enrichment/GO_BP_down.csv),
-> [`KEGG_up.csv`](results/enrichment/KEGG_up.csv),
-> [`KEGG_down.csv`](results/enrichment/KEGG_down.csv).
+> Arquivos completos: [`GO_BP_up.csv`](outputs/enrichment/GO_BP_up.csv),
+> [`GO_BP_down.csv`](outputs/enrichment/GO_BP_down.csv),
+> [`KEGG_up.csv`](outputs/enrichment/KEGG_up.csv),
+> [`KEGG_down.csv`](outputs/enrichment/KEGG_down.csv).
 
 ### 7.8 Enriquecimento Reactome — análise complementar
 
 Enriquecimento por super-representação via `ReactomePA` (genoma completo).
 
-![Reactome dotplot](results/enrichment/Reactome_dotplot.png)
+![Reactome dotplot](outputs/enrichment/Reactome_dotplot.png)
 
 **Genes up-regulados** — principais pathways:
 
@@ -365,14 +392,14 @@ Enriquecimento por super-representação via `ReactomePA` (genoma completo).
 | Toll-like Receptor Cascades | 9,1×10⁻⁴ |
 | Interferon Signaling | 6,2×10⁻³ |
 
-> Arquivos: [`Reactome_ORA_up.csv`](results/enrichment/Reactome_ORA_up.csv),
-> [`Reactome_ORA_down.csv`](results/enrichment/Reactome_ORA_down.csv),
-> [`Reactome_GSEA.csv`](results/enrichment/Reactome_GSEA.csv).
+> Arquivos: [`Reactome_ORA_up.csv`](outputs/enrichment/Reactome_ORA_up.csv),
+> [`Reactome_ORA_down.csv`](outputs/enrichment/Reactome_ORA_down.csv),
+> [`Reactome_GSEA.csv`](outputs/enrichment/Reactome_GSEA.csv).
 
 ### 7.9 Análise em 3 grupos e sobrevivência
 
-O `liver.tsv` contém **3 tipos de tecido hepático**, separados pelo script
-`scripts/analise_3_grupos.R`:
+O `dados/raw/liver.tsv` contém **3 tipos de tecido hepático**, separados pelo
+script `scripts/pipelines/04_analise_3_grupos.R`:
 
 | Grupo | n | Origem |
 |-------|---|--------|
@@ -380,7 +407,7 @@ O `liver.tsv` contém **3 tipos de tecido hepático**, separados pelo script
 | Adjacente | 50 | TCGA Solid Tissue Normal (normal adjacente) |
 | LIHC | 369 | TCGA Primary Tumor |
 
-![PCA 3 grupos](results/3grupos/PCA_3grupos.png)
+![PCA 3 grupos](outputs/3grupos/PCA_3grupos.png)
 
 **DEGs por contraste:**
 
@@ -393,15 +420,15 @@ O `liver.tsv` contém **3 tipos de tecido hepático**, separados pelo script
 **Sobrevivência (Kaplan-Meier, LIHC):** MMP1 (p = 0,0009), CXCL2 (p = 0,016)
 e MMP9 (p = 0,023) associaram-se a pior sobrevida global.
 
-![Kaplan-Meier MMP1](results/3grupos/KM_OS_MMP1.png)
+![Kaplan-Meier MMP1](outputs/3grupos/KM_OS_MMP1.png)
 
-> Figuras de KM: [`results/3grupos/KM_OS_*.png`](results/3grupos/),
-> tabela: [`survival_logrank.csv`](results/3grupos/survival_logrank.csv),
-> DEGs dos 3 contrastes: [`results/3grupos/`](results/3grupos/).
+> Figuras de KM: [`outputs/3grupos/KM_OS_*.png`](outputs/3grupos/),
+> tabela: [`survival_logrank.csv`](outputs/3grupos/survival_logrank.csv),
+> DEGs dos 3 contrastes: [`outputs/3grupos/`](outputs/3grupos/).
 
 ### 7.10 Heatmap dos top DEGs
 
-![Heatmap top DEGs](results/figures/Heatmap_Top_DEGs.png)
+![Heatmap top DEGs](outputs/figures/Heatmap_Top_DEGs.png)
 
 Top 42 DEGs, escala por linha (clamping ±3), clusterização ward.D2, com
 anotação de condição (Normal × LIHC).
@@ -430,7 +457,7 @@ formatos (Mermaid `.mmd` editável e PNG):
 
 ## 9. Documentação / auditoria
 
-Relatórios em [`results/audit/`](results/audit/):
+Relatórios em [`outputs/audit/`](outputs/audit/):
 
 - `RELATORIO_FINAL_LOCK_LIHC.md` — veredito final e resultados consolidados
 - `AUDITORIA_CODIGO_LINHA_A_LINHA.md` — auditoria do código

@@ -45,8 +45,9 @@ find_project_root <- function() {
     data_patterns <- c("liver\\.(tsv|csv|xlsx)$",
                        "liver_lip_aterosclerose\\.(tsv|csv|xlsx)$",
                        "liver_lip_aterosclero\\.(tsv|csv|xlsx)$")
-    # Buscar também na subpasta data/ (estrutura padrão do repositório)
-    search_dirs <- unique(c(d, file.path(d, "data")))
+    # Buscar também nas subpastas data/ e dados/raw/ (estrutura do repositório)
+    search_dirs <- unique(c(d, file.path(d, "data"),
+                            file.path(d, "dados", "raw")))
     for (sd in search_dirs) {
       for (pat in data_patterns) {
         if (length(list.files(sd, pattern = pat, ignore.case = TRUE)) > 0) {
@@ -63,13 +64,13 @@ setwd(PROJECT_ROOT)
 cat(sprintf("PROJECT_ROOT: %s\n", PROJECT_ROOT))
 
 # 0.2 Criar estrutura de diretórios de saída
-dirs_out <- c("results", "results/qc", "results/deg", "results/volcano",
-              "results/ppi", "results/enrichment", "results/audit",
-              "results/figures", "results/tables")
+dirs_out <- c("outputs", "outputs/qc", "outputs/deg", "outputs/volcano",
+              "outputs/ppi", "outputs/enrichment", "outputs/audit",
+              "outputs/figures", "outputs/tables")
 for (d in dirs_out) dir.create(d, showWarnings = FALSE, recursive = TRUE)
 
 # 0.3 Log pipeline
-LOG_FILE <- file.path(PROJECT_ROOT, "results/audit/pipeline_log.csv")
+LOG_FILE <- file.path(PROJECT_ROOT, "outputs/audit/pipeline_log.csv")
 log_entry <- function(stage, status, detail) {
   line <- sprintf('"%s","%s","%s","%s"',
                   format(Sys.time(), "%Y-%m-%d %H:%M:%OS3"),
@@ -91,7 +92,8 @@ required_packages <- c(
   "dplyr", "tidyr", "tibble", "stringr", "ggplot2", "ggrepel",
   "limma", "edgeR", "igraph", "ggraph", "pheatmap", "scales",
   "clusterProfiler", "org.Hs.eg.db", "KEGGREST", "STRINGdb",
-  "readr", "readxl", "rio", "uwot", "fgsea", "msigdbr", "GSVA"
+  "readr", "readxl", "rio", "uwot", "fgsea", "msigdbr", "GSVA",
+  "ReactomePA", "survival", "survminer", "sva"
 )
 
 log_entry("PACKAGES", "INFO", "Instalando/carregando pacotes...")
@@ -126,6 +128,10 @@ suppressPackageStartupMessages({
   library(fgsea)
   library(msigdbr)
   library(GSVA)
+  library(ReactomePA)
+  library(survival)
+  library(survminer)
+  library(sva)
 })
 
 log_entry("PACKAGES", "OK", paste(length(required_packages), "pacotes carregados"))
@@ -145,8 +151,9 @@ data_patterns <- c(
   "liver_lip_aterosclero.xlsx"
 )
 
-# Buscar o arquivo de dados na raiz e na subpasta data/
-data_search_dirs <- unique(c(PROJECT_ROOT, file.path(PROJECT_ROOT, "data")))
+# Buscar o arquivo de dados na raiz, data/ e dados/raw/
+data_search_dirs <- unique(c(PROJECT_ROOT, file.path(PROJECT_ROOT, "data"),
+                             file.path(PROJECT_ROOT, "dados", "raw")))
 data_files_found <- unlist(lapply(data_search_dirs, function(d) {
   list.files(d, pattern = "\\.(tsv|csv|xlsx)$", ignore.case = TRUE,
              full.names = TRUE)
@@ -248,7 +255,7 @@ if (length(gene_cols) < 10) {
   
   # Salvar sessionInfo antes de parar
   writeLines(capture.output(sessionInfo()),
-             file.path(PROJECT_ROOT, "results/audit/sessionInfo.txt"))
+             file.path(PROJECT_ROOT, "outputs/audit/sessionInfo.txt"))
   
   # Benchmark mesmo com falha
   T1 <- Sys.time()
@@ -257,12 +264,12 @@ if (length(gene_cols) < 10) {
     value  = round(as.numeric(difftime(T1, T0, units = "secs")), 2),
     status = "FALHA_PARCIAL"
   )
-  rio::export(bench, file.path(PROJECT_ROOT, "results/audit/benchmark_pipeline.csv"))
+  rio::export(bench, file.path(PROJECT_ROOT, "outputs/audit/benchmark_pipeline.csv"))
   
   log_entry("FATAL", "FAIL", "Dados de expressão gênica ausentes. Pipeline abortado.")
   
   # Gerar relatório de erro
-  sink(file.path(PROJECT_ROOT, "results/audit/AUDITORIA_REANALISE_LIHC.md"))
+  sink(file.path(PROJECT_ROOT, "outputs/audit/AUDITORIA_REANALISE_LIHC.md"))
   cat("# AUDITORIA DE REANÁLISE LIHC\n\n")
   cat("## STATUS: NÃO EXECUTADO — DADOS INCOMPLETOS\n\n")
   cat("**Data:** ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "\n\n")
@@ -273,7 +280,7 @@ if (length(gene_cols) < 10) {
   cat("Fazer download do dataset completo do UCSC Xena incluindo expressão gênica.\n")
   sink()
   
-  stop("DADOS DE EXPRESSÃO GÊNICA AUSENTES. Consulte o relatório em results/audit/.")
+  stop("DADOS DE EXPRESSÃO GÊNICA AUSENTES. Consulte o relatório em outputs/audit/.")
 }
 
 # ------------------------------------------------------------------
@@ -294,8 +301,13 @@ liver_categories <- unique(liver[[category_col]])
 cat("Categorias encontradas na coluna '", category_col, "':\n", sep = "")
 print(head(liver_categories, 30))
 
-# Filtrar para Liver/LIHC
+# Filtrar para Liver/LIHC (inclui tecido normal adjacente TCGA, que tem
+# category_col vazio mas primary_site = "Liver")
 liver_mask <- grepl("Liver|LIHC|Hepatocellular", liver[[category_col]], ignore.case = TRUE)
+if ("primary_site" %in% colnames(liver)) {
+  liver_mask <- liver_mask |
+    grepl("Liver", liver[["primary_site"]], ignore.case = TRUE)
+}
 liver_sub <- liver[liver_mask, , drop = FALSE]
 log_entry("FILTER_LIVER", "OK", paste("Amostras fígado:", nrow(liver_sub)))
 
@@ -363,7 +375,20 @@ log_entry("SAMPLE_TYPE_FILTER", "OK", paste(n_excluded, "amostras excluídas por
 
 meta$condition <- factor(meta$condition, levels = c("Normal", "LIHC"))
 
-# Remover amostras sem condição definida
+# Grupo em 3 níveis (Normal × Adjacente × LIHC) — para análise complementar
+meta$group3 <- dplyr::case_when(
+  grepl("Normal Tissue", meta$sample_type, ignore.case = TRUE) ~ "Normal",
+  grepl("Solid Tissue Normal", meta$sample_type, ignore.case = TRUE) ~ "Adjacent",
+  grepl("Primary Tumor", meta$sample_type, ignore.case = TRUE) ~ "LIHC",
+  TRUE ~ NA_character_
+)
+meta$group3 <- factor(meta$group3, levels = c("Normal", "Adjacent", "LIHC"))
+
+# Salvar dados completos (incluindo adjacente) ANTES do filtro de 2 grupos
+meta_full <- meta
+expr_full <- expr
+
+# Remover amostras sem condição definida (mantém Normal × LIHC)
 keep <- !is.na(meta$condition)
 meta <- meta[keep, , drop = FALSE]
 expr <- expr[keep, , drop = FALSE]
@@ -489,11 +514,11 @@ if (nrow(expr_t_scaled) >= 2 && ncol(expr_t_scaled) >= 3) {
       theme_classic(base_size = 14) +
       theme(plot.title = element_text(face = "bold"))
     
-    ggsave(file.path(PROJECT_ROOT, "results/qc/PCA_pre_analysis_batch.png"),
+    ggsave(file.path(PROJECT_ROOT, "outputs/qc/PCA_pre_analysis_batch.png"),
            p_pca_study, width = 9, height = 7, dpi = 300)
   }
   
-  ggsave(file.path(PROJECT_ROOT, "results/qc/PCA_pre_analysis.png"),
+  ggsave(file.path(PROJECT_ROOT, "outputs/qc/PCA_pre_analysis.png"),
          p_pca, width = 8, height = 6, dpi = 300)
   log_entry("QC_PCA", "OK", paste("PC1:", pc1_var, "% PC2:", pc2_var, "%"))
 } else {
@@ -523,7 +548,7 @@ if (nrow(expr_t_scaled) >= 2 && ncol(expr_t_scaled) >= 5) {
     theme_classic(base_size = 14) +
     theme(plot.title = element_text(face = "bold"))
   
-  ggsave(file.path(PROJECT_ROOT, "results/qc/UMAP_pre_analysis.png"),
+  ggsave(file.path(PROJECT_ROOT, "outputs/qc/UMAP_pre_analysis.png"),
          p_umap, width = 8, height = 6, dpi = 300)
   log_entry("QC_UMAP", "OK", "UMAP gerado com sucesso")
 } else {
@@ -534,15 +559,15 @@ if (nrow(expr_t_scaled) >= 2 && ncol(expr_t_scaled) >= 5) {
 sample_dist <- as.data.frame(table(meta$condition))
 if ("study" %in% colnames(meta)) {
   sample_dist_study <- as.data.frame(table(meta$condition, meta$study))
-  rio::export(sample_dist_study, file.path(PROJECT_ROOT, "results/qc/sample_distribution.csv"))
+  rio::export(sample_dist_study, file.path(PROJECT_ROOT, "outputs/qc/sample_distribution.csv"))
 } else {
-  rio::export(sample_dist, file.path(PROJECT_ROOT, "results/qc/sample_distribution.csv"))
+  rio::export(sample_dist, file.path(PROJECT_ROOT, "outputs/qc/sample_distribution.csv"))
 }
 
 log_entry("QC_SAMPLES", "OK", paste("N total:", nrow(meta)))
 
 # 9.10 Salvar QC summary
-sink(file.path(PROJECT_ROOT, "results/qc/qc_summary.md"))
+sink(file.path(PROJECT_ROOT, "outputs/qc/qc_summary.md"))
 cat("# QC Summary — LIHC Liver Analysis\n\n")
 cat(sprintf("Total amostras fígado: %d\n", nrow(meta)))
 cat(sprintf("  Normal (GTEx): %d\n", sum(meta$condition == "Normal")))
@@ -605,7 +630,7 @@ tryCatch({
   genes_via <- genes_via_tbl$gene_symbol
   log_entry("KEGG_GENES", "OK", paste("Total via LA:", length(genes_via)))
   
-  rio::export(genes_via_tbl, file.path(PROJECT_ROOT, "results/tables/KEGG_hsa05417_genes.csv"))
+  rio::export(genes_via_tbl, file.path(PROJECT_ROOT, "outputs/tables/KEGG_hsa05417_genes.csv"))
   
 }, error = function(e) {
   log_entry("KEGG_GENES", "FAIL", paste("Erro KEGG:", e$message))
@@ -688,15 +713,15 @@ log_entry("DE_RESULTS", "OK",
                   n_up, n_down, n_ns, nrow(deg)))
 
 # Exportar tabela completa
-rio::export(deg, file.path(PROJECT_ROOT, "results/deg/DEG_LIHC_vs_Normal_full.csv"))
+rio::export(deg, file.path(PROJECT_ROOT, "outputs/deg/DEG_LIHC_vs_Normal_full.csv"))
 
 # DEGs da via LA
 deg_la <- deg |> dplyr::filter(gene_symbol %in% genes_via)
-rio::export(deg_la, file.path(PROJECT_ROOT, "results/deg/DEG_LA_pathway_only.csv"))
+rio::export(deg_la, file.path(PROJECT_ROOT, "outputs/deg/DEG_LA_pathway_only.csv"))
 
 # DEGs significativos da via LA
 deg_la_sig <- deg_la |> dplyr::filter(regulation != "NS")
-rio::export(deg_la_sig, file.path(PROJECT_ROOT, "results/deg/DEG_significant_LA.csv"))
+rio::export(deg_la_sig, file.path(PROJECT_ROOT, "outputs/deg/DEG_significant_LA.csv"))
 
 # Top up/down genes
 top_up <- deg |> dplyr::filter(regulation == "Up_LIHC") |>
@@ -704,10 +729,130 @@ top_up <- deg |> dplyr::filter(regulation == "Up_LIHC") |>
 top_down <- deg |> dplyr::filter(regulation == "Down_LIHC") |>
   dplyr::arrange(adj.P.Val) |> dplyr::slice_head(n = 50)
 
-rio::export(top_up, file.path(PROJECT_ROOT, "results/deg/top_up_genes.csv"))
-rio::export(top_down, file.path(PROJECT_ROOT, "results/deg/top_down_genes.csv"))
+rio::export(top_up, file.path(PROJECT_ROOT, "outputs/deg/top_up_genes.csv"))
+rio::export(top_down, file.path(PROJECT_ROOT, "outputs/deg/top_down_genes.csv"))
 
 log_entry("DE_EXPORT", "OK", "Tabelas DEG exportadas")
+
+# ------------------------------------------------------------------
+# 12b) ANÁLISE EM 3 GRUPOS (Normal × Adjacente × LIHC) + SOBREVIVÊNCIA
+# ------------------------------------------------------------------
+log_entry("GRUPO3_START", "OK", "Análise 3 grupos + sobrevivência")
+
+dir.create(file.path(PROJECT_ROOT, "outputs/3grupos"), showWarnings = FALSE, recursive = TRUE)
+
+# Matriz completa (inclui tecido normal adjacente)
+E3 <- t(expr_full)
+storage.mode(E3) <- "numeric"
+colnames(E3) <- meta_full$sample
+E3 <- E3[apply(E3, 1, var, na.rm = TRUE) > 0, , drop = FALSE]
+
+keep3 <- !is.na(meta_full$group3)
+meta3 <- meta_full[keep3, , drop = FALSE]
+meta3$group3 <- factor(meta3$group3, levels = c("Normal", "Adjacent", "LIHC"))
+E3 <- E3[, meta3$sample, drop = FALSE]
+
+cat(sprintf("\nAmostras 3 grupos: Normal=%d Adjacent=%d LIHC=%d\n",
+            sum(meta3$group3 == "Normal"), sum(meta3$group3 == "Adjacent"),
+            sum(meta3$group3 == "LIHC")))
+log_entry("GRUPO3_SAMPLES", "OK",
+          paste(sum(meta3$group3 == "Normal"), sum(meta3$group3 == "Adjacent"),
+                sum(meta3$group3 == "LIHC")))
+
+# DE — 3 contrastes
+design3 <- model.matrix(~ 0 + group3, data = meta3)
+colnames(design3) <- levels(meta3$group3)
+fit3 <- lmFit(E3, design3)
+cm3 <- makeContrasts(
+  LIHC_vs_Normal    = LIHC - Normal,
+  LIHC_vs_Adjacent  = LIHC - Adjacent,
+  Adjacent_vs_Normal = Adjacent - Normal,
+  levels = design3
+)
+fit3c <- contrasts.fit(fit3, cm3)
+fit3c <- eBayes(fit3c, robust = TRUE)
+
+for (coef3 in colnames(cm3)) {
+  res3 <- topTable(fit3c, coef = coef3, number = Inf, sort.by = "P",
+                   adjust.method = "BH") |>
+    tibble::rownames_to_column(var = "gene_symbol")
+  res3$regulation <- dplyr::case_when(
+    res3$adj.P.Val < 0.05 & res3$logFC >  1 ~ "Up",
+    res3$adj.P.Val < 0.05 & res3$logFC < -1 ~ "Down",
+    TRUE ~ "NS"
+  )
+  rio::export(res3, file.path(PROJECT_ROOT, "outputs/3grupos",
+                              paste0("DEG_", coef3, ".csv")))
+  log_entry("GRUPO3_DE", "OK",
+            paste(coef3, ":", sum(res3$regulation != "NS"), "DEGs"))
+}
+
+# ComBat — correção de lote LIHC × Normal (TCGA × GTEx)
+keep_ln <- meta3$group3 %in% c("LIHC", "Normal")
+meta_ln <- meta3[keep_ln, , drop = FALSE]
+meta_ln$group3 <- droplevels(meta_ln$group3)
+E_ln <- E3[, meta_ln$sample, drop = FALSE]
+E_combat <- tryCatch(
+  sva::ComBat(dat = E_ln, batch = meta_ln$study,
+              mod = model.matrix(~ meta_ln$group3)),
+  error = function(e) NULL
+)
+if (!is.null(E_combat)) {
+  design_ln <- model.matrix(~ 0 + group3, data = meta_ln)
+  colnames(design_ln) <- levels(meta_ln$group3)
+  fit_c <- lmFit(E_combat, design_ln)
+  cm_c <- makeContrasts(LIHC_vs_Normal = LIHC - Normal, levels = design_ln)
+  fit_c2 <- contrasts.fit(fit_c, cm_c)
+  fit_c2 <- eBayes(fit_c2, robust = TRUE)
+  res_c <- topTable(fit_c2, coef = 1, number = Inf, sort.by = "P",
+                    adjust.method = "BH") |>
+    tibble::rownames_to_column(var = "gene_symbol")
+  res_c$regulation <- dplyr::case_when(
+    res_c$adj.P.Val < 0.05 & res_c$logFC >  1 ~ "Up",
+    res_c$adj.P.Val < 0.05 & res_c$logFC < -1 ~ "Down",
+    TRUE ~ "NS"
+  )
+  rio::export(res_c, file.path(PROJECT_ROOT, "outputs/3grupos",
+                               "DEG_LIHC_vs_Normal_ComBat.csv"))
+  log_entry("GRUPO3_COMBAT", "OK",
+            paste("ComBat:", sum(res_c$regulation != "NS"), "DEGs"))
+} else {
+  log_entry("GRUPO3_COMBAT", "INFO", "ComBat não executado")
+}
+
+# Sobrevivência — Kaplan-Meier (LIHC)
+li <- meta3[meta3$group3 == "LIHC", , drop = FALSE]
+li$OS.time <- suppressWarnings(as.numeric(li$OS.time))
+li$OS     <- suppressWarnings(as.numeric(li$OS))
+
+genes_km <- base::intersect(
+  c("HSP90AB1", "MMP9", "CD36", "BAX", "CALML5", "TLR2", "STAT3",
+    "MMP1", "ABCA1", "CXCL2"), rownames(E3))
+km_res <- list()
+for (g in genes_km) {
+  eg <- as.numeric(E3[g, li$sample])
+  grp <- ifelse(eg >= median(eg, na.rm = TRUE), "Alto", "Baixo")
+  df <- data.frame(time = li$OS.time, event = li$OS, grp = grp)
+  df <- df[!is.na(df$time) & df$time > 0 & !is.na(df$event), ]
+  if (length(unique(df$grp)) < 2 || nrow(df) < 30) next
+  fitkm <- survival::survfit(survival::Surv(time, event) ~ grp, data = df)
+  lr <- survival::survdiff(survival::Surv(time, event) ~ grp, data = df)
+  pval <- 1 - pchisq(lr$chisq, df = 1)
+  km_res[[g]] <- data.frame(gene = g, p_logrank = pval)
+  pkm <- survminer::ggsurvplot(fitkm, data = df, pval = TRUE, risk.table = TRUE,
+                               palette = c("#A23B72", "#2E86AB"),
+                               title = paste(g, "— Sobrevida global (LIHC)"))
+  ggplot2::ggsave(file.path(PROJECT_ROOT, "outputs/3grupos",
+                            paste0("KM_OS_", g, ".png")),
+                  pkm$plot, width = 7, height = 5, dpi = 300)
+}
+if (length(km_res) > 0) {
+  km_df <- do.call(rbind, km_res) |> dplyr::arrange(p_logrank)
+  rio::export(km_df, file.path(PROJECT_ROOT, "outputs/3grupos/survival_logrank.csv"))
+  log_entry("GRUPO3_SURV", "OK", paste(nrow(km_df), "genes testados (log-rank)"))
+}
+
+log_entry("GRUPO3_DONE", "OK", "Análise 3 grupos concluída")
 
 # ------------------------------------------------------------------
 # 13) VOLCANO PLOT — APENAS GENES DA VIA LA
@@ -775,15 +920,15 @@ p_volcano <- ggplot(deg_la, aes(logFC, -log10(adj.P.Val), color = volcano_class)
 
 print(p_volcano)
 
-ggsave(file.path(PROJECT_ROOT, "results/volcano/Volcano_LIHC_LA_pathway.png"),
+ggsave(file.path(PROJECT_ROOT, "outputs/volcano/Volcano_LIHC_LA_pathway.png"),
        p_volcano, width = 10, height = 8, dpi = 300)
-ggsave(file.path(PROJECT_ROOT, "results/volcano/Volcano_LIHC_LA_pathway.pdf"),
+ggsave(file.path(PROJECT_ROOT, "outputs/volcano/Volcano_LIHC_LA_pathway.pdf"),
        p_volcano, width = 10, height = 8, device = "pdf")
 
 # Exportar tabela dos genes rotulados
 rio::export(
   deg_la |> dplyr::filter(label != ""),
-  file.path(PROJECT_ROOT, "results/volcano/Volcano_labeled_genes.csv")
+  file.path(PROJECT_ROOT, "outputs/volcano/Volcano_labeled_genes.csv")
 )
 
 log_entry("VOLCANO_DONE", "OK", "Volcano plot exportado")
@@ -805,8 +950,8 @@ if (length(deg_la_all) < 3) {
   log_entry("PPI", "SKIP", "Menos de 3 DEGs LA significativos. PPI não construída.")
   
   # Criar arquivos vazios
-  write.csv(data.frame(), file.path(PROJECT_ROOT, "results/ppi/PPI_STRING_edges_score700.csv"))
-  write.csv(data.frame(), file.path(PROJECT_ROOT, "results/ppi/PPI_STRING_nodes_score700.csv"))
+  write.csv(data.frame(), file.path(PROJECT_ROOT, "outputs/ppi/PPI_STRING_edges_score700.csv"))
+  write.csv(data.frame(), file.path(PROJECT_ROOT, "outputs/ppi/PPI_STRING_nodes_score700.csv"))
   
 } else {
   
@@ -850,7 +995,7 @@ if (length(deg_la_all) < 3) {
         reason = "Não encontrado no STRING v12.0",
         stringsAsFactors = FALSE
       )
-      rio::export(unmapped_df, file.path(PROJECT_ROOT, "results/ppi/PPI_STRING_unmapped_genes.csv"))
+      rio::export(unmapped_df, file.path(PROJECT_ROOT, "outputs/ppi/PPI_STRING_unmapped_genes.csv"))
       log_entry("PPI_UNMAPPED", "INFO", paste(length(unmapped), "genes não mapeados no STRING"))
     }
     
@@ -988,7 +1133,7 @@ if (length(deg_la_all) < 3) {
       ) |>
         dplyr::arrange(dplyr::desc(degree))
       
-      rio::export(topo, file.path(PROJECT_ROOT, "results/ppi/PPI_topology_metrics.csv"))
+      rio::export(topo, file.path(PROJECT_ROOT, "outputs/ppi/PPI_topology_metrics.csv"))
       
       # Identificar hubs (top 20% por degree)
       hub_threshold <- quantile(topo$degree, 0.80)
@@ -1007,8 +1152,8 @@ if (length(deg_la_all) < 3) {
                   sum(comps$csize == 1)))
       
       # Salvar tabelas PPI ANTES do plot (para garantir que sejam salvas)
-      rio::export(edges_df, file.path(PROJECT_ROOT, "results/ppi/PPI_STRING_edges_score700.csv"))
-      rio::export(nodes_df, file.path(PROJECT_ROOT, "results/ppi/PPI_STRING_nodes_score700.csv"))
+      rio::export(edges_df, file.path(PROJECT_ROOT, "outputs/ppi/PPI_STRING_edges_score700.csv"))
+      rio::export(nodes_df, file.path(PROJECT_ROOT, "outputs/ppi/PPI_STRING_nodes_score700.csv"))
       
       # Extrair maior componente para visualização
       g_giant <- igraph::induced_subgraph(g_ppi,
@@ -1057,12 +1202,12 @@ if (length(deg_la_all) < 3) {
       
       print(p_ppi)
       
-      ggsave(file.path(PROJECT_ROOT, "results/ppi/PPI_STRING_network.png"),
+      ggsave(file.path(PROJECT_ROOT, "outputs/ppi/PPI_STRING_network.png"),
              p_ppi, width = 12, height = 10, dpi = 300)
       
       # 14.9 Exportar tabelas PPI
-      rio::export(edges_df, file.path(PROJECT_ROOT, "results/ppi/PPI_STRING_edges_score700.csv"))
-      rio::export(nodes_df, file.path(PROJECT_ROOT, "results/ppi/PPI_STRING_nodes_score700.csv"))
+      rio::export(edges_df, file.path(PROJECT_ROOT, "outputs/ppi/PPI_STRING_edges_score700.csv"))
+      rio::export(nodes_df, file.path(PROJECT_ROOT, "outputs/ppi/PPI_STRING_nodes_score700.csv"))
       
       # 14.10 Tabela de anotação funcional STRING dos top 10 genes (5 up + 5 down)
       cat("\n--- Anotações funcionais STRING para top 10 genes ---\n")
@@ -1133,7 +1278,7 @@ if (length(deg_la_all) < 3) {
         dplyr::rename(STRING_function = func) |>
         dplyr::select(gene_symbol, logFC, adj.P.Val, regulation, STRING_function)
       
-      rio::export(top10_func, file.path(PROJECT_ROOT, "results/ppi/Top10_genes_STRING_functions.csv"))
+      rio::export(top10_func, file.path(PROJECT_ROOT, "outputs/ppi/Top10_genes_STRING_functions.csv"))
       log_entry("PPI_ANNOT", "OK", paste(nrow(top10_func), "genes anotados com funções STRING"))
       
       # 14.11 Registro de consistência da PPI
@@ -1150,7 +1295,7 @@ if (length(deg_la_all) < 3) {
         hubs = paste(topo$gene_symbol[topo$is_hub], collapse = "; "),
         stringsAsFactors = FALSE
       )
-      rio::export(ppi_log_df, file.path(PROJECT_ROOT, "results/ppi/PPI_consistency_log.csv"))
+      rio::export(ppi_log_df, file.path(PROJECT_ROOT, "outputs/ppi/PPI_consistency_log.csv"))
       log_entry("PPI_CONSISTENCY", "OK", paste("Hubs:", ppi_log_df$hubs))
       
       log_entry("PPI_DONE", "OK",
@@ -1159,15 +1304,15 @@ if (length(deg_la_all) < 3) {
       
     } else {
       log_entry("PPI", "SKIP", "Menos de 2 genes mapeados no STRING. Rede não construída.")
-      write.csv(data.frame(), file.path(PROJECT_ROOT, "results/ppi/PPI_STRING_edges_score700.csv"))
-      write.csv(data.frame(), file.path(PROJECT_ROOT, "results/ppi/PPI_STRING_nodes_score700.csv"))
+      write.csv(data.frame(), file.path(PROJECT_ROOT, "outputs/ppi/PPI_STRING_edges_score700.csv"))
+      write.csv(data.frame(), file.path(PROJECT_ROOT, "outputs/ppi/PPI_STRING_nodes_score700.csv"))
     }
     
   }, error = function(e) {
     log_entry("PPI_ERROR", "FAIL", paste("Erro STRINGdb:", e$message))
     cat("AVISO: STRINGdb falhou. Erro:", e$message, "\n")
     write.csv(data.frame(error = e$message),
-              file.path(PROJECT_ROOT, "results/ppi/PPI_STRING_error.csv"))
+              file.path(PROJECT_ROOT, "outputs/ppi/PPI_STRING_error.csv"))
   })
 }
 
@@ -1223,10 +1368,10 @@ if (!is.null(entrez_rank_vec) && length(entrez_rank_vec) >= 10) {
   if (!is.null(gsea_kegg) && nrow(gsea_kegg@result) > 0) {
     gsea_kegg_df <- as.data.frame(gsea_kegg)
     gsea_kegg_df <- gsea_kegg_df[!is.na(gsea_kegg_df$ID), , drop = FALSE]
-    rio::export(gsea_kegg_df, file.path(PROJECT_ROOT, "results/enrichment/GSEA_KEGG.csv"))
+    rio::export(gsea_kegg_df, file.path(PROJECT_ROOT, "outputs/enrichment/GSEA_KEGG.csv"))
     log_entry("GSEA_KEGG", "OK", paste(nrow(gsea_kegg_df), "conjuntos testados"))
   } else {
-    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/GSEA_KEGG.csv"))
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "outputs/enrichment/GSEA_KEGG.csv"))
     log_entry("GSEA_KEGG", "INFO", "Nenhum conjunto enriquecido")
   }
 }
@@ -1245,10 +1390,10 @@ if (length(sym_rank_vec) >= 10) {
       dplyr::mutate(leadingEdge = vapply(leadingEdge, paste, collapse = ";",
                                          FUN.VALUE = character(1))) |>
       dplyr::arrange(padj)
-    rio::export(fgsea_out, file.path(PROJECT_ROOT, "results/enrichment/GSEA_HALLMARK.csv"))
+    rio::export(fgsea_out, file.path(PROJECT_ROOT, "outputs/enrichment/GSEA_HALLMARK.csv"))
     log_entry("GSEA_HALLMARK", "OK", paste(nrow(fgsea_out), "conjuntos testados"))
   } else {
-    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/GSEA_HALLMARK.csv"))
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "outputs/enrichment/GSEA_HALLMARK.csv"))
     log_entry("GSEA_HALLMARK", "INFO", "Nenhum conjunto testado")
   }
 }
@@ -1272,7 +1417,7 @@ if (length(gsva_sets) >= 2) {
   
   if (!is.null(gsva_res) && nrow(gsva_res) > 0) {
     gsva_mat <- as.data.frame(gsva_res)
-    rio::export(gsva_mat, file.path(PROJECT_ROOT, "results/enrichment/GSVA_scores.csv"))
+    rio::export(gsva_mat, file.path(PROJECT_ROOT, "outputs/enrichment/GSVA_scores.csv"))
     
     # Comparação LIHC vs Normal por conjunto (teste t)
     gsva_summary <- lapply(rownames(gsva_res), function(gs) {
@@ -1292,10 +1437,10 @@ if (length(gsva_sets) >= 2) {
     gsva_summary$p.value <- as.numeric(gsva_summary$p.value)
     gsva_summary$padj <- p.adjust(gsva_summary$p.value, method = "BH")
     gsva_summary <- gsva_summary |> dplyr::arrange(p.value)
-    rio::export(gsva_summary, file.path(PROJECT_ROOT, "results/enrichment/GSVA_summary.csv"))
+    rio::export(gsva_summary, file.path(PROJECT_ROOT, "outputs/enrichment/GSVA_summary.csv"))
     log_entry("GSVA", "OK", paste(nrow(gsva_summary), "conjuntos avaliados"))
   } else {
-    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/GSVA_scores.csv"))
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "outputs/enrichment/GSVA_scores.csv"))
     log_entry("GSVA", "INFO", "GSVA não produziu resultados")
   }
 } else {
@@ -1324,11 +1469,11 @@ if (length(entrez_up) >= 5) {
   kegg_up <- enrichKEGG(gene = entrez_up, organism = "hsa",
                          pvalueCutoff = 0.05, qvalueCutoff = 0.2)
   if (!is.null(kegg_up) && nrow(kegg_up@result) > 0) {
-    rio::export(as.data.frame(kegg_up), file.path(PROJECT_ROOT, "results/enrichment/KEGG_up.csv"))
+    rio::export(as.data.frame(kegg_up), file.path(PROJECT_ROOT, "outputs/enrichment/KEGG_up.csv"))
     log_entry("ENRICH_KEGG_UP", "OK", paste(nrow(kegg_up@result), "vias"))
   } else {
     log_entry("ENRICH_KEGG_UP", "INFO", "Nenhuma via significativa")
-    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/KEGG_up.csv"))
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "outputs/enrichment/KEGG_up.csv"))
   }
 } else {
   log_entry("ENRICH_KEGG_UP", "SKIP", "Poucos genes up para enriquecimento")
@@ -1338,11 +1483,11 @@ if (length(entrez_down) >= 5) {
   kegg_down <- enrichKEGG(gene = entrez_down, organism = "hsa",
                            pvalueCutoff = 0.05, qvalueCutoff = 0.2)
   if (!is.null(kegg_down) && nrow(kegg_down@result) > 0) {
-    rio::export(as.data.frame(kegg_down), file.path(PROJECT_ROOT, "results/enrichment/KEGG_down.csv"))
+    rio::export(as.data.frame(kegg_down), file.path(PROJECT_ROOT, "outputs/enrichment/KEGG_down.csv"))
     log_entry("ENRICH_KEGG_DOWN", "OK", paste(nrow(kegg_down@result), "vias"))
   } else {
     log_entry("ENRICH_KEGG_DOWN", "INFO", "Nenhuma via significativa")
-    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/KEGG_down.csv"))
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "outputs/enrichment/KEGG_down.csv"))
   }
 } else {
   log_entry("ENRICH_KEGG_DOWN", "SKIP", "Poucos genes down para enriquecimento")
@@ -1355,10 +1500,10 @@ if (length(entrez_up) >= 5) {
                     pvalueCutoff = 0.05, qvalueCutoff = 0.2,
                     readable = TRUE)
   if (!is.null(go_up) && nrow(go_up@result) > 0) {
-    rio::export(as.data.frame(go_up), file.path(PROJECT_ROOT, "results/enrichment/GO_BP_up.csv"))
+    rio::export(as.data.frame(go_up), file.path(PROJECT_ROOT, "outputs/enrichment/GO_BP_up.csv"))
     log_entry("ENRICH_GO_UP", "OK", paste(nrow(go_up@result), "termos GO"))
   } else {
-    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/GO_BP_up.csv"))
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "outputs/enrichment/GO_BP_up.csv"))
     log_entry("ENRICH_GO_UP", "INFO", "Nenhum termo GO significativo")
   }
 }
@@ -1369,10 +1514,10 @@ if (length(entrez_down) >= 5) {
                       pvalueCutoff = 0.05, qvalueCutoff = 0.2,
                       readable = TRUE)
   if (!is.null(go_down) && nrow(go_down@result) > 0) {
-    rio::export(as.data.frame(go_down), file.path(PROJECT_ROOT, "results/enrichment/GO_BP_down.csv"))
+    rio::export(as.data.frame(go_down), file.path(PROJECT_ROOT, "outputs/enrichment/GO_BP_down.csv"))
     log_entry("ENRICH_GO_DOWN", "OK", paste(nrow(go_down@result), "termos GO"))
   } else {
-    rio::export(data.frame(), file.path(PROJECT_ROOT, "results/enrichment/GO_BP_down.csv"))
+    rio::export(data.frame(), file.path(PROJECT_ROOT, "outputs/enrichment/GO_BP_down.csv"))
     log_entry("ENRICH_GO_DOWN", "INFO", "Nenhum termo GO significativo")
   }
 }
@@ -1405,10 +1550,37 @@ if (nrow(kegg_combined) > 0) {
       theme(axis.text.y = element_text(size = 8),
             strip.text = element_text(size = 12, face = "bold"))
     
-    ggsave(file.path(PROJECT_ROOT, "results/enrichment/enrichment_dotplot.png"),
+    ggsave(file.path(PROJECT_ROOT, "outputs/enrichment/enrichment_dotplot.png"),
            p_enrich, width = 12, height = 8, dpi = 300)
   }
 }
+
+# Reactome ORA (enrichPathway)
+reactome_up <- tryCatch(
+  ReactomePA::enrichPathway(gene = entrez_up, organism = "human",
+                            pvalueCutoff = 0.05, qvalueCutoff = 0.2,
+                            readable = TRUE),
+  error = function(e) NULL)
+reactome_down <- tryCatch(
+  ReactomePA::enrichPathway(gene = entrez_down, organism = "human",
+                            pvalueCutoff = 0.05, qvalueCutoff = 0.2,
+                            readable = TRUE),
+  error = function(e) NULL)
+
+export_reactome <- function(obj, path) {
+  if (!is.null(obj) && nrow(as.data.frame(obj)) > 0) {
+    rio::export(as.data.frame(obj), path)
+    log_entry("ENRICH_REACTOME", "OK",
+              paste(basename(path), ":", nrow(as.data.frame(obj)), "termos"))
+  } else {
+    rio::export(data.frame(), path)
+    log_entry("ENRICH_REACTOME", "INFO", paste(basename(path), ": vazio"))
+  }
+}
+export_reactome(reactome_up,
+                file.path(PROJECT_ROOT, "outputs/enrichment/Reactome_ORA_up.csv"))
+export_reactome(reactome_down,
+                file.path(PROJECT_ROOT, "outputs/enrichment/Reactome_ORA_down.csv"))
 
 log_entry("ENRICH_DONE", "OK", "Enriquecimento concluído")
 
@@ -1448,7 +1620,7 @@ if (length(top_deg_in_expr) >= 5) {
            color = colorRampPalette(c("#2166AC", "white", "#B2182B"))(50),
            breaks = seq(-3, 3, length.out = 51),
            height = 10, width = 12,
-           filename = file.path(PROJECT_ROOT, "results/figures/Heatmap_Top_DEGs.png"))
+           filename = file.path(PROJECT_ROOT, "outputs/figures/Heatmap_Top_DEGs.png"))
   
   log_entry("HEATMAP", "OK", paste(length(top_deg_in_expr), "genes"))
 }
@@ -1499,9 +1671,9 @@ bench <- data.frame(
   stringsAsFactors = FALSE
 )
 
-rio::export(bench, file.path(PROJECT_ROOT, "results/audit/benchmark_pipeline.csv"))
+rio::export(bench, file.path(PROJECT_ROOT, "outputs/audit/benchmark_pipeline.csv"))
 
-sink(file.path(PROJECT_ROOT, "results/audit/benchmark_summary.md"))
+sink(file.path(PROJECT_ROOT, "outputs/audit/benchmark_summary.md"))
 cat("# Benchmark Pipeline LIHC\n\n")
 cat(sprintf("**Tempo total:** %.2f segundos\n\n", total_time))
 cat(sprintf("- Amostras: %d (LIHC: %d, Normal: %d)\n",
@@ -1519,12 +1691,12 @@ log_entry("BENCHMARK", "OK", paste("Tempo total:", total_time, "segundos"))
 # 19) SALVAR SESSIONINFO
 # ------------------------------------------------------------------
 writeLines(capture.output(sessionInfo()),
-           file.path(PROJECT_ROOT, "results/audit/sessionInfo.txt"))
+           file.path(PROJECT_ROOT, "outputs/audit/sessionInfo.txt"))
 
 # ------------------------------------------------------------------
 # 20) SALVAR WORKSPACE
 # ------------------------------------------------------------------
-save.image(file = file.path(PROJECT_ROOT, "results/audit/workspace_LIHC.RData"))
+save.image(file = file.path(PROJECT_ROOT, "outputs/audit/workspace_LIHC.RData"))
 gc()
 
 log_entry("FINAL", "OK", paste("Pipeline concluído com sucesso. Tempo:", total_time, "s"))
@@ -1537,5 +1709,5 @@ cat(sprintf("Tempo total: %.2f segundos\n", total_time))
 cat(sprintf("Amostras: %d (LIHC: %d, Normal: %d)\n",
             nrow(meta), sum(meta$condition == "LIHC"), sum(meta$condition == "Normal")))
 cat(sprintf("DEGs significativos: %d (Up: %d, Down: %d)\n", n_up + n_down, n_up, n_down))
-cat(sprintf("Resultados em: %s\n", file.path(PROJECT_ROOT, "results")))
+cat(sprintf("Resultados em: %s\n", file.path(PROJECT_ROOT, "outputs")))
 cat("============================================================\n")

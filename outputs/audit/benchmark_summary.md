@@ -1,6 +1,6 @@
 # Benchmark Pipeline LIHC
 
-**Tempo total:** 676.92 segundos
+**Tempo total:** 899.51 segundos
 
 - Amostras: 479 (LIHC: 369, Normal: 110)
 - Genes na matriz: 212

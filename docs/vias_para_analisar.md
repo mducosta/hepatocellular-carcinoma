@@ -57,7 +57,7 @@ a fármacos (sorafenibe etc.).
 ## Observações
 
 - As vias marcadas com "já enriquecida" foram testadas pelo script
-  `scripts/analise_reactome.R` (resultados em `results/enrichment/Reactome_*`).
+  `scripts/analise_reactome.R` (resultados em `outputs/enrichment/Reactome_*`).
 - Para aprofundar a **via principal `hsa00982`**, sugere-se: baixar o
   **transcriptoma completo** (ver `docs/tutorial_dados_xena.md`) para que o
   GSEA/ORA tenha poder estatístico adequado.

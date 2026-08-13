@@ -3,10 +3,10 @@
 # LIHC vs Normal — Via Lipid and Atherosclerosis (KEGG hsa05417)
 # ===================================================================
 # Utiliza como entrada a tabela completa de DEGs já calculada pelo
-# pipeline (results/deg/DEG_LIHC_vs_Normal_full.csv) e gera:
+# pipeline (outputs/deg/DEG_LIHC_vs_Normal_full.csv) e gera:
 #   1) ORA (over-representation) com background do genoma completo
 #   2) GSEA (rank-based) com genes ordenados por logFC
-# Saídas em results/enrichment/
+# Saídas em outputs/enrichment/
 # ===================================================================
 
 suppressPackageStartupMessages({
@@ -22,7 +22,7 @@ suppressPackageStartupMessages({
 PROJECT_ROOT <- normalizePath(".", mustWork = TRUE)
 setwd(PROJECT_ROOT)
 
-DEG_FILE <- "results/deg/DEG_LIHC_vs_Normal_full.csv"
+DEG_FILE <- "outputs/deg/DEG_LIHC_vs_Normal_full.csv"
 stopifnot(file.exists(DEG_FILE))
 
 deg <- read.csv(DEG_FILE, stringsAsFactors = FALSE)
@@ -87,10 +87,10 @@ export_ora <- function(obj, path) {
   }
 }
 
-cat("\nORA GO_BP_up:\n"); export_ora(ora_up$go,  "results/enrichment/GO_BP_up.csv")
-cat("ORA GO_BP_down:\n"); export_ora(ora_down$go,"results/enrichment/GO_BP_down.csv")
-cat("ORA KEGG_up:\n");   export_ora(ora_up$kegg, "results/enrichment/KEGG_up.csv")
-cat("ORA KEGG_down:\n"); export_ora(ora_down$kegg,"results/enrichment/KEGG_down.csv")
+cat("\nORA GO_BP_up:\n"); export_ora(ora_up$go,  "outputs/enrichment/GO_BP_up.csv")
+cat("ORA GO_BP_down:\n"); export_ora(ora_down$go,"outputs/enrichment/GO_BP_down.csv")
+cat("ORA KEGG_up:\n");   export_ora(ora_up$kegg, "outputs/enrichment/KEGG_up.csv")
+cat("ORA KEGG_down:\n"); export_ora(ora_down$kegg,"outputs/enrichment/KEGG_down.csv")
 
 # ------------------------------------------------------------------
 # 2) GSEA — genes ordenados por logFC (rank-based)
@@ -114,10 +114,10 @@ gsea_go <- run_gsea(gsea_genes, gseGO, ont = "BP",
                     OrgDb = org.Hs.eg.db, eps = 0,
                     pvalueCutoff = 0.1, seed = 4721)
 if (!is.null(gsea_go) && nrow(as.data.frame(gsea_go)) > 0) {
-  rio::export(as.data.frame(gsea_go), "results/enrichment/GSEA_GO_BP.csv")
+  rio::export(as.data.frame(gsea_go), "outputs/enrichment/GSEA_GO_BP.csv")
   cat(sprintf("GSEA GO_BP: %d conjuntos enriquecidos\n", nrow(as.data.frame(gsea_go))))
 } else {
-  rio::export(data.frame(), "results/enrichment/GSEA_GO_BP.csv")
+  rio::export(data.frame(), "outputs/enrichment/GSEA_GO_BP.csv")
   cat("GSEA GO_BP: vazio\n")
 }
 
@@ -125,10 +125,10 @@ if (!is.null(gsea_go) && nrow(as.data.frame(gsea_go)) > 0) {
 gsea_kegg <- run_gsea(gsea_genes, gseKEGG, organism = "hsa",
                       eps = 0, pvalueCutoff = 0.1, seed = 4721)
 if (!is.null(gsea_kegg) && nrow(as.data.frame(gsea_kegg)) > 0) {
-  rio::export(as.data.frame(gsea_kegg), "results/enrichment/GSEA_KEGG.csv")
+  rio::export(as.data.frame(gsea_kegg), "outputs/enrichment/GSEA_KEGG.csv")
   cat(sprintf("GSEA KEGG: %d conjuntos enriquecidos\n", nrow(as.data.frame(gsea_kegg))))
 } else {
-  rio::export(data.frame(), "results/enrichment/GSEA_KEGG.csv")
+  rio::export(data.frame(), "outputs/enrichment/GSEA_KEGG.csv")
   cat("GSEA KEGG: vazio\n")
 }
 
@@ -147,11 +147,11 @@ if (nrow(fgsea_res) > 0) {
   fgsea_out <- fgsea_res %>%
     mutate(leadingEdge = vapply(leadingEdge, paste, collapse = ";", FUN.VALUE = character(1))) %>%
     arrange(padj)
-  rio::export(fgsea_out, "results/enrichment/GSEA_HALLMARK.csv")
+  rio::export(fgsea_out, "outputs/enrichment/GSEA_HALLMARK.csv")
   cat(sprintf("GSEA Hallmark: %d conjuntos testados | %d significativos (padj<0.05)\n",
               nrow(fgsea_out), sum(fgsea_out$padj < 0.05, na.rm = TRUE)))
 } else {
-  rio::export(data.frame(), "results/enrichment/GSEA_HALLMARK.csv")
+  rio::export(data.frame(), "outputs/enrichment/GSEA_HALLMARK.csv")
   cat("GSEA Hallmark: vazio\n")
 }
 
@@ -187,9 +187,9 @@ if (length(ora_plots) > 0) {
       theme_bw(base_size = 12) +
       theme(axis.text.y = element_text(size = 8),
             strip.text = element_text(size = 10, face = "bold"))
-    ggsave("results/enrichment/enrichment_dotplot.png", p_ora,
+    ggsave("outputs/enrichment/enrichment_dotplot.png", p_ora,
            width = 11, height = 9, dpi = 300)
-    cat("\nFigura: results/enrichment/enrichment_dotplot.png\n")
+    cat("\nFigura: outputs/enrichment/enrichment_dotplot.png\n")
   }
 }
 
@@ -214,9 +214,9 @@ if (nrow(fgsea_res) > 0) {
            fill = "Direção") +
       theme_bw(base_size = 11) +
       theme(axis.text.y = element_text(size = 8))
-    ggsave("results/enrichment/GSEA_hallmark_barplot.png", p_h,
+    ggsave("outputs/enrichment/GSEA_hallmark_barplot.png", p_h,
            width = 10, height = 6, dpi = 300)
-    cat("Figura: results/enrichment/GSEA_hallmark_barplot.png\n")
+    cat("Figura: outputs/enrichment/GSEA_hallmark_barplot.png\n")
   }
 }
 

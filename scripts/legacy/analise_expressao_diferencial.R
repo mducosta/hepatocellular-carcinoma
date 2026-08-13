@@ -204,7 +204,7 @@ p_volcano <- ggplot(deg, aes(logFC, -log10(adj.P.Val), color = volcano_class)) +
   theme_classic(base_size = 14)
 
 print(p_volcano)
-ggsave("results/Volcano_LIHC_vs_Normal.png", p_volcano,
+ggsave("outputs/Volcano_LIHC_vs_Normal.png", p_volcano,
        width = 7, height = 6, dpi = 300)
 
 # ------------------------------------------------------------------
@@ -287,7 +287,7 @@ p_kegg_net <- ggraph(g_cc_kegg, layout = "kk") +
   labs(title = "KEGG Network - Via hsa05417 (Lipideos e Aterosclerose)")
 
 print(p_kegg_net)
-ggsave("results/Network_KEGG_DEGs_hsa05417.png", p_kegg_net,
+ggsave("outputs/Network_KEGG_DEGs_hsa05417.png", p_kegg_net,
        width = 9, height = 7, dpi = 300)
 
 # Plot Rede KEGG 3D (plotly)
@@ -381,11 +381,11 @@ kegg_down <- enrichKEGG(
 
 # Exportar tabelas KEGG
 if (!is.null(kegg_up) && nrow(kegg_up@result) > 0) {
-  rio::export(as.data.frame(kegg_up), "results/KEGG_enrichment_Up.csv")
+  rio::export(as.data.frame(kegg_up), "outputs/KEGG_enrichment_Up.csv")
   cat("KEGG Up - vias significativas:", sum(kegg_up@result$p.adjust < 0.05), "\n")
 }
 if (!is.null(kegg_down) && nrow(kegg_down@result) > 0) {
-  rio::export(as.data.frame(kegg_down), "results/KEGG_enrichment_Down.csv")
+  rio::export(as.data.frame(kegg_down), "outputs/KEGG_enrichment_Down.csv")
   cat("KEGG Down - vias significativas:", sum(kegg_down@result$p.adjust < 0.05), "\n")
 }
 
@@ -432,7 +432,7 @@ if (nrow(kegg_plot_df) > 0) {
     )
 
   print(p_kegg)
-  ggsave("results/KEGG_dotplot_enrichment.png", p_kegg,
+  ggsave("outputs/KEGG_dotplot_enrichment.png", p_kegg,
          width = 12, height = 8, dpi = 300)
 } else {
   message("Nenhuma via KEGG significativa para plotar.")
@@ -479,7 +479,7 @@ p_heatmap <- ggplot(df_long, aes(x = Sample, y = Gene, fill = Zscore)) +
   )
 
 print(p_heatmap)
-ggsave("results/Heatmap_Top20_DEGs.png", p_heatmap,
+ggsave("outputs/Heatmap_Top20_DEGs.png", p_heatmap,
        width = 10, height = 6, dpi = 300)
 
 # ------------------------------------------------------------------
@@ -522,7 +522,7 @@ p_sankey <- ggplot(sankey_df,
   )
 
 print(p_sankey)
-ggsave("results/Sankey_plot.png", p_sankey,
+ggsave("outputs/Sankey_plot.png", p_sankey,
        width = 10, height = 6, dpi = 300)
 
 # ------------------------------------------------------------------
@@ -550,7 +550,7 @@ p_pca1 <- ggplot(pca_df1, aes(PC1, PC2, color = Condition)) +
   theme(plot.title = element_text(face = "bold"))
 
 print(p_pca1)
-ggsave("results/PCA_All_Pathway_Genes.png", p_pca1,
+ggsave("outputs/PCA_All_Pathway_Genes.png", p_pca1,
        width = 8, height = 6, dpi = 300)
 
 # ------------------------------------------------------------------
@@ -586,7 +586,7 @@ p_pca2 <- ggplot(pca_df2, aes(PC1, PC2, color = Condition)) +
   theme(plot.title = element_text(face = "bold"))
 
 print(p_pca2)
-ggsave("results/PCA_DE_Genes.png", p_pca2,
+ggsave("outputs/PCA_DE_Genes.png", p_pca2,
        width = 8, height = 6, dpi = 300)
 
 # ------------------------------------------------------------------
@@ -629,7 +629,7 @@ pheatmap(
   fontsize_col      = 8,
   height            = 10,
   width             = 10,
-  filename          = "results/Heatmap_All_DEGs.png"
+  filename          = "outputs/Heatmap_All_DEGs.png"
 )
 
 # ------------------------------------------------------------------

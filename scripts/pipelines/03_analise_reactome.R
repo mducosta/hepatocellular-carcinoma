@@ -2,8 +2,8 @@
 # ENRIQUECIMENTO REACTOME — ORA + GSEA
 # LIHC vs Normal — Via Lipid and Atherosclerosis (hsa05417)
 # ===================================================================
-# Entrada: results/deg/DEG_LIHC_vs_Normal_full.csv
-# Saídas: results/enrichment/Reactome_*
+# Entrada: outputs/deg/DEG_LIHC_vs_Normal_full.csv
+# Saídas: outputs/enrichment/Reactome_*
 # ===================================================================
 
 suppressPackageStartupMessages({
@@ -18,7 +18,7 @@ suppressPackageStartupMessages({
 PROJECT_ROOT <- normalizePath(".", mustWork = TRUE)
 setwd(PROJECT_ROOT)
 
-DEG_FILE <- "results/deg/DEG_LIHC_vs_Normal_full.csv"
+DEG_FILE <- "outputs/deg/DEG_LIHC_vs_Normal_full.csv"
 stopifnot(file.exists(DEG_FILE))
 deg <- read.csv(DEG_FILE, stringsAsFactors = FALSE)
 
@@ -51,8 +51,8 @@ export_reactome <- function(obj, path) {
   }
 }
 
-cat("Reactome ORA up:\n");   export_reactome(ora_reactome_up,   "results/enrichment/Reactome_ORA_up.csv")
-cat("Reactome ORA down:\n"); export_reactome(ora_reactome_down, "results/enrichment/Reactome_ORA_down.csv")
+cat("Reactome ORA up:\n");   export_reactome(ora_reactome_up,   "outputs/enrichment/Reactome_ORA_up.csv")
+cat("Reactome ORA down:\n"); export_reactome(ora_reactome_down, "outputs/enrichment/Reactome_ORA_down.csv")
 
 # ------------------------------------------------------------------
 # 2) GSEA — Reactome (ranked by logFC)
@@ -73,11 +73,11 @@ gsea_reactome <- tryCatch(
 if (!is.null(gsea_reactome) && nrow(as.data.frame(gsea_reactome)) > 0) {
   gsea_df <- as.data.frame(gsea_reactome)
   gsea_df <- gsea_df[!is.na(gsea_df$ID), , drop = FALSE]
-  rio::export(gsea_df, "results/enrichment/Reactome_GSEA.csv")
+  rio::export(gsea_df, "outputs/enrichment/Reactome_GSEA.csv")
   cat(sprintf("Reactome GSEA: %d conjuntos (signif. padj<0.05: %d)\n",
               nrow(gsea_df), sum(gsea_df$p.adjust < 0.05, na.rm = TRUE)))
 } else {
-  rio::export(data.frame(), "results/enrichment/Reactome_GSEA.csv")
+  rio::export(data.frame(), "outputs/enrichment/Reactome_GSEA.csv")
   cat("Reactome GSEA: vazio\n")
 }
 
@@ -104,8 +104,8 @@ if (length(plots) > 0) {
          title = "Enriquecimento Reactome — ORA (up e down)") +
     theme_bw(base_size = 12) +
     theme(axis.text.y = element_text(size = 8))
-  ggsave("results/enrichment/Reactome_dotplot.png", p, width = 12, height = 9, dpi = 300)
-  cat("Figura: results/enrichment/Reactome_dotplot.png\n")
+  ggsave("outputs/enrichment/Reactome_dotplot.png", p, width = 12, height = 9, dpi = 300)
+  cat("Figura: outputs/enrichment/Reactome_dotplot.png\n")
 }
 
 cat("\n=== ENRIQUECIMENTO REACTOME CONCLUÍDO ===\n")

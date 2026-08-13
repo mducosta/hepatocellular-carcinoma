@@ -1,0 +1,34 @@
+# Dependências R (CRAN + Bioconductor)
+# O pipeline instala automaticamente os pacotes ausentes.
+# R >= 4.0
+
+# --- CRAN ---
+dplyr
+tidyr
+tibble
+stringr
+ggplot2
+ggrepel
+pheatmap
+scales
+igraph
+ggraph
+readr
+readxl
+rio
+uwot
+fgsea
+survival
+survminer
+
+# --- Bioconductor ---
+limma
+edgeR
+clusterProfiler
+org.Hs.eg.db
+KEGGREST
+STRINGdb
+GSVA
+ReactomePA
+sva
+msigdbr

@@ -116,7 +116,7 @@ Pipeline executado com sucesso. Todos os outputs gerados. Resumo expandido corri
 ## 3. ARQUIVOS GERADOS (35 arquivos)
 
 ```
-results/
+outputs/
 ├── audit/
 │   ├── AUDITORIA_CODIGO_LINHA_A_LINHA.md
 │   ├── AUDITORIA_REANALISE_LIHC.md

@@ -1,5 +1,5 @@
 suppressPackageStartupMessages({library(ggplot2); library(dplyr)})
-d <- read.csv("results/enrichment/GSEA_KEGG.csv", stringsAsFactors = FALSE)
+d <- read.csv("outputs/enrichment/GSEA_KEGG.csv", stringsAsFactors = FALSE)
 d <- d[!is.na(d$ID) & d$ID != "" & !is.na(d$NES), ]
 d <- d[!is.na(d$p.adjust) & d$p.adjust < 0.05, ]
 cat("GSEA KEGG significativos:", nrow(d), "\n")
@@ -17,7 +17,7 @@ if (nrow(d) > 0) {
          subtitle = "Genes da via hsa05417 ordenados por logFC | NES < 0 = down em LIHC") +
     theme_bw(base_size = 11) +
     theme(axis.text.y = element_text(size = 9))
-  ggsave("results/enrichment/GSEA_KEGG_barplot.png", p,
+  ggsave("outputs/enrichment/GSEA_KEGG_barplot.png", p,
          width = 9, height = 4.5, dpi = 300)
-  cat("Figura salva: results/enrichment/GSEA_KEGG_barplot.png\n")
+  cat("Figura salva: outputs/enrichment/GSEA_KEGG_barplot.png\n")
 }

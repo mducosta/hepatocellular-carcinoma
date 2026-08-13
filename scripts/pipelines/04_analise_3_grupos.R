@@ -7,7 +7,7 @@
 #   * DE com limma para 3 contrastes
 #   * Correção de lote ComBat (opcional) para LIHC × Normal
 #   * Análise de sobrevivência (Kaplan-Meier) dos genes-chave
-# Saídas em results/3grupos/
+# Saídas em outputs/3grupos/
 # ===================================================================
 
 suppressPackageStartupMessages({
@@ -18,9 +18,9 @@ suppressPackageStartupMessages({
 
 PROJECT_ROOT <- normalizePath(".", mustWork = TRUE)
 setwd(PROJECT_ROOT)
-dir.create("results/3grupos", showWarnings = FALSE, recursive = TRUE)
+dir.create("outputs/3grupos", showWarnings = FALSE, recursive = TRUE)
 
-DATA_FILE <- "liver.tsv"
+DATA_FILE <- "dados/raw/liver.tsv"
 stopifnot(file.exists(DATA_FILE))
 
 liver <- read.delim(DATA_FILE, check.names = FALSE, stringsAsFactors = FALSE)
@@ -80,13 +80,13 @@ p1 <- ggplot(pca_df, aes(PC1, PC2, color = Group)) +
                                 LIHC = "#A23B72")) +
   labs(title = "PCA — 3 grupos", subtitle = sprintf("PC1 %s%% | PC2 %s%%", pv1, pv2)) +
   theme_classic(base_size = 14)
-ggsave("results/3grupos/PCA_3grupos.png", p1, width = 8, height = 6, dpi = 300)
+ggsave("outputs/3grupos/PCA_3grupos.png", p1, width = 8, height = 6, dpi = 300)
 
 p2 <- ggplot(pca_df, aes(PC1, PC2, color = Study, shape = Group)) +
   geom_point(size = 2.5, alpha = 0.7) +
   labs(title = "PCA — colorido por estudo (lote)") +
   theme_classic(base_size = 14)
-ggsave("results/3grupos/PCA_3grupos_batch.png", p2, width = 8, height = 6, dpi = 300)
+ggsave("outputs/3grupos/PCA_3grupos_batch.png", p2, width = 8, height = 6, dpi = 300)
 
 # ------------------------------------------------------------------
 # DE com limma — 3 contrastes
@@ -114,7 +114,7 @@ for (coef in colnames(cm)) {
     res$adj.P.Val < 0.05 & res$logFC < -1 ~ "Down",
     TRUE ~ "NS"
   )
-  fname <- paste0("results/3grupos/DEG_", coef, ".csv")
+  fname <- paste0("outputs/3grupos/DEG_", coef, ".csv")
   rio::export(res, fname)
   n_up <- sum(res$regulation == "Up")
   n_down <- sum(res$regulation == "Down")
@@ -123,7 +123,7 @@ for (coef in colnames(cm)) {
                                Total = n_up + n_down)
 }
 rio::export(as.data.frame(do.call(rbind, results_summary)),
-            "results/3grupos/resumo_DEGs.csv")
+            "outputs/3grupos/resumo_DEGs.csv")
 
 # ------------------------------------------------------------------
 # ComBat — correção de lote para LIHC × Normal (TCGA × GTEx)
@@ -155,7 +155,7 @@ if (!is.null(E_combat)) {
     res_c$adj.P.Val < 0.05 & res_c$logFC < -1 ~ "Down",
     TRUE ~ "NS"
   )
-  rio::export(res_c, "results/3grupos/DEG_LIHC_vs_Normal_ComBat.csv")
+  rio::export(res_c, "outputs/3grupos/DEG_LIHC_vs_Normal_ComBat.csv")
   cat(sprintf("ComBat: %d DEGs (Up=%d Down=%d)\n",
               sum(res_c$regulation != "NS"),
               sum(res_c$regulation == "Up"),
@@ -194,12 +194,12 @@ for (g in genes_km) {
   p_km <- ggsurvplot(fit_km, data = df, pval = TRUE, risk.table = TRUE,
                      palette = c("#A23B72", "#2E86AB"),
                      title = paste(g, "— Sobrevida global (LIHC)"))
-  ggsave(paste0("results/3grupos/KM_OS_", g, ".png"),
+  ggsave(paste0("outputs/3grupos/KM_OS_", g, ".png"),
          p_km$plot, width = 7, height = 5, dpi = 300)
 }
 km_df <- do.call(rbind, km_results)
 km_df <- km_df %>% arrange(p_logrank)
-rio::export(km_df, "results/3grupos/survival_logrank.csv")
+rio::export(km_df, "outputs/3grupos/survival_logrank.csv")
 print(km_df)
 
 cat("\n=== ANÁLISE 3 GRUPOS CONCLUÍDA ===\n")

@@ -1,7 +1,6 @@
 # ============================================================
 # R
 # ============================================================
-# Histórico e dados de sessão
 .Rhistory
 .Rapp.history
 .RData
@@ -10,32 +9,44 @@
 *.RData
 *.rda
 *.rds
-
-# Projetos RStudio
 .Rproj.user/
 *.Rproj
-.Rproj.user
 
 # Saídas temporárias do R
 *.Rout
 *.Rout.save
-*.Rhistory
 
 # ============================================================
-# Dados de entrada (grandes — baixar do UCSC Xena)
-# Instruções em data/README.md e bookmark no README
+# Dados (brutos/intermediários — baixar do UCSC Xena)
+# Bookmark: https://xenabrowser.net/?bookmark=98f9d901fdb2e95391fb4f5fdfac9097
 # ============================================================
-liver.tsv
-liver.csv
-liver.xlsx
-liver_lip_aterosclerose.tsv
-liver_lip_aterosclero.tsv
-data/*.tsv
-data/*.csv
-data/*.xlsx
-data/*.xls
-data/*.tsv.gz
-data/*.txt.gz
+dados/raw/
+dados/interim/
+dados/external/
+dados/processed/*.tsv
+dados/processed/*.csv
+liver*.tsv
+liver*.csv
+liver*.xlsx
+
+# ============================================================
+# Configurações e credenciais (segredos)
+# ============================================================
+.env
+config/credenciais/
+*.key
+*.pem
+
+# ============================================================
+# Logs
+# ============================================================
+logs/*.log
+
+# ============================================================
+# Saídas pesadas (modelos, workspaces)
+# ============================================================
+outputs/audit/workspace_*.RData
+outputs/modelos/
 
 # ============================================================
 # Sistema operacional / editores

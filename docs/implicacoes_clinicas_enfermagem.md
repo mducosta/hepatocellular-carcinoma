@@ -72,8 +72,8 @@
 
 ## 4. Referência aos resultados do repositório
 
-- DEGs: `results/deg/DEG_significant_LA.csv`
-- Kaplan-Meier: `results/3grupos/KM_OS_*.png` e `results/3grupos/survival_logrank.csv`
-- GSVA: `results/enrichment/GSVA_summary.csv`
-- GSEA: `results/enrichment/GSEA_KEGG.csv`
-- Reactome: `results/enrichment/Reactome_ORA_*.csv`
+- DEGs: `outputs/deg/DEG_significant_LA.csv`
+- Kaplan-Meier: `outputs/3grupos/KM_OS_*.png` e `outputs/3grupos/survival_logrank.csv`
+- GSVA: `outputs/enrichment/GSVA_summary.csv`
+- GSEA: `outputs/enrichment/GSEA_KEGG.csv`
+- Reactome: `outputs/enrichment/Reactome_ORA_*.csv`
