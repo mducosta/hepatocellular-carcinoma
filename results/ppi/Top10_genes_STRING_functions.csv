@@ -1,0 +1,11 @@
+gene_symbol,logFC,adj.P.Val,regulation,STRING_function
+BAX,1.27786489283074,4.51621546680025e-49,Up_LIHC,Regulador de apoptose; permeabilização da membrana mitocondrial; família BCL-2
+HSP90AB1,1.12172973638829,7.50012408896874e-40,Up_LIHC,Chaperona molecular; dobramento proteico; família HSP90; estabilidade proteica
+PYCARD,1.63052394678492,6.95978710174192e-22,Up_LIHC,Componente do inflamassomo; apoptose; ativação de caspases; imunidade inata
+PPARG,1.06711071692536,2.25025105767744e-20,Up_LIHC,Receptor nuclear; metabolismo lipídico; diferenciação de adipócitos; anti-inflamatório
+MMP1,2.35580736634639,4.89866484977135e-18,Up_LIHC,Colagenase; degradação da matriz extracelular; metaloproteinase; remodelamento tecidual
+CALML5,-3.08321899482631,3.24124717080917e-83,Down_LIHC,Sinalização de cálcio; calmodulina-like; domínio EF-hand; proliferação celular
+MIB2,-1.32572993348113,1.54068613644287e-57,Down_LIHC,E3 ubiquitina ligase; sinalização Notch; ubiquitinação proteica
+CXCL2,-3.60952308450358,4.57135714153011e-56,Down_LIHC,Quimiocina; resposta inflamatória; quimiotaxia de neutrófilos; resposta imune
+CALML6,-2.82335728011826,1.65668046472739e-52,Down_LIHC,Sinalização de cálcio; calmodulina-like; domínio EF-hand
+IKBKB,-1.08475018477455,5.27278343296061e-51,Down_LIHC,Sinalização NF-kappaB; complexo IKK; resposta inflamatória; regulação imune

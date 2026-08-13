@@ -1,0 +1,42 @@
+# ============================================================
+# R
+# ============================================================
+# Histórico e dados de sessão
+.Rhistory
+.Rapp.history
+.RData
+.RDataTmp
+.Ruserdata
+*.RData
+*.rda
+*.rds
+
+# Projetos RStudio
+.Rproj.user/
+*.Rproj
+.Rproj.user
+
+# Saídas temporárias do R
+*.Rout
+*.Rout.save
+*.Rhistory
+
+# ============================================================
+# Dados de entrada (grandes — baixar do UCSC Xena)
+# Instruções em data/README.md
+# ============================================================
+data/*.tsv
+data/*.csv
+data/*.xlsx
+data/*.xls
+data/*.tsv.gz
+data/*.txt.gz
+
+# ============================================================
+# Sistema operacional / editores
+# ============================================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*~

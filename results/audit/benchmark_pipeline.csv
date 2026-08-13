@@ -1,0 +1,17 @@
+metric,value
+tempo_total_execucao_seg,462.44
+num_amostras_total,479
+num_amostras_LIHC,369
+num_amostras_Normal,110
+num_genes_total_matriz,212
+num_genes_via_KEGG,216
+num_genes_via_na_matriz,212
+num_DEGs_up,12
+num_DEGs_down,30
+num_DEGs_total,42
+num_DEGs_LA_significativos,42
+num_genes_mapeados_STRING,41
+num_interacoes_STRING_700,62
+num_hubs_PPI,6
+metodo_DE,limma_direto
+batch_TGCA_GTEx,identificado
