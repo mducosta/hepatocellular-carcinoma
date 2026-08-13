@@ -74,7 +74,7 @@ Duas coortes públicas foram combinadas a partir do UCSC Xena e restritas à via
 | Genes da via KEGG `hsa05417` | 216 |
 | Genes da via presentes na matriz | 212 |
 | Escala dos dados | log2 (limma direto) |
-| Tempo de execução | ≈ 462 s |
+| Tempo de execução | ≈ 677 s |
 
 ### 4.2 Genes diferencialmente expressos (DEGs)
 
@@ -131,7 +131,8 @@ O script instala automaticamente qualquer pacote ausente (CRAN/Bioconductor).
 **Execução:**
 
 ```bash
-# 1) Baixe os dados (veja data/README.md) e salve como data/liver_lip_aterosclerose.tsv
+# 1) Baixe o dataset pelo bookmark (veja data/README.md) e salve como liver.tsv
+#    Bookmark: https://xenabrowser.net/?bookmark=98f9d901fdb2e95391fb4f5fdfac9097
 # 2) Rode o pipeline completo
 Rscript pipeline_hepato.R
 ```
@@ -275,13 +276,23 @@ metabolic process*, *xenobiotic metabolic process*, *epoxygenase P450 pathway*
 
 ### 7.6 GSVA (enriquecimento por amostra) — primeiro procedimento
 
-O GSVA está **implementado no pipeline** (`pipeline_hepato.R`, seção 15) e
-calcula escores de enriquecimento por amostra para os conjuntos Hallmark e para
-a própria via `hsa05417`, comparando LIHC × Normal (teste t + FDR).
+O GSVA calcula escores de enriquecimento por amostra (34 conjuntos: Hallmark +
+a via `hsa05417`), comparando LIHC × Normal (teste t + correção BH).
 
-> Os escores GSVA exigem a matriz de expressão (arquivo de dados) e, portanto,
-> são gerados na re-execução do pipeline. Saídas: `GSVA_scores.csv` e
-> `GSVA_summary.csv` em [`results/enrichment/`](results/enrichment/).
+**Conjuntos com maior diferença LIHC × Normal:**
+
+| Hallmark | Direção | FDR |
+|----------|---------|-----|
+| Coagulation | ⬆️ LIHC | 2,6×10⁻³³ |
+| IL6/JAK/STAT3 signaling | ⬇️ LIHC | 6,0×10⁻²⁸ |
+| Angiogenesis | ⬆️ LIHC | 5,5×10⁻²¹ |
+| Bile acid metabolism | ⬇️ LIHC | 7,1×10⁻²⁰ |
+| MYC targets V1 | ⬆️ LIHC | 3,8×10⁻¹⁹ |
+| TNFα signaling via NF-κB | ⬇️ LIHC | 6,4×10⁻¹⁸ |
+| Oxidative phosphorylation | ⬆️ LIHC | 8,8×10⁻¹⁷ |
+
+> Arquivos: [`GSVA_scores.csv`](results/enrichment/GSVA_scores.csv) e
+> [`GSVA_summary.csv`](results/enrichment/GSVA_summary.csv).
 
 ### 7.7 Enriquecimento funcional — ORA (GO/KEGG) — análise complementar
 

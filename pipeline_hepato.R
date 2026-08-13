@@ -42,7 +42,8 @@ find_project_root <- function() {
   candidates <- unique(candidates)
   for (d in candidates) {
     d <- normalizePath(d, mustWork = FALSE)
-    data_patterns <- c("liver_lip_aterosclerose\\.(tsv|csv|xlsx)$",
+    data_patterns <- c("liver\\.(tsv|csv|xlsx)$",
+                       "liver_lip_aterosclerose\\.(tsv|csv|xlsx)$",
                        "liver_lip_aterosclero\\.(tsv|csv|xlsx)$")
     # Buscar também na subpasta data/ (estrutura padrão do repositório)
     search_dirs <- unique(c(d, file.path(d, "data")))
@@ -133,6 +134,9 @@ log_entry("PACKAGES", "OK", paste(length(required_packages), "pacotes carregados
 # 2) LOCALIZAR ARQUIVO DE DADOS (PORTÁTIL)
 # ------------------------------------------------------------------
 data_patterns <- c(
+  "liver.tsv",
+  "liver.csv",
+  "liver.xlsx",
   "liver_lip_aterosclerose.tsv",
   "liver_lip_aterosclerose.csv",
   "liver_lip_aterosclerose.xlsx",
@@ -149,7 +153,7 @@ data_files_found <- unlist(lapply(data_search_dirs, function(d) {
 }))
 data_files_found <- data_files_found[
   tolower(basename(data_files_found)) %in% tolower(data_patterns) |
-  grepl("liver_lip", tolower(basename(data_files_found)))
+  grepl("^liver", tolower(basename(data_files_found)))
 ]
 
 if (length(data_files_found) == 0) {
@@ -1193,16 +1197,15 @@ sym_rank_vec <- ranked_deg$logFC
 names(sym_rank_vec) <- ranked_deg$gene_symbol
 sym_rank_vec <- sym_rank_vec[!duplicated(names(sym_rank_vec))]
 
-entrez_rank_map <- map_to_entrez(ranked_deg$gene_symbol)
-if (length(entrez_rank_map) > 0) {
+entrez_map_df <- tryCatch(
+  bitr(ranked_deg$gene_symbol, fromType = "SYMBOL", toType = "ENTREZID",
+       OrgDb = org.Hs.eg.db, drop = TRUE),
+  error = function(e) data.frame(SYMBOL = character(), ENTREZID = character()))
+if (nrow(entrez_map_df) > 0) {
   entrez_df <- data.frame(SYMBOL = ranked_deg$gene_symbol,
                           logFC  = ranked_deg$logFC,
                           stringsAsFactors = FALSE) |>
-    dplyr::inner_join(
-      data.frame(SYMBOL = names(entrez_rank_map),
-                 ENTREZID = unname(entrez_rank_map),
-                 stringsAsFactors = FALSE),
-      by = "SYMBOL") |>
+    dplyr::inner_join(entrez_map_df, by = "SYMBOL") |>
     dplyr::distinct(ENTREZID, .keep_all = TRUE) |>
     dplyr::arrange(dplyr::desc(logFC))
   entrez_rank_vec <- entrez_df$logFC

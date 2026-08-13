@@ -24,7 +24,7 @@
 | Enriquecimento KEGG (ORA) | ✅ | 47 vias (Up), 107 vias (Down) |
 | GO BP (ORA) | ✅ | 78 termos (Up), 44 termos (Down) |
 | Heatmap | ✅ | Top 42 DEGs |
-| Benchmark | ✅ | 462.44 segundos |
+| Benchmark | ✅ | 676.92 segundos |
 
 ---
 

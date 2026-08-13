@@ -23,8 +23,13 @@
 
 # ============================================================
 # Dados de entrada (grandes — baixar do UCSC Xena)
-# Instruções em data/README.md
+# Instruções em data/README.md e bookmark no README
 # ============================================================
+liver.tsv
+liver.csv
+liver.xlsx
+liver_lip_aterosclerose.tsv
+liver_lip_aterosclero.tsv
 data/*.tsv
 data/*.csv
 data/*.xlsx
