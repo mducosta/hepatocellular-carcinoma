@@ -160,7 +160,7 @@ O script instala automaticamente qualquer pacote ausente (CRAN/Bioconductor).
 
 ```bash
 # 1) Baixe o dataset pelo bookmark e salve como dados/raw/liver.tsv
-#    Bookmark: https://xenabrowser.net/?bookmark=98f9d901fdb2e95391fb4f5fdfac9097
+#    Bookmark: https://xenabrowser.net/?bookmark=337fe0532808c6fc66cf017f13885c4a
 #    (passo a passo em docs/tutorial_dados_xena.md)
 # 2) Rode o pipeline completo
 Rscript pipeline_hepato.R
