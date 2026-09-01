@@ -24,12 +24,12 @@ transcriptoma completo:
 4. **File → Download** e salve como `liver_full.tsv`.
 5. Ajuste o script para apontar para o novo arquivo (ou renomeie para `liver.tsv`).
 
-> ⚠️ O arquivo completo é grande (~100–300 MB). O `.gitignore` já ignora
-> `data/*.tsv` e arquivos `liver*.tsv`.
+> ⚠️ O arquivo completo é grande (~100–300 MB). O `.gitignore` ignora os dados
+> brutos, **exceto** `dados/raw/liver.tsv` (que é versionado no repositório).
 
 ### Bookmark oficial (via hsa05417, usado no estudo)
 ```
-https://xenabrowser.net/?bookmark=98f9d901fdb2e95391fb4f5fdfac9097
+https://xenabrowser.net/?bookmark=337fe0532808c6fc66cf017f13885c4a
 ```
 Para o transcriptoma completo, crie um novo bookmark após adicionar os datasets
 completos (File → Save bookmark).
@@ -53,7 +53,7 @@ completos (File → Save bookmark).
 2. Selecione o **tipo de dado** desejado (methylation, copy number, mutation, miRNA).
 3. Escolha **"Liver Hepatocellular Carcinoma"** e o tipo de amostra (Primary Tumor).
 4. **File → Download** (TSV).
-5. Salve na pasta `data/` e documente o bookmark correspondente.
+5. Salve na pasta `dados/` e documente o bookmark correspondente.
 
 ---
 

@@ -12,7 +12,7 @@
 |------------------|-----------|--------------------|
 | **Coagulação aumentada no tumor** | GSVA: HALLMARK_COAGULATION ↑ (FDR 2,6×10⁻³³) | Risco de tromboembolismo venoso (TEV) |
 | **Angiogênese e proliferação ↑** | GSVA: Angiogenesis ↑, MYC targets ↑ | Agressividade tumoral; base de anti-angiogênicos |
-| **Perda de metabolismo de xenobióticos/CYP450** | GSEA: hsa00982 (FDR 5,5×10⁻³); ORA: epoxygenase P450 | Perda de função hepatocitária; cuidado com fármacos metabolizados no fígado |
+| **Perda de metabolismo de xenobióticos/CYP450** | GSEA: hsa00982 (FDR 5,7×10⁻³); ORA: epoxygenase P450 | Perda de função hepatocitária; cuidado com fármacos metabolizados no fígado |
 | **Inflamação (IL-4/IL-13, TLR) ↑** | Reactome ORA up: interleucinas; KEGG: IL-17 | Processo inflamatório crônico no tumor |
 | **Remodelamento de matriz (MMP1/MMP9) ↑** | DEGs up; **associados a pior sobrevida** | Invasão/metástase; prognóstico |
 | **Bile acid metabolism ↓** | GSVA: HALLMARK_BILE_ACID_METABOLISM ↓ | Disfunção hepatobiliar |

@@ -98,9 +98,21 @@ required_packages <- c(
 
 log_entry("PACKAGES", "INFO", "Instalando/carregando pacotes...")
 
+bioc_packages <- c(
+  "limma", "edgeR", "clusterProfiler", "org.Hs.eg.db", "KEGGREST",
+  "STRINGdb", "fgsea", "GSVA", "ReactomePA", "sva"
+)
+
 for (pkg in required_packages) {
   if (!requireNamespace(pkg, quietly = TRUE)) {
-    install.packages(pkg, repos = "https://cran.r-project.org")
+    if (pkg %in% bioc_packages) {
+      if (!requireNamespace("BiocManager", quietly = TRUE)) {
+        install.packages("BiocManager", repos = "https://cran.r-project.org")
+      }
+      BiocManager::install(pkg, update = FALSE, ask = FALSE)
+    } else {
+      install.packages(pkg, repos = "https://cran.r-project.org")
+    }
   }
 }
 

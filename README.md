@@ -22,7 +22,8 @@ de auditoria.
 9. [Documentação / auditoria](#9-documentação--auditoria)
 10. [Declaração de uso de IA](#10-declaração-de-uso-de-inteligência-artificial)
 11. [Limitações](#11-limitações)
-12. [Licença](#12-licença)
+12. [Autores](#12-autores)
+13. [Licença](#13-licença)
 
 ---
 
@@ -74,7 +75,7 @@ Duas coortes públicas foram combinadas a partir do UCSC Xena e restritas à via
 | Genes da via KEGG `hsa05417` | 216 |
 | Genes da via presentes na matriz | 212 |
 | Escala dos dados | log2 (limma direto) |
-| Tempo de execução | ≈ 677 s |
+| Tempo de execução | ≈ 759 s |
 
 ### 4.2 Genes diferencialmente expressos (DEGs)
 
@@ -95,7 +96,7 @@ Duas coortes públicas foram combinadas a partir do UCSC Xena e restritas à via
 .
 ├── README.md                         # Guia único do projeto (figuras + fluxogramas)
 ├── requirements.txt                  # Dependências R (CRAN + Bioconductor)
-├── .gitignore                        # O que não versionar (dados, credenciais, logs)
+├── .gitignore                        # O que não versionar (credenciais, logs, outros dados)
 ├── LICENSE                           # MIT
 ├── pipeline_hepato.R                 # Pipeline principal (entry point)
 │
@@ -110,7 +111,7 @@ Duas coortes públicas foram combinadas a partir do UCSC Xena e restritas à via
 │       └── analise_expressao_diferencial.R
 │
 ├── dados/
-│   ├── raw/                          # 🔒 Dados brutos (imutáveis) — liver.tsv
+│   ├── raw/                          # Dados brutos — liver.tsv (versionado)
 │   ├── interim/                      # ⚙️ Em processamento
 │   ├── processed/                    # ✅ Limpos e prontos
 │   └── external/                     # 🌐 De terceiros
@@ -144,32 +145,88 @@ Duas coortes públicas foram combinadas a partir do UCSC Xena e restritas à via
 
 ---
 
-## 6. Pré-requisitos e execução
+## 6. Como rodar o projeto (guia passo a passo)
 
-R ≥ 4.0 e os pacotes:
+> 🧭 **Resumo em linguagem simples:** este projeto analisa dados públicos de
+> expressão gênica do fígado. Para reproduzir os resultados, basta ter o **R**
+> instalado, baixar **um arquivo de dados** e rodar **4 comandos** no terminal.
+> Não é preciso editar código — os scripts fazem tudo e salvam os resultados
+> automaticamente na pasta `outputs/`.
 
-```
-dplyr, tidyr, tibble, stringr, ggplot2, ggrepel, limma, edgeR, igraph,
-ggraph, pheatmap, scales, clusterProfiler, org.Hs.eg.db, KEGGREST,
-STRINGdb, readr, readxl, rio, uwot, fgsea, msigdbr, GSVA
-```
+### 6.1 O que você precisa
 
-O script instala automaticamente qualquer pacote ausente (CRAN/Bioconductor).
+| Item | Como obter |
+|------|-----------|
+| **R** (versão 4.0 ou superior) | Instale em <https://cran.r-project.org> |
+| **Arquivo de dados** `liver.tsv` | Baixe do UCSC Xena (passo a passo em [`docs/tutorial_dados_xena.md`](docs/tutorial_dados_xena.md)) |
+| **Pacotes R** | Instalados automaticamente na 1ª execução (tabela 6.3) |
 
-**Execução:**
+### 6.2 Passo a passo
 
-```bash
-# 1) Baixe o dataset pelo bookmark e salve como dados/raw/liver.tsv
-#    Bookmark: https://xenabrowser.net/?bookmark=337fe0532808c6fc66cf017f13885c4a
-#    (passo a passo em docs/tutorial_dados_xena.md)
-# 2) Rode o pipeline completo
-Rscript pipeline_hepato.R
+1. **Instale o R** (se ainda não tiver): <https://cran.r-project.org>.
+2. **Baixe o dataset** pelo bookmark abaixo e salve o arquivo como
+   `dados/raw/liver.tsv` (o arquivo já vem pronto — não precisa abrir nem editar):
 
-# 3) Scripts de análise complementar (na ordem):
-Rscript scripts/pipelines/02_analise_enriquecimento_gsea.R
-Rscript scripts/pipelines/03_analise_reactome.R
-Rscript scripts/pipelines/04_analise_3_grupos.R
-```
+   ```
+   https://xenabrowser.net/?bookmark=337fe0532808c6fc66cf017f13885c4a
+   ```
+
+3. **Abra o terminal** na pasta do projeto e rode, em ordem:
+
+   ```bash
+   # (1) Pipeline principal — QC + DEGs + PPI + GSEA/GSVA + ORA + figuras
+   Rscript pipeline_hepato.R
+
+   # (2) Enriquecimento funcional e GSEA (resultados detalhados)
+   Rscript scripts/pipelines/02_analise_enriquecimento_gsea.R
+
+   # (3) Enriquecimento Reactome
+   Rscript scripts/pipelines/03_analise_reactome.R
+
+   # (4) Análise em 3 grupos + sobrevivência (Kaplan-Meier)
+   Rscript scripts/pipelines/04_analise_3_grupos.R
+   ```
+
+4. **Confira os resultados** na pasta `outputs/` (tabelas `.csv` e figuras `.png`).
+
+> 💡 Na primeira vez, o script pode levar alguns minutos e **instala sozinho**
+> os pacotes que estiverem faltando (isso é normal e só acontece uma vez).
+> É preciso estar conectado à internet.
+
+### 6.3 Pacotes utilizados
+
+O projeto usa **27 pacotes R**. A tabela abaixo lista todos, a fonte
+(CRAN ou Bioconductor) e a função de cada um.
+
+| Pacote | Fonte | Para que serve |
+|--------|-------|----------------|
+| dplyr | CRAN | Manipulação de tabelas |
+| tidyr | CRAN | Organização de dados |
+| tibble | CRAN | Tabelas modernas |
+| stringr | CRAN | Trabalhar com texto |
+| ggplot2 | CRAN | Gráficos |
+| ggrepel | CRAN | Rótulos que não se sobrepõem |
+| limma | Bioconductor | Expressão diferencial |
+| edgeR | Bioconductor | Dados de contagem / normalização |
+| igraph | CRAN | Redes e grafos |
+| ggraph | CRAN | Visualização de redes |
+| pheatmap | CRAN | Heatmaps |
+| scales | CRAN | Escalas de eixos e cores |
+| clusterProfiler | Bioconductor | Enriquecimento funcional (ORA/GSEA) |
+| org.Hs.eg.db | Bioconductor | Anotações gênicas humanas |
+| KEGGREST | Bioconductor | Acesso ao banco KEGG |
+| STRINGdb | Bioconductor | Rede de interação proteína-proteína |
+| readr | CRAN | Leitura de arquivos de texto |
+| readxl | CRAN | Leitura de arquivos Excel |
+| rio | CRAN | Importar/exportar vários formatos |
+| uwot | CRAN | Redução de dimensionalidade (UMAP) |
+| fgsea | Bioconductor | GSEA rápida (Hallmark) |
+| msigdbr | CRAN | Conjuntos gênicos MSigDB |
+| GSVA | Bioconductor | Enriquecimento por amostra (GSVA) |
+| ReactomePA | Bioconductor | Enriquecimento Reactome |
+| survival | CRAN | Modelos de sobrevivência |
+| survminer | CRAN | Curvas de Kaplan-Meier |
+| sva | Bioconductor | Correção de efeito de lote (ComBat) |
 
 ---
 
@@ -292,14 +349,15 @@ NES negativo (down-reguladas em LIHC):
 
 | Via | NES | FDR |
 |-----|----:|----:|
-| Retinol metabolism | −1,80 | 4,3×10⁻³ |
-| Drug metabolism — cytochrome P450 | −1,79 | 7,9×10⁻³ |
-| Metabolism of xenobiotics by cytochrome P450 | −1,77 | 1,1×10⁻² |
-| Chemical carcinogenesis — DNA adducts | −1,77 | 1,1×10⁻² |
+| Retinol metabolism | −1,85 | 4,2×10⁻³ |
+| Drug metabolism — cytochrome P450 | −1,75 | 5,7×10⁻³ |
+| Metabolism of xenobiotics by cytochrome P450 | −1,73 | 8,3×10⁻³ |
+| Chemical carcinogenesis — DNA adducts | −1,73 | 8,3×10⁻³ |
 
-**GSEA GO (BP)** — 7 termos significativos, incluindo *long-chain fatty acid
-metabolic process*, *xenobiotic metabolic process*, *epoxygenase P450 pathway*
-(NES < 0, down) e *phagocytosis* / *Wnt signaling pathway* (NES > 0, up).
+**GSEA GO (BP)** — 5 termos significativos (FDR < 0,05), todos down-regulados
+em LIHC (NES ≈ −1,84): *long-chain fatty acid metabolic process*, *xenobiotic
+metabolic process*, *arachidonate metabolic process*, *epoxygenase P450 pathway*
+e *olefinic compound metabolic process*.
 
 **GSEA Hallmark (MSigDB)** — nenhum conjunto alcançou FDR < 0,05
 (21 conjuntos testados).
@@ -417,8 +475,13 @@ script `scripts/pipelines/04_analise_3_grupos.R`:
 | **LIHC × Adjacente** | **45 (12/33)** — mesma plataforma, sem lote |
 | Adjacente × Normal | 43 (27/16) |
 
-**Sobrevivência (Kaplan-Meier, LIHC):** MMP1 (p = 0,0009), CXCL2 (p = 0,016)
-e MMP9 (p = 0,023) associaram-se a pior sobrevida global.
+**Sobrevivência (Kaplan-Meier, LIHC):** MMP1 (p = 0,00089), CXCL2 (p = 0,016)
+e MMP9 (p = 0,023) associaram-se a menor sobrevida global. A elevada expressão
+de MMP1 esteve associada a pior sobrevida global (teste de log-rank,
+p = 0,00089) — trata-se de uma **associação**, não de relação causal. Para
+quantificar o efeito prognóstico, recomenda-se análise de regressão de Cox
+(hazard ratio, IC95% e p-valor), idealmente ajustada por variáveis clínicas
+(idade, estádio, sexo e tratamento).
 
 ![Kaplan-Meier MMP1](outputs/3grupos/KM_OS_MMP1.png)
 
@@ -495,6 +558,16 @@ Relatórios em [`outputs/audit/`](outputs/audit/):
 
 ---
 
-## 12. Licença
+## 12. Autores
 
-[MIT](LICENSE) © 2026 Ryan de Paulo Santos.
+- **Maria Eduarda Costa**
+- **Victória Oliveira Nascimento**
+- **Ryan de Paulo Santos**
+- **Heloisa Alves Guimarães**
+
+---
+
+## 13. Licença
+
+[MIT](LICENSE) © 2026 Maria Eduarda Costa, Victória Oliveira Nascimento, Ryan
+de Paulo Santos e Heloisa Alves Guimarães.

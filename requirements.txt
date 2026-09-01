@@ -17,7 +17,7 @@ readr
 readxl
 rio
 uwot
-fgsea
+msigdbr
 survival
 survminer
 
@@ -28,7 +28,7 @@ clusterProfiler
 org.Hs.eg.db
 KEGGREST
 STRINGdb
+fgsea
 GSVA
 ReactomePA
 sva
-msigdbr

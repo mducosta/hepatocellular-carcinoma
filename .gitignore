@@ -18,16 +18,18 @@
 
 # ============================================================
 # Dados (brutos/intermediários — baixar do UCSC Xena)
-# Bookmark: https://xenabrowser.net/?bookmark=98f9d901fdb2e95391fb4f5fdfac9097
+# Bookmark: https://xenabrowser.net/?bookmark=337fe0532808c6fc66cf017f13885c4a
+# APENAS dados/raw/liver.tsv é versionado; os demais dados brutos são ignorados.
 # ============================================================
-dados/raw/
+dados/raw/*
+!dados/raw/liver.tsv
 dados/interim/
 dados/external/
 dados/processed/*.tsv
 dados/processed/*.csv
-liver*.tsv
 liver*.csv
 liver*.xlsx
+liver_lip_ateroscler*.tsv
 
 # ============================================================
 # Configurações e credenciais (segredos)
