@@ -1,8 +1,10 @@
 # AUDITORIA DO CÓDIGO — LINHA A LINHA
 
-**Arquivo:** análise_expressão_diferencial.R (versão corrigida)  
-**Data:** 2026-06-26  
-**Status:** CÓDIGO CORRIGIDO — Depende de dados de expressão gênica
+**Arquivo:** pipeline_hepato.R (versão atual)  
+**Data:** 2026-09-01  
+**Status:** ✅ CÓDIGO EXECUTADO COM SUCESSO (resultados em `outputs/`)
+
+> Nota: os números de linha abaixo são aproximados, pois o arquivo evoluiu.
 
 ---
 
@@ -24,12 +26,18 @@
 
 | Item | Descrição | Necessário? | Roda? | Portátil? | Documentado? | Risco? |
 |------|-----------|-------------|-------|-----------|-------------|--------|
-| `required_packages` | Lista de 20 pacotes | ✅ SIM | ✅ SIM | ✅ SIM | ✅ SIM | — |
-| `install.packages` condicional | Instala apenas se ausente | ✅ SIM | ✅ SIM | ✅ SIM | ✅ SIM | Baixo (requer internet) |
+| `required_packages` | Lista de 27 pacotes | ✅ SIM | ✅ SIM | ✅ SIM | ✅ SIM | — |
+| `install.packages` / `BiocManager::install` | Instala apenas se ausente (CRAN ou Bioconductor) | ✅ SIM | ✅ SIM | ✅ SIM | ✅ SIM | Baixo (requer internet) |
 
-**Pacotes incluídos:** dplyr, tidyr, tibble, stringr, ggplot2, ggrepel, limma, edgeR, igraph, ggraph, pheatmap, scales, clusterProfiler, org.Hs.eg.db, KEGGREST, STRINGdb, readr, readxl, rio, uwot
+**Pacotes incluídos (27):** dplyr, tidyr, tibble, stringr, ggplot2, ggrepel,
+limma, edgeR, igraph, ggraph, pheatmap, scales, clusterProfiler, org.Hs.eg.db,
+KEGGREST, STRINGdb, readr, readxl, rio, uwot, fgsea, msigdbr, GSVA,
+ReactomePA, survival, survminer, sva.
 
-**Melhoria sobre o original:** Adicionado edgeR, STRINGdb, readr, readxl, uwot. Removido plotly e ggalluvial (não essenciais).
+**Correção aplicada:** pacotes Bioconductor agora são instalados via
+`BiocManager::install` (antes usava apenas `install.packages`, o que falharia
+para limma/edgeR/clusterProfiler/org.Hs.eg.db/KEGGREST/STRINGdb/fgsea/GSVA/
+ReactomePA/sva).
 
 ---
 
@@ -76,7 +84,7 @@
 
 **ADIÇÃO NOVA (não existia no script original):** Esta verificação é fundamental. O script original teria tentado usar colunas de metadados como se fossem genes, produzindo resultados totalmente inválidos.
 
-**STATUS ATUAL:** ❌ Falha aqui porque o arquivo `liver_lip_aterosclerose.tsv` tem 0 colunas de genes.
+**STATUS ATUAL:** ✅ Passou — `dados/raw/liver.tsv` contém 212 colunas de genes.
 
 ---
 

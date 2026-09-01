@@ -75,7 +75,7 @@ Duas coortes públicas foram combinadas a partir do UCSC Xena e restritas à via
 | Genes da via KEGG `hsa05417` | 216 |
 | Genes da via presentes na matriz | 212 |
 | Escala dos dados | log2 (limma direto) |
-| Tempo de execução | ≈ 759 s |
+| Tempo de execução | ≈ 12–20 min (varia conforme o ambiente) |
 
 ### 4.2 Genes diferencialmente expressos (DEGs)
 
@@ -349,15 +349,18 @@ NES negativo (down-reguladas em LIHC):
 
 | Via | NES | FDR |
 |-----|----:|----:|
-| Retinol metabolism | −1,85 | 4,2×10⁻³ |
-| Drug metabolism — cytochrome P450 | −1,75 | 5,7×10⁻³ |
-| Metabolism of xenobiotics by cytochrome P450 | −1,73 | 8,3×10⁻³ |
-| Chemical carcinogenesis — DNA adducts | −1,73 | 8,3×10⁻³ |
+| Retinol metabolism | ≈ −1,79 | 2,6×10⁻³ |
+| Drug metabolism — cytochrome P450 | ≈ −1,74 | 7,9×10⁻³ |
+| Metabolism of xenobiotics by cytochrome P450 | ≈ −1,72 | 9,0×10⁻³ |
+| Chemical carcinogenesis — DNA adducts | ≈ −1,72 | 9,0×10⁻³ |
 
 **GSEA GO (BP)** — 5 termos significativos (FDR < 0,05), todos down-regulados
-em LIHC (NES ≈ −1,84): *long-chain fatty acid metabolic process*, *xenobiotic
+em LIHC (NES ≈ −1,87): *long-chain fatty acid metabolic process*, *xenobiotic
 metabolic process*, *arachidonate metabolic process*, *epoxygenase P450 pathway*
 e *olefinic compound metabolic process*.
+
+> Os valores de GSEA são estimados por permutação e podem variar ligeiramente
+> entre execuções; são apresentados com arredondamento.
 
 **GSEA Hallmark (MSigDB)** — nenhum conjunto alcançou FDR < 0,05
 (21 conjuntos testados).

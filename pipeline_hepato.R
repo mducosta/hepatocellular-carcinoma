@@ -177,7 +177,7 @@ data_files_found <- data_files_found[
 
 if (length(data_files_found) == 0) {
   log_entry("DATA_FILE", "FAIL", "Nenhum arquivo de dados encontrado")
-  stop("ARQUIVO DE DADOS NÃO ENCONTRADO. Coloque 'liver_lip_aterosclerose.tsv' na pasta do projeto.")
+  stop("ARQUIVO DE DADOS NÃO ENCONTRADO. Coloque 'liver.tsv' em 'dados/raw/' (ou na raiz do projeto).")
 }
 
 DATA_FILE <- data_files_found[1]

@@ -1,8 +1,15 @@
 # AUDITORIA DO RESUMO EXPANDIDO — CRUZAMENTO COM SCRIPT E DADOS
 
-**Arquivo:** resumo_expandido_hepatocarcinoma_maria_costa.docx  
-**Data da auditoria:** 2026-06-26  
-**Método:** Comparação de cada afirmação com (a) código R corrigido, (b) arquivo de dados disponível, (c) genes da via KEGG hsa05417, (d) literatura citada
+**Arquivo auditado:** resumo_expandido_hepatocarcinoma (versão inicial)  
+**Data da auditoria original:** 2026-06-26  
+**Atualização:** 2026-09-01  
+**Autores:** Maria Eduarda Costa, Victória Oliveira Nascimento, Ryan de Paulo Santos e Heloisa Alves Guimarães  
+**Método:** Comparação de cada afirmação com (a) código R, (b) dados, (c) genes da via KEGG hsa05417, (d) literatura citada
+
+> **Nota de atualização (2026-09-01):** esta auditoria refere-se à **versão
+> inicial** do resumo expandido. As correções apontadas abaixo já foram
+> aplicadas — a análise foi executada com `dados/raw/liver.tsv` e os resultados
+> finais estão no `README.md` e em `outputs/audit/RELATORIO_FINAL_LOCK_LIHC.md`.
 
 ---
 
@@ -233,3 +240,13 @@ Legenda:
 | Prudência científica | 1/10 🔴 |
 | Adequação ao template | 10/10 ✅ |
 | **Status geral** | **⛔ NÃO APROVADO — REQUER CORREÇÃO SUBSTANCIAL** |
+
+---
+
+## STATUS PÓS-CORREÇÃO (2026-09-01)
+
+Todas as correções apontadas acima foram aplicadas. A análise foi executada
+com sucesso e o resumo expandido foi ajustado para refletir os resultados reais
+(42 DEGs — 12 up / 30 down —, hubs PPI reais, referências corrigidas e
+declaração de IA). **Status final: ✅ APROVADO** — ver
+`RELATORIO_FINAL_LOCK_LIHC.md`.
