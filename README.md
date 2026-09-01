@@ -111,21 +111,11 @@ Duas coortes públicas foram combinadas a partir do UCSC Xena e restritas à via
 │       └── analise_expressao_diferencial.R
 │
 ├── dados/
-│   ├── raw/                          # Dados brutos — liver.tsv (versionado)
-│   ├── interim/                      # ⚙️ Em processamento
-│   ├── processed/                    # ✅ Limpos e prontos
-│   └── external/                     # 🌐 De terceiros
-│
-├── fontes/
-│   ├── referencias/                  # Artigos/PDFs
-│   ├── documentacao/                 # Manuais/tutoriais
-│   └── notas/                        # Anotações/fichamentos
-│
-├── config/
-│   └── credenciais/                  # 🔒 Segredos (gitignored)
+│   └── raw/
+│       └── liver.tsv                 # ✅ Dados brutos do UCSC Xena (versionado)
 │
 ├── outputs/                          # Resultados gerados
-│   ├── audit/                        # Logs, benchmark, sessionInfo, relatórios
+│   ├── audit/                        # Logs, benchmark, sessionInfo, relatórios de auditoria
 │   ├── deg/                          # DEGs (CSV)
 │   ├── enrichment/                   # GO/KEGG/Reactome (ORA), GSEA, GSVA
 │   ├── figures/                      # Heatmap (PNG)
@@ -135,7 +125,6 @@ Duas coortes públicas foram combinadas a partir do UCSC Xena e restritas à via
 │   ├── volcano/                      # Volcano plot (PNG/PDF)
 │   └── 3grupos/                      # 3 grupos + Kaplan-Meier
 │
-├── logs/                             # Histórico de execuções
 └── docs/
     ├── diagramas/                    # Fluxogramas e esquemas (Mermaid + PNG)
     ├── implicacoes_clinicas_enfermagem.md
