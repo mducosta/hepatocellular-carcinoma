@@ -1,0 +1,4 @@
+"contraste","n_DEG","n_Up","n_Down"
+"Tumor_vs_Normal",23,18,5
+"Tumor_vs_Adjacent",23,18,5
+"Adjacent_vs_Normal",6,2,4

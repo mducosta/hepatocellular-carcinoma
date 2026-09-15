@@ -1,0 +1,133 @@
+=============================================================================
+RELATÓRIO DE EXECUÇÃO — Nanotec 2026 (I Workshop Interdisciplinar de
+Nanotecnologia e Inovação — GINAB/UENF)
+=============================================================================
+Tema: Evidência transcriptômica de remodelamento da matriz extracelular (MEC)
+e superexpressão de MMP9 (e outros MMPs/TIMPs) no hepatocarcinoma (HCC).
+
+Data de execução: 2026-09-15
+Pipeline: nanotec2026/scripts/{00..04}_*.R  (orquestrador: run_all.R)
+Ambiente : R 4.6.1 (Windows), UCSCXenaTools 1.7.0, limma, GSVA 2.6.0.
+
+------------------------------------------------------------------------------
+1. DADOS BAIXADOS (UCSCXenaTools, hub Toil)
+------------------------------------------------------------------------------
+- TcgaTargetGtex_rsem_gene_tpm.gz      (1.323.254.426 bytes)  -> expressão
+- TcgaTargetGTEX_phenotype.txt.gz      (135.753 bytes)        -> fenótipo
+- TCGA_survival_data                   (406.381 bytes)        -> OS/OS.time
+
+Por que o transcriptoma completo (e não só o painel):
+  (i) endpoints de single-gene do Toil respondem HTTP 403 (S3 bloqueado);
+  (ii) GSVA/ssGSEA exige o ranking de todos os genes por amostra.
+
+------------------------------------------------------------------------------
+2. FILTRO DE AMOSTRAS (fígado)
+------------------------------------------------------------------------------
+Amostras retidas: 529
+  - Tumor (TCGA-LIHC Primary Tumor)    : 369
+  - Normal (GTEx Liver Normal Tissue)  : 110
+  - Adjacent (TCGA Solid Tissue Normal): 50
+Excluídos: 2 "Recurrent Tumor" (recidiva, não tumor primário).
+
+------------------------------------------------------------------------------
+3. AUDITORIA (Etapa 01) — RESULTADO: APROVADA
+------------------------------------------------------------------------------
+- Genes do painel presentes na matriz: 41 / 41 (100%)
+- Genes-chave (MMP9, MMP2, MMP14, TIMP1, COL1A1, COL4A1): 6 / 6
+- Valores ausentes (NA): 0
+- Genes com variância zero: 0
+- Escala: log2(TPM + 0.001)  [min=-9.966, max=14.15, mediana=3.21]
+- IDs: o arquivo usa Ensembl; mapeado para símbolo HUGO via org.Hs.eg.db
+  (60.498 linhas -> 36.301 símbolos únicos; 41/41 do painel recuperados).
+
+------------------------------------------------------------------------------
+4. EXPRESSÃO DIFERENCIAL (limma) — contraste principal LIHC vs Normal
+------------------------------------------------------------------------------
+Critério: FDR < 0.05 e |log2FC| > 1.  Resultado: 23 DEGs (18 up, 5 down).
+
+GENES-CHAVE (evidência central):
+  MMP9    log2FC = +2.19   FDR = 8.5e-18   (UP no tumor)
+  MMP1    log2FC = +3.51   FDR = 2.9e-23   (UP)
+  MMP11   log2FC = +3.93   FDR = 3.5e-61   (UP)
+  MMP12   log2FC = +4.67   FDR = 8.9e-29   (UP)
+  MMP14   log2FC = +1.50   FDR = 6.6e-23   (UP)
+  COL4A1  log2FC = +2.39   FDR = 2.9e-45   (UP)
+  COL4A2  log2FC = +1.97   FDR = 4.1e-36   (UP)
+  PLAU    log2FC = +1.93   FDR = 1.0e-35   (UP)
+  FN1     log2FC = +1.17   FDR = 1.0e-34   (UP)
+  VIM     log2FC = +1.34   FDR = 1.7e-26   (UP)
+  SPP1    log2FC = +3.16   FDR = 1.8e-17   (UP)
+
+RESULTADO NEGATIVO HONESTO (importante):
+  MMP2    log2FC = +0.22   FDR = 0.27    (NÃO diferencial em bulk)
+  TIMP1   log2FC = +0.65   FDR = 2.4e-3  (p pequeno, mas |log2FC|<1 -> NS)
+  -> MMP2 é frequentemente de origem estromal; em bulk tumor-vs-normal a
+     diferença não atinge o limiar. TIMP1 tende a subir mas com efeito menor.
+
+DOWN no tumor (5): MMP8 (-4.97), MMP3 (-1.92), VEGFA (-1.61), LAMA1 (-1.56),
+THBS1 (-1.01).
+
+Contraste Tumor vs Adjacent (mesma plataforma TCGA): 23 DEGs (18 up / 5 down),
+mesma direção dos MMPs-chave -> o sinal NÃO é artefato de plataforma.
+
+------------------------------------------------------------------------------
+5. CORRELAÇÃO DE MMP9 COM O PAINEL (Spearman, amostras tumorais)
+------------------------------------------------------------------------------
+Maiores correlações positivas (FDR<0.05):
+  MMP12 rho=0.73 | PLAUR 0.70 | TGFB1 0.58 | PLAU 0.56 | VIM 0.48 |
+  TIMP1 0.48 | SPP1 0.47 | MMP7 0.45 | COL1A1 0.44 | COL1A2 0.43 |
+  MMP14 0.39 | MMP2 0.38 | COL3A1 0.37
+Interpretação: MMP9 co-varia com o eixo PLAU/PLAUR (plasminogênio), TIMP1,
+colágenos fibrilares e MMPs estromais — consistente com remodelamento/invasão.
+
+------------------------------------------------------------------------------
+6. SOBREVIVÊNCIA (Kaplan-Meier + Cox univariado; n=368 tumores com OS)
+------------------------------------------------------------------------------
+  MMP9   HR=1.092 (1.014-1.176)  Cox p=0.021   log-rank p=0.0059
+  MMP1   HR=1.170 (1.093-1.253)  Cox p=6.1e-06 log-rank p=0.00027
+  MMP12  HR=1.072 (1.024-1.122)  Cox p=0.0029  log-rank p=0.033
+  MMP14  HR=1.187 (1.055-1.335)  Cox p=0.0043  log-rank p=0.0145
+  MMP11  NS (p=0.20)
+Leitura: maior expressão de MMP9/MMP1/MMP12/MMP14 associa-se a PIOR sobrevida
+global (HR>1). ASSOCIAÇÃO, não causalidade.
+
+------------------------------------------------------------------------------
+7. ENRIQUECIMENTO POR AMOSTRA (GSVA/ssGSEA; 52 conjuntos)
+------------------------------------------------------------------------------
+Conjuntos de MEC/estroma significativamente AUMENTADOS no tumor (FDR<0.05):
+  KEGG_ECM_RECEPTOR_INTERACTION  FDR = 3.7e-11  (up)
+  HALLMARK_APICAL_JUNCTION       FDR = 3.4e-11  (up)
+  HALLMARK_ANGIOGENESIS          FDR = 4.6e-5   (up)
+  KEGG_FOCAL_ADHESION            FDR = 2.3e-3   (up)
+  HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION (EMT) FDR = 9.1e-3 (up)
+Leitura: assinatura global de ativação de ECM/interação célula-matriz no HCC.
+
+------------------------------------------------------------------------------
+8. LIMITAÇÕES HONESTAS
+------------------------------------------------------------------------------
+1. Bulk RNA-seq: média de populações celulares; não distingue origem tumoral vs
+   estromal (relevante para MMP2/TIMP1, classicamente estromais).
+2. Confundimento TCGA vs GTEx no contraste principal (mitigado pelo contraste
+   Tumor vs Adjacent, ambos TCGA).
+3. Possível residual batch mesmo no pipeline Toil.
+4. Sem validação proteica (mRNA != proteína; MMPs sofrem regulação pós-
+   traducional e ativação por clivagem).
+5. Sobrevivência: Cox univariado (sem covariáveis clínicas disponíveis).
+6. Estudo observacional/transversal: associações, não causalidade.
+
+------------------------------------------------------------------------------
+9. CONEXÃO COM A NANOBIOTECNOLOGIA (sem forçar nanocarreadores)
+------------------------------------------------------------------------------
+- MMP9 (e MMP1/11/12/14) superexpressos e associados a pior prognóstico são
+  candidatos a BIOMARCADORES do TME e a alvos de sistemas responsivos a
+  proteases (clivagem de substratos por MMP).
+- A ativação de ECM-receptor interaction, EMT e angiogênese indica um TME
+  fibrótico e denso -> relevante para entender BARREIRAS físicas/biólogicas à
+  penetração de nanomateriais (colágenos, FN1, SPP1/osteopontina).
+- TIMP1 elevado (p pequeno) sugere contrarregulação do eixo MMP/TIMP.
+- NENHUM nanocarreador foi testado experimentalmente; estas são apenas
+  perspectivas translacionais derivadas dos dados.
+
+------------------------------------------------------------------------------
+FIM DO RELATÓRIO
+------------------------------------------------------------------------------

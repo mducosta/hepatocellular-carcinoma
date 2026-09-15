@@ -58,3 +58,12 @@ Thumbs.db
 Desktop.ini
 *.swp
 *~
+
+# ============================================================
+# Nanotec 2026 — arquivos grandes (não versionar; re-baixar/regenerar
+# via scripts/00_download_data.R e run_all.R)
+# ============================================================
+nanotec2026/dados/raw/TcgaTargetGtex_rsem_gene_tpm.gz
+nanotec2026/dados/raw/tpm_download.log
+nanotec2026/dados/processed/liver_transcriptome_ensembl.tsv
+nanotec2026/dados/processed/liver_transcriptome_symbols.tsv

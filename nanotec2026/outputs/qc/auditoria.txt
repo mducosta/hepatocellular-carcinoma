@@ -1,0 +1,17 @@
+RELATORIO DE AUDITORIA - Nanotec 2026 (Etapa 01)
+Data: 2026-09-15 11:06:18.044891
+
+Genes do painel (protocolo): 41
+Genes presentes na matriz: 41
+Genes ausentes: nenhum
+Genes-chave presentes: MMP9, MMP2, MMP14, TIMP1, COL1A1, COL4A1
+
+Amostras na matriz: 529
+Grupos: Adjacent=50, Normal=110, Tumor=369
+
+Valores ausentes (NA): 0
+Genes com variância zero: 0
+Escala: possivelmente log2 (range <= 25)
+min=-9.9658 max=14.1503 mediana=3.2065
+
+Decisão: auditoria APROVADA. Análise pode prosseguir (scripts 02-04).

@@ -1,0 +1,4 @@
+dataset	nome	tamanho_bytes	url
+tpm	./dados/raw/TcgaTargetGtex_rsem_gene_tpm.gz	1323254426	https://toil.xenahubs.net/download/TcgaTargetGtex_rsem_gene_tpm.gz
+pheno	./dados/raw/TcgaTargetGTEX_phenotype.txt.gz	135753	https://toil.xenahubs.net/download/TcgaTargetGTEX_phenotype.txt.gz
+surv	./dados/raw/TCGA_survival_data	406381	https://toil.xenahubs.net/download/TCGA_survival_data
