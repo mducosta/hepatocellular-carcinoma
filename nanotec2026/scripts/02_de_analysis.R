@@ -44,6 +44,7 @@ suppressPackageStartupMessages(library(limma))
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(ggrepel))
 suppressPackageStartupMessages(library(pheatmap))
+set.seed(2026)   # reprodutibilidade do ggrepel no volcano
 
 # -----------------------------------------------------------------------------
 # 1. Leitura

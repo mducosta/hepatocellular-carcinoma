@@ -1,5 +1,5 @@
 RELATORIO DE AUDITORIA - Nanotec 2026 (Etapa 01)
-Data: 2026-09-15 11:06:18.044891
+Data: 2026-09-15 11:14:33.841058
 
 Genes do painel (protocolo): 41
 Genes presentes na matriz: 41
