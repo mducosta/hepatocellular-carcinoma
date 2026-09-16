@@ -41,26 +41,31 @@ O download é feito com **UCSCXenaTools** (hub Toil). Os arquivos grandes
 > **Autores:** Maria Eduarda Costa, Victória Oliveira Nascimento, Ryan de Paulo
 > Santos, Heloisa Alves Guimarães
 >
-> **Resumo (193 palavras):** O hepatocarcinoma (HCC) progride em um microambiente
-> tumoral (TME) fibrótico e imunossupressor, cuja matriz extracelular (MEC) densa
-> constitui barreira à penetração de nanomateriais e reservatório de alvos
-> moleculares. Este estudo objetivou caracterizar transcriptomicamente a
-> reprogramação da MEC no HCC a partir de 529 amostras hepáticas (369 tumores
-> TCGA-LIHC, 110 normais GTEx, 50 adjacentes). A expressão diferencial
-> genoma-wide (limma) revelou 9.031 genes alterados, e o GSEA confirmou
-> enriquecimento de transição epitelial-mesenquimal, resposta a interferons e
-> apresentação de antígenos no tumor. No painel de 41 genes ECM/MMP/TIMP, MMP9
-> (log2FC=+2,19; FDR=8,5e-18), MMP1, MMP11, MMP12, MMP14, COL4A1/4A2, PLAU, FN1,
-> VIM e SPP1 mostraram-se superexpressos. A deconvolução celular (ssGSEA, atlas
-> hepático Aizarani) evidenciou expansão de Treg, macrófagos M1, monócitos e
-> endotélio, com MMP9 correlacionando-se a células de Kupffer (rho=0,54),
-> fibroblastos/CAF e células estreladas. MMP9 covariou positivamente com
-> checkpoints imunes (CTLA4 rho=0,69; PDCD1 rho=0,61; LAG3; PD-L1). Um escore
+> **Resumo (250 palavras):** O hepatocarcinoma (HCC) é a neoplasia hepática
+> primária mais comum e progride em um microambiente tumoral (TME) fibrótico,
+> hipóxico e imunossupressor, cuja matriz extracelular (MEC) densa constitui
+> barreira física à penetração de nanomateriais e reservatório de alvos
+> moleculares para a nanobiotecnologia. Este estudo objetivou caracterizar a
+> reprogramação da MEC no HCC e sua assinatura prognóstica, utilizando
+> transcriptomas bulk harmonizados (hub Toil/UCSC Xena) de 529 amostras hepáticas
+> (369 tumores TCGA-LIHC, 110 fígados normais GTEx e 50 tecidos adjacentes). A
+> expressão diferencial genoma-wide (limma + eBayes, dados log2) identificou
+> 9.031 genes alterados, e o GSEA (Hallmark/KEGG/GO) confirmou enriquecimento de
+> transição epitelial-mesenquimal, resposta a interferons e apresentação de
+> antígenos no tumor. No painel de 41 genes ECM/MMP/TIMP, MMP9 (log2FC=+2,19;
+> FDR=8,5e-18), MMP1, MMP11, MMP12, MMP14, COL4A1/4A2, PLAU, FN1, VIM e SPP1
+> mostraram-se superexpressos, enquanto MMP2 não foi diferencial. A deconvolução
+> celular (ssGSEA, atlas hepático Aizarani) revelou expansão de Treg, macrófagos
+> M1, monócitos e endotélio, com MMP9 correlacionando-se a células de Kupffer
+> (rho=0,54), fibroblastos/CAF e células estreladas hepáticas. MMP9 covariou
+> positivamente com checkpoints imunes (CTLA4 rho=0,69; PDCD1 rho=0,61; TIM-3;
+> TIGIT; LAG3; PD-L1). A análise multivariada ajustada por sexo manteve a
+> associação de MMP9 com pior sobrevida global (HR=1,09; p=0,02), e um escore
 > prognóstico ECM-MMP (MMP9+MMP1+MMP12+MMP14) estratificou a sobrevida global
 > (HR=1,62; p=3,5e-05), com efeito prognóstico de MMP9 predominante em homens
-> (HR=1,13; p=0,01). Conclui-se que o eixo MMP9/MMPs-TIMPs define assinatura de
-> TME imunologicamente ativo e fibrótico, apontando biomarcadores e alvos para
-> nanosistemas responsivos a proteases e para superação de barreiras físicas à
+> (HR=1,13; p=0,01). Conclui-se que o eixo MMP9/MMPs-TIMPs define uma assinatura
+> de TME imunologicamente ativo e fibrótico, apontando biomarcadores e alvos para
+> nanosistemas responsivos a proteases e para a superação de barreiras físicas à
 > nanoterapia no HCC.
 
 ## Resultados principais
