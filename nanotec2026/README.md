@@ -34,21 +34,21 @@ O download é feito com **UCSCXenaTools** (hub Toil). Os arquivos grandes
 
 ## Resumo para submissão (Nanotec 2026 — Área temática 1: Biotecnologia e Nanobiotecnologia)
 
-> **Título:** Remodelamento da matriz extracelular e superexpressão de MMP9 no
+> Remodelamento da matriz extracelular e superexpressão de MMP9 no
 > hepatocarcinoma: assinatura do microambiente tumoral com valor prognóstico e
 > perspectivas para a nanobiotecnologia
 >
-> **Autores:** Maria Eduarda Costa, Victória Oliveira Nascimento, Ryan de Paulo
+> Maria Eduarda Costa, Victória Oliveira Nascimento, Ryan de Paulo
 > Santos, Heloisa Alves Guimarães
 >
-> **Resumo (250 palavras):** O hepatocarcinoma (HCC) é a neoplasia hepática
+> O hepatocarcinoma (HCC) é a neoplasia hepática
 > primária mais comum e progride em um microambiente tumoral (TME) fibrótico,
 > hipóxico e imunossupressor, cuja matriz extracelular (MEC) densa constitui
 > barreira física à penetração de nanomateriais e reservatório de alvos
 > moleculares para a nanobiotecnologia. Objetivou-se caracterizar a
 > reprogramação da MEC no HCC e sua assinatura prognóstica, utilizando
 > transcriptomas bulk harmonizados (hub Toil/UCSC Xena) de 529 amostras hepáticas
-> (369 tumores TCGA-LIHC, 110 fígados normais GTEx e 50 tecidos adjacentes). A
+> (369 tumores TCGA-LIHC, 110 fígados normais GTEx e 50 tecidos adjacentes) com o software R (4.6.1). A
 > expressão diferencial genoma-wide (limma + eBayes, dados log2) identificou
 > 9.031 genes alterados, e o GSEA (Hallmark/KEGG/GO) confirmou enriquecimento de
 > transição epitelial-mesenquimal, resposta a interferons e apresentação de
