@@ -45,7 +45,7 @@ O download é feito com **UCSCXenaTools** (hub Toil). Os arquivos grandes
 > primária mais comum e progride em um microambiente tumoral (TME) fibrótico,
 > hipóxico e imunossupressor, cuja matriz extracelular (MEC) densa constitui
 > barreira física à penetração de nanomateriais e reservatório de alvos
-> moleculares para a nanobiotecnologia. Este estudo objetivou caracterizar a
+> moleculares para a nanobiotecnologia. Objetivou-se caracterizar a
 > reprogramação da MEC no HCC e sua assinatura prognóstica, utilizando
 > transcriptomas bulk harmonizados (hub Toil/UCSC Xena) de 529 amostras hepáticas
 > (369 tumores TCGA-LIHC, 110 fígados normais GTEx e 50 tecidos adjacentes). A
