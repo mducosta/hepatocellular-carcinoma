@@ -67,3 +67,10 @@ nanotec2026/dados/raw/TcgaTargetGtex_rsem_gene_tpm.gz
 nanotec2026/dados/raw/tpm_download.log
 nanotec2026/dados/processed/liver_transcriptome_ensembl.tsv
 nanotec2026/dados/processed/liver_transcriptome_symbols.tsv
+
+# ============================================================
+# Paper LIHC — a fonte Markdown é mantida apenas localmente;
+# a versão versionada no repositório é o PDF
+# ============================================================
+paper_LIHC.md
+paper_LIHC.html
