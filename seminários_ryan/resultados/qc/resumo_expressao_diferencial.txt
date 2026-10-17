@@ -1,0 +1,26 @@
+                            comparacao n_testados n_up n_down n_total
+           TCGA_Tumor_vs_TCGA_Adjacent      12401 3322    808    4130
+        TCGA_Tumor_vs_Adjacent_PAREADO      12401 2934    776    3710
+             TCGA_Tumor_vs_GTEx_Normal      12401 2245   1143    3388
+          TCGA_Adjacent_vs_GTEx_Normal      12401  584   1966    2550
+                   TCGA_Male_vs_Female      12401  155     64     219
+             TCGA_Grade_G3_G4_vs_G1_G2      12401   61    111     172
+                GTEx_Age60plus_vs_lt60      12401    2    113     115
+                TCGA_Age65plus_vs_lt65      12401   43     30      73
+             TCGA_Stage_III_IV_vs_I_II      12401    3     43      46
+   LApathway_TCGA_Tumor_vs_GTEx_Normal        213   14     32      46
+ LApathway_TCGA_Tumor_vs_TCGA_Adjacent        213   11     33      44
+                   GTEx_Male_vs_Female      12401    8      5      13
+ percentual_sig
+          33.30
+          29.92
+          27.32
+          20.56
+           1.77
+           1.39
+           0.93
+           0.59
+           0.37
+          21.60
+          20.66
+           0.10

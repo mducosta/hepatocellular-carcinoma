@@ -1,0 +1,93 @@
+[DE] TCGA_Tumor_vs_TCGA_Adjacent                             n=12401 | Up=3322 | Down= 808
+[DE] TCGA_Tumor_vs_Adjacent_PAREADO                          n=12401 | Up=2934 | Down= 776
+[DE] GTEx_Male_vs_Female                                     n=12401 | Up=   8 | Down=   5
+[DE] GTEx_Age60plus_vs_lt60                                  n=12401 | Up=   2 | Down= 113
+[DE] TCGA_Tumor_vs_GTEx_Normal                               n=12401 | Up=2245 | Down=1143
+[DE] TCGA_Adjacent_vs_GTEx_Normal                            n=12401 | Up= 584 | Down=1966
+[DE] TCGA_Stage_III_IV_vs_I_II                               n=12401 | Up=   3 | Down=  43
+[DE] TCGA_Grade_G3_G4_vs_G1_G2                               n=12401 | Up=  61 | Down= 111
+[DE] TCGA_Male_vs_Female                                     n=12401 | Up= 155 | Down=  64
+[DE] TCGA_Age65plus_vs_lt65                                  n=12401 | Up=  43 | Down=  30
+[DE] LApathway_TCGA_Tumor_vs_GTEx_Normal                     n= 213 | Up=  14 | Down=  32
+[DE] LApathway_TCGA_Tumor_vs_TCGA_Adjacent                   n= 213 | Up=  11 | Down=  33
+
+[COMBAT] Corrigindo lote TCGA x GTEx e reavaliando tumor vs normal ...
+Found 1 genes with uniform expression within a single batch (all zeros); these will not be adjusted for batch.
+Found2batches
+Adjusting for1covariate(s) or covariate level(s)
+ComBat falhou: The covariate is confounded with batch! Remove the covariate and rerun ComBat
+[COMBAT] Não foi possível executar o ComBat.
+
+Resumo geral:
+                            comparacao n_testados n_up n_down n_total
+           TCGA_Tumor_vs_TCGA_Adjacent      12401 3322    808    4130
+        TCGA_Tumor_vs_Adjacent_PAREADO      12401 2934    776    3710
+             TCGA_Tumor_vs_GTEx_Normal      12401 2245   1143    3388
+          TCGA_Adjacent_vs_GTEx_Normal      12401  584   1966    2550
+                   TCGA_Male_vs_Female      12401  155     64     219
+             TCGA_Grade_G3_G4_vs_G1_G2      12401   61    111     172
+                GTEx_Age60plus_vs_lt60      12401    2    113     115
+                TCGA_Age65plus_vs_lt65      12401   43     30      73
+             TCGA_Stage_III_IV_vs_I_II      12401    3     43      46
+   LApathway_TCGA_Tumor_vs_GTEx_Normal        213   14     32      46
+ LApathway_TCGA_Tumor_vs_TCGA_Adjacent        213   11     33      44
+                   GTEx_Male_vs_Female      12401    8      5      13
+ percentual_sig
+          33.30
+          29.92
+          27.32
+          20.56
+           1.77
+           1.39
+           0.93
+           0.59
+           0.37
+          21.60
+          20.66
+           0.10
+
+Sessão R:
+R version 4.6.1 (2026-06-24 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 26340)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   
+[3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      
+[5] LC_TIME=Portuguese_Brazil.utf8    
+
+time zone: America/Sao_Paulo
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] ggplot2_4.0.3       dplyr_1.2.1         sva_3.60.0         
+[4] BiocParallel_1.46.0 genefilter_1.94.0   mgcv_1.9-4         
+[7] nlme_3.1-169        limma_3.68.0        data.table_1.18.4  
+
+loaded via a namespace (and not attached):
+ [1] generics_0.1.4        RSQLite_3.53.3        lattice_0.22-9       
+ [4] magrittr_2.0.5        RColorBrewer_1.1-3    grid_4.6.1           
+ [7] fastmap_1.2.0         blob_1.3.0            R.oo_1.27.1          
+[10] Matrix_1.7-5          R.utils_2.13.0        AnnotationDbi_1.74.0 
+[13] DBI_1.3.0             survival_3.8-6        httr_1.4.9           
+[16] scales_1.4.0          XML_3.99-0.23         Biostrings_2.80.0    
+[19] codetools_0.2-20      cli_3.6.6             rlang_1.3.0          
+[22] crayon_1.5.3          XVector_0.52.0        R.methodsS3_1.8.2    
+[25] Biobase_2.72.0        bit64_4.8.6           splines_4.6.1        
+[28] withr_3.0.3           cachem_1.1.0          otel_0.2.0           
+[31] tools_4.6.1           parallel_4.6.1        memoise_2.0.1        
+[34] annotate_1.90.0       locfit_1.5-9.12       BiocGenerics_0.58.1  
+[37] vctrs_0.7.3           R6_2.6.1              png_0.1-9            
+[40] matrixStats_1.5.0     stats4_4.6.1          lifecycle_1.0.5      
+[43] KEGGREST_1.52.0       Seqinfo_1.2.0         S4Vectors_0.50.0     
+[46] edgeR_4.10.6          IRanges_2.46.0        bit_4.6.0            
+[49] pkgconfig_2.0.3       gtable_0.3.6          pillar_1.11.1        
+[52] glue_1.8.1            statmod_1.5.1         tidyselect_1.2.1     
+[55] tibble_3.3.1          MatrixGenerics_1.24.0 farver_2.1.2         
+[58] xtable_1.8-8          compiler_4.6.1        S7_0.2.2             

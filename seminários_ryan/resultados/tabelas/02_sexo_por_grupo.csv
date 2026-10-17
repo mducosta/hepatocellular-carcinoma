@@ -1,0 +1,4 @@
+"Grupo","female","male","Total"
+"TCGA_Tumor",120,249,369
+"TCGA_Adjacent",22,28,50
+"GTEx_Normal",33,77,110

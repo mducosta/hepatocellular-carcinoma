@@ -1,0 +1,33 @@
+Found 1 genes with uniform expression within a single batch (all zeros); these will not be adjusted for batch.
+Found2batches
+Adjusting for1covariate(s) or covariate level(s)
+Found 1 genes with uniform expression within a single batch (all zeros); these will not be adjusted for batch.
+Found2batches
+Adjusting for0covariate(s) or covariate level(s)
+Standardizing Data across genes
+Fitting L/S model and finding priors
+Finding parametric adjustments
+Adjusting the Data
+
+DEMONSTRAÇÃO COMBAT
+===================
+Amostras: 478 | Genes: 12401
+TCGA tumor: 368 | GTEx normal: 110
+
+Cenário 1 — ComBat com mod = ~ grupo:
+Resultado: The covariate is confounded with batch! Remove the covariate and rerun ComBat
+
+Cenário 2 — ComBat sem covariável biológica:
+Lote removido, mas a condição tumor/normal é confundida com o lote.
+
+Comparação antes/depois:
+                              metrica    valor
+     DEGs antes (FDR<0.05, |logFC|>1) 3388.000
+ DEGs depois do ComBat sem covariável    1.000
+                             Up antes 2245.000
+                            Up depois    1.000
+                           Down antes 1143.000
+                          Down depois    0.000
+                        DEGs em comum    1.000
+                     Jaccard dos DEGs    0.000
+       Correlação de logFC (Spearman)    0.647 

@@ -1,0 +1,10 @@
+"metrica","valor"
+"DEGs antes (FDR<0.05, |logFC|>1)",3388
+"DEGs depois do ComBat sem covariável",1
+"Up antes",2245
+"Up depois",1
+"Down antes",1143
+"Down depois",0
+"DEGs em comum",1
+"Jaccard dos DEGs",0
+"Correlação de logFC (Spearman)",0.647

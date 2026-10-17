@@ -1,0 +1,126 @@
+FENÓTIPOS AVANÇADOS — RESUMO
+============================
+Tumores primários TCGA: 369
+Sobrevida global válida (OS_time > 0): 363 | eventos: 128
+Modelo A (estágio+grau+sexo+idade): n = 337 | eventos = 112
+Modelo B (+AFP+fibrose): n = 179 | eventos = 52
+
+Missingness (top 8):
+          variavel n_na n_total percentual_na
+ vascular_invasion  261     369          70.7
+      viral_status  206     369          55.8
+    fibrosis_ishak  159     369          43.1
+ fibrosis_advanced  159     369          43.1
+        child_pugh  132     369          35.8
+               afp   93     369          25.2
+          afp_high   93     369          25.2
+             stage   24     369           6.5
+
+Testes com p < 0,05 (top 15):
+                           variavel_1               variavel_2   n
+                Child-Pugh (A vs B-C)                  Estágio 345
+                          log2(AFP+1)                     Grau 275
+                          AFP (>=400)    Grau (G1-G2 vs G3-G4) 275
+              Raça (Unknown excluído)                     Grau 355
+                                Idade                     Grau 363
+                          log2(AFP+1)                     Sexo 276
+                        Fibrose Ishak                  Estágio 199
+ Vírus (marcadores; Unknown excluído)                     Grau 161
+                          AFP (>=400) Estágio (I-II vs III-IV) 263
+         Fibrose avançada (Ishak >=5)                  Estágio 199
+ Vírus (marcadores; Unknown excluído)                  Estágio 156
+                Child-Pugh (A vs B-C)                     Grau 364
+                          log2(AFP+1)                  Estágio 263
+                                Idade                  Estágio 344
+             teste estatistica      p_valor cramers_v p_ajustado_BH
+      Qui-quadrado      29.531 5.503186e-08     0.293  1.320765e-06
+          Wilcoxon    6173.000 4.308784e-06        NA  5.170541e-05
+      Qui-quadrado      18.184 2.005793e-05     0.257  1.604634e-04
+ Fisher (simulado)      22.344 9.999000e-05     0.251  5.999400e-04
+          Wilcoxon   17897.000 4.896766e-03        NA  2.147309e-02
+          Wilcoxon   10152.000 5.368273e-03        NA  2.147309e-02
+          Wilcoxon    4156.500 6.699311e-03        NA  2.296907e-02
+      Qui-quadrado       8.983 1.120330e-02     0.236  3.141142e-02
+      Qui-quadrado       6.046 1.393437e-02     0.152  3.141142e-02
+      Qui-quadrado       5.993 1.436098e-02     0.174  3.141142e-02
+      Qui-quadrado       8.481 1.439690e-02     0.233  3.141142e-02
+      Qui-quadrado       4.949 2.611285e-02     0.117  5.222570e-02
+          Wilcoxon    4419.500 2.986522e-02        NA  5.513579e-02
+          Wilcoxon   13137.000 3.521958e-02        NA  6.037642e-02
+ significativo
+           Sim
+           Sim
+           Sim
+           Sim
+           Sim
+           Sim
+           Sim
+           Sim
+           Sim
+           Sim
+           Sim
+           Não
+           Não
+           Não
+
+Log-rank:
+          variavel   n eventos logrank_chisq    logrank_p
+       stage_group 339     114        25.194 5.183320e-07
+       grade_group 358     124         0.168 6.823271e-01
+               sex 363     128         1.127 2.883699e-01
+         age_group 363     128         1.360 2.435014e-01
+          afp_high 274      82         0.006 9.405427e-01
+ fibrosis_advanced 207      62         0.629 4.277757e-01
+
+Cox multivariado:
+# A tibble: 10 × 6
+   modelo                              term  estimate conf.low conf.high p.value
+   <chr>                               <chr>    <dbl>    <dbl>     <dbl>   <dbl>
+ 1 Modelo A: estágio + grau + sexo + … stag…    2.61     1.79       3.81 5.97e-7
+ 2 Modelo A: estágio + grau + sexo + … grad…    1.16     0.789      1.71 4.50e-1
+ 3 Modelo A: estágio + grau + sexo + … sexm…    0.877    0.594      1.29 5.08e-1
+ 4 Modelo A: estágio + grau + sexo + … age      1.01     0.996      1.03 1.55e-1
+ 5 Modelo B: A + AFP + fibrose         stag…    2.23     1.24       4.03 7.75e-3
+ 6 Modelo B: A + AFP + fibrose         grad…    1.47     0.841      2.58 1.76e-1
+ 7 Modelo B: A + AFP + fibrose         sexm…    0.993    0.536      1.84 9.83e-1
+ 8 Modelo B: A + AFP + fibrose         age      1.03     1.01       1.06 1.65e-2
+ 9 Modelo B: A + AFP + fibrose         afp_…    1.04     0.514      2.12 9.07e-1
+10 Modelo B: A + AFP + fibrose         fibr…    1.16     0.620      2.17 6.45e-1
+
+Sessão R:
+R version 4.6.1 (2026-06-24 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 26340)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   
+[3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      
+[5] LC_TIME=Portuguese_Brazil.utf8    
+
+time zone: America/Sao_Paulo
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] scales_1.4.0       RColorBrewer_1.1-3 pheatmap_1.0.13    patchwork_1.3.2   
+ [5] broom_1.0.13       survminer_0.5.2    ggpubr_1.0.0       survival_3.8-6    
+ [9] tidyr_1.3.2        dplyr_1.2.1        ggplot2_4.0.3      data.table_1.18.4 
+
+loaded via a namespace (and not attached):
+ [1] utf8_1.2.6        generics_0.1.4    rstatix_1.1.0     xml2_1.6.0       
+ [5] stringi_1.8.9     lattice_0.22-9    magrittr_2.0.5    grid_4.6.1       
+ [9] Matrix_1.7-5      backports_1.5.1   Formula_1.2-6     ggtext_0.2.0     
+[13] gridExtra_2.3.1   purrr_1.2.2       textshaping_1.0.5 abind_1.4-8      
+[17] cli_3.6.6         rlang_1.3.0       litedown_0.11     commonmark_2.0.0 
+[21] splines_4.6.1     withr_3.0.3       tools_4.6.1       ggsignif_0.6.4   
+[25] vctrs_0.7.3       R6_2.6.1          lifecycle_1.0.5   stringr_1.6.0    
+[29] car_3.1-5         ragg_1.5.2        pkgconfig_2.0.3   pillar_1.11.1    
+[33] gtable_0.3.6      glue_1.8.1        Rcpp_1.1.2        systemfonts_1.3.2
+[37] xfun_0.62         tibble_3.3.1      tidyselect_1.2.1  farver_2.1.2     
+[41] carData_3.0-6     labeling_0.4.3    compiler_4.6.1    S7_0.2.2         
+[45] markdown_2.0      gridtext_0.1.6   

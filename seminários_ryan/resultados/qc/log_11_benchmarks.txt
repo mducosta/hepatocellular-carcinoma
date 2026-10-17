@@ -1,0 +1,51 @@
+Benchmarks gerados em: C:\Users\oorie\OneDrive\Documentos\TRABALHOS\HEPATO\hepatocellular-carcinoma\seminários_ryan/auditorias 
+                                    benchmark     valor unidade
+                  Carga de metadados + matriz     1.500       s
+                            Memória da matriz    53.300      MB
+             UMAP (2.000 genes, 529 amostras)     4.340       s
+        limma com covariáveis (tumor vs GTEx)     0.690       s
+        limma sem covariáveis (tumor vs GTEx)     0.260       s
+                      limma com trend = FALSE     0.470       s
+                         DEGs com covariáveis  3388.000   genes
+                         DEGs sem covariáveis  3316.000   genes
+               Jaccard com vs sem covariáveis     0.948  índice
+ Correlação de logFC (com vs sem covariáveis)     0.999     rho
+                            DEGs trend = TRUE  3388.000   genes
+                           DEGs trend = FALSE  3389.000   genes
+                  Jaccard trend TRUE vs FALSE     1.000  índice
+          Genes significativos apenas por FDR 10109.000   genes
+         Genes significativos por FDR + logFC  3388.000   genes
+                     Jaccard FDR vs FDR+logFC     0.335  índice
+        DEGs tumor vs adjacente (não pareado)  4130.000   genes
+            DEGs tumor vs adjacente (pareado)  3710.000   genes
+               Jaccard pareado vs não pareado     0.764  índice
+ Correlação de logFC (pareado vs não pareado)     0.969     rho
+                         DEGs antes do ComBat  3388.000   genes
+       DEGs depois do ComBat (sem covariável)     1.000   genes
+               Jaccard ComBat antes vs depois     0.000  índice
+ Correlação de logFC (ComBat antes vs depois)     0.647     rho
+                                    observacao
+                    12401 genes x 529 amostras
+                    matriz numérica em memória
+ n_neighbors=30, min_dist=0.25, cosine, pca=50
+                    12401 genes x 478 amostras
+               mesmo contraste, sem sexo/idade
+          sensibilidade do modelo de variância
+                          FDR<0.05 e |logFC|>1
+                          FDR<0.05 e |logFC|>1
+                     interseção/união dos DEGs
+                                      Spearman
+                                              
+                                              
+                                              
+                                      FDR<0.05
+                          FDR<0.05 e |logFC|>1
+                                              
+                                              
+                                              
+                                              
+                                      Spearman
+                                              
+                                              
+                                              
+                                      Spearman

@@ -1,0 +1,7 @@
+"comparacao","p_valor","p_ajustado_BH","significativo"
+"Sexo: TCGA tumor vs GTEx normal",0.703126594244427,0.703126594244427,"Não"
+"Sexo: TCGA tumor vs TCGA adjacente",0.147012964457426,0.176415557348911,"Não"
+"Sexo: TCGA adjacente vs GTEx normal",0.121467194980243,0.176415557348911,"Não"
+"Idade: TCGA tumor vs GTEx normal (Wilcoxon)",3.95964875443688e-06,1.18789462633107e-05,"Sim"
+"Idade: TCGA tumor vs TCGA adjacente (Wilcoxon)",0.0437731723377202,0.0875463446754403,"Não"
+"Idade: Kruskal-Wallis entre os 3 grupos",8.80211869850451e-07,5.28127121910271e-06,"Sim"

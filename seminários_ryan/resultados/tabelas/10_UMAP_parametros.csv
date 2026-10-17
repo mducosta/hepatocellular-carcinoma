@@ -1,0 +1,8 @@
+"parametro","valor"
+"n_genes","2000"
+"n_neighbors","30"
+"min_dist","0.25"
+"metric","cosine"
+"scale","TRUE"
+"pca","50"
+"seed","2026"

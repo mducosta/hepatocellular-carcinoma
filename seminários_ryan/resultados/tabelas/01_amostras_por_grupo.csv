@@ -1,0 +1,7 @@
+"Estudo","Condicao","n"
+"GTEX","Tumor",0
+"TCGA","Tumor",369
+"GTEX","Adjacent",0
+"TCGA","Adjacent",50
+"GTEX","Normal",110
+"TCGA","Normal",0

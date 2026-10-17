@@ -1,0 +1,76 @@
+[1/5] Lendo fenótipo básico (liver.tsv) ...
+[2/5] Integrando clínico TCGA-LIHC ...
+[3/5] Integrando fenótipos GTEx ...
+[4/5] Montando metadados ...
+[5/5] Preparando matriz de expressão ...
+  Usando transcriptoma completo: C:/Users/oorie/AppData/Local/Temp/hepato_full/TcgaTargetGtex_rsem_gene_tpm.gz
+|--------------------------------------------------|
+|==================================================|
+  Mapeando Ensembl -> símbolo HUGO ...
+'select()' returned 1:many mapping between keys and columns
+  Agregando isoformas/duplicatas por símbolo ...
+=============================================================
+PREPARAÇÃO DOS DADOS — TCGA-LIHC x GTEx (fígado)
+=============================================================
+Data: 2026-10-17 20:26:02.635319
+Raiz do seminário: C:\Users\oorie\OneDrive\Documentos\TRABALHOS\HEPATO\hepatocellular-carcinoma\seminários_ryan
+Repositório: C:\Users\oorie\OneDrive\Documentos\TRABALHOS\HEPATO\hepatocellular-carcinoma
+
+AMOSTRAS (liver.tsv):
+      
+       Tumor Adjacent Normal Recurrent
+  TCGA   369       50      0         2
+  GTEX     0        0    110         0
+
+Total de amostras: 531
+Amostras para análise principal (sem recidiva): 529
+
+TRANSCRIPTOMA COMPLETO:
+Genes após filtro: 12401
+Amostras na matriz: 529
+
+PAINEL LA (KEGG hsa05417):
+Genes: 213 | Amostras: 531
+
+CLÍNICO TCGA:
+Estágio: I=188; II=98; III=97; IV=6
+Grau: G1=60; G2=205; G3=137; G4=11
+Idade (TCGA): 16 | 52 | 62 | 59.7 | 69 | 90 | 1
+Idade (GTEx): 25 | 45 | 55 | 53.7 | 65 | 65
+Vírus (TCGA): None/Other=0; HBV=77; HCV=19; HBV+HCV=90; Unknown=345
+AFP>=400 (TCGA): <400=240; >=400=71
+Fibrose avançada (TCGA): <5=162; >=5=85
+
+Sessão R:
+R version 4.6.1 (2026-06-24 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 26340)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   
+[3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      
+[5] LC_TIME=Portuguese_Brazil.utf8    
+
+time zone: America/Sao_Paulo
+tzcode source: internal
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+[1] org.Hs.eg.db_3.23.1  AnnotationDbi_1.74.0 IRanges_2.46.0      
+[4] S4Vectors_0.50.0     Biobase_2.72.0       BiocGenerics_0.58.1 
+[7] generics_0.1.4       data.table_1.18.4   
+
+loaded via a namespace (and not attached):
+ [1] crayon_1.5.3      vctrs_0.7.3       httr_1.4.9        cli_3.6.6        
+ [5] rlang_1.3.0       otel_0.2.0        DBI_1.3.0         png_0.1-9        
+ [9] bit_4.6.0         Biostrings_2.80.0 KEGGREST_1.52.0   Seqinfo_1.2.0    
+[13] fastmap_1.2.0     memoise_2.0.1     compiler_4.6.1    RSQLite_3.53.3   
+[17] blob_1.3.0        pkgconfig_2.0.3   XVector_0.52.0    R.oo_1.27.1      
+[21] R.utils_2.13.0    R6_2.6.1          R.methodsS3_1.8.2 tools_4.6.1      
+[25] bit64_4.8.6       cachem_1.1.0      

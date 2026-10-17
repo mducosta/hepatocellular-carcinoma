@@ -1,0 +1,7 @@
+# Transcriptoma completo do Toil (1,3 GB) — não versionar
+dados/raw/TcgaTargetGtex_rsem_gene_tpm.gz
+
+# Arquivos temporários
+*.RData
+.Rhistory
+.Rproj.user/
