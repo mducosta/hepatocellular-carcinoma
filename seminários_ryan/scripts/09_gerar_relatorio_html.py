@@ -26,6 +26,7 @@ ordem = [
     "07_reproducibilidade.md",
     "08_fenotipos_avancados.md",
     "09_auditorias_benchmarks.md",
+    "10_grupos_alternativos.md",
 ]
 
 partes = []

@@ -181,6 +181,8 @@ Arquivos em `resultados/tabelas/DE/`:
 | `18_cox_multivariado.csv` | Cox multivariado (Modelos A e B) |
 | `19_correlacao_clinica.csv` | correlações de Spearman |
 | `20_cox_ph_assumption.csv` | `cox.zph` (riscos proporcionais) |
+| `21_inventario_grupos.csv` | inventário de tipos de amostra, histologia, vírus e TSS |
+| `22_histologia_marcadores.csv` | medianas de marcadores por subtipo histológico |
 
 ## 6.7 Figuras
 
@@ -188,7 +190,7 @@ Arquivos em `resultados/tabelas/DE/`:
 |---|---|
 | `01_amostras_por_grupo.png` | distribuição das amostras |
 | `02_sexo_por_grupo.png` | composição por sexo |
-| `03_idade_por_grupo.png` | idade por grupo |
+| `03_idade_por_grupo.png` | idade por grupo (violino + boxplot) |
 | `04_estagio_TCGA.png` | estágio AJCC |
 | `05_grau_TCGA.png` | grau histológico |
 | `06_estagio_x_grau_TCGA.png` | estágio × grau |
@@ -197,10 +199,10 @@ Arquivos em `resultados/tabelas/DE/`:
 | `09_UMAP_sexo_TCGA.png` | UMAP por sexo (TCGA tumor) |
 | `10_UMAP_estagio_grau_TCGA.png` | UMAP por estágio/grau |
 | `11_heatmap_top50_variaveis.png` | heatmap top 50 genes variáveis |
-| `12_boxplot_marcadores.png` | boxplots de marcadores |
+| `12_violino_marcadores.png` | violinos + boxplot de marcadores |
 | `13_UMAP_ComBat_antes_depois.png` | UMAP antes/depois do ComBat |
-| `14_AFP_ComBat_antes_depois.png` | AFP antes/depois do ComBat |
-| `15_AFP_por_estagio_grau.png` | AFP por estágio e grau |
+| `14_AFP_ComBat_antes_depois.png` | AFP antes/depois do ComBat (violino + boxplot) |
+| `15_AFP_por_estagio_grau.png` | AFP por estágio e grau (violino + boxplot) |
 | `16_missingness_clinico.png` | missingness das variáveis clínicas |
 | `17_KM_OS_estagio.png` | Kaplan-Meier por estágio |
 | `18_KM_OS_grau.png` | Kaplan-Meier por grau |
@@ -211,6 +213,8 @@ Arquivos em `resultados/tabelas/DE/`:
 | `23_KM_OS_painel.png` | painel de curvas KM |
 | `24_forest_cox_multivariado.png` | forest plot do Cox multivariado |
 | `25_correlacao_clinica.png` | heatmap de correlações clínicas |
+| `26_grupos_dados.png` | tipos de amostra e subtipos histológicos |
+| `27_histologia_marcadores.png` | marcadores por subtipo histológico |
 | `Volcano_01_LIHC_TCGA_tumor_vs_adjacente.png` | volcano principal LIHC |
 | `Volcano_02_GTEx_masculino_vs_feminino.png` | volcano principal GTEx |
 | `Volcano_03_TCGA_tumor_vs_GTEx_normal.png` | volcano principal TCGA vs. GTEx |

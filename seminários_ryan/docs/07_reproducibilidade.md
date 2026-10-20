@@ -46,6 +46,9 @@ cat docs/sessionInfo.txt
 05_fenotipos_avancados.R   (missingness, testes, KM, Cox)
         │
         ▼
+06_grupos_alternativos.R   (recidivas, histologia, vírus, TSS)
+        │
+        ▼
 10_auditoria_dados_e_volcano.R  (auditorias)
 11_benchmarks.R                 (benchmarks)
 12_compliance.R                 (checklist final)
@@ -175,7 +178,17 @@ Rscript scripts/05_fenotipos_avancados.R
 `resultados/figuras/15–25_*.png` e
 `resultados/qc/resumo_fenotipos_avancados.txt`.
 
-### 7.3.9 Auditorias, benchmarks e compliance
+### 7.3.9 Grupos alternativos
+
+```bash
+Rscript scripts/06_grupos_alternativos.R
+```
+
+**Saídas:** `resultados/tabelas/21–22_*.csv`,
+`resultados/figuras/26–27_*.png` e
+`resultados/qc/resumo_grupos_alternativos.txt`.
+
+### 7.3.10 Auditorias, benchmarks e compliance
 
 ```bash
 Rscript scripts/10_auditoria_dados_e_volcano.R
@@ -187,7 +200,7 @@ Rscript scripts/12_compliance.R
 `auditorias/AUDITORIA_VOLCANO_12.md`, `auditorias/BENCHMARKS.md`,
 `auditorias/COMPLIANCE.md` e respectivos CSVs.
 
-### 7.3.10 Relatório HTML consolidado (opcional)
+### 7.3.11 Relatório HTML consolidado (opcional)
 
 ```bash
 python scripts/09_gerar_relatorio_html.py
@@ -208,8 +221,9 @@ O `run_all.R`:
 2. roda 00 → 01 → 02 → 03;
 3. roda 04 somente se a matriz completa existir;
 4. roda 05 (fenótipos avançados);
-5. roda 10, 11 e 12 (auditorias, benchmarks e compliance);
-6. para em caso de erro.
+5. roda 06 (grupos alternativos);
+6. roda 10, 11 e 12 (auditorias, benchmarks e compliance);
+7. para em caso de erro.
 
 ### 7.4.1 (Opcional) Gerar HTML consolidado
 
@@ -238,7 +252,7 @@ resultados/
 │   ├── 09_UMAP_sexo_TCGA.png
 │   ├── 10_UMAP_estagio_grau_TCGA.png
 │   ├── 11_heatmap_top50_variaveis.png
-│   ├── 12_boxplot_marcadores.png
+│   ├── 12_violino_marcadores.png
 │   ├── 13_UMAP_ComBat_antes_depois.png
 │   ├── 14_AFP_ComBat_antes_depois.png
 │   ├── 15_AFP_por_estagio_grau.png
@@ -246,9 +260,11 @@ resultados/
 │   ├── 17–23_KM_OS_*.png
 │   ├── 24_forest_cox_multivariado.png
 │   ├── 25_correlacao_clinica.png
+│   ├── 26_grupos_dados.png
+│   ├── 27_histologia_marcadores.png
 │   └── Volcano_01...12...png
 ├── tabelas/
-│   ├── 01–20_*.csv
+│   ├── 01–22_*.csv
 │   └── DE/
 │       ├── DEG_*_completo.csv
 │       ├── DEG_*_significativos.csv
@@ -262,6 +278,7 @@ resultados/
     ├── log_03_volcano.txt
     ├── log_04_ComBat.txt
     ├── log_05_fenotipos_avancados.txt
+    ├── log_06_grupos_alternativos.txt
     ├── log_10_auditoria.txt
     ├── log_11_benchmarks.txt
     ├── log_12_compliance.txt

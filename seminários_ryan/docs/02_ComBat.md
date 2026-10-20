@@ -182,9 +182,9 @@ tumor-normal também.*
 
 ![AFP antes e depois do ComBat](../resultados/figuras/14_AFP_ComBat_antes_depois.png)
 
-*Figura 14. Exemplo com AFP: a expressão média cai e a diferença biológica
-esperada entre tumor e fígado normal é atenuada após a correção sem
-covariável.*
+*Figura 14. Exemplo com AFP (violino + boxplot): a expressão média cai e a
+diferença biológica esperada entre tumor e fígado normal é atenuada após a
+correção sem covariável.*
 
 ### O que fazemos na análise principal
 

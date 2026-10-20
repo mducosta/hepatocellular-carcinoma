@@ -1,0 +1,92 @@
+GRUPOS ALTERNATIVOS — RESUMO
+============================
+Amostras totais: 531 | análise principal: 529
+
+Tipos de amostra:
+               grupo   n
+       Normal Tissue 110
+       Primary Tumor 369
+     Recurrent Tumor   2
+ Solid Tissue Normal  50
+
+Histologia (TCGA tumor):
+                            grupo   n
+          Fibrolamellar Carcinoma   3
+         Hepatocellular Carcinoma 359
+ Hepatocholangiocarcinoma (Mixed)   7
+
+Sorologia viral (TCGA tumor):
+   grupo   n
+     HBV  59
+ HBV+HCV  85
+     HCV  19
+ Unknown 206
+
+Centros TCGA (TSS), top 10:
+ grupo   n
+    DD 144
+    CC  32
+    G3  32
+    BC  21
+    2Y  20
+    ED  15
+    FV  11
+    RC   9
+    UB   8
+    EP   7
+
+Marcadores por histologia:
+# A tibble: 18 × 7
+   gene  histology                            n mediana     q1    q3   media
+   <fct> <chr>                            <int>   <dbl>  <dbl> <dbl>   <dbl>
+ 1 GPC3  Fibrolamellar Carcinoma              3   4.58   4.51  5.53   5.16  
+ 2 GPC3  Hepatocellular Carcinoma           359   7.28   4.53  9.12   6.53  
+ 3 GPC3  Hepatocholangiocarcinoma (Mixed)     7   3.10   2.57  8.40   5.26  
+ 4 AFP   Fibrolamellar Carcinoma              3   1.95   1.38  2.32   1.82  
+ 5 AFP   Hepatocellular Carcinoma           359   3.53   2.28  5.58   4.37  
+ 6 AFP   Hepatocholangiocarcinoma (Mixed)     7   2.93  -0.258 4.98   2.35  
+ 7 KRT19 Fibrolamellar Carcinoma              3  -0.808 -1.35  0.435 -0.338 
+ 8 KRT19 Hepatocellular Carcinoma           359  -0.284 -3.38  2.56  -0.458 
+ 9 KRT19 Hepatocholangiocarcinoma (Mixed)     7   7.24   6.41  9.03   7.09  
+10 EPCAM Fibrolamellar Carcinoma              3   2.10   2.00  2.15   2.07  
+11 EPCAM Hepatocellular Carcinoma           359  -0.233 -2.78  4.27   0.613 
+12 EPCAM Hepatocholangiocarcinoma (Mixed)     7   6.53   5.12  7.86   6.12  
+13 BIRC5 Fibrolamellar Carcinoma              3   0.624 -0.279 0.712  0.0809
+14 BIRC5 Hepatocellular Carcinoma           359   2.77   1.29  3.86   2.56  
+15 BIRC5 Hepatocholangiocarcinoma (Mixed)     7   3.79   2.19  4.14   3.25  
+16 VIM   Fibrolamellar Carcinoma              3   8.94   8.92  9.03   8.99  
+17 VIM   Hepatocellular Carcinoma           359   6.98   6.31  7.63   7.02  
+18 VIM   Hepatocholangiocarcinoma (Mixed)     7   8.48   8.22  9.06   8.64  
+
+Sessão R:
+R version 4.6.1 (2026-06-24 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 26340)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   
+[3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      
+[5] LC_TIME=Portuguese_Brazil.utf8    
+
+time zone: America/Sao_Paulo
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] scales_1.4.0      patchwork_1.3.2   tidyr_1.3.2       dplyr_1.2.1      
+[5] ggplot2_4.0.3     data.table_1.18.4
+
+loaded via a namespace (and not attached):
+ [1] vctrs_0.7.3        cli_3.6.6          rlang_1.3.0        purrr_1.2.2       
+ [5] generics_0.1.4     textshaping_1.0.5  S7_0.2.2           glue_1.8.1        
+ [9] labeling_0.4.3     ragg_1.5.2         grid_4.6.1         tibble_3.3.1      
+[13] lifecycle_1.0.5    compiler_4.6.1     RColorBrewer_1.1-3 pkgconfig_2.0.3   
+[17] R.oo_1.27.1        R.utils_2.13.0     systemfonts_1.3.2  farver_2.1.2      
+[21] R6_2.6.1           utf8_1.2.6         tidyselect_1.2.1   pillar_1.11.1     
+[25] magrittr_2.0.5     R.methodsS3_1.8.2  tools_4.6.1        withr_3.0.3       
+[29] gtable_0.3.6       

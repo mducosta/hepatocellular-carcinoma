@@ -228,19 +228,21 @@ write.csv(afp_tab, file.path(dir_tab, "15_AFP_por_subgrupo.csv"), row.names = FA
 
 p_afp1 <- ggplot(tcga[!is.na(tcga$afp_log2) & !is.na(tcga$stage_group), ],
                  aes(x = stage_group, y = afp_log2, fill = stage_group)) +
-  geom_boxplot(width = 0.6, outlier.size = 0.5, alpha = 0.85) +
-  geom_jitter(width = 0.14, size = 0.8, alpha = 0.35) +
+  geom_violin(trim = FALSE, scale = "width", alpha = 0.55, colour = NA) +
+  geom_boxplot(width = 0.14, outlier.shape = NA, alpha = 0.9, colour = "grey20") +
+  geom_jitter(width = 0.10, size = 0.8, alpha = 0.35) +
   scale_fill_manual(values = c("I-II" = "#9BC2E6", "III-IV" = "#1F4E79")) +
-  labs(title = "AFP por estágio", x = NULL, y = "log2(AFP + 1)", fill = "Estágio") +
+  labs(title = "AFP por estágio (violino + boxplot)", x = NULL, y = "log2(AFP + 1)", fill = "Estágio") +
   theme_bw(base_size = 11) + theme(legend.position = "none",
                                    panel.grid.minor = element_blank())
 
 p_afp2 <- ggplot(tcga[!is.na(tcga$afp_log2) & !is.na(tcga$grade_group), ],
                  aes(x = grade_group, y = afp_log2, fill = grade_group)) +
-  geom_boxplot(width = 0.6, outlier.size = 0.5, alpha = 0.85) +
-  geom_jitter(width = 0.14, size = 0.8, alpha = 0.35) +
+  geom_violin(trim = FALSE, scale = "width", alpha = 0.55, colour = NA) +
+  geom_boxplot(width = 0.14, outlier.shape = NA, alpha = 0.9, colour = "grey20") +
+  geom_jitter(width = 0.10, size = 0.8, alpha = 0.35) +
   scale_fill_manual(values = c("G1-G2" = "#F5B7B1", "G3-G4" = "#922B21")) +
-  labs(title = "AFP por grau", x = NULL, y = "log2(AFP + 1)", fill = "Grau") +
+  labs(title = "AFP por grau (violino + boxplot)", x = NULL, y = "log2(AFP + 1)", fill = "Grau") +
   theme_bw(base_size = 11) + theme(legend.position = "none",
                                    panel.grid.minor = element_blank())
 

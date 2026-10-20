@@ -1,0 +1,53 @@
+"categoria","grupo","n","percentual"
+"Tipo de amostra","Normal Tissue",110,20.7
+"Tipo de amostra","Primary Tumor",369,69.5
+"Tipo de amostra","Recurrent Tumor",2,0.4
+"Tipo de amostra","Solid Tissue Normal",50,9.4
+"Grupo analítico","GTEx_Normal",110,20.8
+"Grupo analítico","TCGA_Adjacent",50,9.5
+"Grupo analítico","TCGA_Tumor",369,69.8
+"Histologia (TCGA tumor)","Fibrolamellar Carcinoma",3,0.8
+"Histologia (TCGA tumor)","Hepatocellular Carcinoma",359,97.3
+"Histologia (TCGA tumor)","Hepatocholangiocarcinoma (Mixed)",7,1.9
+"Sorologia viral (TCGA tumor)","HBV",59,16
+"Sorologia viral (TCGA tumor)","HBV+HCV",85,23
+"Sorologia viral (TCGA tumor)","HCV",19,5.1
+"Sorologia viral (TCGA tumor)","Unknown",206,55.8
+"Centro TCGA (TSS)","DD",144,39
+"Centro TCGA (TSS)","CC",32,8.7
+"Centro TCGA (TSS)","G3",32,8.7
+"Centro TCGA (TSS)","BC",21,5.7
+"Centro TCGA (TSS)","2Y",20,5.4
+"Centro TCGA (TSS)","ED",15,4.1
+"Centro TCGA (TSS)","FV",11,3
+"Centro TCGA (TSS)","RC",9,2.4
+"Centro TCGA (TSS)","UB",8,2.2
+"Centro TCGA (TSS)","EP",7,1.9
+"Centro TCGA (TSS)","ZP",7,1.9
+"Centro TCGA (TSS)","MI",5,1.4
+"Centro TCGA (TSS)","XR",5,1.4
+"Centro TCGA (TSS)","K7",4,1.1
+"Centro TCGA (TSS)","KR",4,1.1
+"Centro TCGA (TSS)","ZS",4,1.1
+"Centro TCGA (TSS)","5C",3,0.8
+"Centro TCGA (TSS)","5R",3,0.8
+"Centro TCGA (TSS)","BD",3,0.8
+"Centro TCGA (TSS)","BW",3,0.8
+"Centro TCGA (TSS)","GJ",3,0.8
+"Centro TCGA (TSS)","LG",3,0.8
+"Centro TCGA (TSS)","WX",3,0.8
+"Centro TCGA (TSS)","ES",2,0.5
+"Centro TCGA (TSS)","HP",2,0.5
+"Centro TCGA (TSS)","MR",2,0.5
+"Centro TCGA (TSS)","NI",2,0.5
+"Centro TCGA (TSS)","WQ",2,0.5
+"Centro TCGA (TSS)","2V",1,0.3
+"Centro TCGA (TSS)","3K",1,0.3
+"Centro TCGA (TSS)","4R",1,0.3
+"Centro TCGA (TSS)","O8",1,0.3
+"Centro TCGA (TSS)","PD",1,0.3
+"Centro TCGA (TSS)","QA",1,0.3
+"Centro TCGA (TSS)","RG",1,0.3
+"Centro TCGA (TSS)","T1",1,0.3
+"Centro TCGA (TSS)","WJ",1,0.3
+"Centro TCGA (TSS)","YA",1,0.3

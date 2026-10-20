@@ -84,6 +84,7 @@ seminários_ryan/
 │   ├── 03_volcano_plots.R           # volcano plots (PNG)
 │   ├── 04_ComBat_demonstracao.R     # demonstração e limitação do ComBat
 │   ├── 05_fenotipos_avancados.R     # missingness, testes, KM, Cox
+│   ├── 06_grupos_alternativos.R     # recidivas, histologia, vírus, TSS
 │   ├── 10_auditoria_dados_e_volcano.R
 │   ├── 11_benchmarks.R
 │   ├── 12_compliance.R
@@ -99,7 +100,7 @@ seminários_ryan/
 │       └── resumo_preparacao.txt
 ├── resultados/
 │   ├── tabelas/
-│   │   ├── 01–20_*.csv              # fenótipos, UMAP, testes, Cox
+│   │   ├── 01–22_*.csv              # fenótipos, UMAP, testes, Cox, grupos
 │   │   └── DE/                      # resultados de expressão diferencial
 │   ├── figuras/                     # UMAP, heatmap, KM, volcanos (PNG)
 │   └── qc/                          # logs e resumos de execução
@@ -118,6 +119,7 @@ seminários_ryan/
     ├── 07_reproducibilidade.md
     ├── 08_fenotipos_avancados.md
     ├── 09_auditorias_benchmarks.md
+    ├── 10_grupos_alternativos.md
     └── sessionInfo.txt
 ```
 
@@ -168,7 +170,19 @@ seminários_ryan/
 - **Riscos proporcionais:** `cox.zph` global p = 0,386 (Modelo A) e 0,153
   (Modelo B).
 
-### 4.4 Achados biológicos
+### 4.4 Outros grupos nos dados
+
+- **Recidivas:** 2 amostras `Recurrent Tumor`, excluídas da análise principal.
+- **Histologia:** HCC clássico 359; hepatocolangiocarcinoma misto 7;
+  fibrolamelar 3.
+- **Vírus:** HBV+HCV 85; HBV 59; HCV 19; unknown 206.
+- **TSS:** 38 centros TCGA; `DD` concentra 144 tumores (39%).
+- **Marcadores por histologia:** o grupo misto tem KRT19 e EPCAM muito altos,
+  consistente com componente colangiocelular; fibrolamelar tem AFP/GPC3 mais
+  baixos. n pequeno: apenas descritivo.
+- Detalhes em `docs/10_grupos_alternativos.md`.
+
+### 4.5 Achados biológicos
 
 - **Perda de identidade hepática:** CLEC4M, CLEC4G, CLEC1B, FCN2/3, CYP1A2,
   GDF2, MARCO, CRHBP, ADAMTS13.
@@ -179,7 +193,7 @@ seminários_ryan/
   ACOT12, FTCD, HPX, SLC10A1 (down).
 - **Controle positivo:** genes do cromossomo Y e XIST na comparação por sexo.
 
-### 4.5 ComBat
+### 4.6 ComBat
 
 A comparação TCGA × GTEx é **estruturalmente confundida**: todo tumor é TCGA e
 todo normal é GTEx. O ComBat com `mod = ~ grupo` recusa o modelo
@@ -187,7 +201,7 @@ todo normal é GTEx. O ComBat com `mod = ~ grupo` recusa o modelo
 **3.388 DEGs para 1**, demonstrando **sobrecorreção**. Por isso, o ComBat não
 foi aplicado à análise principal. Detalhes em `docs/02_ComBat.md`.
 
-### 4.6 Auditorias, benchmarks e compliance
+### 4.7 Auditorias, benchmarks e compliance
 
 - **Auditoria de dados:** 22 verificações; único alerta = confundimento
   estrutural TCGA × GTEx (Cramér's V = 1).
@@ -208,6 +222,7 @@ foi aplicado à análise principal. Detalhes em `docs/02_ComBat.md`.
 | [`docs/01_analise_exploratoria.md`](docs/01_analise_exploratoria.md) | fenótipos, UMAP, heatmap, marcadores, interpretação |
 | [`docs/08_fenotipos_avancados.md`](docs/08_fenotipos_avancados.md) | missingness, associações, AFP, Kaplan-Meier, Cox, `cox.zph` |
 | [`docs/09_auditorias_benchmarks.md`](docs/09_auditorias_benchmarks.md) | auditorias, benchmarks e compliance |
+| [`docs/10_grupos_alternativos.md`](docs/10_grupos_alternativos.md) | recidivas, subtipos histológicos, grupos virais e TSS |
 | [`docs/02_ComBat.md`](docs/02_ComBat.md) | o que é, modelo, funcionamento, aplicação/limitação na deconvolução |
 | [`docs/03_logFC_limma.md`](docs/03_logFC_limma.md) | modelo linear, contrastes, `topTable`, exemplos reais |
 | [`docs/04_volcano_plots.md`](docs/04_volcano_plots.md) | construção e interpretação dos 3 volcanos principais + complementares |
@@ -284,6 +299,7 @@ Rscript scripts/02_expressao_diferencial.R
 Rscript scripts/03_volcano_plots.R
 Rscript scripts/04_ComBat_demonstracao.R
 Rscript scripts/05_fenotipos_avancados.R
+Rscript scripts/06_grupos_alternativos.R
 Rscript scripts/10_auditoria_dados_e_volcano.R
 Rscript scripts/11_benchmarks.R
 Rscript scripts/12_compliance.R

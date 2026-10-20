@@ -59,6 +59,7 @@ if (file.exists(mat_completa)) {
 }
 
 rodar("05_fenotipos_avancados.R")
+rodar("06_grupos_alternativos.R")
 rodar("10_auditoria_dados_e_volcano.R")
 rodar("11_benchmarks.R")
 rodar("12_compliance.R")

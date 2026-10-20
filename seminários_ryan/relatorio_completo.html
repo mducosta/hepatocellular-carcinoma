@@ -133,7 +133,13 @@ Saídas: <code>resultados/tabelas/01–12_*.csv</code> e <code>resultados/figura
 </tbody>
 </table>
 <p><img alt="Amostras por grupo" src="resultados/figuras/01_amostras_por_grupo.png" /></p>
-<p><em>Figura 1. Distribuição das amostras hepáticas por estudo e condição.</em></p>
+<p><em>Figura 1. Distribuição das amostras hepáticas por grupo (apenas grupos com n &gt; 0).</em></p>
+<blockquote>
+<p>A versão anterior cruzava estudo × condição e exibia combinações vazias
+(<code>GTEx × Tumor = 0</code>, <code>TCGA × Normal = 0</code> etc.). A figura atual conta apenas
+os grupos realmente observados; as 2 recidivas, excluídas da análise
+principal, aparecem na Figura 26 (<code>docs/10_grupos_alternativos.md</code>).</p>
+</blockquote>
 <hr />
 <h2 id="13-fenotipos-clinicos">1.3 Fenótipos clínicos</h2>
 <h3 id="131-sexo">1.3.1 Sexo</h3>
@@ -269,7 +275,7 @@ doadores GTEx. Essa diferença é estatisticamente significativa e justifica o
 ajuste por idade nas comparações TCGA × GTEx. A idade também foi usada para
 comparações internas (≥65 vs. &lt;65 no TCGA; ≥60 vs. &lt;60 no GTEx).</p>
 <p><img alt="Idade por grupo" src="resultados/figuras/03_idade_por_grupo.png" /></p>
-<p><em>Figura 3. Distribuição de idade por grupo.</em></p>
+<p><em>Figura 3. Distribuição de idade por grupo (violino + boxplot).</em></p>
 <h3 id="133-estagio-ajcc-tcga-tumor">1.3.3 Estágio AJCC (TCGA tumor)</h3>
 <table>
 <thead>
@@ -479,8 +485,8 @@ estrutura por grupo é consistente com o UMAP e com os resultados de expressão
 diferencial.</p>
 <hr />
 <h2 id="16-marcadores-conhecidos-de-hcc-e-remodelamento-tecidual">1.6 Marcadores conhecidos de HCC e remodelamento tecidual</h2>
-<p><img alt="Boxplots de marcadores" src="resultados/figuras/12_boxplot_marcadores.png" /></p>
-<p><em>Figura 12. Expressão de marcadores selecionados nos três grupos.</em></p>
+<p><img alt="Violinos de marcadores" src="resultados/figuras/12_violino_marcadores.png" /></p>
+<p><em>Figura 12. Expressão de marcadores selecionados nos três grupos (violino + boxplot).</em></p>
 <p>Destaques:</p>
 <ul>
 <li><strong>GPC3</strong> e <strong>AFP</strong>: marcadores clássicos de HCC, com expressão elevada no
@@ -739,9 +745,9 @@ cegamente à comparação TCGA × GTEx.</p>
 covariável. A separação entre TCGA e GTEx desaparece, mas a diferença
 tumor-normal também.</em></p>
 <p><img alt="AFP antes e depois do ComBat" src="resultados/figuras/14_AFP_ComBat_antes_depois.png" /></p>
-<p><em>Figura 14. Exemplo com AFP: a expressão média cai e a diferença biológica
-esperada entre tumor e fígado normal é atenuada após a correção sem
-covariável.</em></p>
+<p><em>Figura 14. Exemplo com AFP (violino + boxplot): a expressão média cai e a
+diferença biológica esperada entre tumor e fígado normal é atenuada após a
+correção sem covariável.</em></p>
 <h3 id="o-que-fazemos-na-analise-principal">O que fazemos na análise principal</h3>
 <p>Na análise principal (<code>scripts/02_expressao_diferencial.R</code>), <strong>não aplicamos
 ComBat</strong> à comparação TCGA tumor × GTEx normal. Em vez disso:</p>
@@ -1966,6 +1972,10 @@ significância após ajuste pelo estágio. AFP se associa mais a grau do que a
 estágio. A missingness elevada de AFP, fibrose, sorologia e invasão vascular
 reduz o poder dos modelos B e das curvas correspondentes; esses resultados são
 exploratórios.</p>
+<p><strong>Outros grupos nos dados:</strong> além de tumor/adjacente/GTEx, há 2 recidivas
+(excluídas), 7 hepatocolangiocarcinomas mistos, 3 carcinomas fibrolamelares,
+grupos virais (HBV/HCV/HBV+HCV) e 38 centros TCGA. Ver
+<code>docs/10_grupos_alternativos.md</code>.</p>
 <h3 id="543-degs">5.4.3 DEGs</h3>
 <p>Tabela completa em <code>resultados/tabelas/DE/RESUMO_DEGs_TODAS_COMPARACOES.csv</code>.</p>
 <table>
@@ -2646,6 +2656,14 @@ estágio/grau usam apenas <code>group == "TCGA_Tumor"</code>.</p>
 <td><code>20_cox_ph_assumption.csv</code></td>
 <td><code>cox.zph</code> (riscos proporcionais)</td>
 </tr>
+<tr>
+<td><code>21_inventario_grupos.csv</code></td>
+<td>inventário de tipos de amostra, histologia, vírus e TSS</td>
+</tr>
+<tr>
+<td><code>22_histologia_marcadores.csv</code></td>
+<td>medianas de marcadores por subtipo histológico</td>
+</tr>
 </tbody>
 </table>
 <h2 id="67-figuras">6.7 Figuras</h2>
@@ -2667,7 +2685,7 @@ estágio/grau usam apenas <code>group == "TCGA_Tumor"</code>.</p>
 </tr>
 <tr>
 <td><code>03_idade_por_grupo.png</code></td>
-<td>idade por grupo</td>
+<td>idade por grupo (violino + boxplot)</td>
 </tr>
 <tr>
 <td><code>04_estagio_TCGA.png</code></td>
@@ -2702,8 +2720,8 @@ estágio/grau usam apenas <code>group == "TCGA_Tumor"</code>.</p>
 <td>heatmap top 50 genes variáveis</td>
 </tr>
 <tr>
-<td><code>12_boxplot_marcadores.png</code></td>
-<td>boxplots de marcadores</td>
+<td><code>12_violino_marcadores.png</code></td>
+<td>violinos + boxplot de marcadores</td>
 </tr>
 <tr>
 <td><code>13_UMAP_ComBat_antes_depois.png</code></td>
@@ -2711,11 +2729,11 @@ estágio/grau usam apenas <code>group == "TCGA_Tumor"</code>.</p>
 </tr>
 <tr>
 <td><code>14_AFP_ComBat_antes_depois.png</code></td>
-<td>AFP antes/depois do ComBat</td>
+<td>AFP antes/depois do ComBat (violino + boxplot)</td>
 </tr>
 <tr>
 <td><code>15_AFP_por_estagio_grau.png</code></td>
-<td>AFP por estágio e grau</td>
+<td>AFP por estágio e grau (violino + boxplot)</td>
 </tr>
 <tr>
 <td><code>16_missingness_clinico.png</code></td>
@@ -2756,6 +2774,14 @@ estágio/grau usam apenas <code>group == "TCGA_Tumor"</code>.</p>
 <tr>
 <td><code>25_correlacao_clinica.png</code></td>
 <td>heatmap de correlações clínicas</td>
+</tr>
+<tr>
+<td><code>26_grupos_dados.png</code></td>
+<td>tipos de amostra e subtipos histológicos</td>
+</tr>
+<tr>
+<td><code>27_histologia_marcadores.png</code></td>
+<td>marcadores por subtipo histológico</td>
 </tr>
 <tr>
 <td><code>Volcano_01_LIHC_TCGA_tumor_vs_adjacente.png</code></td>
@@ -2828,6 +2854,9 @@ estágio/grau usam apenas <code>group == "TCGA_Tumor"</code>.</p>
         │
         ▼
 05_fenotipos_avancados.R   (missingness, testes, KM, Cox)
+        │
+        ▼
+06_grupos_alternativos.R   (recidivas, histologia, vírus, TSS)
         │
         ▼
 10_auditoria_dados_e_volcano.R  (auditorias)
@@ -2922,7 +2951,13 @@ mesma análise limma (antes do ComBat), garantindo consistência com o script
 <p><strong>Saídas:</strong> <code>resultados/tabelas/13–20_*.csv</code>,
 <code>resultados/figuras/15–25_*.png</code> e
 <code>resultados/qc/resumo_fenotipos_avancados.txt</code>.</p>
-<h3 id="739-auditorias-benchmarks-e-compliance">7.3.9 Auditorias, benchmarks e compliance</h3>
+<h3 id="739-grupos-alternativos">7.3.9 Grupos alternativos</h3>
+<pre><code class="language-bash">Rscript scripts/06_grupos_alternativos.R
+</code></pre>
+<p><strong>Saídas:</strong> <code>resultados/tabelas/21–22_*.csv</code>,
+<code>resultados/figuras/26–27_*.png</code> e
+<code>resultados/qc/resumo_grupos_alternativos.txt</code>.</p>
+<h3 id="7310-auditorias-benchmarks-e-compliance">7.3.10 Auditorias, benchmarks e compliance</h3>
 <pre><code class="language-bash">Rscript scripts/10_auditoria_dados_e_volcano.R
 Rscript scripts/11_benchmarks.R
 Rscript scripts/12_compliance.R
@@ -2930,7 +2965,7 @@ Rscript scripts/12_compliance.R
 <p><strong>Saídas:</strong> <code>auditorias/AUDITORIA_DADOS.md</code>,
 <code>auditorias/AUDITORIA_VOLCANO_12.md</code>, <code>auditorias/BENCHMARKS.md</code>,
 <code>auditorias/COMPLIANCE.md</code> e respectivos CSVs.</p>
-<h3 id="7310-relatorio-html-consolidado-opcional">7.3.10 Relatório HTML consolidado (opcional)</h3>
+<h3 id="7311-relatorio-html-consolidado-opcional">7.3.11 Relatório HTML consolidado (opcional)</h3>
 <pre><code class="language-bash">python scripts/09_gerar_relatorio_html.py
 </code></pre>
 <hr />
@@ -2944,6 +2979,7 @@ Rscript scripts/12_compliance.R
 <li>roda 00 → 01 → 02 → 03;</li>
 <li>roda 04 somente se a matriz completa existir;</li>
 <li>roda 05 (fenótipos avançados);</li>
+<li>roda 06 (grupos alternativos);</li>
 <li>roda 10, 11 e 12 (auditorias, benchmarks e compliance);</li>
 <li>para em caso de erro.</li>
 </ol>
@@ -2967,7 +3003,7 @@ concatenando os documentos de <code>docs/</code> e as figuras.</p>
 │   ├── 09_UMAP_sexo_TCGA.png
 │   ├── 10_UMAP_estagio_grau_TCGA.png
 │   ├── 11_heatmap_top50_variaveis.png
-│   ├── 12_boxplot_marcadores.png
+│   ├── 12_violino_marcadores.png
 │   ├── 13_UMAP_ComBat_antes_depois.png
 │   ├── 14_AFP_ComBat_antes_depois.png
 │   ├── 15_AFP_por_estagio_grau.png
@@ -2975,9 +3011,11 @@ concatenando os documentos de <code>docs/</code> e as figuras.</p>
 │   ├── 17–23_KM_OS_*.png
 │   ├── 24_forest_cox_multivariado.png
 │   ├── 25_correlacao_clinica.png
+│   ├── 26_grupos_dados.png
+│   ├── 27_histologia_marcadores.png
 │   └── Volcano_01...12...png
 ├── tabelas/
-│   ├── 01–20_*.csv
+│   ├── 01–22_*.csv
 │   └── DE/
 │       ├── DEG_*_completo.csv
 │       ├── DEG_*_significativos.csv
@@ -2991,6 +3029,7 @@ concatenando os documentos de <code>docs/</code> e as figuras.</p>
     ├── log_03_volcano.txt
     ├── log_04_ComBat.txt
     ├── log_05_fenotipos_avancados.txt
+    ├── log_06_grupos_alternativos.txt
     ├── log_10_auditoria.txt
     ├── log_11_benchmarks.txt
     ├── log_12_compliance.txt
@@ -3296,7 +3335,7 @@ biológico.</p>
 <hr />
 <h2 id="84-afp">8.4 AFP</h2>
 <p><img alt="AFP por estágio e grau" src="resultados/figuras/15_AFP_por_estagio_grau.png" /></p>
-<p><em>Figura 15. log2(AFP + 1) por estágio agrupado e por grau agrupado.</em></p>
+<p><em>Figura 15. log2(AFP + 1) por estágio agrupado e por grau agrupado (violino + boxplot).</em></p>
 <p>Medianas de AFP (ng/mL):</p>
 <table>
 <thead>
@@ -3958,5 +3997,304 @@ o <code>limma</code> é rápido para esta escala.</p>
 <li>Entrada/saída documentadas em <code>docs/07_reproducibilidade.md</code>.</li>
 <li><code>run_all.R</code> executa 00 → 01 → 02 → 03 → 04 → 05 → 10 → 11 → 12.</li>
 </ul></section>
+<hr>
+<section class="doc" id="10_grupos_alternativos"><h1 id="10-outros-grupos-dentro-dos-dados">10. Outros grupos dentro dos dados</h1>
+<blockquote>
+<p>Arquivo: <code>docs/10_grupos_alternativos.md</code>.
+Script: <code>scripts/06_grupos_alternativos.R</code>.
+Saídas: <code>resultados/tabelas/21–22_*.csv</code>,
+<code>resultados/figuras/26–27_*.png</code>.</p>
+</blockquote>
+<hr />
+<h2 id="101-resposta-curta">10.1 Resposta curta</h2>
+<p>Sim. Além de <strong>tumor primário</strong>, <strong>tecido adjacente</strong> e <strong>fígado normal GTEx</strong>,
+os dados contêm:</p>
+<ol>
+<li><strong>Tumores recidivados</strong> (<code>Recurrent Tumor</code>, n = 2);</li>
+<li><strong>subtipos histológicos</strong> dentro do TCGA:
+   - carcinoma hepatocelular clássico (n = 359);
+   - carcinoma hepatocolangiocarcinoma misto (n = 7);
+   - carcinoma fibrolamelar (n = 3);</li>
+<li><strong>grupos de etiologia viral</strong> (HBV, HCV, HBV+HCV, nenhum/outro, unknown);</li>
+<li><strong>centros TCGA (TSS)</strong>, que funcionam como grupos técnicos de lote;</li>
+<li>dois grupos de tecido normal: <strong>TCGA adjacente</strong> e <strong>GTEx normal</strong>.</li>
+</ol>
+<p>O grupo mais “escondido” é o de <strong>recidivas</strong>: ele aparece no arquivo bruto,
+mas foi excluído da análise principal. Os subtipos histológicos e os grupos
+virais são grupos biológicos reais, mas pequenos ou com missingness elevado.</p>
+<hr />
+<h2 id="102-inventario">10.2 Inventário</h2>
+<p><img alt="Grupos nos dados" src="resultados/figuras/26_grupos_dados.png" /></p>
+<p><em>Figura 26. (A) Tipos de amostra, incluindo as 2 recidivas. (B) Subtipos
+histológicos no TCGA tumor (escala log10).</em></p>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th>Grupo</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo de amostra</td>
+<td>Tumor primário</td>
+<td style="text-align: right;">369</td>
+<td style="text-align: right;">69,5</td>
+</tr>
+<tr>
+<td>Tipo de amostra</td>
+<td>Tecido adjacente</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">9,4</td>
+</tr>
+<tr>
+<td>Tipo de amostra</td>
+<td>GTEx normal</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">20,7</td>
+</tr>
+<tr>
+<td>Tipo de amostra</td>
+<td><strong>Recidiva</strong></td>
+<td style="text-align: right;"><strong>2</strong></td>
+<td style="text-align: right;"><strong>0,4</strong></td>
+</tr>
+<tr>
+<td>Histologia (TCGA tumor)</td>
+<td>HCC clássico</td>
+<td style="text-align: right;">359</td>
+<td style="text-align: right;">97,3</td>
+</tr>
+<tr>
+<td>Histologia (TCGA tumor)</td>
+<td>Hepatocolangiocarcinoma misto</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1,9</td>
+</tr>
+<tr>
+<td>Histologia (TCGA tumor)</td>
+<td>Fibrolamelar</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0,8</td>
+</tr>
+<tr>
+<td>Sorologia viral (TCGA tumor)</td>
+<td>HBV</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">16,0</td>
+</tr>
+<tr>
+<td>Sorologia viral (TCGA tumor)</td>
+<td>HCV</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">5,1</td>
+</tr>
+<tr>
+<td>Sorologia viral (TCGA tumor)</td>
+<td>HBV+HCV</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">23,0</td>
+</tr>
+<tr>
+<td>Sorologia viral (TCGA tumor)</td>
+<td>Unknown</td>
+<td style="text-align: right;">206</td>
+<td style="text-align: right;">55,8</td>
+</tr>
+</tbody>
+</table>
+<p>Além disso, há <strong>38 centros TCGA (TSS)</strong>; o maior é <code>DD</code> (n = 144; 39,0% dos
+tumores), seguido de <code>CC</code> e <code>G3</code> (n = 32 cada). Isso é relevante como possível
+fonte de efeito de lote técnico, embora não tenha sido usado como covariável
+nas análises principais.</p>
+<hr />
+<h2 id="103-recidivas">10.3 Recidivas</h2>
+<p>As 2 amostras <code>TCGA-DD-AACA-02</code> e <code>TCGA-ZS-A9CF-02</code> são <strong>tumores
+recidivados</strong>, não primários. Foram excluídas porque:</p>
+<ul>
+<li>o desenho principal é tumor primário vs. tecido adjacente/normal;</li>
+<li>n = 2 não permite análise estatística robusta;</li>
+<li>recidivas podem ter biologia distinta (resistência, evolução clonal).</li>
+</ul>
+<p>Elas estão mantidas em <code>metadata_amostras.tsv</code> para auditoria, mas não em
+<code>metadata_analise.tsv</code>.</p>
+<hr />
+<h2 id="104-subtipos-histologicos">10.4 Subtipos histológicos</h2>
+<p>O TCGA-LIHC contém, além do HCC clássico:</p>
+<ul>
+<li><strong>Hepatocolangiocarcinoma misto</strong> (n = 7): tumor com componente
+  hepatocelular e colangiocelular;</li>
+<li><strong>Carcinoma fibrolamelar</strong> (n = 3): variante rara, geralmente em pacientes
+  jovens, com biologia distinta.</li>
+</ul>
+<p>Com n = 7 e n = 3, <strong>não é adequado rodar expressão diferencial inferencial</strong>
+contra o HCC clássico. A análise é descritiva.</p>
+<p><img alt="Marcadores por histologia" src="resultados/figuras/27_histologia_marcadores.png" /></p>
+<p><em>Figura 27. Expressão de marcadores por subtipo histológico. Cada ponto é uma
+amostra; a barra preta é a mediana. Interpretar com cautela devido ao n
+pequeno.</em></p>
+<p>Medianas de expressão (log2 TPM + 0,001):</p>
+<table>
+<thead>
+<tr>
+<th>Gene</th>
+<th style="text-align: right;">HCC clássico (n = 359)</th>
+<th style="text-align: right;">Misto (n = 7)</th>
+<th style="text-align: right;">Fibrolamelar (n = 3)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPC3</td>
+<td style="text-align: right;">7,28</td>
+<td style="text-align: right;">3,10</td>
+<td style="text-align: right;">4,58</td>
+</tr>
+<tr>
+<td>AFP</td>
+<td style="text-align: right;">3,53</td>
+<td style="text-align: right;">2,93</td>
+<td style="text-align: right;">1,95</td>
+</tr>
+<tr>
+<td>KRT19</td>
+<td style="text-align: right;">−0,28</td>
+<td style="text-align: right;"><strong>7,24</strong></td>
+<td style="text-align: right;">−0,81</td>
+</tr>
+<tr>
+<td>EPCAM</td>
+<td style="text-align: right;">−0,23</td>
+<td style="text-align: right;"><strong>6,53</strong></td>
+<td style="text-align: right;">2,10</td>
+</tr>
+<tr>
+<td>BIRC5</td>
+<td style="text-align: right;">2,77</td>
+<td style="text-align: right;">3,79</td>
+<td style="text-align: right;">0,62</td>
+</tr>
+<tr>
+<td>VIM</td>
+<td style="text-align: right;">6,98</td>
+<td style="text-align: right;">8,48</td>
+<td style="text-align: right;">8,94</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretação descritiva:</strong></p>
+<ul>
+<li>O grupo <strong>misto</strong> tem expressão muito alta de <strong>KRT19</strong> e <strong>EPCAM</strong>,
+  consistente com o componente colangiocelular/ductal.</li>
+<li>O grupo <strong>fibrolamelar</strong> tem AFP e GPC3 mais baixos e VIM alto, mas n = 3
+  impede conclusões.</li>
+<li>O HCC clássico tem a maior mediana de GPC3, coerente com o marcador
+  hepatocelular.</li>
+<li>Esses achados são <strong>hipóteses exploratórias</strong>, não resultados confirmatórios.</li>
+</ul>
+<hr />
+<h2 id="105-grupos-virais">10.5 Grupos virais</h2>
+<p>A sorologia viral disponível no TCGA mostra:</p>
+<ul>
+<li><strong>HBV+HCV:</strong> 85 tumores (23,0%);</li>
+<li><strong>HBV:</strong> 59 (16,0%);</li>
+<li><strong>HCV:</strong> 19 (5,1%);</li>
+<li><strong>Unknown:</strong> 206 (55,8%).</li>
+</ul>
+<p>O grupo <code>Unknown</code> é grande e não deve ser interpretado como “sem infecção”.
+Nas análises de fenótipos, a categoria <code>Unknown</code> foi excluída dos testes de
+associação e do Cox univariado. A etiologia viral pode ser usada como
+estratificação em análises futuras, mas o missingness limita o poder.</p>
+<hr />
+<h2 id="106-centros-tcga-tss">10.6 Centros TCGA (TSS)</h2>
+<p>Os 38 centros TCGA são um grupo <strong>técnico</strong>, não biológico. O centro <code>DD</code>
+contribui com 39% dos tumores; centros com n = 1–3 são muitos. Isso pode gerar
+efeito de lote. Não aplicamos ComBat por TSS porque:</p>
+<ul>
+<li>o efeito de lote principal neste estudo é TCGA vs. GTEx;</li>
+<li>o número de amostras por centro é muito desigual;</li>
+<li>o desenho não foi pré-especificado para correção por TSS.</li>
+</ul>
+<p>Ainda assim, o TSS é um candidato natural para análises de sensibilidade
+futuras (por exemplo, incluí-lo como efeito aleatório ou corrigir apenas
+centros com n ≥ 10).</p>
+<hr />
+<h2 id="107-o-que-isso-muda-na-interpretacao">10.7 O que isso muda na interpretação?</h2>
+<ul>
+<li>A análise principal continua válida para <strong>tumor primário vs. adjacente vs.
+  GTEx normal</strong>.</li>
+<li>As recidivas não entram nas comparações principais.</li>
+<li>Os subtipos histológicos e virais são <strong>grupos reais</strong>, mas pequenos ou com
+  missingness; não foram usados para inferência principal.</li>
+<li>A existência de 38 TSS reforça a necessidade de cautela com efeitos de lote
+  e de reportar a origem das amostras.</li>
+<li>Uma análise futura interessante é <strong>estratificar por etiologia viral</strong> ou
+  por <strong>subtipo histológico</strong> em coortes maiores.</li>
+</ul>
+<hr />
+<h2 id="108-resumo">10.8 Resumo</h2>
+<table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th style="text-align: right;">n</th>
+<th>Pode ser analisado?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tumor primário</td>
+<td style="text-align: right;">369</td>
+<td>Sim (principal)</td>
+</tr>
+<tr>
+<td>Tecido adjacente</td>
+<td style="text-align: right;">50</td>
+<td>Sim (principal)</td>
+</tr>
+<tr>
+<td>GTEx normal</td>
+<td style="text-align: right;">110</td>
+<td>Sim (principal)</td>
+</tr>
+<tr>
+<td>Recidiva</td>
+<td style="text-align: right;">2</td>
+<td>Não (descritivo/apenas auditoria)</td>
+</tr>
+<tr>
+<td>HCC clássico</td>
+<td style="text-align: right;">359</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Misto</td>
+<td style="text-align: right;">7</td>
+<td>Apenas descritivo</td>
+</tr>
+<tr>
+<td>Fibrolamelar</td>
+<td style="text-align: right;">3</td>
+<td>Apenas descritivo</td>
+</tr>
+<tr>
+<td>HBV / HCV / HBV+HCV</td>
+<td style="text-align: right;">59 / 19 / 85</td>
+<td>Possível, com cautela</td>
+</tr>
+<tr>
+<td>Unknown viral</td>
+<td style="text-align: right;">206</td>
+<td>Excluído dos testes</td>
+</tr>
+<tr>
+<td>TSS</td>
+<td style="text-align: right;">38 centros</td>
+<td>Efeito técnico; não usado</td>
+</tr>
+</tbody>
+</table></section>
 </body>
 </html>

@@ -193,6 +193,11 @@ estágio. A missingness elevada de AFP, fibrose, sorologia e invasão vascular
 reduz o poder dos modelos B e das curvas correspondentes; esses resultados são
 exploratórios.
 
+**Outros grupos nos dados:** além de tumor/adjacente/GTEx, há 2 recidivas
+(excluídas), 7 hepatocolangiocarcinomas mistos, 3 carcinomas fibrolamelares,
+grupos virais (HBV/HCV/HBV+HCV) e 38 centros TCGA. Ver
+`docs/10_grupos_alternativos.md`.
+
 ### 5.4.3 DEGs
 
 Tabela completa em `resultados/tabelas/DE/RESUMO_DEGs_TODAS_COMPARACOES.csv`.

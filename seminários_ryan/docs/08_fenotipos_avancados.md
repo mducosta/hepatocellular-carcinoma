@@ -105,7 +105,7 @@ biológico.
 
 ![AFP por estágio e grau](../resultados/figuras/15_AFP_por_estagio_grau.png)
 
-*Figura 15. log2(AFP + 1) por estágio agrupado e por grau agrupado.*
+*Figura 15. log2(AFP + 1) por estágio agrupado e por grau agrupado (violino + boxplot).*
 
 Medianas de AFP (ng/mL):
 

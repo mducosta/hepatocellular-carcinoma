@@ -92,9 +92,12 @@ cat(sprintf("[DADOS] %d genes x %d amostras\n", nrow(expr), ncol(expr)))
 # -----------------------------------------------------------------------------
 # 2. Tabelas de fenótipos
 # -----------------------------------------------------------------------------
-# 2.1 Amostras por estudo/condição
-tab_amostras <- as.data.frame(table(Estudo = meta$study, Condicao = meta$condition))
-names(tab_amostras)[3] <- "n"
+# 2.1 Amostras por grupo (apenas grupos observados; nunca combinações vazias)
+tab_amostras <- meta %>%
+  filter(!is.na(group)) %>%
+  count(group, name = "n") %>%
+  filter(n > 0) %>%
+  transmute(Grupo = factor(group, levels = levels(meta$group)), n = n)
 write.csv(tab_amostras, file.path(dir_tab, "01_amostras_por_grupo.csv"), row.names = FALSE)
 
 # 2.2 Sexo
@@ -200,17 +203,18 @@ write.csv(testes, file.path(dir_tab, "08_testes_fenotipos.csv"), row.names = FAL
 # -----------------------------------------------------------------------------
 # 3. Figuras de fenótipos
 # -----------------------------------------------------------------------------
-# 3.1 Amostras
-p1 <- ggplot(tab_amostras, aes(x = Estudo, y = n, fill = Condicao)) +
-  geom_col(position = position_dodge(width = 0.8), width = 0.7) +
-  geom_text(aes(label = n), position = position_dodge(width = 0.8),
-            vjust = -0.3, size = 3.5) +
-  scale_fill_manual(values = c("Tumor" = "#C0392B", "Adjacent" = "#E67E22",
-                               "Normal" = "#2471A3")) +
-  labs(title = "Distribuição das amostras hepáticas",
-       subtitle = "TCGA-LIHC (tumor e tecido adjacente) e GTEx (fígado normal)",
-       x = NULL, y = "Número de amostras", fill = "Condição") +
-  theme_seminario()
+# 3.1 Amostras (barras apenas para grupos com n > 0)
+p1 <- ggplot(tab_amostras, aes(x = Grupo, y = n, fill = Grupo)) +
+  geom_col(width = 0.65) +
+  geom_text(aes(label = n), vjust = -0.35, size = 4) +
+  scale_fill_manual(values = cores_grupo) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.12))) +
+  labs(title = "Amostras por grupo (análise principal)",
+       subtitle = paste0("TCGA-LIHC (tumor primário e adjacente) e GTEx (fígado normal); ",
+                         "apenas grupos com n > 0"),
+       x = NULL, y = "Número de amostras", fill = "Grupo") +
+  theme_seminario() +
+  theme(legend.position = "none")
 ggsave(file.path(dir_fig, "01_amostras_por_grupo.png"), p1,
        width = 7, height = 4.5, dpi = 300)
 
@@ -238,10 +242,11 @@ ggsave(file.path(dir_fig, "02_sexo_por_grupo.png"), p2,
 p3 <- meta %>%
   filter(!is.na(age)) %>%
   ggplot(aes(x = group, y = age, fill = group)) +
-  geom_boxplot(width = 0.55, outlier.shape = NA, alpha = 0.8) +
-  geom_jitter(width = 0.15, size = 1.2, alpha = 0.5, colour = "grey20") +
+  geom_violin(trim = FALSE, scale = "width", alpha = 0.55, colour = NA) +
+  geom_boxplot(width = 0.14, outlier.shape = NA, alpha = 0.9, colour = "grey20") +
+  geom_jitter(width = 0.10, size = 0.9, alpha = 0.35, colour = "grey20") +
   scale_fill_manual(values = cores_grupo) +
-  labs(title = "Distribuição de idade por grupo",
+  labs(title = "Distribuição de idade por grupo (violino + boxplot)",
        subtitle = paste0("Wilcoxon TCGA tumor vs GTEx normal: p = ",
                          fmt_p(p_idade_tcgavs_gtex)),
        x = NULL, y = "Idade (anos)", fill = "Grupo") +
@@ -444,16 +449,17 @@ if (length(marcadores) > 0) {
   mar_long <- merge(mar_long, meta[, c("sample", "group")], by = "sample")
   mar_long$gene <- factor(mar_long$gene, levels = marcadores)
   p_mar <- ggplot(mar_long, aes(x = group, y = expressao, fill = group)) +
-    geom_boxplot(outlier.size = 0.4, width = 0.7, alpha = 0.85) +
+    geom_violin(trim = TRUE, scale = "width", alpha = 0.55, colour = NA) +
+    geom_boxplot(width = 0.14, outlier.shape = NA, alpha = 0.9, colour = "grey20") +
     facet_wrap(~ gene, scales = "free_y", ncol = 5) +
     scale_fill_manual(values = cores_grupo) +
     labs(title = "Expressão de marcadores de HCC e remodelamento tecidual",
-         subtitle = "log2(TPM + 0,001); caixas = mediana e quartis",
+         subtitle = "log2(TPM + 0,001); violino + boxplot",
          x = NULL, y = "Expressão (log2 TPM)", fill = "Grupo") +
     theme_seminario(base_size = 10) +
     theme(axis.text.x = element_text(angle = 35, hjust = 1),
           legend.position = "bottom")
-  ggsave(file.path(dir_fig, "12_boxplot_marcadores.png"), p_mar,
+  ggsave(file.path(dir_fig, "12_violino_marcadores.png"), p_mar,
          width = 13, height = 8, dpi = 300)
   write.csv(mar_long, file.path(dir_tab, "12_expressao_marcadores.csv"), row.names = FALSE)
 }

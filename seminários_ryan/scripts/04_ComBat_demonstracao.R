@@ -187,7 +187,7 @@ p <- ggplot(umap_df, aes(UMAP1, UMAP2, colour = group_tg, shape = study)) +
 ggsave(file.path(dir_fig, "13_UMAP_ComBat_antes_depois.png"), p,
        width = 10, height = 5, dpi = 300)
 
-# Boxplot de um marcador (AFP, se presente) antes/depois
+# Violino + boxplot de um marcador (AFP, se presente) antes/depois
 if ("AFP" %in% rownames(X)) {
   box_df <- data.frame(
     sample = colnames(X),
@@ -202,11 +202,13 @@ if ("AFP" %in% rownames(X)) {
                etapa = "Depois do ComBat (sem covariável)", expressao = box_df$Depois)
   )
   p2 <- ggplot(box_long, aes(x = grupo, y = expressao, fill = grupo)) +
-    geom_boxplot(width = 0.65, outlier.size = 0.5) +
+    geom_violin(trim = FALSE, scale = "width", alpha = 0.55, colour = NA) +
+    geom_boxplot(width = 0.14, outlier.shape = NA, alpha = 0.9,
+                 colour = "grey20") +
     facet_wrap(~ etapa) +
     scale_fill_manual(values = c("TCGA_Tumor" = "#C0392B",
                                  "GTEx_Normal" = "#2471A3")) +
-    labs(title = "Exemplo: expressão de AFP antes e depois do ComBat",
+    labs(title = "Exemplo: expressão de AFP antes e depois do ComBat (violino + boxplot)",
          subtitle = "A remoção do lote também remove a diferença biológica esperada",
          x = NULL, y = "log2(TPM + 0,001)", fill = "Grupo") +
     theme_bw(base_size = 12) +

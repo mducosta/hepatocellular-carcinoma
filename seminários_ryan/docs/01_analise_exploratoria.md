@@ -54,7 +54,12 @@ Os metadados consolidados estão em:
 
 ![Amostras por grupo](../resultados/figuras/01_amostras_por_grupo.png)
 
-*Figura 1. Distribuição das amostras hepáticas por estudo e condição.*
+*Figura 1. Distribuição das amostras hepáticas por grupo (apenas grupos com n > 0).*
+
+> A versão anterior cruzava estudo × condição e exibia combinações vazias
+> (`GTEx × Tumor = 0`, `TCGA × Normal = 0` etc.). A figura atual conta apenas
+> os grupos realmente observados; as 2 recidivas, excluídas da análise
+> principal, aparecem na Figura 26 (`docs/10_grupos_alternativos.md`).
 
 ---
 
@@ -111,7 +116,7 @@ comparações internas (≥65 vs. <65 no TCGA; ≥60 vs. <60 no GTEx).
 
 ![Idade por grupo](../resultados/figuras/03_idade_por_grupo.png)
 
-*Figura 3. Distribuição de idade por grupo.*
+*Figura 3. Distribuição de idade por grupo (violino + boxplot).*
 
 ### 1.3.3 Estágio AJCC (TCGA tumor)
 
@@ -241,9 +246,9 @@ diferencial.
 
 ## 1.6 Marcadores conhecidos de HCC e remodelamento tecidual
 
-![Boxplots de marcadores](../resultados/figuras/12_boxplot_marcadores.png)
+![Violinos de marcadores](../resultados/figuras/12_violino_marcadores.png)
 
-*Figura 12. Expressão de marcadores selecionados nos três grupos.*
+*Figura 12. Expressão de marcadores selecionados nos três grupos (violino + boxplot).*
 
 Destaques:
 

@@ -1,0 +1,19 @@
+"gene","histology","n","mediana","q1","q3","media"
+"GPC3","Fibrolamellar Carcinoma",3,4.5826,4.50515,5.52705,5.1606
+"GPC3","Hepatocellular Carcinoma",359,7.2823,4.525,9.1179,6.53469442896936
+"GPC3","Hepatocholangiocarcinoma (Mixed)",7,3.0978,2.57065,8.40195,5.26284285714286
+"AFP","Fibrolamellar Carcinoma",3,1.9527,1.38045,2.31885,1.8153
+"AFP","Hepatocellular Carcinoma",359,3.5337,2.2827,5.58405,4.36642033426184
+"AFP","Hepatocholangiocarcinoma (Mixed)",7,2.93,-0.25795,4.97585,2.34912857142857
+"KRT19","Fibrolamellar Carcinoma",3,-0.8084,-1.346,0.43505,-0.337833333333333
+"KRT19","Hepatocellular Carcinoma",359,-0.2845,-3.3828,2.56425,-0.458339275766017
+"KRT19","Hepatocholangiocarcinoma (Mixed)",7,7.2409,6.41385,9.0269,7.09154285714286
+"EPCAM","Fibrolamellar Carcinoma",3,2.0979,2.00065,2.1515,2.0688
+"EPCAM","Hepatocellular Carcinoma",359,-0.2328,-2.7768,4.2728,0.612964623955432
+"EPCAM","Hepatocholangiocarcinoma (Mixed)",7,6.5283,5.11795,7.86325,6.11784285714286
+"BIRC5","Fibrolamellar Carcinoma",3,0.6239,-0.2786,0.7119,0.0809
+"BIRC5","Hepatocellular Carcinoma",359,2.7721,1.29335,3.8605,2.56064289693593
+"BIRC5","Hepatocholangiocarcinoma (Mixed)",7,3.7867,2.19065,4.1429,3.24852857142857
+"VIM","Fibrolamellar Carcinoma",3,8.935,8.91725,9.03245,8.98813333333333
+"VIM","Hepatocellular Carcinoma",359,6.9755,6.3118,7.6317,7.02336490250696
+"VIM","Hepatocholangiocarcinoma (Mixed)",7,8.4763,8.2219,9.0555,8.64081428571428
