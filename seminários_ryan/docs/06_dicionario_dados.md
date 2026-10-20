@@ -183,6 +183,19 @@ Arquivos em `resultados/tabelas/DE/`:
 | `20_cox_ph_assumption.csv` | `cox.zph` (riscos proporcionais) |
 | `21_inventario_grupos.csv` | inventário de tipos de amostra, histologia, vírus e TSS |
 | `22_histologia_marcadores.csv` | medianas de marcadores por subtipo histológico |
+| `23_recidivas_clinico.csv` | dados clínicos das 2 recidivas |
+| `24_recidivas_comparacao.csv` | recidivas vs. resumo dos tumores primários |
+| `25_recidivas_expressao.csv` | genes mais extremos das recidivas no painel LA |
+| `26_recidivas_correlacao.csv` | similaridade global das recidivas com cada grupo |
+| `27_histologia_clinico.csv` | resumo clínico por subtipo histológico |
+| `28_histologia_testes.csv` | Kruskal-Wallis e comparações de marcadores por histologia |
+| `29_viral_clinico.csv` | resumo clínico por grupo viral |
+| `30_viral_testes.csv` | testes entre grupos virais e conhecido vs. Unknown |
+| `31_viral_marcadores.csv` | medianas de marcadores por grupo viral |
+| `32_tss_resumo.csv` | resumo clínico por centro TCGA |
+| `33_tss_testes.csv` | testes entre centros com n ≥ 10 |
+| `34_tss_marcadores.csv` | medianas de marcadores por TSS |
+| `35_tss_umap.csv` | associação entre UMAP e TSS |
 
 ## 6.7 Figuras
 
@@ -215,6 +228,14 @@ Arquivos em `resultados/tabelas/DE/`:
 | `25_correlacao_clinica.png` | heatmap de correlações clínicas |
 | `26_grupos_dados.png` | tipos de amostra e subtipos histológicos |
 | `27_histologia_marcadores.png` | marcadores por subtipo histológico |
+| `28_recidivas_expressao.png` | genes extremos das recidivas no painel LA |
+| `29_recidivas_correlacao.png` | correlação global das recidivas com os grupos |
+| `30_histologia_clinico.png` | idade e AFP por subtipo histológico |
+| `31_viral_clinico.png` | AFP por grupo viral |
+| `32_viral_marcadores.png` | marcadores por grupo viral |
+| `33_tss_distribuicao.png` | amostras por centro TCGA |
+| `34_tss_umap.png` | UMAP colorido por TSS |
+| `35_tss_marcadores_heatmap.png` | medianas de marcadores por TSS |
 | `Volcano_01_LIHC_TCGA_tumor_vs_adjacente.png` | volcano principal LIHC |
 | `Volcano_02_GTEx_masculino_vs_feminino.png` | volcano principal GTEx |
 | `Volcano_03_TCGA_tumor_vs_GTEx_normal.png` | volcano principal TCGA vs. GTEx |

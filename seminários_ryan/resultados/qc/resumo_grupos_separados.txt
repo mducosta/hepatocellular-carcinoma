@@ -1,0 +1,191 @@
+GRUPOS SEPARADOS — RESUMO
+=========================
+Tumores primários: 369 | recidivas: 2
+
+Recidivas — clínica:
+          sample      subject     sample_type                histology age  sex
+ TCGA-DD-AACA-02 TCGA-DD-AACA Recurrent Tumor Hepatocellular Carcinoma  65 male
+ TCGA-ZS-A9CF-02 TCGA-ZS-A9CF Recurrent Tumor Hepatocellular Carcinoma  64 male
+ stage grade afp fibrosis_ishak viral_status OS OS_time vital_status tss
+     I    G3   7              6      Unknown  0    2301       LIVING  DD
+    II    G2  NA              0      HBV+HCV  0    2412       LIVING  ZS
+
+Recidivas — genes mais extremos no painel LA:
+          sample   gene expressao          z percentil_entre_primarios
+ TCGA-DD-AACA-02 CAMK2D    10.140 -0.2702865                39.8373984
+ TCGA-DD-AACA-02 PIK3CA     9.752  0.1708817                55.2845528
+ TCGA-DD-AACA-02    LBP     8.002 -2.8470943                 1.8970190
+ TCGA-DD-AACA-02  PRKCA    12.800  2.7287957               100.0000000
+ TCGA-DD-AACA-02 NFATC3    11.930  2.5244530                99.1869919
+ TCGA-DD-AACA-02   ATF6    11.550 -0.3220484                35.2303523
+ TCGA-DD-AACA-02 MAP2K6     3.758 -2.4095016                 0.8130081
+ TCGA-DD-AACA-02 PPP3CA     9.442 -0.4197969                31.1653117
+ TCGA-DD-AACA-02   NCF4     4.732 -2.3359807                 0.8130081
+ TCGA-DD-AACA-02  CXCL2     5.038 -2.3298415                 2.4390244
+ TCGA-ZS-A9CF-02 CAMK2D    12.290  3.0700849               100.0000000
+ TCGA-ZS-A9CF-02 PIK3CA    11.210  2.8786670                99.7289973
+ TCGA-ZS-A9CF-02    LBP    12.390 -0.7895740                15.1761518
+ TCGA-ZS-A9CF-02  PRKCA    11.060  0.5180900                69.3766938
+ TCGA-ZS-A9CF-02 NFATC3    12.020  2.6440267                99.7289973
+ TCGA-ZS-A9CF-02   ATF6    13.460  2.6251244                99.1869919
+ TCGA-ZS-A9CF-02 MAP2K6     8.111  0.4559940                66.6666667
+ TCGA-ZS-A9CF-02 PPP3CA    11.030  2.3844580                99.4579946
+ TCGA-ZS-A9CF-02   NCF4     6.094 -1.1928565                13.0081301
+ TCGA-ZS-A9CF-02  CXCL2    10.840  0.6701586                71.8157182
+
+Recidivas — correlação global:
+          sample     grupo   n rho_mediana rho_maximo
+ TCGA-DD-AACA-02  Primário 369   0.8852105  0.9657327
+ TCGA-DD-AACA-02 Adjacente  50   0.8831546  0.9117538
+ TCGA-DD-AACA-02    Normal 110   0.8709518  0.9017875
+ TCGA-ZS-A9CF-02  Primário 369   0.8767561  0.9752755
+ TCGA-ZS-A9CF-02 Adjacente  50   0.9246613  0.9451035
+ TCGA-ZS-A9CF-02    Normal 110   0.9025613  0.9315126
+
+Histologia — clínica:
+# A tibble: 3 × 14
+  grupo       n idade_mediana idade_q1 idade_q3 masculino_pct estadio_III_IV_pct
+  <fct>   <int>         <dbl>    <dbl>    <dbl>         <dbl>              <dbl>
+1 HCC cl…   359            61     52       69            67.7               26.3
+2 Misto       7            62     61       70            57.1               14.3
+3 Fibrol…     3            25     22.5     29.5          66.7               33.3
+# ℹ 7 more variables: grau_G3_G4_pct <dbl>, afp_mediana <dbl>, afp_q1 <dbl>,
+#   afp_q3 <dbl>, fibrose_mediana <dbl>, obitos <int>, os_mediana <dbl>
+
+Histologia — testes de marcadores:
+   gene   n    p_kruskal p_misto_vs_HCC p_fibrolamelar_vs_HCC p_kruskal_BH
+   GPC3 369 3.336168e-01   0.3662152514           0.233592981 0.3336168431
+    AFP 369 1.347167e-01   0.3391280853           0.076248212 0.1515562827
+  KRT19 369 6.140389e-04   0.0001232067           0.905141385 0.0018421166
+  EPCAM 369 4.689315e-03   0.0015389488           0.402802213 0.0105509590
+  BIRC5 369 3.983716e-02   0.2744108346           0.022949328 0.0597557357
+    VIM 369 8.176786e-05   0.0007347556           0.005797044 0.0007359108
+   SPP1 369 3.117798e-02   0.0339225681           0.113077173 0.0561203560
+   MMP9 369 5.296988e-02   0.0176204146           0.677760797 0.0681041374
+ COL1A1 369 3.741990e-04   0.0038608835           0.005896058 0.0016838953
+  p_misto_BH p_fibro_BH
+ 0.366215251 0.35038947
+ 0.366215251 0.17155848
+ 0.001108860 0.90514138
+ 0.004616846 0.51788856
+ 0.352813930 0.06884798
+ 0.003306400 0.02653226
+ 0.050883852 0.20353891
+ 0.031716746 0.76248090
+ 0.008686988 0.02653226
+
+Vírus — clínica:
+# A tibble: 4 × 14
+  grupo       n idade_mediana idade_q1 idade_q3 masculino_pct estadio_III_IV_pct
+  <fct>   <int>         <int>    <dbl>    <dbl>         <dbl>              <dbl>
+1 Unknown   206            61       52       69          66.0               17.5
+2 HBV+HCV    85            59       50       67          71.8               45.8
+3 HBV        59            64       53       70          61.0               30.4
+4 HCV        19            64       59       66          84.2               11.8
+# ℹ 7 more variables: grau_G3_G4_pct <dbl>, afp_mediana <dbl>, afp_q1 <dbl>,
+#   afp_q3 <dbl>, fibrose_mediana <dbl>, obitos <int>, os_mediana <int>
+
+Vírus — testes:
+            comparacao       variavel               teste   n      p_valor
+ HBV vs HCV vs HBV+HCV            age      Kruskal-Wallis 163 2.822875e-01
+ HBV vs HCV vs HBV+HCV       afp_log2      Kruskal-Wallis 116 9.756086e-01
+ HBV vs HCV vs HBV+HCV fibrosis_ishak      Kruskal-Wallis  89 1.944807e-02
+ HBV vs HCV vs HBV+HCV            sex Qui-quadrado/Fisher 163 1.266476e-01
+ HBV vs HCV vs HBV+HCV    stage_group Qui-quadrado/Fisher 156 1.439690e-02
+ HBV vs HCV vs HBV+HCV    grade_group Qui-quadrado/Fisher 161 1.120330e-02
+  Conhecido vs Unknown            age            Wilcoxon 368 7.186774e-01
+  Conhecido vs Unknown       afp_log2            Wilcoxon 276 1.256621e-01
+  Conhecido vs Unknown fibrosis_ishak            Wilcoxon 210 3.835287e-04
+  Conhecido vs Unknown            sex Qui-quadrado/Fisher 369 5.008454e-01
+  Conhecido vs Unknown    stage_group Qui-quadrado/Fisher 345 5.906943e-05
+  Conhecido vs Unknown    grade_group Qui-quadrado/Fisher 364 1.245195e-02
+ p_ajustado_BH significativo_BH
+  0.3763832945              Não
+  0.9756085803              Não
+  0.0388961452              Sim
+  0.1899714110              Não
+  0.0345525566              Sim
+  0.0345525566              Sim
+  0.7840116694              Não
+  0.1899714110              Não
+  0.0023011722              Sim
+  0.6010144281              Não
+  0.0007088331              Sim
+  0.0345525566              Sim
+
+TSS — resumo (top 15):
+# A tibble: 15 × 14
+   grupo     n idade_mediana idade_q1 idade_q3 masculino_pct estadio_III_IV_pct
+   <chr> <int>         <dbl>    <dbl>    <dbl>         <dbl>              <dbl>
+ 1 DD      144          61       51       69            68.1              17.4 
+ 2 CC       32          54.5     46.5     60.2          81.2              81.2 
+ 3 G3       32          58.5     52       67.2          78.1              18.8 
+ 4 BC       21          69       64       74            47.6              50   
+ 5 2Y       20          64       57.2     68.5          55                 5.56
+ 6 ED       15          53       47.5     59.5          46.7              46.7 
+ 7 FV       11          75       61       79            45.5               9.09
+ 8 RC        9          53       42       66            66.7              22.2 
+ 9 UB        8          59.5     54.8     63.2          75                25   
+10 EP        7          62       57       71.5          71.4              28.6 
+11 ZP        7          64       57.5     66.5          42.9              NA   
+12 MI        5          63       61       64           100                33.3 
+13 XR        5          49       43       58            60                40   
+14 K7        4          65       63.2     66           100                 0   
+15 KR        4          62.5     60       64.2          75                 0   
+# ℹ 7 more variables: grau_G3_G4_pct <dbl>, afp_mediana <dbl>, afp_q1 <dbl>,
+#   afp_q3 <dbl>, fibrose_mediana <dbl>, obitos <int>, os_mediana <dbl>
+
+TSS — testes:
+         variavel               teste   n      p_valor p_ajustado_BH
+              age      Kruskal-Wallis 275 1.119258e-05  4.197217e-05
+         afp_log2      Kruskal-Wallis 213 4.436170e-02  6.140421e-02
+   fibrosis_ishak      Kruskal-Wallis 154 4.502975e-02  6.140421e-02
+              sex Qui-quadrado/Fisher 275 2.539746e-02  4.762024e-02
+      stage_group Qui-quadrado/Fisher 264 9.999000e-05  2.999700e-04
+      grade_group Qui-quadrado/Fisher 272 1.999800e-04  4.999500e-04
+   expressao_GPC3      Kruskal-Wallis 275 1.805573e-01  1.934543e-01
+    expressao_AFP      Kruskal-Wallis 275 3.735150e-02  6.140421e-02
+  expressao_KRT19      Kruskal-Wallis 275 4.811652e-06  2.751690e-05
+  expressao_EPCAM      Kruskal-Wallis 275 5.503380e-06  2.751690e-05
+  expressao_BIRC5      Kruskal-Wallis 275 2.768788e-06  2.751690e-05
+    expressao_VIM      Kruskal-Wallis 275 1.007601e-01  1.162616e-01
+   expressao_SPP1      Kruskal-Wallis 275 4.531574e-01  4.531574e-01
+   expressao_MMP9      Kruskal-Wallis 275 7.926268e-02  9.907835e-02
+ expressao_COL1A1      Kruskal-Wallis 275 8.376724e-04  1.795012e-03
+
+TSS — UMAP:
+ coordenada   n     r2_tss        p_aov    p_kruskal
+      UMAP1 369 0.08279977 5.211522e-05 7.493298e-05
+      UMAP2 369 0.07166653 3.291784e-04 2.613857e-04
+
+Sessão R:
+R version 4.6.1 (2026-06-24 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 26340)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   
+[3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      
+[5] LC_TIME=Portuguese_Brazil.utf8    
+
+time zone: America/Sao_Paulo
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] scales_1.4.0       RColorBrewer_1.1-3 patchwork_1.3.2    pheatmap_1.0.13   
+[5] tidyr_1.3.2        dplyr_1.2.1        ggplot2_4.0.3      data.table_1.18.4 
+
+loaded via a namespace (and not attached):
+ [1] vctrs_0.7.3       cli_3.6.6         rlang_1.3.0       purrr_1.2.2      
+ [5] generics_0.1.4    textshaping_1.0.5 S7_0.2.2          labeling_0.4.3   
+ [9] glue_1.8.1        ragg_1.5.2        grid_4.6.1        tibble_3.3.1     
+[13] lifecycle_1.0.5   compiler_4.6.1    pkgconfig_2.0.3   R.oo_1.27.1      
+[17] systemfonts_1.3.2 R.utils_2.13.0    farver_2.1.2      R6_2.6.1         
+[21] utf8_1.2.6        tidyselect_1.2.1  pillar_1.11.1     magrittr_2.0.5   
+[25] R.methodsS3_1.8.2 tools_4.6.1       withr_3.0.3       gtable_0.3.6     

@@ -49,12 +49,15 @@ cat docs/sessionInfo.txt
 06_grupos_alternativos.R   (recidivas, histologia, vírus, TSS)
         │
         ▼
+07_grupos_separados.R      (análises separadas de cada grupo)
+        │
+        ▼
 10_auditoria_dados_e_volcano.R  (auditorias)
 11_benchmarks.R                 (benchmarks)
 12_compliance.R                 (checklist final)
         │
         ▼
-09_gerar_relatorio_html.py      (opcional; HTML consolidado)
+09_gerar_relatorio_md.py        (opcional; Markdown consolidado)
 ```
 
 `run_all.R` executa essa sequência automaticamente.
@@ -188,7 +191,17 @@ Rscript scripts/06_grupos_alternativos.R
 `resultados/figuras/26–27_*.png` e
 `resultados/qc/resumo_grupos_alternativos.txt`.
 
-### 7.3.10 Auditorias, benchmarks e compliance
+### 7.3.10 Grupos separados
+
+```bash
+Rscript scripts/07_grupos_separados.R
+```
+
+**Saídas:** `resultados/tabelas/23–35_*.csv`,
+`resultados/figuras/28–35_*.png` e
+`resultados/qc/resumo_grupos_separados.txt`.
+
+### 7.3.11 Auditorias, benchmarks e compliance
 
 ```bash
 Rscript scripts/10_auditoria_dados_e_volcano.R
@@ -200,10 +213,10 @@ Rscript scripts/12_compliance.R
 `auditorias/AUDITORIA_VOLCANO_12.md`, `auditorias/BENCHMARKS.md`,
 `auditorias/COMPLIANCE.md` e respectivos CSVs.
 
-### 7.3.11 Relatório HTML consolidado (opcional)
+### 7.3.12 Relatório Markdown consolidado (opcional)
 
 ```bash
-python scripts/09_gerar_relatorio_html.py
+python scripts/09_gerar_relatorio_md.py
 ```
 
 ---
@@ -222,17 +235,19 @@ O `run_all.R`:
 3. roda 04 somente se a matriz completa existir;
 4. roda 05 (fenótipos avançados);
 5. roda 06 (grupos alternativos);
-6. roda 10, 11 e 12 (auditorias, benchmarks e compliance);
-7. para em caso de erro.
+6. roda 07 (análises separadas dos grupos alternativos);
+7. roda 10, 11 e 12 (auditorias, benchmarks e compliance);
+8. para em caso de erro.
 
-### 7.4.1 (Opcional) Gerar HTML consolidado
+### 7.4.1 (Opcional) Gerar Markdown consolidado
 
 ```bash
-python scripts/09_gerar_relatorio_html.py
+python scripts/09_gerar_relatorio_md.py
 ```
 
-Requer `pip install markdown`. Gera `relatorio_completo.html` na raiz,
-concatenando os documentos de `docs/` e as figuras.
+Não requer dependências externas. Gera `relatorio_completo.md` na raiz,
+concatenando os documentos de `docs/` e ajustando os caminhos das figuras.
+O relatório é **somente Markdown**; não há versão HTML.
 
 ---
 
@@ -262,9 +277,17 @@ resultados/
 │   ├── 25_correlacao_clinica.png
 │   ├── 26_grupos_dados.png
 │   ├── 27_histologia_marcadores.png
+│   ├── 28_recidivas_expressao.png
+│   ├── 29_recidivas_correlacao.png
+│   ├── 30_histologia_clinico.png
+│   ├── 31_viral_clinico.png
+│   ├── 32_viral_marcadores.png
+│   ├── 33_tss_distribuicao.png
+│   ├── 34_tss_umap.png
+│   ├── 35_tss_marcadores_heatmap.png
 │   └── Volcano_01...12...png
 ├── tabelas/
-│   ├── 01–22_*.csv
+│   ├── 01–35_*.csv
 │   └── DE/
 │       ├── DEG_*_completo.csv
 │       ├── DEG_*_significativos.csv
@@ -279,6 +302,7 @@ resultados/
     ├── log_04_ComBat.txt
     ├── log_05_fenotipos_avancados.txt
     ├── log_06_grupos_alternativos.txt
+    ├── resumo_grupos_separados.txt
     ├── log_10_auditoria.txt
     ├── log_11_benchmarks.txt
     ├── log_12_compliance.txt

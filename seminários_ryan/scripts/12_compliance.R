@@ -30,13 +30,17 @@ add_check <- function(i, s, e) {
 # 1. Estrutura e arquivos obrigatórios
 # -----------------------------------------------------------------------------
 obrigatorios <- c(
-  "README.md", "relatorio_completo.html", "requirements_R.txt",
+  "README.md", "relatorio_completo.md", "requirements_R.txt",
   "scripts/00_preparar_dados.R", "scripts/01_analise_exploratoria.R",
   "scripts/02_expressao_diferencial.R", "scripts/03_volcano_plots.R",
   "scripts/04_ComBat_demonstracao.R", "scripts/05_fenotipos_avancados.R",
+  "scripts/06_grupos_alternativos.R", "scripts/07_grupos_separados.R",
   "scripts/10_auditoria_dados_e_volcano.R", "scripts/11_benchmarks.R",
   "scripts/12_compliance.R", "scripts/run_all.R",
   "docs/08_fenotipos_avancados.md", "docs/09_auditorias_benchmarks.md",
+  "docs/10_grupos_alternativos.md", "docs/11_grupos_separados.md",
+  "resultados/tabelas/35_tss_umap.csv",
+  "resultados/figuras/35_tss_marcadores_heatmap.png",
   "auditorias/LEIA_ME.md",
   "dados/processed/metadata_analise.tsv",
   "dados/processed/expressao_log2tpm_filtrada.tsv.gz",
@@ -143,7 +147,8 @@ add_check("Scripts R parseáveis", ifelse(length(parse_bad) == 0, "OK", "FALHA")
                  ifelse(length(parse_bad) == 0, "0", paste(parse_bad, collapse = ", "))))
 
 seed_files <- c("01_analise_exploratoria.R", "03_volcano_plots.R",
-                "04_ComBat_demonstracao.R", "05_fenotipos_avancados.R")
+                "04_ComBat_demonstracao.R", "05_fenotipos_avancados.R",
+                "06_grupos_alternativos.R", "07_grupos_separados.R")
 seed_ok <- sapply(seed_files, function(f) {
   any(grepl("set.seed", readLines(file.path(ROOT, "scripts", f), warn = FALSE)))
 })
@@ -167,16 +172,19 @@ add_check("Imagens dos docs existem", ifelse(length(md_bad) == 0, "OK", "FALHA")
           paste0("docs: ", length(md_files), "; imagens ausentes: ",
                  ifelse(length(md_bad) == 0, "0", paste(md_bad, collapse = ", "))))
 
-# HTML consolidado
-html_bad <- character()
-if (file.exists(file.path(ROOT, "relatorio_completo.html"))) {
-  html <- paste(readLines(file.path(ROOT, "relatorio_completo.html"), warn = FALSE), collapse = "\n")
-  srcs <- regmatches(html, gregexpr('src="([^"]+)"', html))[[1]]
-  srcs <- sub('src="([^"]+)"', "\\1", srcs)
-  html_bad <- srcs[!file.exists(file.path(ROOT, srcs))]
+# Relatório Markdown consolidado
+report_bad <- character()
+if (file.exists(file.path(ROOT, "relatorio_completo.md"))) {
+  report <- readLines(file.path(ROOT, "relatorio_completo.md"), warn = FALSE)
+  imgs <- regmatches(report, gregexpr("!\\[[^]]*\\]\\(([^)]+)\\)", report))
+  for (x in unlist(imgs)) {
+    p <- sub("^!\\[[^]]*\\]\\(([^)]+)\\)$", "\\1", x)
+    if (!file.exists(file.path(ROOT, p))) report_bad <- c(report_bad, p)
+  }
 }
-add_check("Imagens do HTML existem", ifelse(length(html_bad) == 0, "OK", "FALHA"),
-          paste0("ausentes: ", ifelse(length(html_bad) == 0, "0", paste(html_bad, collapse = ", "))))
+add_check("Imagens do relatório Markdown existem",
+          ifelse(length(report_bad) == 0, "OK", "FALHA"),
+          paste0("ausentes: ", ifelse(length(report_bad) == 0, "0", paste(report_bad, collapse = ", "))))
 
 # Sem menções a PDF ou PCA nos docs
 docs_txt <- paste(unlist(lapply(md_files, readLines, warn = FALSE)), collapse = "\n")
@@ -228,7 +236,7 @@ md <- c(
   "- `Volcano_12` com conteúdo visual mínimo;",
   "- CSVs legíveis, não vazios e com colunas críticas sem NA;",
   "- scripts R parseáveis e com sementes de reprodutibilidade;",
-  "- imagens referenciadas nos docs e no HTML existentes;",
+  "- imagens referenciadas nos docs e no relatório Markdown existentes;",
   "- ausência de menções a PDF e a PCA nos documentos;",
   "- metadados com colunas esperadas, 529 amostras e sem recidivas;",
   "- versão do R e pacotes registrada em `docs/sessionInfo.txt`.",

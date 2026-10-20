@@ -74,7 +74,7 @@ grau) se associam a esses padrões?
 ```text
 seminários_ryan/
 ├── README.md
-├── relatorio_completo.html          # versão HTML consolidada dos docs
+├── relatorio_completo.md            # versão Markdown consolidada dos docs
 ├── requirements_R.txt
 ├── scripts/
 │   ├── 00_download_dados.R          # download dos dados brutos
@@ -84,11 +84,12 @@ seminários_ryan/
 │   ├── 03_volcano_plots.R           # volcano plots (PNG)
 │   ├── 04_ComBat_demonstracao.R     # demonstração e limitação do ComBat
 │   ├── 05_fenotipos_avancados.R     # missingness, testes, KM, Cox
-│   ├── 06_grupos_alternativos.R     # recidivas, histologia, vírus, TSS
+│   ├── 06_grupos_alternativos.R     # inventário: recidivas, histologia, vírus, TSS
+│   ├── 07_grupos_separados.R        # análises separadas de cada grupo
 │   ├── 10_auditoria_dados_e_volcano.R
 │   ├── 11_benchmarks.R
 │   ├── 12_compliance.R
-│   ├── 09_gerar_relatorio_html.py   # (opcional) HTML consolidado
+│   ├── 09_gerar_relatorio_md.py     # (opcional) Markdown consolidado
 │   └── run_all.R                    # executa tudo em ordem
 ├── dados/
 │   ├── raw/                         # clínico/fenótipo (pequenos)
@@ -100,7 +101,7 @@ seminários_ryan/
 │       └── resumo_preparacao.txt
 ├── resultados/
 │   ├── tabelas/
-│   │   ├── 01–22_*.csv              # fenótipos, UMAP, testes, Cox, grupos
+│   │   ├── 01–35_*.csv              # fenótipos, UMAP, testes, Cox, grupos
 │   │   └── DE/                      # resultados de expressão diferencial
 │   ├── figuras/                     # UMAP, heatmap, KM, volcanos (PNG)
 │   └── qc/                          # logs e resumos de execução
@@ -120,6 +121,7 @@ seminários_ryan/
     ├── 08_fenotipos_avancados.md
     ├── 09_auditorias_benchmarks.md
     ├── 10_grupos_alternativos.md
+    ├── 11_grupos_separados.md
     └── sessionInfo.txt
 ```
 
@@ -180,7 +182,15 @@ seminários_ryan/
 - **Marcadores por histologia:** o grupo misto tem KRT19 e EPCAM muito altos,
   consistente com componente colangiocelular; fibrolamelar tem AFP/GPC3 mais
   baixos. n pequeno: apenas descritivo.
-- Detalhes em `docs/10_grupos_alternativos.md`.
+- **Análises separadas:** clínica das 2 recidivas + expressão no painel LA;
+  clínica e marcadores por subtipo; clínica, testes e marcadores por grupo
+  viral; distribuição, clínica, marcadores e UMAP por TSS.
+- **Vírus:** `Unknown` difere de casos conhecidos em estágio, grau e fibrose;
+  a missingness é informativa e não deve ser tratada como “sem infecção”.
+- **TSS:** centros com n ≥ 10 diferem em clínica e marcadores; o TSS explica
+  ~8% de UMAP1 e ~7% de UMAP2, compatível com efeito de centro/lote.
+- Detalhes em `docs/10_grupos_alternativos.md` e
+  `docs/11_grupos_separados.md`.
 
 ### 4.5 Achados biológicos
 
@@ -223,6 +233,7 @@ foi aplicado à análise principal. Detalhes em `docs/02_ComBat.md`.
 | [`docs/08_fenotipos_avancados.md`](docs/08_fenotipos_avancados.md) | missingness, associações, AFP, Kaplan-Meier, Cox, `cox.zph` |
 | [`docs/09_auditorias_benchmarks.md`](docs/09_auditorias_benchmarks.md) | auditorias, benchmarks e compliance |
 | [`docs/10_grupos_alternativos.md`](docs/10_grupos_alternativos.md) | recidivas, subtipos histológicos, grupos virais e TSS |
+| [`docs/11_grupos_separados.md`](docs/11_grupos_separados.md) | análises separadas: recidivas, histologia, vírus e TSS |
 | [`docs/02_ComBat.md`](docs/02_ComBat.md) | o que é, modelo, funcionamento, aplicação/limitação na deconvolução |
 | [`docs/03_logFC_limma.md`](docs/03_logFC_limma.md) | modelo linear, contrastes, `topTable`, exemplos reais |
 | [`docs/04_volcano_plots.md`](docs/04_volcano_plots.md) | construção e interpretação dos 3 volcanos principais + complementares |
@@ -300,6 +311,7 @@ Rscript scripts/03_volcano_plots.R
 Rscript scripts/04_ComBat_demonstracao.R
 Rscript scripts/05_fenotipos_avancados.R
 Rscript scripts/06_grupos_alternativos.R
+Rscript scripts/07_grupos_separados.R
 Rscript scripts/10_auditoria_dados_e_volcano.R
 Rscript scripts/11_benchmarks.R
 Rscript scripts/12_compliance.R
@@ -307,14 +319,14 @@ Rscript scripts/12_compliance.R
 
 Os logs de execução ficam em `resultados/qc/`.
 
-Para gerar novamente o HTML consolidado (requer `pip install markdown`):
+Para gerar novamente o relatório consolidado em Markdown:
 
 ```bash
-python scripts/09_gerar_relatorio_html.py
+python scripts/09_gerar_relatorio_md.py
 ```
 
-O arquivo `relatorio_completo.html` é apenas uma conveniência de leitura; a
-fonte editável são os arquivos em `docs/`.
+O arquivo `relatorio_completo.md` é apenas uma conveniência de leitura; a
+fonte editável são os arquivos em `docs/`. O projeto não gera HTML.
 
 ---
 

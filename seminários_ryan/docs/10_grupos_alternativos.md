@@ -170,3 +170,8 @@ centros com n ≥ 10).
 | HBV / HCV / HBV+HCV | 59 / 19 / 85 | Possível, com cautela |
 | Unknown viral | 206 | Excluído dos testes |
 | TSS | 38 centros | Efeito técnico; não usado |
+
+As análises separadas de cada um desses grupos estão em
+[`docs/11_grupos_separados.md`](11_grupos_separados.md): clínica das
+recidivas, expressão no painel LA, subtipos histológicos, grupos virais e
+sinal de lote por TSS no UMAP.

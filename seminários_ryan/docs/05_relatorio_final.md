@@ -195,8 +195,9 @@ exploratórios.
 
 **Outros grupos nos dados:** além de tumor/adjacente/GTEx, há 2 recidivas
 (excluídas), 7 hepatocolangiocarcinomas mistos, 3 carcinomas fibrolamelares,
-grupos virais (HBV/HCV/HBV+HCV) e 38 centros TCGA. Ver
-`docs/10_grupos_alternativos.md`.
+grupos virais (HBV/HCV/HBV+HCV) e 38 centros TCGA. Inventário em
+`docs/10_grupos_alternativos.md`; análises separadas de cada grupo em
+`docs/11_grupos_separados.md`.
 
 ### 5.4.3 DEGs
 
