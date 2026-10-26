@@ -1,0 +1,33 @@
+Compliance gerado em: C:\Users\oorie\OneDrive\Documentos\TRABALHOS\HEPATO\hepatocellular-carcinoma\seminários_ryan/auditorias 
+                                item status
+               Arquivos obrigatórios     OK
+                     Figuras sem PDF     OK
+           PNGs válidos e não vazios     OK
+                volcano_12 não vazia     OK
+                 Tabelas CSV válidas     OK
+             Colunas críticas sem NA     OK
+                Scripts R parseáveis     OK
+       Sementes de reprodutibilidade     OK
+            Imagens dos docs existem     OK
+             Imagens do HTML existem     OK
+                        Docs sem PDF     OK
+ Docs sem PCA (substituído por UMAP)     OK
+                 Colunas do metadado     OK
+                Contagem de amostras     OK
+            Sem recidivas na análise     OK
+                                                                                                                                                                                                                                                                                          evidencia
+                                                                                                                                                                                                                                                                                        ausentes: 0
+                                                                                                                                                                                                                                                                                PDFs encontrados: 0
+                                                                                                                                                                                                                                                                    PNGs: 37; suspeitos de vazio: 0
+                                                                                                                                                                                                                                                                          fração não branca: 0.0948
+                                                                                                                                                                                                                                                                      CSVs: 73; vazios/ilegíveis: 0
+ resultados/tabelas/expressao_diferencial/expressao_diferencial_TCGA_Tumor_vs_GTEx_Normal_completo.csv: gene=0; logFC=0; P.Value=0; adj.P.Val=0 | resultados/tabelas/tabela_14_fenotipos_testes.csv: variavel_1=0; variavel_2=0; p_valor=0 | resultados/tabelas/tabela_18_cox_multivariado.csv: term=0; estimate=0; conf.low=0; conf.high=0; p.value=0
+                                                                                                                                                                                                                                                                              scripts: 11; erros: 0
+                                                                                                                                                                              etapa_02_analise_exploratoria_fenotipos.R=TRUE; etapa_04_volcano_plots.R=TRUE; etapa_05_correcao_lote_ComBat.R=TRUE; etapa_06_fenotipos_clinicos_avancados.R=TRUE
+                                                                                                                                                                                                                                                                       docs: 9; imagens ausentes: 0
+                                                                                                                                                                                                                                                                                        ausentes: 0
+                                                                                                                                                                                                                                                                                     nenhuma menção
+                                                                                                                                                                                                                                                                                     nenhuma menção
+                                                                                                                                                                                                                                                                                        ausentes: 0
+                                                                                                                                                                                                                                                                             n = 529 (esperado 529)
+                                                                                                                                                                                                                                                                                    amostras -02: 0

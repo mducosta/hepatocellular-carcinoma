@@ -1,0 +1,23 @@
+TESTES MÚLTIPLOS DE COMBAT — LOG
+================================
+Data: 2026-10-26 13:23:58.130399
+R: R version 4.6.1 (2026-06-24 ucrt)
+Genes: 12401 | Amostras totais: 529
+
+tcga_gtex_mod_grupo: erro | n=527 | lotes=2 | DEGs antes=NA depois=NA | Jaccard=NA | R2 lote antes=0.17 depois=NA | erro: At least one covariate is confounded with batch! Please remove confounded covariates and rerun ComBat
+tcga_gtex_mod_sexo_idade: ok | n=527 | lotes=2 | DEGs antes=3391 depois=1 | Jaccard=0 | R2 lote antes=0.17 depois=0.001
+tcga_gtex_sem_mod: ok | n=528 | lotes=2 | DEGs antes=3391 depois=1 | Jaccard=0 | R2 lote antes=0.17 depois=0
+tcga_gtex_sem_mod_meanonly: ok | n=528 | lotes=2 | DEGs antes=3391 depois=1947 | Jaccard=0.519 | R2 lote antes=0.17 depois=0.119
+tcga_gtex_ref_gtex: ok | n=528 | lotes=2 | DEGs antes=3391 depois=1 | Jaccard=0 | R2 lote antes=0.17 depois=0
+tcga_tss_grau: ok | n=363 | lotes=9 | DEGs antes=172 depois=290 | Jaccard=0.582 | R2 lote antes=0.075 depois=0.015
+tcga_tss_grau_estagio: ok | n=342 | lotes=9 | DEGs antes=153 depois=287 | Jaccard=0.533 | R2 lote antes=0.074 depois=0.017
+tcga_tss_grau_estagio_meanonly: ok | n=342 | lotes=9 | DEGs antes=153 depois=177 | Jaccard=0.634 | R2 lote antes=0.074 depois=0.069
+tcga_tss_grau_refDD: ok | n=342 | lotes=9 | DEGs antes=153 depois=296 | Jaccard=0.517 | R2 lote antes=0.074 depois=0.013
+tcga_tss_estagio: ok | n=344 | lotes=9 | DEGs antes=46 depois=0 | Jaccard=0 | R2 lote antes=0.073 depois=0.017
+tcga_tss_estagio_grau: ok | n=342 | lotes=9 | DEGs antes=59 depois=0 | Jaccard=0 | R2 lote antes=0.074 depois=0.017
+tcga_tss_estagio_grau_meanonly: ok | n=342 | lotes=9 | DEGs antes=59 depois=99 | Jaccard=0.534 | R2 lote antes=0.074 depois=0.069
+tcga_ta_tss: erro | n=418 | lotes=9 | DEGs antes=NA depois=NA | Jaccard=NA | R2 lote antes=0.074 depois=NA | erro: The covariates are confounded! Please remove one or more of the covariates so the design is not confounded
+tcga_ta_tss_meanonly: erro | n=418 | lotes=9 | DEGs antes=NA depois=NA | Jaccard=NA | R2 lote antes=0.074 depois=NA | erro: The covariates are confounded! Please remove one or more of the covariates so the design is not confounded
+tcga_ta_tss_mod_sexo_idade: ok | n=418 | lotes=9 | DEGs antes=4130 depois=3048 | Jaccard=0.733 | R2 lote antes=0.074 depois=0.012
+tcga_ta_tss_sem_mod: ok | n=419 | lotes=9 | DEGs antes=4130 depois=3038 | Jaccard=0.728 | R2 lote antes=0.074 depois=0.009
+tcga_ta_tss_sem_mod_meanonly: ok | n=419 | lotes=9 | DEGs antes=4130 depois=3605 | Jaccard=0.823 | R2 lote antes=0.074 depois=0.072

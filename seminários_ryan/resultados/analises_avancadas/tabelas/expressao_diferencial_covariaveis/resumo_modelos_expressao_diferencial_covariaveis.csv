@@ -1,0 +1,49 @@
+modelo,variavel,contraste,n_referencia,n_comparacao,n_total,n_covariaveis,df_residual,posto_completo,genes_testados,up,down,total_degs,menor_fdr,status,observacao
+tumor_vs_adjacente_base,group,TCGA_Tumor vs TCGA_Adjacent,50,368,418,2,414,TRUE,12401,3322,808,4130,6.137379292099e-82,ok,Modelo basal não pareado.
+tumor_vs_adjacente_estagio_grau,group,TCGA_Tumor vs TCGA_Adjacent,40,342,382,4,376,TRUE,12401,3503,810,4313,1.49291051289847e-71,ok,Ajuste por estágio e grau; casos completos.
+tumor_vs_adjacente_clinico_completo,group,TCGA_Tumor vs TCGA_Adjacent,31,226,257,7,246,TRUE,12401,2992,748,3740,1.4567449798339e-48,ok,Ajuste clínico completo; perda de adjacentes por missingness.
+tumor_vs_adjacente_clinico_tss,group,TCGA_Tumor vs TCGA_Adjacent,31,226,257,8,241,TRUE,12401,2986,750,3736,7.02662752931905e-50,ok,Ajuste clínico + centro TCGA; verificar confundimento TSS-grupo.
+tumor_vs_adjacente_pareado,group,TCGA_Tumor vs TCGA_Adjacent,50,369,419,0,49,TRUE,12401,2934,776,3710,1.20632492300542e-23,ok,Análise pareada por paciente (efeitos fixos de paciente).
+tumor_vs_gtex_base,group,TCGA_Tumor vs GTEx_Normal,109,368,477,2,473,TRUE,12401,2251,1140,3391,2.91220038810921e-137,ok,Comparação estruturalmente confundida com estudo/lote.
+tumor_vs_gtex_sem_ajuste,group,TCGA_Tumor vs GTEx_Normal,109,369,478,0,476,TRUE,12401,2173,1142,3315,2.57974237717654e-138,ok,Sem ajuste; usado como referência de sensibilidade.
+estagio_base,stage_group,III-IV vs I-II,254,90,344,2,340,TRUE,12401,3,43,46,0.00500304937134287,ok,Estágio III-IV vs. I-II; ajuste mínimo.
+estagio_clinico,stage_group,III-IV vs I-II,188,38,226,6,216,TRUE,12401,0,0,0,0.999131731713626,ok,"Estágio ajustado por grau, sorologia, Child-Pugh e histologia."
+estagio_clinico_tss,stage_group,III-IV vs I-II,188,38,226,7,211,TRUE,12401,0,0,0,0.999786936097056,ok,Estágio + centro TCGA; TSS pode absorver parte do efeito de estágio.
+estagio_tendencia,stage_num,4 vs 1,129,4,226,7,211,TRUE,12401,0,0,0,0.499392546968915,ok,Tendência ordinal (estágio 1-4 como variável contínua).
+grau_base,grade_group,G3-G4 vs G1-G2,232,131,363,2,359,TRUE,12401,61,111,172,4.03923752788538e-07,ok,Grau G3-G4 vs. G1-G2; ajuste mínimo.
+grau_clinico,grade_group,G3-G4 vs G1-G2,131,95,226,6,216,TRUE,12401,115,84,199,1.26358215351047e-05,ok,"Grau ajustado por estágio, sorologia, Child-Pugh e histologia."
+grau_clinico_tss,grade_group,G3-G4 vs G1-G2,131,95,226,7,211,TRUE,12401,166,81,247,9.6161513023428e-06,ok,Grau + centro TCGA.
+grau_tendencia,grade_num,4 vs 1,21,11,226,7,211,TRUE,12401,84,54,138,1.31520075620959e-08,ok,Tendência ordinal (grau 1-4 como variável contínua).
+sorologia_hbv_vs_hcv,viral_known,HBV vs HCV,7,40,47,7,36,TRUE,12401,0,0,0,0.999928094594103,ok,HBV vs. HCV; não há grupo negativo conhecido.
+sorologia_hbvhcv_vs_hbv,viral_known,HBV+HCV vs HBV,40,36,76,7,65,TRUE,12401,0,0,0,0.301348898165807,ok,"HBV+HCV vs. HBV; sorologia, não infecção ativa."
+sorologia_hbvhcv_vs_hcv,viral_known,HBV+HCV vs HCV,7,36,43,7,32,TRUE,12401,0,0,0,0.820397478625698,ok,HBV+HCV vs. HCV; n pequeno no grupo HCV.
+sorologia_conhecida_vs_unknown,viral_status,HBV vs Unknown,143,40,183,7,170,TRUE,12401,0,0,0,0.00258453150934245,ok,HBV conhecido vs. sorologia desconhecida; missingness informativa.
+child_pugh_a_vs_bc,child_pugh_group,B-C vs A,205,21,226,7,211,TRUE,12401,0,0,0,0.529416120670924,ok,Child-Pugh B-C (n pequeno) vs. A; missing não é B-C.
+histologia_hcc_vs_outros,histology_group,Other vs HCC,221,5,226,7,211,TRUE,12401,175,67,242,0.000646084645602954,ok,HCC clássico vs. misto/fibrolamelar; n de 'Other' = 10.
+sexo_gtex,sex,male vs female,32,77,109,1,106,TRUE,12401,8,5,13,2.82620705841259e-69,ok,GTEx fígado normal; controle positivo XIST/genes do Y.
+sexo_tumor,sex,male vs female,109,233,342,6,325,TRUE,12401,133,42,175,1.23613457529087e-137,ok,TCGA tumor; ajuste clínico e centro.
+sexo_adjacente,sex,male vs female,22,28,50,1,47,TRUE,12401,92,11,103,2.52044692882327e-45,ok,"TCGA adjacente; n = 50, baixo poder."
+afp_400,afp_group2,AFP >= 400 vs AFP < 400,201,61,262,6,246,TRUE,12401,149,306,455,3.11552674802883e-29,ok,AFP >= 400 vs. < 400; missingness 25%.
+fibrose_avancada,fibrosis_adv2,Ishak >= 5 vs Ishak < 5,124,74,198,6,183,TRUE,12401,0,0,0,0.0899241183083877,ok,Ishak >= 5 vs. < 5; missingness 43%.
+invasao_vascular_macro_vs_micro,vascular_invasion2,Macro vs Micro,85,16,101,6,86,TRUE,12401,0,0,0,0.306607041882013,ok,Macro vs. micro; missingness 71%; não há 'sem invasão' confiável.
+estagio_base_mesmos_casos,stage_group,III-IV vs I-II,188,38,226,2,222,TRUE,12401,0,0,0,0.637756844525645,ok,"Mesmos casos completos do modelo clínico, mas sem ajuste clínico."
+estagio_sem_grau,stage_group,III-IV vs I-II,188,38,226,5,217,TRUE,12401,0,0,0,0.99995912536044,ok,Estágio sem ajuste por grau; avalia absorção por grau.
+estagio_so_grau,stage_group,III-IV vs I-II,188,38,226,3,221,TRUE,12401,0,0,0,0.678287867841733,ok,Estágio ajustado apenas por grau.
+estagio_so_tss,stage_group,III-IV vs I-II,188,38,226,3,217,TRUE,12401,0,0,0,0.841922844191506,ok,Estágio ajustado apenas por centro TCGA.
+grau_base_mesmos_casos,grade_group,G3-G4 vs G1-G2,131,95,226,2,222,TRUE,12401,96,89,185,1.06627786638961e-05,ok,"Mesmos casos completos do modelo clínico de grau, sem ajuste."
+grau_sem_estagio,grade_group,G3-G4 vs G1-G2,131,95,226,5,217,TRUE,12401,114,85,199,1.14827072147494e-05,ok,Grau sem ajuste por estágio.
+grau_so_estagio,grade_group,G3-G4 vs G1-G2,131,95,226,3,221,TRUE,12401,96,88,184,1.18580106658278e-05,ok,Grau ajustado apenas por estágio.
+child_pugh_base,child_pugh_group,B-C vs A,214,22,236,2,232,TRUE,12401,0,0,0,0.146826385144651,ok,Child-Pugh B-C vs. A sem ajuste clínico; n de B-C = 22.
+histologia_base,histology_group,Other vs HCC,358,10,368,2,364,TRUE,12401,568,172,740,4.45508199656014e-05,ok,"Histologia sem ajuste; n de Other = 10, descritivo."
+histologia_estagio_grau,histology_group,Other vs HCC,332,10,342,4,336,TRUE,12401,763,257,1020,7.94179189237909e-06,ok,Histologia ajustada por estágio e grau; n de Other pode cair.
+sorologia_hbv_vs_hcv_base,viral_known,HBV vs HCV,19,59,78,2,74,TRUE,12401,0,0,0,0.995805592632624,ok,HBV vs. HCV sem ajuste clínico; n pequeno.
+sorologia_hbvhcv_vs_hbv_base,viral_known,HBV+HCV vs HBV,59,85,144,2,140,TRUE,12401,0,0,0,0.999733441164114,ok,HBV+HCV vs. HBV sem ajuste clínico.
+afp_base,afp_group2,AFP >= 400 vs AFP < 400,212,63,275,2,271,TRUE,12401,204,369,573,6.4688168926161e-32,ok,AFP sem ajuste clínico.
+fibrose_base,fibrosis_adv2,Ishak >= 5 vs Ishak < 5,132,77,209,2,205,TRUE,12401,0,0,0,0.299199656452796,ok,Fibrose sem ajuste clínico.
+estagio_so_tss_full,stage_group,III-IV vs I-II,254,90,344,3,332,TRUE,12401,0,0,0,0.999784546469288,ok,"Estágio na coorte completa, ajustado apenas por centro; teste de confundimento TSS."
+estagio_sem_cc_ed,stage_group,III-IV vs I-II,240,57,297,2,293,TRUE,12401,0,0,0,0.380351619889322,ok,"Estágio excluindo centros CC e ED, onde Child-Pugh está ausente."
+estagio_sem_estagio_iv,stage_group,III-IV vs I-II,254,85,339,2,335,TRUE,12401,5,74,79,0.00378033712659272,ok,"Estágio III vs. I-II, excluindo estágio IV (n = 5)."
+grau_so_tss_full,grade_group,G3-G4 vs G1-G2,232,131,363,3,351,TRUE,12401,159,178,337,2.53329022495018e-12,ok,"Grau na coorte completa, ajustado apenas por centro."
+grau_sem_DD,grade_group,G3-G4 vs G1-G2,165,54,219,2,215,TRUE,12401,134,142,276,0.000305607337305946,ok,Grau excluindo o centro DD (39% dos tumores).
+grau_base_sem_estagio,grade_group,G3-G4 vs G1-G2,214,128,342,3,337,TRUE,12401,55,98,153,1.2191278061465e-06,ok,"Grau na coorte completa, ajustado por estágio."
+estagio_x_grau_interacao,stage_group,III-IV vs I-II,188,38,226,6,216,TRUE,12401,0,0,0,0.999131731713626,ok,"Interação estágio x grau; exploratória, poder limitado."

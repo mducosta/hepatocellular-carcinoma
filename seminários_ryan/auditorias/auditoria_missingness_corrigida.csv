@@ -1,0 +1,14 @@
+variavel,ausente,total,percentual
+vascular_invasion,261,369,70.7
+viral_status,206,369,55.8
+fibrosis_ishak,159,369,43.1
+child_pugh,132,369,35.8
+afp,93,369,25.2
+stage,24,369,6.5
+grade,5,369,1.4
+OS_time,1,369,0.3
+age,1,369,0.3
+sex,0,369,0.0
+histology,0,369,0.0
+tss,0,369,0.0
+OS,0,369,0.0

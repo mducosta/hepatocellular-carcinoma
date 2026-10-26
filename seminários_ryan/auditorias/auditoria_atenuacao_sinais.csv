@@ -1,0 +1,10 @@
+comparacao,degs_base,degs_alt,jaccard,atenuacao_mediana,n_base,n_alt
+Estágio: coorte completa vs mesmos casos completos,46,0,0.0,0.6503061881050813,12401,12401
+Estágio: sem vs com TSS,46,0,0.0,0.46700221256867686,12401,12401
+Estágio: excluindo CC/ED,46,0,0.0,0.40847359005092954,12401,12401
+Grau: base vs clínico + TSS,172,247,0.38741721854304634,-0.028337299803991467,12401,12401
+Tumor vs adjacente: não pareado vs pareado,4130,3710,0.7637795275590551,0.05210846227998811,12401,12401
+Tumor vs adjacente: sem vs com composição,4130,1897,0.31708916083916083,0.3680960567925677,12401,12401
+Tumor vs GTEx: sem vs com composição,3391,2732,0.5540609137055837,0.18688012616383876,12401,12401
+Grau: sem vs com composição,172,0,0.0,0.6915462047045904,12401,12401
+Estágio: sem vs com composição,46,0,0.0,0.5965875209256234,12401,12401

@@ -1,0 +1,40 @@
+# Compliance e reprodutibilidade — análises avançadas
+
+Gerado em 2026-10-26 14:39
+
+| item                              | status   | evidencia                                                                                            | categoria         |
+|:----------------------------------|:---------|:-----------------------------------------------------------------------------------------------------|:------------------|
+| Scripts R encontrados             | OK       | 20 arquivos                                                                                          | reprodutibilidade |
+| Scripts Python encontrados        | OK       | 8 arquivos                                                                                           | reprodutibilidade |
+| Scripts R com sintaxe válida      | OK       | todos parseiam                                                                                       | reprodutibilidade |
+| Scripts Python com sintaxe válida | OK       | todos compilam                                                                                       | reprodutibilidade |
+| Sementes fixas declaradas         | OK       | 16 scripts com semente/seed                                                                          | reprodutibilidade |
+| Saídas obrigatórias               | OK       | todas presentes                                                                                      | saídas            |
+| Tabelas principais não vazias     | OK       | todas com conteúdo                                                                                   | saídas            |
+| Tabelas de DEGs vazias (esperado) | INFO     | 44 arquivos de modelos sem DEGs; ausência é resultado, não falha                                     | saídas            |
+| Figuras em PNG válido             | OK       | 10 figuras; todas válidas                                                                            | figuras           |
+| Dados públicos e anonimizados     | OK       | TCGA-LIHC e GTEx via UCSC Xena; não há dados identificáveis                                          | ética             |
+| Aprovação ética                   | OK       | dados secundários públicos; não requer CEP/CONEP                                                     | ética             |
+| Declaração de uso de IA           | OK       | seção específica no artigo e no LEIA_ME                                                              | transparência     |
+| Disponibilidade de código e dados | OK       | scripts, tabelas e figuras versionados no repositório                                                | reprodutibilidade |
+| Licença                           | OK       | LICENSE do repositório                                                                               | legal             |
+| TPM definido                      | OK       | TPM = transcripts per million; dados em log2(TPM + 0,001); conversão para TPM linear na deconvolução | métodos           |
+| Critérios de inclusão/exclusão    | OK       | descritos no artigo e no LEIA_ME                                                                     | métodos           |
+| Datas de acesso                   | OK       | dados: 17/10/2026; artigos: 26/10/2026                                                               | transparência     |
+| Espécie                           | OK       | Homo sapiens; tecido hepático                                                                        | métodos           |
+| Limitações declaradas             | OK       | seção de limitações e auditoria crítica                                                              | transparência     |
+| Cabeçalho/propósito nos scripts   | OK       | todos documentados                                                                                   | documentação      |
+| Modelos de expressão executados   | OK       | 48 ok; 0 não executados                                                                              | resultados        |
+| Cenários de ComBat documentados   | OK       | 17 cenários; 14 executados                                                                           | resultados        |
+| Integração composição × expressão | OK       | 10 comparações; atenuação mediana documentada                                                        | resultados        |
+| Artigo em DOCX                    | OK       | 4.0 MB                                                                                               | artigo            |
+| Referências bibliográficas       | INFO     | pasta artigos/ não versionada; referências listadas no artigo final                                    | referências       |
+
+## Interpretação
+
+- **OK**: item verificado e atendido.
+- **ATENÇÃO**: item atendido com ressalva documentada.
+- **FALHA**: item não atendido; requer correção antes de submissão.
+
+A verificação de sintaxe usa `parse()` no R e `py_compile` no Python. 
+A verificação de figuras usa dimensões e DPI; não avalia qualidade científica.

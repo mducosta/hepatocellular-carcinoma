@@ -94,7 +94,7 @@ Duas coortes públicas foram combinadas a partir do UCSC Xena e restritas à via
 
 ```
 .
-├── README.md                         # Guia único do projeto (figuras + fluxogramas)
+├── LEIA_ME.md                         # Guia único do projeto (figuras + fluxogramas)
 ├── requirements.txt                  # Dependências R (CRAN + Bioconductor)
 ├── .gitignore                        # O que não versionar (credenciais, logs, outros dados)
 ├── LICENSE                           # MIT
@@ -295,17 +295,17 @@ Benjamini–Hochberg (FDR). Foram identificados **42 DEGs** na via `hsa05417`.
 | CAMK2A | −1,10 | 4,8×10⁻⁶ |
 | CYP1A1 | −1,82 | 6,0×10⁻⁶ |
 
-> Tabela completa (com t, P.Value, AveExpr e B): [`outputs/deg/DEG_significant_LA.csv`](outputs/deg/DEG_significant_LA.csv)
-> e [`outputs/deg/DEG_LA_pathway_only.csv`](outputs/deg/DEG_LA_pathway_only.csv).
+> Tabela completa (com t, P.Value, AveExpr e B): [`outputs/deg/expressao_diferencial_significant_LA.csv`](outputs/deg/expressao_diferencial_significant_LA.csv)
+> e [`outputs/deg/expressao_diferencial_LA_pathway_only.csv`](outputs/deg/expressao_diferencial_LA_pathway_only.csv).
 
 ### 7.3 Volcano plot
 
-![Volcano plot — via hsa05417](outputs/volcano/Volcano_LIHC_LA_pathway.png)
+![Volcano plot — via hsa05417](outputs/volcano/volcano_LIHC_LA_pathway.png)
 
 O volcano plot foca exclusivamente nos **212 genes da via `hsa05417`** e rotula
 os 10 genes mais significativos de cada direção. Limiares: FDR < 0,05 e
 |log2FC| > 1 (linhas tracejadas). Versão vetorial em
-[`Volcano_LIHC_LA_pathway.pdf`](outputs/volcano/Volcano_LIHC_LA_pathway.pdf).
+[`volcano_LIHC_LA_pathway.pdf`](outputs/volcano/volcano_LIHC_LA_pathway.pdf).
 
 ### 7.4 Rede de interação proteína-proteína (PPI — STRING v12.0)
 
@@ -520,7 +520,7 @@ Relatórios em [`outputs/audit/`](outputs/audit/):
 - `AUDITORIA_RESUMO_EXPANDIDO.md` — cruzamento do resumo com código/dados
 - `pipeline_log.csv` — log passo a passo
 - `benchmark_pipeline.csv` / `benchmark_summary.md` — métricas de execução
-- `sessionInfo.txt` — ambiente R completo
+- `sessionInfo_analises_exploratorias.txt` — ambiente R completo
 
 ### Documentação de apoio (`docs/`)
 

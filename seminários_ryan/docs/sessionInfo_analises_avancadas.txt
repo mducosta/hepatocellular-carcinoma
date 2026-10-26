@@ -1,0 +1,74 @@
+R version 4.6.1 (2026-06-24 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 26340)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   
+[3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      
+[5] LC_TIME=Portuguese_Brazil.utf8    
+
+time zone: America/Sao_Paulo
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] tidyr_1.3.2         dplyr_1.2.1         data.table_1.18.4  
+ [4] car_3.1-5           carData_3.0-6       matrixStats_1.5.0  
+ [7] vegan_2.7-3         permute_0.9-10      pheatmap_1.0.13    
+[10] survminer_0.5.2     ggpubr_1.0.0        ggplot2_4.0.3      
+[13] survival_3.8-6      GSVA_2.6.12         xCell_1.1.0        
+[16] quantiseqr_1.20.0   EPIC_1.1.7          edgeR_4.10.6       
+[19] sva_3.60.0          BiocParallel_1.46.0 genefilter_1.94.0  
+[22] mgcv_1.9-4          nlme_3.1-169        limma_3.68.0       
+
+loaded via a namespace (and not attached):
+ [1] DBI_1.3.0                   gridExtra_2.3.1            
+ [3] GSEABase_1.74.0             rlang_1.3.0                
+ [5] magrittr_2.0.5              otel_0.2.0                 
+ [7] compiler_4.6.1              RSQLite_3.53.3             
+ [9] DelayedMatrixStats_1.34.0   png_0.1-9                  
+[11] vctrs_0.7.3                 quadprog_1.5-8             
+[13] pkgconfig_2.0.3             SpatialExperiment_1.22.0   
+[15] crayon_1.5.3                memuse_4.2-3               
+[17] fastmap_1.2.0               backports_1.5.1            
+[19] magick_2.9.1                XVector_0.52.0             
+[21] pracma_2.4.6                graph_1.90.0               
+[23] preprocessCore_1.74.0       purrr_1.2.2                
+[25] bit_4.6.0                   cachem_1.1.0               
+[27] limSolve_2.0.3              blob_1.3.0                 
+[29] rhdf5filters_1.24.1         DelayedArray_0.38.2        
+[31] Rhdf5lib_2.0.0              cluster_2.1.8.2            
+[33] broom_1.0.13                parallel_4.6.1             
+[35] R6_2.6.1                    RColorBrewer_1.1-3         
+[37] GenomicRanges_1.64.0        Rcpp_1.1.2                 
+[39] Seqinfo_1.2.0               SummarizedExperiment_1.42.0
+[41] IRanges_2.46.0              Matrix_1.7-5               
+[43] splines_4.6.1               tidyselect_1.2.1           
+[45] abind_1.4-8                 codetools_0.2-20           
+[47] lattice_0.22-9              tibble_3.3.1               
+[49] Biobase_2.72.0              withr_3.0.3                
+[51] KEGGREST_1.52.0             S7_0.2.2                   
+[53] lpSolve_5.6.23              Biostrings_2.80.0          
+[55] pillar_1.11.1               MatrixGenerics_1.24.0      
+[57] stats4_4.6.1                generics_0.1.4             
+[59] S4Vectors_0.50.3            sparseMatrixStats_1.24.0   
+[61] scales_1.4.0                xtable_1.8-8               
+[63] glue_1.8.1                  tools_4.6.1                
+[65] annotate_1.90.0             locfit_1.5-9.12            
+[67] ggsignif_0.6.4              XML_3.99-0.23              
+[69] rhdf5_2.56.1                grid_4.6.1                 
+[71] AnnotationDbi_1.74.0        SingleCellExperiment_1.34.0
+[73] HDF5Array_1.40.0            Formula_1.2-6              
+[75] cli_3.6.6                   S4Arrays_1.12.0            
+[77] gtable_0.3.6                rstatix_1.1.0              
+[79] BiocGenerics_0.58.1         SparseArray_1.12.0         
+[81] rjson_0.2.23                farver_2.1.2               
+[83] memoise_2.0.1               lifecycle_1.0.5            
+[85] h5mread_1.4.1               httr_1.4.9                 
+[87] statmod_1.5.1               bit64_4.8.6                
+[89] MASS_7.3-66                

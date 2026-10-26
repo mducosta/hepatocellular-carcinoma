@@ -1,0 +1,11 @@
+VIA LA — REANÁLISE COM COVARIÁVEIS
+Genes: 165
+LA_tumor_vs_adjacente_base: 49 DEGs (32 up / 17 down)
+LA_tumor_vs_adjacente_clinico: 46 DEGs (30 up / 16 down)
+LA_tumor_vs_adjacente_composicao: 21 DEGs (14 up / 7 down)
+LA_tumor_vs_gtex_base: 48 DEGs (30 up / 18 down)
+LA_tumor_vs_gtex_composicao: 33 DEGs (15 up / 18 down)
+LA_estagio_clinico: 0 DEGs (0 up / 0 down)
+LA_grau_clinico: 6 DEGs (1 up / 5 down)
+LA_sexo_gtex: 0 DEGs (0 up / 0 down)
+LA_sexo_tumor: 2 DEGs (1 up / 1 down)

@@ -1,0 +1,26 @@
+celula,marcador,spearman,familia
+EPIC_Bcells,AIF1,0.0951519271525058,Macrophages
+EPIC_CAFs,COL1A1,0.72758011430065,Fibroblasts
+EPIC_CD4_Tcells,S100A8,0.273002065556388,Neutrophils
+EPIC_CD8_Tcells,S100A9,-0.226310738466714,Neutrophils
+EPIC_Endothelial,PECAM1,0.280364768596351,Endothelial
+EPIC_Macrophages,TTR,0.557628544815916,Hepatocytes
+EPIC_NKcells,TTR,0.175114049894544,Hepatocytes
+EPIC_otherCells,TTR,-0.508533906484692,Hepatocytes
+quanTIseq_B.cells,CD2,0.511455710734618,T cells
+quanTIseq_Macrophages.M1,S100A9,0.628899912335242,Neutrophils
+quanTIseq_Macrophages.M2,PECAM1,0.554768552787037,Endothelial
+quanTIseq_Neutrophils,TTR,0.342094428080723,Hepatocytes
+quanTIseq_NK.cells,CD3D,-0.35073620582246,T cells
+quanTIseq_T.cells.CD4,TTR,-0.2534143830562,Hepatocytes
+quanTIseq_T.cells.CD8,TRAC,0.4832797054317,T cells
+xCell_B-cells,NKG7,0.336630512339607,NK
+xCell_CD4+ T-cells,CD68,-0.125392817803082,Macrophages
+xCell_CD8+ T-cells,NKG7,0.195393515477648,NK
+xCell_Endothelial cells,VWF,0.765806233170399,Endothelial
+xCell_Epithelial cells,KRT7,0.482956425818451,Cholangiocytes
+xCell_Fibroblasts,PDGFRB,0.169878153205978,Fibroblasts
+xCell_Hepatocytes,CYP3A4,0.642746790902173,Hepatocytes
+xCell_Macrophages,HP,0.538430954388546,Hepatocytes
+xCell_Neutrophils,S100A8,0.539827742549003,Neutrophils
+xCell_NK cells,COL1A1,-0.19429852313349,Fibroblasts

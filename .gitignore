@@ -74,3 +74,21 @@ nanotec2026/dados/processed/liver_transcriptome_symbols.tsv
 # ============================================================
 paper_LIHC.md
 paper_LIHC.html
+
+
+# ============================================================
+# Artigo — scripts de geração não são versionados
+# Visitantes têm acesso ao artigo final, dados e scripts de análise.
+# ============================================================
+seminários_ryan/scripts/etapa_20_figuras_artigo.py
+seminários_ryan/scripts/etapa_21_baixar_artigos.py
+seminários_ryan/scripts/etapa_21b_baixar_artigos_faltantes.py
+seminários_ryan/scripts/etapa_22_gerar_artigo_docx.py
+seminários_ryan/scripts/23_renomear_arquivos.py
+
+# Referências bibliográficas (PDFs/XMLs/HTMLs) — mantidas apenas localmente
+seminários_ryan/artigos/
+
+# Python
+__pycache__/
+*.py[cod]

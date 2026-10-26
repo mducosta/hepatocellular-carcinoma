@@ -1,0 +1,9 @@
+conceito,metodo_a,metodo_b,metodo_c,spearman_ab,spearman_ac,spearman_bc
+Hepatócitos/other,EPIC_otherCells,xCell_Hepatocytes,,-0.305769359834682,,
+Endotélio,EPIC_Endothelial,xCell_Endothelial cells,,0.226599795121552,,
+Fibroblastos/CAFs,EPIC_CAFs,xCell_Fibroblasts,,0.155807617867809,,
+Macrófagos,EPIC_Macrophages,xCell_Macrophages,quanTIseq_Macrophages.M1,0.105414566548668,-0.397487309450636,0.254113955825908
+CD8 T,EPIC_CD8_Tcells,xCell_CD8+ T-cells,quanTIseq_T.cells.CD8,-0.0177468528904837,-0.0637667030954725,0.215672925655391
+CD4 T,EPIC_CD4_Tcells,xCell_CD4+ T-cells,quanTIseq_T.cells.CD4,-0.0255641144389884,-0.101718845809994,-0.0225059183617381
+B,EPIC_Bcells,xCell_B-cells,quanTIseq_B.cells,0.110249083198562,0.0808901659175207,0.207264018553213
+NK,EPIC_NKcells,xCell_NK cells,quanTIseq_NK.cells,0.0118231508338204,-0.0545532248149919,0.0167202758342398

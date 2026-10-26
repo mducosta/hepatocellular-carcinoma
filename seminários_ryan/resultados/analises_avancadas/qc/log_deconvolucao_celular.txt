@@ -1,0 +1,47 @@
+DECONVOLUÇÃO CELULAR — LOG
+=============================
+Data: 2026-10-26 13:28:58.060681
+R: R version 4.6.1 (2026-06-24 ucrt)
+Amostras: 528 | Genes: 12401
+GTEx duplicado excluído: 1
+
+EPIC: amostras = 528 | convergência código 0 = 444 | códigos != 0 = 84
+EPIC: soma das frações (min/med/max) = 1 / 1
+quanTIseq: amostras = 528 | soma das frações (min/med/max) = 1 / 1
+xCell: amostras = 528 | tipos/escores = 67
+
+Top células por diferença entre grupos (Kruskal):
+  xCell_Neutrophils: p=3.64e-55 | FDR=9.11e-54
+  xCell_Hepatocytes: p=6.21e-47 | FDR=7.77e-46
+  xCell_Endothelial cells: p=9.49e-40 | FDR=7.91e-39
+  quanTIseq_NK.cells: p=4.55e-29 | FDR=2.84e-28
+  quanTIseq_Macrophages.M1: p=1.73e-26 | FDR=8.65e-26
+  xCell_Macrophages: p=7.32e-19 | FDR=3.05e-18
+  quanTIseq_Macrophages.M2: p=2.45e-18 | FDR=8.74e-18
+  EPIC_CD4_Tcells: p=1.25e-17 | FDR=3.91e-17
+  EPIC_otherCells: p=3.7e-16 | FDR=1.03e-15
+  EPIC_Macrophages: p=1.22e-15 | FDR=3.06e-15
+  quanTIseq_B.cells: p=2.63e-14 | FDR=5.98e-14
+  xCell_Epithelial cells: p=2.45e-11 | FDR=5.1e-11
+
+Concordância entre métodos (Spearman):
+  Hepatócitos/other: EPIC-xCell=-0.306
+  Endotélio: EPIC-xCell=0.227
+  Fibroblastos/CAFs: EPIC-xCell=0.156
+  Macrófagos: EPIC-xCell=0.105; EPIC-quanTIseq=-0.397; xCell-quanTIseq=0.254
+  CD8 T: EPIC-xCell=-0.018; EPIC-quanTIseq=-0.064; xCell-quanTIseq=0.216
+  CD4 T: EPIC-xCell=-0.026; EPIC-quanTIseq=-0.102; xCell-quanTIseq=-0.023
+  B: EPIC-xCell=0.11; EPIC-quanTIseq=0.081; xCell-quanTIseq=0.207
+  NK: EPIC-xCell=0.012; EPIC-quanTIseq=-0.055; xCell-quanTIseq=0.017
+
+Cox ajustado (top 10 por p):
+  EPIC_otherCells: HR=1.39 | p=0.00174 | FDR=0.029
+  xCell_Neutrophils: HR=1.28 | p=0.00239 | FDR=0.029
+  xCell_Hepatocytes: HR=0.77 | p=0.00349 | FDR=0.029
+  EPIC_Macrophages: HR=0.78 | p=0.0196 | FDR=0.123
+  xCell_CD4+ T-cells: HR=1.15 | p=0.106 | FDR=0.452
+  xCell_Endothelial cells: HR=0.83 | p=0.108 | FDR=0.452
+  EPIC_Bcells: HR=0.86 | p=0.143 | FDR=0.465
+  EPIC_CD4_Tcells: HR=0.82 | p=0.149 | FDR=0.465
+  xCell_Macrophages: HR=1.12 | p=0.23 | FDR=0.639
+  xCell_Epithelial cells: HR=1.11 | p=0.273 | FDR=0.641

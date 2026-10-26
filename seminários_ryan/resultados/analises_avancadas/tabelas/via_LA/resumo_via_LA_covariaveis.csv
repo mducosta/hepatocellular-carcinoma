@@ -1,0 +1,10 @@
+modelo,n,up,down,total,min_fdr
+LA_tumor_vs_adjacente_base,165,32,17,49,1.29537203380874e-40
+LA_tumor_vs_adjacente_clinico,165,30,16,46,2.68911121160134e-37
+LA_tumor_vs_adjacente_composicao,165,14,7,21,7.20883085230823e-19
+LA_tumor_vs_gtex_base,165,30,18,48,2.19231424467479e-65
+LA_tumor_vs_gtex_composicao,165,15,18,33,2.1320594151935e-67
+LA_estagio_clinico,165,0,0,0,0.0511381593899759
+LA_grau_clinico,165,1,5,6,6.44678318471131e-07
+LA_sexo_gtex,165,0,0,0,0.188838366491894
+LA_sexo_tumor,165,1,1,2,5.2308894492825e-05

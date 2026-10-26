@@ -1,0 +1,22 @@
+item,status,evidencia
+Total de amostras no metadado,OK,529 amostras
+Tumor / adjacente / GTEx,OK,369 / 50 / 110
+Tumores recorrentes,INFO,2 recidivas foram excluídas na preparação; 0 no metadado analítico
+GTEx com mesmo doador em >1 amostra,ATENÇÃO,1 doador(es); 2 amostras; análise principal usa 1 por doador
+Pacientes com tumor e adjacente,OK,50 pares
+Child-Pugh ausente,ATENÇÃO,132 tumores sem Child-Pugh; a versão anterior recodificava ausentes como B-C
+Sorologia desconhecida,ATENÇÃO,206 tumores; não é 'sem vírus'
+Histologia 'Other',ATENÇÃO,10 tumores (7 mistos + 3 fibrolamelares)
+Estágio IV,ATENÇÃO,5 tumores
+Grau G4,ATENÇÃO,11 tumores
+Idade GTEx,ATENÇÃO,faixa etária convertida ao ponto médio
+Dados de expressão,OK,"log2(TPM + 0,001); 12.401 genes; 528 amostras após deduplicação"
+Matriz de expressão,OK,12401 genes × 529 amostras; análise principal com 528 após deduplicação
+Valores ausentes na matriz,OK,0 valores ausentes
+Genes com variância zero,OK,0 genes
+Escala log2,OK,min=-9.966; max=17.304; mediana=3.072
+EPIC: convergência,ATENÇÃO,84 de 528 amostras com código != 0
+EPIC otherCells vs marcadores de hepatócito,ATENÇÃO,Spearman negativo com ALB/TTR; otherCells NÃO deve ser chamado de fração de hepatócitos
+xCell Hepatocytes vs marcadores de hepatócito,OK,"Spearman positivo com ALB, HP, TTR e CYP3A4"
+Concordância entre métodos,ATENÇÃO,Spearman mediano entre métodos = 0.01
+Colinearidade dos escores de composição,INFO,xCell_Hepatocytes: VIF=1.36; xCell_ImmuneScore: VIF=1.05; xCell_StromaScore: VIF=1.38

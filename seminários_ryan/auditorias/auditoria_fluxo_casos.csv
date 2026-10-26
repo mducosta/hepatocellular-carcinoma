@@ -1,0 +1,11 @@
+modelo,n_total,n_tumor,n_adjacente
+"Tumor vs adjacente: base (sexo, idade)",418,368,50.0
+Tumor vs adjacente: + estágio e grau,382,342,40.0
+"Tumor vs adjacente: + sorologia, Child-Pugh, histologia",257,226,31.0
+Tumor vs adjacente: + TSS,257,226,31.0
+Estágio: base,344,344,
+Estágio: + grau e clínica,226,226,
+Estágio: + TSS,226,226,
+Grau: base,363,363,
+Grau: + estágio e clínica,226,226,
+Grau: + TSS,226,226,

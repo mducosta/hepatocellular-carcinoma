@@ -1,0 +1,58 @@
+EXPRESSÃO DIFERENCIAL COM COVARIÁVEIS — LOG
+===========================================
+Data: 2026-10-26 13:16:02.216918
+R: R version 4.6.1 (2026-06-24 ucrt)
+Amostras na análise primária: 528
+GTEx duplicado excluído: 1
+Genes: 12401
+Critério: FDR < 0.05 e |logFC| > 1
+
+Modelos executados:
+  tumor_vs_adjacente_base: ok | n = 418 | DEGs = 4130 | Modelo basal não pareado.
+  tumor_vs_adjacente_estagio_grau: ok | n = 382 | DEGs = 4313 | Ajuste por estágio e grau; casos completos.
+  tumor_vs_adjacente_clinico_completo: ok | n = 257 | DEGs = 3740 | Ajuste clínico completo; perda de adjacentes por missingness.
+  tumor_vs_adjacente_clinico_tss: ok | n = 257 | DEGs = 3736 | Ajuste clínico + centro TCGA; verificar confundimento TSS-grupo.
+  tumor_vs_adjacente_pareado: ok | n = 419 | DEGs = 3710 | Análise pareada por paciente (efeitos fixos de paciente).
+  tumor_vs_gtex_base: ok | n = 477 | DEGs = 3391 | Comparação estruturalmente confundida com estudo/lote.
+  tumor_vs_gtex_sem_ajuste: ok | n = 478 | DEGs = 3315 | Sem ajuste; usado como referência de sensibilidade.
+  estagio_base: ok | n = 344 | DEGs = 46 | Estágio III-IV vs. I-II; ajuste mínimo.
+  estagio_clinico: ok | n = 226 | DEGs = 0 | Estágio ajustado por grau, sorologia, Child-Pugh e histologia.
+  estagio_clinico_tss: ok | n = 226 | DEGs = 0 | Estágio + centro TCGA; TSS pode absorver parte do efeito de estágio.
+  estagio_tendencia: ok | n = 226 | DEGs = 0 | Tendência ordinal (estágio 1-4 como variável contínua).
+  grau_base: ok | n = 363 | DEGs = 172 | Grau G3-G4 vs. G1-G2; ajuste mínimo.
+  grau_clinico: ok | n = 226 | DEGs = 199 | Grau ajustado por estágio, sorologia, Child-Pugh e histologia.
+  grau_clinico_tss: ok | n = 226 | DEGs = 247 | Grau + centro TCGA.
+  grau_tendencia: ok | n = 226 | DEGs = 138 | Tendência ordinal (grau 1-4 como variável contínua).
+  sorologia_hbv_vs_hcv: ok | n = 47 | DEGs = 0 | HBV vs. HCV; não há grupo negativo conhecido.
+  sorologia_hbvhcv_vs_hbv: ok | n = 76 | DEGs = 0 | HBV+HCV vs. HBV; sorologia, não infecção ativa.
+  sorologia_hbvhcv_vs_hcv: ok | n = 43 | DEGs = 0 | HBV+HCV vs. HCV; n pequeno no grupo HCV.
+  sorologia_conhecida_vs_unknown: ok | n = 183 | DEGs = 0 | HBV conhecido vs. sorologia desconhecida; missingness informativa.
+  child_pugh_a_vs_bc: ok | n = 226 | DEGs = 0 | Child-Pugh B-C (n pequeno) vs. A; missing não é B-C.
+  histologia_hcc_vs_outros: ok | n = 226 | DEGs = 242 | HCC clássico vs. misto/fibrolamelar; n de 'Other' = 10.
+  sexo_gtex: ok | n = 109 | DEGs = 13 | GTEx fígado normal; controle positivo XIST/genes do Y.
+  sexo_tumor: ok | n = 342 | DEGs = 175 | TCGA tumor; ajuste clínico e centro.
+  sexo_adjacente: ok | n = 50 | DEGs = 103 | TCGA adjacente; n = 50, baixo poder.
+  afp_400: ok | n = 262 | DEGs = 455 | AFP >= 400 vs. < 400; missingness 25%.
+  fibrose_avancada: ok | n = 198 | DEGs = 0 | Ishak >= 5 vs. < 5; missingness 43%.
+  invasao_vascular_macro_vs_micro: ok | n = 101 | DEGs = 0 | Macro vs. micro; missingness 71%; não há 'sem invasão' confiável.
+  estagio_base_mesmos_casos: ok | n = 226 | DEGs = 0 | Mesmos casos completos do modelo clínico, mas sem ajuste clínico.
+  estagio_sem_grau: ok | n = 226 | DEGs = 0 | Estágio sem ajuste por grau; avalia absorção por grau.
+  estagio_so_grau: ok | n = 226 | DEGs = 0 | Estágio ajustado apenas por grau.
+  estagio_so_tss: ok | n = 226 | DEGs = 0 | Estágio ajustado apenas por centro TCGA.
+  grau_base_mesmos_casos: ok | n = 226 | DEGs = 185 | Mesmos casos completos do modelo clínico de grau, sem ajuste.
+  grau_sem_estagio: ok | n = 226 | DEGs = 199 | Grau sem ajuste por estágio.
+  grau_so_estagio: ok | n = 226 | DEGs = 184 | Grau ajustado apenas por estágio.
+  child_pugh_base: ok | n = 236 | DEGs = 0 | Child-Pugh B-C vs. A sem ajuste clínico; n de B-C = 22.
+  histologia_base: ok | n = 368 | DEGs = 740 | Histologia sem ajuste; n de Other = 10, descritivo.
+  histologia_estagio_grau: ok | n = 342 | DEGs = 1020 | Histologia ajustada por estágio e grau; n de Other pode cair.
+  sorologia_hbv_vs_hcv_base: ok | n = 78 | DEGs = 0 | HBV vs. HCV sem ajuste clínico; n pequeno.
+  sorologia_hbvhcv_vs_hbv_base: ok | n = 144 | DEGs = 0 | HBV+HCV vs. HBV sem ajuste clínico.
+  afp_base: ok | n = 275 | DEGs = 573 | AFP sem ajuste clínico.
+  fibrose_base: ok | n = 209 | DEGs = 0 | Fibrose sem ajuste clínico.
+  estagio_so_tss_full: ok | n = 344 | DEGs = 0 | Estágio na coorte completa, ajustado apenas por centro; teste de confundimento TSS.
+  estagio_sem_cc_ed: ok | n = 297 | DEGs = 0 | Estágio excluindo centros CC e ED, onde Child-Pugh está ausente.
+  estagio_sem_estagio_iv: ok | n = 339 | DEGs = 79 | Estágio III vs. I-II, excluindo estágio IV (n = 5).
+  grau_so_tss_full: ok | n = 363 | DEGs = 337 | Grau na coorte completa, ajustado apenas por centro.
+  grau_sem_DD: ok | n = 219 | DEGs = 276 | Grau excluindo o centro DD (39% dos tumores).
+  grau_base_sem_estagio: ok | n = 342 | DEGs = 153 | Grau na coorte completa, ajustado por estágio.
+  estagio_x_grau_interacao: ok | n = 226 | DEGs = 0 | Interação estágio x grau; exploratória, poder limitado.

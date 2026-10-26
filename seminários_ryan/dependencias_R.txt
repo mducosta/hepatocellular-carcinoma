@@ -1,0 +1,46 @@
+# Dependências R do seminário
+# R 4.6.1 (testado); compatível com R >= 4.5
+#
+# Bioconductor
+limma            # 3.68.0
+sva              # 3.60.0
+org.Hs.eg.db     # 3.23.1
+KEGGREST         # 1.52.0 (via KEGG hsa05417)
+AnnotationDbi    # 1.74.0
+Biobase          # 2.72.0
+edgeR            # 4.10.6 (opcional; não usado no fluxo principal)
+EPIC             # 1.1.7 (GitHub GfellerLab/EPIC)
+quantiseqr       # 1.20.0 (Bioconductor)
+xCell            # 1.1.0 (Bioconductor)
+GSVA             # 2.6.12 (dependência do xCell)
+#
+# CRAN
+data.table       # 1.18.4
+ggplot2          # 4.0.3
+ggrepel          # 0.9.8
+pheatmap         # 1.0.13
+dplyr            # 1.2.1
+tidyr            # 1.3.2
+scales           # 1.4.0
+RColorBrewer     # 1.1-3
+matrixStats      # 1.5.0
+uwot             # 0.2.4 (UMAP)
+survival         # 3.8-6
+survminer        # 0.5.2
+broom            # 1.0.13
+patchwork        # 1.3.2
+knitr            # 1.52 (tabelas markdown)
+png              # 0.1-9 (auditoria de figuras)
+vegan            # 2.7-3 (PERMANOVA)
+car              # 3.1-5 (VIF)
+#
+# Instalação rápida:
+# install.packages(c("data.table","ggplot2","ggrepel","pheatmap","dplyr",
+#                    "tidyr","scales","RColorBrewer","matrixStats","uwot",
+#                    "survival","survminer","broom","patchwork","knitr","png"))
+# if (!requireNamespace("BiocManager", quietly = TRUE))
+#   install.packages("BiocManager")
+# BiocManager::install(c("limma","sva","org.Hs.eg.db","AnnotationDbi","KEGGREST","edgeR",
+                       "EPIC","quantiseqr","xCell","GSVA"))
+# EPIC também pode ser instalado via:
+# remotes::install_github("GfellerLab/EPIC")

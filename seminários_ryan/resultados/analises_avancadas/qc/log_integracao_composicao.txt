@@ -1,0 +1,17 @@
+INTEGRAÇÃO DECONVOLUÇÃO × EXPRESSÃO — LOG
+==========================================
+Data: 2026-10-26 13:33:33.682567
+R: R version 4.6.1 (2026-06-24 ucrt)
+Amostras: 528 | Genes: 12401
+Covariáveis de composição: xCell_Hepatocytes, xCell_ImmuneScore, xCell_StromaScore
+
+tumor_vs_adjacente_composicao: DEGs base=4130 ajustado=1897 | Jaccard=0.317 | Spearman=0.676 | atenuação mediana=0.368
+tumor_vs_gtex_composicao: DEGs base=3391 ajustado=2732 | Jaccard=0.554 | Spearman=0.888 | atenuação mediana=0.187
+estagio_composicao: DEGs base=59 ajustado=0 | Jaccard=0 | Spearman=0.644 | atenuação mediana=0.64
+estagio_clinico_composicao: DEGs base=0 ajustado=0 | Jaccard=NA | Spearman=0.97 | atenuação mediana=NA
+grau_composicao: DEGs base=153 ajustado=0 | Jaccard=0 | Spearman=0.622 | atenuação mediana=0.695
+grau_clinico_composicao: DEGs base=199 ajustado=0 | Jaccard=0 | Spearman=0.637 | atenuação mediana=0.608
+sexo_gtex_composicao: DEGs base=13 ajustado=15 | Jaccard=0.867 | Spearman=0.996 | atenuação mediana=0.001
+sexo_tumor_composicao: DEGs base=189 ajustado=119 | Jaccard=0.525 | Spearman=0.894 | atenuação mediana=0.163
+sexo_tumor_clinico_composicao: DEGs base=175 ajustado=90 | Jaccard=0.395 | Spearman=0.874 | atenuação mediana=0.206
+sexo_adjacente_composicao: DEGs base=103 ajustado=22 | Jaccard=0.214 | Spearman=0.659 | atenuação mediana=0.265

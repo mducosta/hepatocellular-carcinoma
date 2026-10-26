@@ -1,0 +1,9 @@
+etapa,tempo_segundos,detalhe,memoria_max_MB,tempo_total_segundos
+Leitura de metadados + matriz,2.19,12401 genes × 529 amostras,933.5,79.126
+limma: tumor vs adjacente basal,2.93,12401 genes; 4130 DEGs,933.5,79.126
+limma: estágio clínico,0.719999999999999,12401 genes; 0 DEGs,933.5,79.126
+ComBat: TCGA vs GTEx sem covariável,5.8,477 amostras; 12401 genes,933.5,79.126
+ComBat: TSS no tumor (grau + estágio),4.06,342 amostras; 9 lotes,933.5,79.126
+EPIC,28.33,528 amostras,933.5,79.126
+quanTIseq,9.03,528 amostras,933.5,79.126
+xCell,14.4,528 amostras,933.5,79.126

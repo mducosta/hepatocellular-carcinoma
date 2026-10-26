@@ -1,0 +1,249 @@
+celula,marcador,spearman,familia
+EPIC_otherCells,ALB,-0.326807437481155,Hepatocytes
+EPIC_otherCells,APOA1,-0.379386899300095,Hepatocytes
+EPIC_otherCells,HP,-0.15283148512836,Hepatocytes
+EPIC_otherCells,TTR,-0.508533906484692,Hepatocytes
+EPIC_otherCells,CYP3A4,-0.306387760494302,Hepatocytes
+EPIC_otherCells,CYP2E1,-0.0839462856860557,Hepatocytes
+EPIC_otherCells,KRT19,0.290357643197021,Cholangiocytes
+EPIC_otherCells,EPCAM,0.261934307976883,Cholangiocytes
+EPIC_otherCells,KRT7,0.042426519888912,Cholangiocytes
+EPIC_otherCells,SOX9,0.138541832030286,Cholangiocytes
+EPIC_otherCells,PECAM1,-0.0118814479440227,Endothelial
+EPIC_otherCells,CDH5,-0.0060292238863256,Endothelial
+EPIC_otherCells,VWF,-0.180468438332882,Endothelial
+EPIC_otherCells,KDR,-0.0139890976247801,Endothelial
+EPIC_otherCells,COL1A1,0.173318010771384,Fibroblasts
+EPIC_otherCells,COL1A2,0.144957381403067,Fibroblasts
+EPIC_otherCells,ACTA2,-0.0192605424339934,Fibroblasts
+EPIC_otherCells,PDGFRB,0.132816483498294,Fibroblasts
+EPIC_otherCells,CD68,0.191658161931716,Macrophages
+EPIC_otherCells,CD14,-0.372119182713127,Macrophages
+EPIC_otherCells,CSF1R,0.178258660548428,Macrophages
+EPIC_otherCells,AIF1,0.0163526579672594,Macrophages
+EPIC_otherCells,CD3D,-0.0404056939332869,T cells
+EPIC_otherCells,CD3E,-0.0191451483618004,T cells
+EPIC_otherCells,CD2,-0.0345746583440589,T cells
+EPIC_otherCells,TRAC,-0.0251384128634407,T cells
+EPIC_otherCells,CD79A,0.0779610914125562,B cells
+EPIC_otherCells,NKG7,-0.113236086513597,NK
+EPIC_otherCells,GNLY,0.0573443320242667,NK
+EPIC_otherCells,S100A8,0.293231951494715,Neutrophils
+EPIC_otherCells,S100A9,0.396999896628643,Neutrophils
+xCell_Hepatocytes,ALB,0.473904108709696,Hepatocytes
+xCell_Hepatocytes,APOA1,0.44838105162976,Hepatocytes
+xCell_Hepatocytes,HP,0.623380482495769,Hepatocytes
+xCell_Hepatocytes,TTR,0.6157664168776,Hepatocytes
+xCell_Hepatocytes,CYP3A4,0.642746790902173,Hepatocytes
+xCell_Hepatocytes,CYP2E1,0.415311762463237,Hepatocytes
+xCell_Hepatocytes,KRT19,-0.085333908192832,Cholangiocytes
+xCell_Hepatocytes,EPCAM,-0.20648655115897,Cholangiocytes
+xCell_Hepatocytes,KRT7,0.0083607301077281,Cholangiocytes
+xCell_Hepatocytes,SOX9,-0.482742637132788,Cholangiocytes
+xCell_Hepatocytes,PECAM1,-0.414268830801717,Endothelial
+xCell_Hepatocytes,CDH5,-0.145974505586118,Endothelial
+xCell_Hepatocytes,VWF,-0.341691966238205,Endothelial
+xCell_Hepatocytes,KDR,0.0670361067408557,Endothelial
+xCell_Hepatocytes,COL1A1,-0.380441732690166,Fibroblasts
+xCell_Hepatocytes,COL1A2,-0.374139542383876,Fibroblasts
+xCell_Hepatocytes,ACTA2,-0.273337527839474,Fibroblasts
+xCell_Hepatocytes,PDGFRB,-0.458704821031447,Fibroblasts
+xCell_Hepatocytes,CD68,-0.328581289970654,Macrophages
+xCell_Hepatocytes,CD14,0.460135509536168,Macrophages
+xCell_Hepatocytes,CSF1R,-0.18693980926074,Macrophages
+xCell_Hepatocytes,AIF1,-0.326708793812394,Macrophages
+xCell_Hepatocytes,CD3D,-0.448375860651798,T cells
+xCell_Hepatocytes,CD3E,-0.223814241988629,T cells
+xCell_Hepatocytes,CD2,-0.313596868057895,T cells
+xCell_Hepatocytes,TRAC,-0.333858160548883,T cells
+xCell_Hepatocytes,CD79A,-0.0498087619714062,B cells
+xCell_Hepatocytes,NKG7,0.0283422830127938,NK
+xCell_Hepatocytes,GNLY,0.0355813498854508,NK
+xCell_Hepatocytes,S100A8,0.241154974915483,Neutrophils
+xCell_Hepatocytes,S100A9,0.0395673633054885,Neutrophils
+xCell_Endothelial cells,ALB,0.066717878169657,Hepatocytes
+xCell_Endothelial cells,APOA1,0.0105695496385619,Hepatocytes
+xCell_Endothelial cells,HP,-0.021123036875257,Hepatocytes
+xCell_Endothelial cells,TTR,0.0386136879476417,Hepatocytes
+xCell_Endothelial cells,CYP3A4,-0.0587992349693629,Hepatocytes
+xCell_Endothelial cells,CYP2E1,-0.0966272552825563,Hepatocytes
+xCell_Endothelial cells,KRT19,-0.1054207066482,Cholangiocytes
+xCell_Endothelial cells,EPCAM,-0.0312413687994286,Cholangiocytes
+xCell_Endothelial cells,KRT7,0.0544208515840667,Cholangiocytes
+xCell_Endothelial cells,SOX9,0.163259955495098,Cholangiocytes
+xCell_Endothelial cells,PECAM1,0.754042607130232,Endothelial
+xCell_Endothelial cells,CDH5,0.704599949990175,Endothelial
+xCell_Endothelial cells,VWF,0.765806233170399,Endothelial
+xCell_Endothelial cells,KDR,0.585690949812498,Endothelial
+xCell_Endothelial cells,COL1A1,0.402376898869976,Fibroblasts
+xCell_Endothelial cells,COL1A2,0.444979133440908,Fibroblasts
+xCell_Endothelial cells,ACTA2,0.508362157270282,Fibroblasts
+xCell_Endothelial cells,PDGFRB,0.439488100397623,Fibroblasts
+xCell_Endothelial cells,CD68,0.331051857441753,Macrophages
+xCell_Endothelial cells,CD14,0.27002633683994,Macrophages
+xCell_Endothelial cells,CSF1R,0.324350403493487,Macrophages
+xCell_Endothelial cells,AIF1,0.417603344233864,Macrophages
+xCell_Endothelial cells,CD3D,0.310279176341396,T cells
+xCell_Endothelial cells,CD3E,0.304724469460575,T cells
+xCell_Endothelial cells,CD2,0.341703005269617,T cells
+xCell_Endothelial cells,TRAC,0.35881839315032,T cells
+xCell_Endothelial cells,CD79A,0.130738500965375,B cells
+xCell_Endothelial cells,NKG7,0.0833353216033065,NK
+xCell_Endothelial cells,GNLY,-0.0683188200723833,NK
+xCell_Endothelial cells,S100A8,-0.341283111089706,Neutrophils
+xCell_Endothelial cells,S100A9,-0.29585001410032,Neutrophils
+EPIC_CAFs,ALB,-0.0414483773373331,Hepatocytes
+EPIC_CAFs,APOA1,-0.155590881356357,Hepatocytes
+EPIC_CAFs,HP,-0.161308753391313,Hepatocytes
+EPIC_CAFs,TTR,-0.235321478261256,Hepatocytes
+EPIC_CAFs,CYP3A4,-0.170839256335399,Hepatocytes
+EPIC_CAFs,CYP2E1,-0.225619537386976,Hepatocytes
+EPIC_CAFs,KRT19,0.457939030228057,Cholangiocytes
+EPIC_CAFs,EPCAM,0.40984726266106,Cholangiocytes
+EPIC_CAFs,KRT7,0.361650615340427,Cholangiocytes
+EPIC_CAFs,SOX9,0.278266327399763,Cholangiocytes
+EPIC_CAFs,PECAM1,0.430524583784854,Endothelial
+EPIC_CAFs,CDH5,0.437018539536692,Endothelial
+EPIC_CAFs,VWF,0.112039529648384,Endothelial
+EPIC_CAFs,KDR,0.305156207284819,Endothelial
+EPIC_CAFs,COL1A1,0.72758011430065,Fibroblasts
+EPIC_CAFs,COL1A2,0.721007206100724,Fibroblasts
+EPIC_CAFs,ACTA2,0.508665872467923,Fibroblasts
+EPIC_CAFs,PDGFRB,0.533173091053727,Fibroblasts
+EPIC_CAFs,CD68,0.339893210760529,Macrophages
+EPIC_CAFs,CD14,-0.0838800429798291,Macrophages
+EPIC_CAFs,CSF1R,0.422774864122687,Macrophages
+EPIC_CAFs,AIF1,0.320257914960532,Macrophages
+EPIC_CAFs,CD3D,0.266453822195589,T cells
+EPIC_CAFs,CD3E,0.354841142237806,T cells
+EPIC_CAFs,CD2,0.340915936130314,T cells
+EPIC_CAFs,TRAC,0.324512760002291,T cells
+EPIC_CAFs,CD79A,0.318940646181396,B cells
+EPIC_CAFs,NKG7,0.0993358981414909,NK
+EPIC_CAFs,GNLY,0.13265477509118,NK
+EPIC_CAFs,S100A8,0.179192219807312,Neutrophils
+EPIC_CAFs,S100A9,0.25607217544063,Neutrophils
+EPIC_Macrophages,ALB,0.371828608539084,Hepatocytes
+EPIC_Macrophages,APOA1,0.424472391220884,Hepatocytes
+EPIC_Macrophages,HP,0.204224628451024,Hepatocytes
+EPIC_Macrophages,TTR,0.557628544815916,Hepatocytes
+EPIC_Macrophages,CYP3A4,0.340222711669644,Hepatocytes
+EPIC_Macrophages,CYP2E1,0.126000503324067,Hepatocytes
+EPIC_Macrophages,KRT19,-0.322871682922662,Cholangiocytes
+EPIC_Macrophages,EPCAM,-0.27518378690309,Cholangiocytes
+EPIC_Macrophages,KRT7,-0.0928843078772821,Cholangiocytes
+EPIC_Macrophages,SOX9,-0.16059442304837,Cholangiocytes
+EPIC_Macrophages,PECAM1,-0.0718027734914833,Endothelial
+EPIC_Macrophages,CDH5,-0.0787441977017572,Endothelial
+EPIC_Macrophages,VWF,0.133007759342778,Endothelial
+EPIC_Macrophages,KDR,-0.0544977729631489,Endothelial
+EPIC_Macrophages,COL1A1,-0.24756422868478,Fibroblasts
+EPIC_Macrophages,COL1A2,-0.22271005252603,Fibroblasts
+EPIC_Macrophages,ACTA2,-0.0696803011726866,Fibroblasts
+EPIC_Macrophages,PDGFRB,-0.198251234640905,Fibroblasts
+EPIC_Macrophages,CD68,-0.214310312446724,Macrophages
+EPIC_Macrophages,CD14,0.379742169531625,Macrophages
+EPIC_Macrophages,CSF1R,-0.218736233379533,Macrophages
+EPIC_Macrophages,AIF1,-0.0566428112787823,Macrophages
+EPIC_Macrophages,CD3D,0.0029709229855292,T cells
+EPIC_Macrophages,CD3E,-0.0387587309154699,T cells
+EPIC_Macrophages,CD2,-0.0236280607424043,T cells
+EPIC_Macrophages,TRAC,-0.0255289911547113,T cells
+EPIC_Macrophages,CD79A,-0.115727508954473,B cells
+EPIC_Macrophages,NKG7,0.0767727477706259,NK
+EPIC_Macrophages,GNLY,-0.0786859648862134,NK
+EPIC_Macrophages,S100A8,-0.293471956105674,Neutrophils
+EPIC_Macrophages,S100A9,-0.393851021534931,Neutrophils
+xCell_Macrophages,ALB,0.195150899844267,Hepatocytes
+xCell_Macrophages,APOA1,0.142728644258536,Hepatocytes
+xCell_Macrophages,HP,0.538430954388546,Hepatocytes
+xCell_Macrophages,TTR,0.172534000804303,Hepatocytes
+xCell_Macrophages,CYP3A4,0.152169883319523,Hepatocytes
+xCell_Macrophages,CYP2E1,0.108768859076846,Hepatocytes
+xCell_Macrophages,KRT19,0.14198955962096,Cholangiocytes
+xCell_Macrophages,EPCAM,0.0487496047668657,Cholangiocytes
+xCell_Macrophages,KRT7,0.151540928585365,Cholangiocytes
+xCell_Macrophages,SOX9,-0.153447799211894,Cholangiocytes
+xCell_Macrophages,PECAM1,0.0813765346566617,Endothelial
+xCell_Macrophages,CDH5,0.168011663913681,Endothelial
+xCell_Macrophages,VWF,0.0158323977366454,Endothelial
+xCell_Macrophages,KDR,0.221237587701761,Endothelial
+xCell_Macrophages,COL1A1,0.136917873145522,Fibroblasts
+xCell_Macrophages,COL1A2,0.157893344098202,Fibroblasts
+xCell_Macrophages,ACTA2,0.0619053356582332,Fibroblasts
+xCell_Macrophages,PDGFRB,-0.120407270418223,Fibroblasts
+xCell_Macrophages,CD68,0.369823513896102,Macrophages
+xCell_Macrophages,CD14,0.429862006005193,Macrophages
+xCell_Macrophages,CSF1R,0.475877113722836,Macrophages
+xCell_Macrophages,AIF1,0.38426651193603,Macrophages
+xCell_Macrophages,CD3D,0.0899008577217327,T cells
+xCell_Macrophages,CD3E,0.259179714149544,T cells
+xCell_Macrophages,CD2,0.200344946318634,T cells
+xCell_Macrophages,TRAC,0.177819429508212,T cells
+xCell_Macrophages,CD79A,0.293577701754096,B cells
+xCell_Macrophages,NKG7,0.210063549629634,NK
+xCell_Macrophages,GNLY,0.0510496818385012,NK
+xCell_Macrophages,S100A8,0.283175493732934,Neutrophils
+xCell_Macrophages,S100A9,0.288806286293318,Neutrophils
+EPIC_CD8_Tcells,ALB,0.0890647977751513,Hepatocytes
+EPIC_CD8_Tcells,APOA1,0.114338119708051,Hepatocytes
+EPIC_CD8_Tcells,HP,-0.0298894916757304,Hepatocytes
+EPIC_CD8_Tcells,TTR,0.148381339134631,Hepatocytes
+EPIC_CD8_Tcells,CYP3A4,0.107439907396167,Hepatocytes
+EPIC_CD8_Tcells,CYP2E1,-0.0379538873957921,Hepatocytes
+EPIC_CD8_Tcells,KRT19,-0.0776178744527443,Cholangiocytes
+EPIC_CD8_Tcells,EPCAM,-0.0793462969372097,Cholangiocytes
+EPIC_CD8_Tcells,KRT7,-0.0528235126899706,Cholangiocytes
+EPIC_CD8_Tcells,SOX9,0.0367032845694194,Cholangiocytes
+EPIC_CD8_Tcells,PECAM1,0.0155629171533855,Endothelial
+EPIC_CD8_Tcells,CDH5,-0.0091108480397533,Endothelial
+EPIC_CD8_Tcells,VWF,0.0462442704946789,Endothelial
+EPIC_CD8_Tcells,KDR,0.0093805770955788,Endothelial
+EPIC_CD8_Tcells,COL1A1,-0.0909030841296291,Fibroblasts
+EPIC_CD8_Tcells,COL1A2,-0.0907890869049019,Fibroblasts
+EPIC_CD8_Tcells,ACTA2,-0.0014141009490031,Fibroblasts
+EPIC_CD8_Tcells,PDGFRB,-0.0849050931750599,Fibroblasts
+EPIC_CD8_Tcells,CD68,-0.0320576825347103,Macrophages
+EPIC_CD8_Tcells,CD14,0.0528583581637616,Macrophages
+EPIC_CD8_Tcells,CSF1R,-0.058793956811826,Macrophages
+EPIC_CD8_Tcells,AIF1,0.0082988175976404,Macrophages
+EPIC_CD8_Tcells,CD3D,-0.0017029460175542,T cells
+EPIC_CD8_Tcells,CD3E,-0.0356182815699811,T cells
+EPIC_CD8_Tcells,CD2,-0.0201531121460869,T cells
+EPIC_CD8_Tcells,TRAC,-0.020555904758534,T cells
+EPIC_CD8_Tcells,CD79A,-0.131744992084643,B cells
+EPIC_CD8_Tcells,NKG7,0.0180803007953406,NK
+EPIC_CD8_Tcells,GNLY,-0.0595453445911565,NK
+EPIC_CD8_Tcells,S100A8,-0.177555720975661,Neutrophils
+EPIC_CD8_Tcells,S100A9,-0.226310738466714,Neutrophils
+xCell_CD8+ T-cells,ALB,0.0135847810015142,Hepatocytes
+xCell_CD8+ T-cells,APOA1,-0.0672186142817216,Hepatocytes
+xCell_CD8+ T-cells,HP,-0.0810880869495464,Hepatocytes
+xCell_CD8+ T-cells,TTR,-0.0740153651904223,Hepatocytes
+xCell_CD8+ T-cells,CYP3A4,-0.0628243884714121,Hepatocytes
+xCell_CD8+ T-cells,CYP2E1,-0.0583370177875696,Hepatocytes
+xCell_CD8+ T-cells,KRT19,0.0779506992329368,Cholangiocytes
+xCell_CD8+ T-cells,EPCAM,0.0036303142508777,Cholangiocytes
+xCell_CD8+ T-cells,KRT7,0.0581566701894527,Cholangiocytes
+xCell_CD8+ T-cells,SOX9,0.0978854470825264,Cholangiocytes
+xCell_CD8+ T-cells,PECAM1,0.0979048353894813,Endothelial
+xCell_CD8+ T-cells,CDH5,0.0578646987155592,Endothelial
+xCell_CD8+ T-cells,VWF,0.0649562669533595,Endothelial
+xCell_CD8+ T-cells,KDR,0.0490607703045391,Endothelial
+xCell_CD8+ T-cells,COL1A1,0.0979461115836856,Fibroblasts
+xCell_CD8+ T-cells,COL1A2,0.119495931301132,Fibroblasts
+xCell_CD8+ T-cells,ACTA2,0.0664359781016065,Fibroblasts
+xCell_CD8+ T-cells,PDGFRB,0.0504122251552507,Fibroblasts
+xCell_CD8+ T-cells,CD68,0.0952892798308711,Macrophages
+xCell_CD8+ T-cells,CD14,0.03502375997815,Macrophages
+xCell_CD8+ T-cells,CSF1R,0.167454734801715,Macrophages
+xCell_CD8+ T-cells,AIF1,0.172469987887864,Macrophages
+xCell_CD8+ T-cells,CD3D,0.142095229355671,T cells
+xCell_CD8+ T-cells,CD3E,0.159988496305491,T cells
+xCell_CD8+ T-cells,CD2,0.168046500819084,T cells
+xCell_CD8+ T-cells,TRAC,0.150221189168519,T cells
+xCell_CD8+ T-cells,CD79A,0.177456037304801,B cells
+xCell_CD8+ T-cells,NKG7,0.195393515477648,NK
+xCell_CD8+ T-cells,GNLY,0.0796382931413115,NK
+xCell_CD8+ T-cells,S100A8,0.0388362523501321,Neutrophils
+xCell_CD8+ T-cells,S100A9,0.0673409408021943,Neutrophils
