@@ -6,7 +6,8 @@ com foco em **covariáveis clínicas**, **correção de lote (ComBat)**,
 **deconvolução celular** e **robustez do sinal**.
 
 > Pasta: `analise_covariaveis_deconvolucao/`, dentro do repositório
-> `hepatocellular-carcinoma`.
+> [`hepatocellular-carcinoma`](../README.md). O índice geral, com a descrição
+> dos demais estudos, está no [`README.md` da raiz](../README.md).
 >
 > **Artigo final:** [`DOCX`](artigo_final/artigo_expressao_diferencial_covariaveis_deconvolucao.docx)
 > (sem resumo, introdução, cabeçalho, rodapé ou paginação).

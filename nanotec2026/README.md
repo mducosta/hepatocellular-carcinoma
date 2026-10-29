@@ -5,6 +5,10 @@ Análise transcriptômica (TCGA-LIHC + GTEx Liver, hub Toil via UCSCXenaTools) d
 hepatocarcinoma, com foco em alvos do microambiente tumoral e perspectivas
 translacionais para a nanobiotecnologia.
 
+> Este é um dos três subprojetos do repositório
+> [`hepatocellular-carcinoma`](../README.md). O índice geral, com a descrição
+> dos demais estudos, está no [`README.md` da raiz](../README.md).
+
 ## Estrutura
 
 ```
