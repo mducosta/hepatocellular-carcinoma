@@ -1,0 +1,2 @@
+contraste,coorte_treinamento,coorte_validacao,genes_comuns,degs_tcga,degs_validacao,degs_comuns,jaccard,hipergeometrico_p,spearman_logfc,direcao_concordante,auc_assinatura_tcga,xist_p,rps4y1_p
+Masculino vs feminino no tumor,TCGA-LIHC (n = 342),GSE14520 (n = 221),8829,175,5,5,0.0285714285714286,2.74073456183249e-10,0.312871861500191,1,0.660558464223386,7.1732963394718e-30,2.29419902794513e-19

@@ -1,0 +1,143 @@
+# Auditoria numérica
+
+Verificações: **137**. PASS: **137**. FAIL: **0**.
+
+| Verificação | Resultado | Esperado | Fonte |
+|---|---|---|---|
+| Total de amostras | PASS | 528 | metadata_analise.tsv |
+| Tumores | PASS | 369 | metadata_analise.tsv |
+| Adjacentes | PASS | 50 | metadata_analise.tsv |
+| GTEx | PASS | 109 | metadata_analise.tsv |
+| Genes | PASS | 12401 | matriz de expressão |
+| Amostras antes da deduplicação | PASS | 529 | metadata bruto |
+| Missingness invasão vascular | PASS | 70,7 | vascular_invasion |
+| Missingness sorologia | PASS | 55,8 | viral_status |
+| Missingness fibrose | PASS | 43,1 | fibrosis_ishak |
+| Missingness Child-Pugh | PASS | 35,8 | child_pugh |
+| Missingness AFP | PASS | 25,2 | afp |
+| Child-Pugh ausentes | PASS | 132 | metadata |
+| Child-Pugh B-C corrigido | PASS | 22 | metadata |
+| Child-Pugh código antigo | PASS | 154 | 132 ausentes + 22 B-C |
+| Child-Pugh GDC Unknown | PASS | 84 | auditoria_child_pugh_gdc.md |
+| Child-Pugh GDC vazios | PASS | 48 | auditoria_child_pugh_gdc.md |
+| Concordância GDC | PASS | 237 | auditoria_child_pugh_gdc.md |
+| GDC estágio/grau/fibrose | PASS | 345/364/210 | auditoria_gdc_outros.csv |
+| DEGs tumor_vs_adjacente_base | PASS | 4130 | resumo_modelos...csv |
+| DEGs tumor_vs_adjacente_pareado | PASS | 3710 | resumo_modelos...csv |
+| DEGs tumor_vs_adjacente_clinico_completo | PASS | 3740 | resumo_modelos...csv |
+| DEGs tumor_vs_adjacente_clinico_tss | PASS | 3736 | resumo_modelos...csv |
+| DEGs estagio_base | PASS | 46 | resumo_modelos...csv |
+| DEGs estagio_base_mesmos_casos | PASS | 0 | resumo_modelos...csv |
+| DEGs grau_base | PASS | 172 | resumo_modelos...csv |
+| DEGs grau_clinico | PASS | 199 | resumo_modelos...csv |
+| DEGs grau_clinico_tss | PASS | 247 | resumo_modelos...csv |
+| DEGs grau_so_tss_full | PASS | 337 | resumo_modelos...csv |
+| DEGs grau_base_sem_estagio | PASS | 153 | resumo_modelos...csv |
+| DEGs grau_sem_DD | PASS | 276 | resumo_modelos...csv |
+| DEGs sexo_gtex | PASS | 13 | resumo_modelos...csv |
+| DEGs sexo_tumor | PASS | 175 | resumo_modelos...csv |
+| DEGs sexo_adjacente | PASS | 103 | resumo_modelos...csv |
+| DEGs afp_400 | PASS | 455 | resumo_modelos...csv |
+| DEGs tumor_vs_gtex_base | PASS | 3391 | resumo_modelos...csv |
+| Número de modelos | PASS | 48 | resumo_modelos...csv |
+| DEGs composição tumor_vs_adjacente_composicao | PASS | 1897 | comparacao_base_vs_composicao.csv |
+| DEGs composição tumor_vs_gtex_composicao | PASS | 2732 | comparacao_base_vs_composicao.csv |
+| DEGs composição estagio_composicao | PASS | 0 | comparacao_base_vs_composicao.csv |
+| DEGs composição grau_composicao | PASS | 0 | comparacao_base_vs_composicao.csv |
+| DEGs composição sexo_gtex_composicao | PASS | 15 | comparacao_base_vs_composicao.csv |
+| DEGs composição sexo_tumor_clinico_composicao | PASS | 90 | comparacao_base_vs_composicao.csv |
+| DEGs composição sexo_adjacente_composicao | PASS | 22 | comparacao_base_vs_composicao.csv |
+| Cenários ComBat | PASS | 17 | resumo_testes_ComBat.csv |
+| ComBat tcga_gtex_sem_mod | PASS | 3391→1 | resumo_testes_ComBat.csv |
+| ComBat tcga_gtex_sem_mod_meanonly | PASS | 3391→1947 | resumo_testes_ComBat.csv |
+| ComBat tcga_tss_grau | PASS | 172→290 | resumo_testes_ComBat.csv |
+| ComBat tcga_tss_estagio | PASS | 46→0 | resumo_testes_ComBat.csv |
+| ComBat tcga_ta_tss_mod_sexo_idade | PASS | 4130→3048 | resumo_testes_ComBat.csv |
+| ComBat tcga_ta_tss_sem_mod | PASS | 4130→3038 | resumo_testes_ComBat.csv |
+| ComBat tcga_ta_tss_sem_mod_meanonly | PASS | 4130→3605 | resumo_testes_ComBat.csv |
+| Medianas xCell_Hepatocytes | PASS | [0.151, 0.225, 0.206] | comparacao_celulas_por_grupo.csv |
+| Medianas xCell_Endothelial cells | PASS | [0.0406, 0.0222, 1.99e-18] | comparacao_celulas_por_grupo.csv |
+| Medianas xCell_Macrophages | PASS | [0.0161, 0.049, 0.0181] | comparacao_celulas_por_grupo.csv |
+| Concordância mediana 0,01 | PASS | 0.01 | concordancia_metodos_deconvolucao.csv |
+| Correlação deconvolução −0,33 | PASS | −0,33 | QC_correlacao_celulas_marcadores.csv |
+| Correlação deconvolução −0,38 | PASS | −0,38 | QC_correlacao_celulas_marcadores.csv |
+| Correlação deconvolução −0,51 | PASS | −0,51 | QC_correlacao_celulas_marcadores.csv |
+| Correlação deconvolução −0,31 | PASS | −0,31 | QC_correlacao_celulas_marcadores.csv |
+| Correlação deconvolução 0,47 | PASS | 0,47 | QC_correlacao_celulas_marcadores.csv |
+| Correlação deconvolução 0,62 | PASS | 0,62 | QC_correlacao_celulas_marcadores.csv |
+| Correlação deconvolução 0,64 | PASS | 0,64 | QC_correlacao_celulas_marcadores.csv |
+| Cox n | PASS | 337 | cox_clinico_corrigido.csv |
+| Cox eventos | PASS | 112 | cox_clinico_corrigido.csv |
+| Cox estágio HR | PASS | 2.61 | cox_clinico_corrigido.csv |
+| Cox grau HR | PASS | 1.16 | cox_clinico_corrigido.csv |
+| Log-rank | PASS | 3,2e-7 | logrank_estagio.csv |
+| C-index | PASS | 0,637 | concordance(fitA) |
+| cox.zph global clínico | PASS | 0.386 | cox_zph.csv |
+| cox.zph global AFP/fibrose | PASS | 0.153 | cox_zph.csv |
+| Composição xCell_sem_marcadores estágio 0 | PASS | 0 | sensibilidade_composicao_resumo.csv |
+| Composição xCell_sem_correlatos estágio 0 | PASS | 0 | sensibilidade_composicao_resumo.csv |
+| Composição xCell_universo_restrito estágio 0 | PASS | 0 | sensibilidade_composicao_resumo.csv |
+| Composição escore curado grau 27 | PASS | 27 | sensibilidade_composicao_resumo.csv |
+| Genes removidos por rho | PASS | 279 | sensibilidade_composicao_resumo.csv |
+| IPW AUC sorologia_hbv_vs_hcv | PASS | 0,808 | sensibilidade_missingness_ipw.csv |
+| IPW AUC child_pugh | PASS | 0,927 | sensibilidade_missingness_ipw.csv |
+| IPW AUC fibrose | PASS | 0,854 | sensibilidade_missingness_ipw.csv |
+| IPW AUC invasao_vascular | PASS | 0,729 | sensibilidade_missingness_ipw.csv |
+| IPW Child-Pugh 1 DEG | PASS | 1 | sensibilidade_missingness_ipw.csv |
+| Tumor/adj GSE14520 | PASS | 1061 | validacao_multicoorte.csv |
+| Tumor/adj GSE14520 sobreposição | PASS | 743 | validacao_multicoorte.csv |
+| Tumor/adj GSE14520 AUC | PASS | 0,989 | validacao_multicoorte.csv |
+| Tumor/adj GSE36376 | PASS | 667 | validacao_multicoorte.csv |
+| Tumor/adj GSE36376 sobreposição | PASS | 564 | validacao_multicoorte.csv |
+| Tumor/adj GSE36376 AUC | PASS | 0,990 | validacao_multicoorte.csv |
+| Tumor/adj GSE76427 | PASS | 509 | validacao_multicoorte.csv |
+| Tumor/adj GSE76427 sobreposição | PASS | 358 | validacao_multicoorte.csv |
+| Tumor/adj GSE76427 AUC | PASS | 0,957 | validacao_multicoorte.csv |
+| Estágio GSE14520 | PASS | 76 | validacao_multicoorte.csv |
+| Estágio GSE14520 AUC | PASS | 0,757 | validacao_multicoorte.csv |
+| Estágio GSE36376 | PASS | 0 | validacao_multicoorte.csv |
+| Estágio GSE36376 AUC | PASS | 0,467 | validacao_multicoorte.csv |
+| Estágio GSE76427 | PASS | 0 | validacao_multicoorte.csv |
+| Estágio GSE76427 AUC | PASS | 0,626 | validacao_multicoorte.csv |
+| Grau GSE62232 0 DEGs | PASS | 0 | validacao_multicoorte.csv |
+| Grau GSE62232 AUC | PASS | 0.655 | validacao_multicoorte.csv |
+| Sexo GSE14520 | PASS | 5 | validacao_multicoorte.csv |
+| Sexo GSE14520 AUC | PASS | 0,633 | validacao_multicoorte.csv |
+| Sexo GSE76427 | PASS | 5 | validacao_multicoorte.csv |
+| Sexo GSE76427 AUC | PASS | 0,665 | validacao_multicoorte.csv |
+| Sexo GSE62232 | PASS | 9 | validacao_multicoorte.csv |
+| Sexo GSE62232 AUC | PASS | 0,748 | validacao_multicoorte.csv |
+| Estágio 17/29 | PASS | 17/29 | validacao_multicoorte.csv |
+| CV grau AUC | PASS | 0.705 | validacao_cruzada_grau_resumo.csv |
+| LOCO mínimo/máximo | PASS | 0,720–0,843 | validacao_leave_one_center_out_grau.csv |
+| Misto estágio 0 | PASS | 0 | modelos_mistos_resumo.csv |
+| Misto grau 283 | PASS | 283 | modelos_mistos_resumo.csv |
+| Contagens completo DESeq2 tumor_vs_adjacente | PASS | 4269 | contagens_resumo_consolidado.csv |
+| Contagens completo DESeq2 estagio | PASS | 447 | contagens_resumo_consolidado.csv |
+| Contagens completo DESeq2 grau | PASS | 490 | contagens_resumo_consolidado.csv |
+| Contagens completo edgeR tumor_vs_adjacente | PASS | 7240 | contagens_resumo_consolidado.csv |
+| Contagens completo edgeR estagio | PASS | 1528 | contagens_resumo_consolidado.csv |
+| Contagens completo edgeR grau | PASS | 1786 | contagens_resumo_consolidado.csv |
+| Contagens comum_12401 DESeq2 tumor_vs_adjacente | PASS | 1832 | contagens_resumo_consolidado.csv |
+| Contagens comum_12401 DESeq2 estagio | PASS | 37 | contagens_resumo_consolidado.csv |
+| Contagens comum_12401 DESeq2 grau | PASS | 71 | contagens_resumo_consolidado.csv |
+| Contagens métrica 0.325 | PASS | 0,325 | contagens_resumo_consolidado.csv |
+| Contagens métrica 0.051 | PASS | 0,051 | contagens_resumo_consolidado.csv |
+| Contagens métrica 0.152 | PASS | 0,152 | contagens_resumo_consolidado.csv |
+| Contagens métrica 0.913 | PASS | 0,913 | contagens_resumo_consolidado.csv |
+| Contagens comum estágio 4 genes | PASS | 4 | contagens_resumo_consolidado.csv |
+| Contagens comum grau 32 genes | PASS | 32 | contagens_resumo_consolidado.csv |
+| Figuras | PASS | 10+ (5 ampliadas) | DOCX |
+| Tabelas | PASS | 19+ | DOCX |
+| Tabela S8 27 genes | PASS | 27 genes | degs_grau__escore_curado.csv |
+| Legendas com fonte | PASS | 29 | DOCX |
+| Sem marcadores de lista | PASS | 0 | DOCX |
+| Sem dois pontos no corpo | PASS | 0 | DOCX |
+| Referências | PASS | 35 | DOCX |
+| Datas de acesso distintas | PASS | 14 | DOCX |
+| Figura 5 FDR 0,64 | PASS | 0.64 | modelo_estagio_base_mesmos_casos_completo.csv |
+| Número antigo ausente 2,56 | PASS | ausente | DOCX |
+| Número antigo ausente 4,5 × 10⁻⁸ | PASS | ausente | DOCX |
+| Número antigo ausente 186; 53 | PASS | ausente | DOCX |
+| Número antigo ausente 128 eventos | PASS | ausente | DOCX |
+| Número antigo ausente 1,23 (0,86 | PASS | ausente | DOCX |

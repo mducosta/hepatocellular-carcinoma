@@ -1,0 +1,168 @@
+cohort	gsm	title	tissue	grade	grade_group	stage_raw	stage_group	sex	age	pair
+GSE76427	GSM2011285	Primary HCC tumor tissue, 19	Tumor			I	I-II	M	55	HCC19
+GSE76427	GSM2011286	Primary HCC tumor tissue, 62	Tumor			II	I-II	M	70	HCC62
+GSE76427	GSM2011287	Primary HCC tumor tissue, 21	Tumor			I	I-II	M	65	HCC21
+GSE76427	GSM2011288	Primary HCC tumor tissue, 63	Tumor			II	I-II	M	77	HCC63
+GSE76427	GSM2011289	Primary HCC tumor tissue, 46	Tumor			I	I-II	M	55	HCC46
+GSE76427	GSM2011290	Primary HCC tumor tissue, 60	Tumor			IIIA	III-IV	M	14	HCC60
+GSE76427	GSM2011291	Primary HCC tumor tissue, 8	Tumor			IIIA	III-IV	M	78	HCC8
+GSE76427	GSM2011292	Primary HCC tumor tissue, 66	Tumor			II	I-II	M	73	HCC66
+GSE76427	GSM2011293	Primary HCC tumor tissue, 17	Tumor			IIIA	III-IV	F	71	HCC17
+GSE76427	GSM2011294	Primary HCC tumor tissue, 58	Tumor			I	I-II	F	71	HCC58
+GSE76427	GSM2011295	Primary HCC tumor tissue, 61	Tumor			I	I-II	M	66	HCC61
+GSE76427	GSM2011296	Primary HCC tumor tissue, 24	Tumor			I	I-II	M	55	HCC24
+GSE76427	GSM2011297	Primary HCC tumor tissue, 25	Tumor			IIIB	III-IV	M	59	HCC25
+GSE76427	GSM2011298	Primary HCC tumor tissue, 54	Tumor			IIIB	III-IV	M	79	HCC54
+GSE76427	GSM2011299	Primary HCC tumor tissue, 83	Tumor			I	I-II	M	65	HCC83
+GSE76427	GSM2011300	Primary HCC tumor tissue, 88	Tumor			I	I-II	F	55	HCC88
+GSE76427	GSM2011301	Primary HCC tumor tissue, 85	Tumor			I	I-II	M	71	HCC85
+GSE76427	GSM2011302	Primary HCC tumor tissue, 18	Tumor			IIIA	III-IV	M	67	HCC18
+GSE76427	GSM2011303	Primary HCC tumor tissue, 73	Tumor			I	I-II	M	79	HCC73
+GSE76427	GSM2011304	Primary HCC tumor tissue, 40	Tumor			I	I-II	M	65	HCC40
+GSE76427	GSM2011305	Primary HCC tumor tissue, 53	Tumor			IIIA	III-IV	M	78	HCC53
+GSE76427	GSM2011306	Primary HCC tumor tissue, 78	Tumor			IIIB	III-IV	M	61	HCC78
+GSE76427	GSM2011307	Primary HCC tumor tissue, 16	Tumor			IIIB	III-IV	M	55	HCC16
+GSE76427	GSM2011308	Primary HCC tumor tissue, 97	Tumor			I	I-II	M	54	HCC97
+GSE76427	GSM2011309	Primary HCC tumor tissue, 41	Tumor			II	I-II	F	58	HCC41
+GSE76427	GSM2011310	Primary HCC tumor tissue, 57	Tumor			I	I-II	M	58	HCC57
+GSE76427	GSM2011311	Primary HCC tumor tissue, 99	Tumor			II	I-II	M	56	HCC99
+GSE76427	GSM2011312	Primary HCC tumor tissue, 101	Tumor			I	I-II	M	58	HCC101
+GSE76427	GSM2011313	Primary HCC tumor tissue, 76	Tumor			II	I-II	M	63	HCC76
+GSE76427	GSM2011314	Primary HCC tumor tissue, 98	Tumor			I	I-II	F	54	HCC98
+GSE76427	GSM2011315	Primary HCC tumor tissue, 6	Tumor			II	I-II	M	68	HCC6
+GSE76427	GSM2011316	Primary HCC tumor tissue, 26	Tumor			I	I-II	M	74	HCC26
+GSE76427	GSM2011317	Primary HCC tumor tissue, 3	Tumor			I	I-II	M	51	HCC3
+GSE76427	GSM2011318	Primary HCC tumor tissue, 34	Tumor			II	I-II	M	43	HCC34
+GSE76427	GSM2011319	Primary HCC tumor tissue, 72	Tumor			I	I-II	M	73	HCC72
+GSE76427	GSM2011320	Primary HCC tumor tissue, 31	Tumor			I	I-II	M	53	HCC31
+GSE76427	GSM2011321	Primary HCC tumor tissue, 22	Tumor			I	I-II	M	50	HCC22
+GSE76427	GSM2011322	Primary HCC tumor tissue, 32	Tumor			IIIB	III-IV	M	73	HCC32
+GSE76427	GSM2011323	Primary HCC tumor tissue, 102	Tumor			IIIB	III-IV	M	61	HCC102
+GSE76427	GSM2011324	Primary HCC tumor tissue, 103	Tumor			I	I-II	M	41	HCC103
+GSE76427	GSM2011325	Primary HCC tumor tissue, 5	Tumor			II	I-II	M	68	HCC5
+GSE76427	GSM2011326	Primary HCC tumor tissue, 4	Tumor			II	I-II	M	60	HCC4
+GSE76427	GSM2011327	Primary HCC tumor tissue, 7	Tumor			I	I-II	F	47	HCC7
+GSE76427	GSM2011328	Primary HCC tumor tissue, 11	Tumor			I	I-II	M	50	HCC11
+GSE76427	GSM2011329	Primary HCC tumor tissue, 23	Tumor			I	I-II	M	53	HCC23
+GSE76427	GSM2011330	Primary HCC tumor tissue, 36	Tumor			II	I-II	M	49	HCC36
+GSE76427	GSM2011331	Primary HCC tumor tissue, 47	Tumor			IIIA	III-IV	F	48	HCC47
+GSE76427	GSM2011332	Primary HCC tumor tissue, 70	Tumor			I	I-II	M	85	HCC70
+GSE76427	GSM2011333	Primary HCC tumor tissue, 84	Tumor			I	I-II	M	58	HCC84
+GSE76427	GSM2011334	Primary HCC tumor tissue, 14	Tumor			I	I-II	M	58	HCC14
+GSE76427	GSM2011335	Primary HCC tumor tissue, 37	Tumor			II	I-II	M	55	HCC37
+GSE76427	GSM2011336	Primary HCC tumor tissue, 82	Tumor			I	I-II	M	81	HCC82
+GSE76427	GSM2011337	Primary HCC tumor tissue, 104	Tumor			II	I-II	M	60	HCC104
+GSE76427	GSM2011338	Primary HCC tumor tissue, 29	Tumor			II	I-II	M	70	HCC29
+GSE76427	GSM2011339	Primary HCC tumor tissue, 51	Tumor			IIIA	III-IV	M	57	HCC51
+GSE76427	GSM2011340	Primary HCC tumor tissue, 100	Tumor			I	I-II	M	68	HCC100
+GSE76427	GSM2011341	Primary HCC tumor tissue, 115	Tumor			II	I-II	M	63	HCC115
+GSE76427	GSM2011342	Primary HCC tumor tissue, 109	Tumor			II	I-II	M	52	HCC109
+GSE76427	GSM2011343	Primary HCC tumor tissue, 107	Tumor			II	I-II	M	65	HCC107
+GSE76427	GSM2011344	Primary HCC tumor tissue, 110	Tumor			I	I-II	M	65	HCC110
+GSE76427	GSM2011345	Primary HCC tumor tissue, 30	Tumor			I	I-II	M	56	HCC30
+GSE76427	GSM2011346	Primary HCC tumor tissue, 33	Tumor			IIIB	III-IV	M	41	HCC33
+GSE76427	GSM2011347	Primary HCC tumor tissue, 96	Tumor			I	I-II	M	64	HCC96
+GSE76427	GSM2011348	Primary HCC tumor tissue, 79	Tumor			I	I-II	F	61	HCC79
+GSE76427	GSM2011349	Primary HCC tumor tissue, 92	Tumor			II	I-II	M	44	HCC92
+GSE76427	GSM2011350	Primary HCC tumor tissue, 94	Tumor			I	I-II	M	78	HCC94
+GSE76427	GSM2011351	Primary HCC tumor tissue, 95	Tumor			IIIB	III-IV	F	80	HCC95
+GSE76427	GSM2011352	Primary HCC tumor tissue, 93	Tumor			NA		F	56	HCC93
+GSE76427	GSM2011353	Primary HCC tumor tissue, 114	Tumor			II	I-II	M	53	HCC114
+GSE76427	GSM2011354	Primary HCC tumor tissue, 35	Tumor			IVA		M	69	HCC35
+GSE76427	GSM2011355	Primary HCC tumor tissue, 44	Tumor			I	I-II	M	81	HCC44
+GSE76427	GSM2011356	Primary HCC tumor tissue, 2	Tumor			IIIA	III-IV	M	58	HCC2
+GSE76427	GSM2011357	Primary HCC tumor tissue, 1	Tumor			I	I-II	F	47	HCC1
+GSE76427	GSM2011358	Primary HCC tumor tissue, 43	Tumor			I	I-II	F	47	HCC43
+GSE76427	GSM2011359	Primary HCC tumor tissue, 48	Tumor			I	I-II	F	71	HCC48
+GSE76427	GSM2011360	Primary HCC tumor tissue, 80	Tumor			I	I-II	F	68	HCC80
+GSE76427	GSM2011361	Primary HCC tumor tissue, 81	Tumor			II	I-II	M	75	HCC81
+GSE76427	GSM2011362	Primary HCC tumor tissue, 86	Tumor			I	I-II	M	54	HCC86
+GSE76427	GSM2011363	Primary HCC tumor tissue, 87	Tumor			I	I-II	F	73	HCC87
+GSE76427	GSM2011364	Primary HCC tumor tissue, 89	Tumor			II	I-II	F	64	HCC89
+GSE76427	GSM2011365	Primary HCC tumor tissue, 90	Tumor			II	I-II	M	51	HCC90
+GSE76427	GSM2011366	Primary HCC tumor tissue, 105	Tumor			II	I-II	M	61	HCC105
+GSE76427	GSM2011367	Primary HCC tumor tissue, 106	Tumor			II	I-II	M	39	HCC106
+GSE76427	GSM2011368	Primary HCC tumor tissue, 113	Tumor			I	I-II	M	78	HCC113
+GSE76427	GSM2011369	Primary HCC tumor tissue, 112	Tumor			II	I-II	M	70	HCC112
+GSE76427	GSM2011370	Primary HCC tumor tissue, 111	Tumor			IVB		M	66	HCC111
+GSE76427	GSM2011371	Primary HCC tumor tissue, 108	Tumor			II	I-II	M	53	HCC108
+GSE76427	GSM2011372	Primary HCC tumor tissue, 9	Tumor			II	I-II	M	62	HCC9
+GSE76427	GSM2011373	Primary HCC tumor tissue, 10	Tumor			II	I-II	F	64	HCC10
+GSE76427	GSM2011374	Primary HCC tumor tissue, 12	Tumor			I	I-II	F	77	HCC12
+GSE76427	GSM2011375	Primary HCC tumor tissue, 13	Tumor			I	I-II	M	87	HCC13
+GSE76427	GSM2011376	Primary HCC tumor tissue, 15	Tumor			IIIA	III-IV	M	69	HCC15
+GSE76427	GSM2011377	Primary HCC tumor tissue, 20	Tumor			II	I-II	M	59	HCC20
+GSE76427	GSM2011378	Primary HCC tumor tissue, 91	Tumor			I	I-II	F	51	HCC91
+GSE76427	GSM2011379	Primary HCC tumor tissue, 27	Tumor			I	I-II	F	77	HCC27
+GSE76427	GSM2011380	Primary HCC tumor tissue, 28	Tumor			IIIA	III-IV	M	76	HCC28
+GSE76427	GSM2011381	Primary HCC tumor tissue, 38	Tumor			II	I-II	M	71	HCC38
+GSE76427	GSM2011382	Primary HCC tumor tissue, 39	Tumor			II	I-II	M	58	HCC39
+GSE76427	GSM2011383	Primary HCC tumor tissue, 42	Tumor			I	I-II	M	29	HCC42
+GSE76427	GSM2011384	Primary HCC tumor tissue, 45	Tumor			I	I-II	M	69	HCC45
+GSE76427	GSM2011385	Primary HCC tumor tissue, 49	Tumor			I	I-II	M	78	HCC49
+GSE76427	GSM2011386	Primary HCC tumor tissue, 50	Tumor			I	I-II	M	65	HCC50
+GSE76427	GSM2011387	Primary HCC tumor tissue, 52	Tumor			IIIA	III-IV	M	60	HCC52
+GSE76427	GSM2011388	Primary HCC tumor tissue, 55	Tumor			IIIA	III-IV	M	77	HCC55
+GSE76427	GSM2011389	Primary HCC tumor tissue, 56	Tumor			I	I-II	F	93	HCC56
+GSE76427	GSM2011390	Primary HCC tumor tissue, 59	Tumor			II	I-II	M	75	HCC59
+GSE76427	GSM2011391	Primary HCC tumor tissue, 64	Tumor			II	I-II	M	52	HCC64
+GSE76427	GSM2011392	Primary HCC tumor tissue, 65	Tumor			IIIA	III-IV	M	73	HCC65
+GSE76427	GSM2011393	Primary HCC tumor tissue, 67	Tumor			IVA		M	69	HCC67
+GSE76427	GSM2011394	Primary HCC tumor tissue, 68	Tumor			I	I-II	F	93	HCC68
+GSE76427	GSM2011395	Primary HCC tumor tissue, 69	Tumor			II	I-II	M	80	HCC69
+GSE76427	GSM2011396	Primary HCC tumor tissue, 71	Tumor			I	I-II	M	76	HCC71
+GSE76427	GSM2011397	Primary HCC tumor tissue, 74	Tumor			I	I-II	M	76	HCC74
+GSE76427	GSM2011398	Primary HCC tumor tissue, 75	Tumor			II	I-II	M	64	HCC75
+GSE76427	GSM2011399	Primary HCC tumor tissue, 77	Tumor			I	I-II	M	75	HCC77
+GSE76427	GSM2011400	Adjacent non-tumor tissue, 19	Non-Tumor							HCC19
+GSE76427	GSM2011401	Adjacent non-tumor tissue, 62	Non-Tumor							HCC62
+GSE76427	GSM2011402	Adjacent non-tumor tissue, 21	Non-Tumor							HCC21
+GSE76427	GSM2011403	Adjacent non-tumor tissue, 63	Non-Tumor							HCC63
+GSE76427	GSM2011404	Adjacent non-tumor tissue, 46	Non-Tumor							HCC46
+GSE76427	GSM2011405	Adjacent non-tumor tissue, 60	Non-Tumor							HCC60
+GSE76427	GSM2011406	Adjacent non-tumor tissue, 8	Non-Tumor							HCC8
+GSE76427	GSM2011407	Adjacent non-tumor tissue, 66	Non-Tumor							HCC66
+GSE76427	GSM2011408	Adjacent non-tumor tissue, 17	Non-Tumor							HCC17
+GSE76427	GSM2011409	Adjacent non-tumor tissue, 58	Non-Tumor							HCC58
+GSE76427	GSM2011410	Adjacent non-tumor tissue, 61	Non-Tumor							HCC61
+GSE76427	GSM2011411	Adjacent non-tumor tissue, 24	Non-Tumor							HCC24
+GSE76427	GSM2011412	Adjacent non-tumor tissue, 25	Non-Tumor							HCC25
+GSE76427	GSM2011413	Adjacent non-tumor tissue, 54	Non-Tumor							HCC54
+GSE76427	GSM2011414	Adjacent non-tumor tissue, 83	Non-Tumor							HCC83
+GSE76427	GSM2011415	Adjacent non-tumor tissue, 88	Non-Tumor							HCC88
+GSE76427	GSM2011416	Adjacent non-tumor tissue, 85	Non-Tumor							HCC85
+GSE76427	GSM2011417	Adjacent non-tumor tissue, 18	Non-Tumor							HCC18
+GSE76427	GSM2011418	Adjacent non-tumor tissue, 73	Non-Tumor							HCC73
+GSE76427	GSM2011419	Adjacent non-tumor tissue, 40	Non-Tumor							HCC40
+GSE76427	GSM2011420	Adjacent non-tumor tissue, 53	Non-Tumor							HCC53
+GSE76427	GSM2011421	Adjacent non-tumor tissue, 78	Non-Tumor							HCC78
+GSE76427	GSM2011422	Adjacent non-tumor tissue, 16	Non-Tumor							HCC16
+GSE76427	GSM2011423	Adjacent non-tumor tissue, 97	Non-Tumor							HCC97
+GSE76427	GSM2011424	Adjacent non-tumor tissue, 41	Non-Tumor							HCC41
+GSE76427	GSM2011425	Adjacent non-tumor tissue, 57	Non-Tumor							HCC57
+GSE76427	GSM2011426	Adjacent non-tumor tissue, 99	Non-Tumor							HCC99
+GSE76427	GSM2011427	Adjacent non-tumor tissue, 101	Non-Tumor							HCC101
+GSE76427	GSM2011428	Adjacent non-tumor tissue, 76	Non-Tumor							HCC76
+GSE76427	GSM2011429	Adjacent non-tumor tissue, 98	Non-Tumor							HCC98
+GSE76427	GSM2011430	Adjacent non-tumor tissue, 6	Non-Tumor							HCC6
+GSE76427	GSM2011431	Adjacent non-tumor tissue, 26	Non-Tumor							HCC26
+GSE76427	GSM2011432	Adjacent non-tumor tissue, 3	Non-Tumor							HCC3
+GSE76427	GSM2011433	Adjacent non-tumor tissue, 34	Non-Tumor							HCC34
+GSE76427	GSM2011434	Adjacent non-tumor tissue, 72	Non-Tumor							HCC72
+GSE76427	GSM2011435	Adjacent non-tumor tissue, 31	Non-Tumor							HCC31
+GSE76427	GSM2011436	Adjacent non-tumor tissue, 22	Non-Tumor							HCC22
+GSE76427	GSM2011437	Adjacent non-tumor tissue, 32	Non-Tumor							HCC32
+GSE76427	GSM2011438	Adjacent non-tumor tissue, 102	Non-Tumor							HCC102
+GSE76427	GSM2011439	Adjacent non-tumor tissue, 103	Non-Tumor							HCC103
+GSE76427	GSM2011440	Adjacent non-tumor tissue, 5	Non-Tumor							HCC5
+GSE76427	GSM2011441	Adjacent non-tumor tissue, 4	Non-Tumor							HCC4
+GSE76427	GSM2011442	Adjacent non-tumor tissue, 7	Non-Tumor							HCC7
+GSE76427	GSM2011443	Adjacent non-tumor tissue, 11	Non-Tumor							HCC11
+GSE76427	GSM2011444	Adjacent non-tumor tissue, 23	Non-Tumor							HCC23
+GSE76427	GSM2011445	Adjacent non-tumor tissue, 36	Non-Tumor							HCC36
+GSE76427	GSM2011446	Adjacent non-tumor tissue, 47	Non-Tumor							HCC47
+GSE76427	GSM2011447	Adjacent non-tumor tissue, 70	Non-Tumor							HCC70
+GSE76427	GSM2011448	Adjacent non-tumor tissue, 84	Non-Tumor							HCC84
+GSE76427	GSM2011449	Adjacent non-tumor tissue, 14	Non-Tumor							HCC14
+GSE76427	GSM2011450	Adjacent non-tumor tissue, 37	Non-Tumor							HCC37
+GSE76427	GSM2011451	Adjacent non-tumor tissue, 82	Non-Tumor							HCC82

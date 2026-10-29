@@ -1,0 +1,73 @@
+universo comum: 11547 genes
+  the design formula contains one or more numeric variables with integer values,
+  specifying a model with increasing fold change for higher values.
+  did you mean for this to be a factor? if so, first convert
+  this variable to a factor using the factor() function
+  the design formula contains one or more numeric variables that have mean or
+  standard deviation larger than 5 (an arbitrary threshold to trigger this message).
+  Including numeric variables with large mean can induce collinearity with the intercept.
+  Users should center and scale numeric variables in the design to improve GLM convergence.
+  the design formula contains one or more numeric variables with integer values,
+  specifying a model with increasing fold change for higher values.
+  did you mean for this to be a factor? if so, first convert
+  this variable to a factor using the factor() function
+  the design formula contains one or more numeric variables that have mean or
+  standard deviation larger than 5 (an arbitrary threshold to trigger this message).
+  Including numeric variables with large mean can induce collinearity with the intercept.
+  Users should center and scale numeric variables in the design to improve GLM convergence.
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  the design formula contains one or more numeric variables with integer values,
+  specifying a model with increasing fold change for higher values.
+  did you mean for this to be a factor? if so, first convert
+  this variable to a factor using the factor() function
+  the design formula contains one or more numeric variables that have mean or
+  standard deviation larger than 5 (an arbitrary threshold to trigger this message).
+  Including numeric variables with large mean can induce collinearity with the intercept.
+  Users should center and scale numeric variables in the design to improve GLM convergence.
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+                 metodo          contraste   n genes degs   up down
+1 DESeq2_universo_comum tumor_vs_adjacente 418 11547 1832 1071  761
+2 DESeq2_universo_comum            estagio 344 11547   37   22   15
+3 DESeq2_universo_comum               grau 363 11547   71   15   56
+                            contraste                metodo genes_comuns
+tumor_vs_adjacente tumor_vs_adjacente DESeq2_universo_comum        11547
+estagio                       estagio DESeq2_universo_comum        11547
+grau                             grau DESeq2_universo_comum        11547
+                   degs_limma degs_metodo degs_comuns    jaccard spearman_logfc
+tumor_vs_adjacente       4130        1873        1500 0.33311126      0.9134677
+estagio                    46          43           5 0.05952381      0.8278292
+grau                      172          80          36 0.16666667      0.9014450
+                   direcao_concordante
+tumor_vs_adjacente               0.998
+estagio                          1.000
+grau                             1.000

@@ -1,0 +1,7 @@
+chisq,df,p,modelo,termo
+1.33460169747665,1,0.247988218030223,cox_celulas_hepatocytes,z_hep
+0.0343207596405805,1,0.853026185522246,cox_celulas_hepatocytes,age
+2.31383013346976,1,0.128227740529835,cox_celulas_hepatocytes,sex
+1.02917992696676,1,0.310351357079279,cox_celulas_hepatocytes,stage_group
+0.235447458746246,1,0.627513711059434,cox_celulas_hepatocytes,grade_group
+6.69495427539793,5,0.24433318817746,cox_celulas_hepatocytes,GLOBAL

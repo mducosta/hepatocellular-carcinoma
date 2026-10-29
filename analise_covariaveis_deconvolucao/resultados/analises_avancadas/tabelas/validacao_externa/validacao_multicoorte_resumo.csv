@@ -1,0 +1,5 @@
+contraste,coortes,degs_total,comuns_total,jaccard_mediano,spearman_mediano,direcao_mediana
+Estágio III-IV vs I-II,3,76,17,0,0.154557994576913,1
+Grau G3-G4 vs G1-G2,1,0,0,0,0.489066538438397,
+Masculino vs feminino,3,19,14,0.0285714285714286,0.312871861500191,1
+Tumor vs adjacente,3,2237,1665,0.133238837703756,0.633649685423075,0.994616419919246

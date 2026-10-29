@@ -1,0 +1,7 @@
+metodo,contraste,n,degs,up,down
+DESeq2,tumor_vs_adjacente,418,,,
+edgeR,tumor_vs_adjacente,418,7241,5321,1920
+DESeq2,estagio,344,,,
+edgeR,estagio,344,1528,1200,328
+DESeq2,grau,363,,,
+edgeR,grau,363,1786,999,787

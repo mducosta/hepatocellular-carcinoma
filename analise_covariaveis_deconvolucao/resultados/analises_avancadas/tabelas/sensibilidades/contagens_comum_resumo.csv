@@ -1,0 +1,4 @@
+metodo,contraste,n,genes,degs,up,down
+DESeq2_universo_comum,tumor_vs_adjacente,418,11547,1832,1071,761
+DESeq2_universo_comum,estagio,344,11547,37,22,15
+DESeq2_universo_comum,grau,363,11547,71,15,56

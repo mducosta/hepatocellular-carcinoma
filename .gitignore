@@ -17,19 +17,20 @@
 *.Rout.save
 
 # ============================================================
-# Dados (brutos/intermediários — baixar do UCSC Xena)
+# Estudo 1 — via KEGG hsa05417 (Lipid and Atherosclerosis)
+# Dados brutos/intermediários — baixar do UCSC Xena
 # Bookmark: https://xenabrowser.net/?bookmark=337fe0532808c6fc66cf017f13885c4a
 # APENAS dados/raw/liver.tsv é versionado; os demais dados brutos são ignorados.
 # ============================================================
-dados/raw/*
-!dados/raw/liver.tsv
-dados/interim/
-dados/external/
-dados/processed/*.tsv
-dados/processed/*.csv
-liver*.csv
-liver*.xlsx
-liver_lip_ateroscler*.tsv
+via_lipidios_aterosclerose/dados/raw/*
+!via_lipidios_aterosclerose/dados/raw/liver.tsv
+via_lipidios_aterosclerose/dados/interim/
+via_lipidios_aterosclerose/dados/external/
+via_lipidios_aterosclerose/dados/processed/*.tsv
+via_lipidios_aterosclerose/dados/processed/*.csv
+via_lipidios_aterosclerose/liver*.csv
+via_lipidios_aterosclerose/liver*.xlsx
+via_lipidios_aterosclerose/liver_lip_ateroscler*.tsv
 
 # ============================================================
 # Configurações e credenciais (segredos)
@@ -47,8 +48,8 @@ logs/*.log
 # ============================================================
 # Saídas pesadas (modelos, workspaces)
 # ============================================================
-outputs/audit/workspace_*.RData
-outputs/modelos/
+via_lipidios_aterosclerose/outputs/audit/workspace_*.RData
+via_lipidios_aterosclerose/outputs/modelos/
 
 # ============================================================
 # Sistema operacional / editores
@@ -72,23 +73,43 @@ nanotec2026/dados/processed/liver_transcriptome_symbols.tsv
 # Paper LIHC — a fonte Markdown é mantida apenas localmente;
 # a versão versionada no repositório é o PDF
 # ============================================================
-paper_LIHC.md
-paper_LIHC.html
-
+via_lipidios_aterosclerose/paper_LIHC.md
+via_lipidios_aterosclerose/paper_LIHC.html
 
 # ============================================================
-# Artigo — scripts de geração não são versionados
+# Estudo 2 — scripts de geração do artigo não são versionados.
 # Visitantes têm acesso ao artigo final, dados e scripts de análise.
 # ============================================================
-seminários_ryan/scripts/etapa_20_figuras_artigo.py
-seminários_ryan/scripts/etapa_21_baixar_artigos.py
-seminários_ryan/scripts/etapa_21b_baixar_artigos_faltantes.py
-seminários_ryan/scripts/etapa_22_gerar_artigo_docx.py
-seminários_ryan/scripts/23_renomear_arquivos.py
+analise_covariaveis_deconvolucao/scripts/etapa_20_figuras_artigo.py
+analise_covariaveis_deconvolucao/scripts/etapa_21_baixar_artigos.py
+analise_covariaveis_deconvolucao/scripts/etapa_21b_baixar_artigos_faltantes.py
+analise_covariaveis_deconvolucao/scripts/etapa_22_gerar_artigo_docx.py
+analise_covariaveis_deconvolucao/scripts/23_renomear_arquivos.py
 
 # Referências bibliográficas (PDFs/XMLs/HTMLs) — mantidas apenas localmente
-seminários_ryan/artigos/
+analise_covariaveis_deconvolucao/artigos/
 
+# ============================================================
 # Python
+# ============================================================
 __pycache__/
 *.py[cod]
+
+# ============================================================
+# Estudo 2 — dados externos grandes (validação e contagens GDC)
+# Mantidos apenas localmente; os scripts de preparação documentam a origem.
+# ============================================================
+analise_covariaveis_deconvolucao/dados/raw/gdc_counts/
+analise_covariaveis_deconvolucao/dados/raw/gdc_clinico/
+analise_covariaveis_deconvolucao/dados/raw/externo/
+analise_covariaveis_deconvolucao/dados/processed/gdc_counts/
+
+# Matrizes de expressão das coortes externas e tabelas completas de DEGs
+# (grandes e regeneráveis pelos scripts das etapas 29 e 30)
+analise_covariaveis_deconvolucao/resultados/analises_avancadas/tabelas/validacao_externa/GSE*_expression.tsv
+analise_covariaveis_deconvolucao/resultados/analises_avancadas/tabelas/validacao_externa/multicoorte_*.csv
+analise_covariaveis_deconvolucao/resultados/analises_avancadas/tabelas/sensibilidades/contagens_DESeq2_*.csv
+analise_covariaveis_deconvolucao/resultados/analises_avancadas/tabelas/sensibilidades/contagens_edgeR_*.csv
+analise_covariaveis_deconvolucao/resultados/analises_avancadas/tabelas/sensibilidades/contagens_comum_DESeq2_*.csv
+analise_covariaveis_deconvolucao/resultados/analises_avancadas/tabelas/sensibilidades/ipw_*_completo.csv
+analise_covariaveis_deconvolucao/resultados/analises_avancadas/tabelas/sensibilidades/misto_duplicateCorrelation_*.csv

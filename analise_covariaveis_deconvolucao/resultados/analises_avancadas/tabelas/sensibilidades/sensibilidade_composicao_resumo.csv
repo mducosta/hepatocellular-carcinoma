@@ -1,0 +1,15 @@
+contraste,cenario,universo,n_genes,n_amostras,degs,up,down,jaccard_vs_base,spearman_vs_base
+estagio,base,completo,12401,344,46,3,43,1,1
+estagio,xCell,completo,12401,344,0,0,0,0,0.638462826913039
+estagio,xCell_sem_marcadores,sem_marcadores_canonicos,12328,344,0,0,0,0,0.636596279026786
+estagio,xCell_sem_correlatos,sem_|rho|>=0.60,12122,344,0,0,0,0,0.65322457553668
+estagio,xCell_universo_restrito,sem_marcadores_e_correlatos,12074,344,0,0,0,0,0.651670008004997
+estagio,escore_curado,completo,12401,344,0,0,0,0,0.658844221592049
+estagio,escore_curado_sem_marcadores,sem_marcadores_canonicos,12328,344,0,0,0,0,0.663273274104937
+grau,base,completo,12401,363,172,61,111,1,1
+grau,xCell,completo,12401,363,0,0,0,0,0.647344810100139
+grau,xCell_sem_marcadores,sem_marcadores_canonicos,12328,363,0,0,0,0,0.657302332711545
+grau,xCell_sem_correlatos,sem_|rho|>=0.60,12122,363,0,0,0,0,0.652220448772326
+grau,xCell_universo_restrito,sem_marcadores_e_correlatos,12074,363,0,0,0,0,0.660313531617747
+grau,escore_curado,completo,12401,363,27,18,9,0.137142857142857,0.882845193729539
+grau,escore_curado_sem_marcadores,sem_marcadores_canonicos,12328,363,26,18,8,0.131428571428571,0.888370165306133

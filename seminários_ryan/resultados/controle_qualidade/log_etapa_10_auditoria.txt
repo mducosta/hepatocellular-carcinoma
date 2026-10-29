@@ -1,3 +1,0 @@
-Auditorias geradas em: C:\Users\oorie\OneDrive\Documentos\TRABALHOS\HEPATO\hepatocellular-carcinoma\seminários_ryan/auditorias 
-Dados: C:\Users\oorie\OneDrive\Documentos\TRABALHOS\HEPATO\hepatocellular-carcinoma\seminários_ryan/auditorias/auditoria_dados.md 
-volcano_12: C:\Users\oorie\OneDrive\Documentos\TRABALHOS\HEPATO\hepatocellular-carcinoma\seminários_ryan/auditorias/auditoria_volcano_ComBat.md 

@@ -1,0 +1,70 @@
+amostras: 419 genes: 19097 
+  the design formula contains one or more numeric variables with integer values,
+  specifying a model with increasing fold change for higher values.
+  did you mean for this to be a factor? if so, first convert
+  this variable to a factor using the factor() function
+  the design formula contains one or more numeric variables that have mean or
+  standard deviation larger than 5 (an arbitrary threshold to trigger this message).
+  Including numeric variables with large mean can induce collinearity with the intercept.
+  Users should center and scale numeric variables in the design to improve GLM convergence.
+calcNormFactors has been renamed to normLibSizes
+  the design formula contains one or more numeric variables with integer values,
+  specifying a model with increasing fold change for higher values.
+  did you mean for this to be a factor? if so, first convert
+  this variable to a factor using the factor() function
+  the design formula contains one or more numeric variables that have mean or
+  standard deviation larger than 5 (an arbitrary threshold to trigger this message).
+  Including numeric variables with large mean can induce collinearity with the intercept.
+  Users should center and scale numeric variables in the design to improve GLM convergence.
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+calcNormFactors has been renamed to normLibSizes
+  the design formula contains one or more numeric variables with integer values,
+  specifying a model with increasing fold change for higher values.
+  did you mean for this to be a factor? if so, first convert
+  this variable to a factor using the factor() function
+  the design formula contains one or more numeric variables that have mean or
+  standard deviation larger than 5 (an arbitrary threshold to trigger this message).
+  Including numeric variables with large mean can induce collinearity with the intercept.
+  Users should center and scale numeric variables in the design to improve GLM convergence.
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+calcNormFactors has been renamed to normLibSizes
+  metodo          contraste   n degs   up down
+1 DESeq2 tumor_vs_adjacente 418   NA   NA   NA
+2  edgeR tumor_vs_adjacente 418 7241 5321 1920
+3 DESeq2            estagio 344   NA   NA   NA
+4  edgeR            estagio 344 1528 1200  328
+5 DESeq2               grau 363   NA   NA   NA
+6  edgeR               grau 363 1786  999  787
+Error in -df$baseMean : invalid argument to unary operator
+Calls: [ ... [.data.frame -> order -> standardGeneric -> eval -> eval -> eval
+Execution halted

@@ -1,0 +1,446 @@
+gsm	title	tissue_raw	disease	individual_raw	tissue	individual	pair	Tissue Type	sex	age	tnm	HBV viral status	AFP (>/<=300ng/ml)	stage	stage_group
+GSM362958	Liver Tumor Tissue LCS-079A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-271A	Tumor	02-271A	02-271	Tumor	M	56.0	II	CC	low	II	I-II
+GSM362959	Liver Tumor Tissue LCS-092A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-301A	Tumor	02-301A	02-301	Tumor	M	45.0	I	AVR-CC	high	I	I-II
+GSM362960	Liver Tumor Tissue LCS-101A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-321A	Tumor	02-321A	02-321	Tumor	M	21.0	II	CC	high	II	I-II
+GSM362961	Liver Non-Tumor Tissue LCS-079B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-271B	Non-Tumor	02-271B	02-271	Non-Tumor						nan	
+GSM362962	Liver Non-Tumor Tissue LCS-092B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-301B	Non-Tumor	02-301B	02-301	Non-Tumor						nan	
+GSM362963	Liver Non-Tumor Tissue LCS-101B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-321B	Non-Tumor	02-321B	02-321	Non-Tumor						nan	
+GSM362964	Liver Tumor Tissue LCS-083A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-284A	Tumor	02-284A	02-284	Tumor	M	50.0	I	CC	low	I	I-II
+GSM362965	Liver Tumor Tissue LCS-095A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-307A	Tumor	02-307A	02-307	Tumor	M	57.0	II	CC	low	II	I-II
+GSM362966	Liver Tumor Tissue LCS-102A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-323A	Tumor	02-323A	02-323	Tumor	M	58.0	I	AVR-CC	low	I	I-II
+GSM362967	Liver Non-Tumor Tissue LCS-083B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-284B	Non-Tumor	02-284B	02-284	Non-Tumor						nan	
+GSM362968	Liver Non-Tumor Tissue LCS-095B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-307B	Non-Tumor	02-307B	02-307	Non-Tumor						nan	
+GSM362969	Liver Non-Tumor Tissue LCS-102B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-323B	Non-Tumor	02-323B	02-323	Non-Tumor						nan	
+GSM362970	Liver Tumor Tissue LCS-085A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-286A	Tumor	02-286A	02-286	Tumor	M	39.0	I	CC	low	I	I-II
+GSM362971	Liver Tumor Tissue LCS-096A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-309A	Tumor	02-309A	02-309	Tumor	M	52.0	I	AVR-CC	high	I	I-II
+GSM362972	Liver Tumor Tissue LCS-103A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-325A	Tumor	02-325A	02-325	Tumor	M	45.0	I	CC	low	I	I-II
+GSM362973	Liver Non-Tumor Tissue LCS-085B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-286B	Non-Tumor	02-286B	02-286	Non-Tumor						nan	
+GSM362974	Liver Non-Tumor Tissue LCS-096B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-309B	Non-Tumor	02-309B	02-309	Non-Tumor						nan	
+GSM362975	Liver Non-Tumor Tissue LCS-103B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-325B	Non-Tumor	02-325B	02-325	Non-Tumor						nan	
+GSM362976	Liver Tumor Tissue LCS-091A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-298A	Tumor	02-298A	02-298	Tumor	M	50.0	I	CC	low	I	I-II
+GSM362977	Liver Tumor Tissue LCS-099A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-315A	Tumor	02-315A	02-315	Tumor	M	41.0	I	CC	low	I	I-II
+GSM362978	Liver Tumor Tissue LCS-105A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-337A	Tumor	02-337A	02-337	Tumor	M	61.0	I	AVR-CC	low	I	I-II
+GSM362979	Liver Non-Tumor Tissue LCS-091B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-298B	Non-Tumor	02-298B	02-298	Non-Tumor						nan	
+GSM362980	Liver Non-Tumor Tissue LCS-099B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-315B	Non-Tumor	02-315B	02-315	Non-Tumor						nan	
+GSM362981	Liver Non-Tumor Tissue LCS-105B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-337B	Non-Tumor	02-337B	02-337	Non-Tumor						nan	
+GSM362982	Liver Tumor Tissue LCS-122A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-380A	Tumor	02-380A	02-380	Tumor	M	39.0	I	CC	low	I	I-II
+GSM362983	Liver Tumor Tissue LCS-004A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-404A	Tumor	02-404A	02-404	Tumor	M	32.0	I	CC	high	I	I-II
+GSM362984	Liver Tumor Tissue LCS-130A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-429A	Tumor	02-429A	02-429	Tumor	M	49.0	II	CC	low	II	I-II
+GSM362985	Liver Non-Tumor Tissue LCS-004B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-404B	Non-Tumor	02-404B	02-404	Non-Tumor						nan	
+GSM362986	Liver Tumor Tissue LCS-123A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-384A	Tumor	02-384A	02-384	Tumor	M	55.0	II	AVR-CC	low	II	I-II
+GSM362987	Liver Tumor Tissue LCS-007A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-421A	Tumor	02-421A	02-421	Tumor	M	60.0	II	AVR-CC	low	II	I-II
+GSM362988	Liver Tumor Tissue LCS-135A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-445A	Tumor	02-445A	02-445	Tumor	F	52.0	I	AVR-CC	high	I	I-II
+GSM362989	Liver Non-Tumor Tissue LCS-123B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-384B	Non-Tumor	02-384B	02-384	Non-Tumor						nan	
+GSM362990	Liver Non-Tumor Tissue LCS-007B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-421B	Non-Tumor	02-421B	02-421	Non-Tumor						nan	
+GSM362991	Liver Non-Tumor Tissue LCS-135B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-445B	Non-Tumor	02-445B	02-445	Non-Tumor						nan	
+GSM362992	Liver Tumor Tissue LCS-125A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-396A	Tumor	02-396A	02-396	Tumor	F	41.0	I	CC	.	I	I-II
+GSM362993	Liver Tumor Tissue LCS-127A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-423A	Tumor	02-423A	02-423	Tumor	M	50.0	I	CC	high	I	I-II
+GSM362994	Liver Tumor Tissue LCS-136A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-447A	Tumor	02-447A	02-447	Tumor	M	49.0	II	CC	high	II	I-II
+GSM362995	Liver Non-Tumor Tissue LCS-125B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-396B	Non-Tumor	02-396B	02-396	Non-Tumor						nan	
+GSM362996	Liver Non-Tumor Tissue LCS-127B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-423B	Non-Tumor	02-423B	02-423	Non-Tumor						nan	
+GSM362997	Liver Non-Tumor Tissue LCS-136B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-447B	Non-Tumor	02-447B	02-447	Non-Tumor						nan	
+GSM362998	Liver Non-Tumor Tissue LCS-122B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-380B	Non-Tumor	02-380B	02-380	Non-Tumor						nan	
+GSM362999	Liver Non-Tumor Tissue LCS-130B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-429B	Non-Tumor	02-429B	02-429	Non-Tumor						nan	
+GSM363000	Liver Non-Tumor Tissue LCS-024B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-088B	Non-Tumor	03-088B	03-088	Non-Tumor						nan	
+GSM363001	Liver Non-Tumor Tissue LCS-212B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-235B	Non-Tumor	03-235B	03-235	Non-Tumor						nan	
+GSM363002	Liver Non-Tumor Tissue LCS-180B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-139B	Non-Tumor	03-139B	03-139	Non-Tumor						nan	
+GSM363003	Liver Non-Tumor Tissue LCS-183B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-162B	Non-Tumor	03-162B	03-162	Non-Tumor						nan	
+GSM363004	Liver Non-Tumor Tissue LCS-153B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-025B	Non-Tumor	03-025B	03-025	Non-Tumor						nan	
+GSM363005	Liver Non-Tumor Tissue LCS-042B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-206B	Non-Tumor	03-206B	03-206	Non-Tumor						nan	
+GSM363006	Liver Non-Tumor Tissue LCS-018B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-051B	Non-Tumor	03-051B	03-051	Non-Tumor						nan	
+GSM363007	Liver Non-Tumor Tissue LCS-062B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-345B	Non-Tumor	03-345B	03-345	Non-Tumor						nan	
+GSM363008	Liver Tumor Tissue LCS-188A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-180A	Tumor	03-180A	03-180	Tumor	F	50.0	II	CC	low	II	I-II
+GSM363009	Liver Tumor Tissue LCS-185A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-165A	Tumor	03-165A	03-165	Tumor	M	50.0	II	CC	high	II	I-II
+GSM363010	Liver Tumor Tissue LCS-154A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-033A	Tumor	03-033A	03-033	Tumor	M	47.0	I	CC	.	I	I-II
+GSM363011	Liver Tumor Tissue LCS-120A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-370A	Tumor	02-370A	02-370	Tumor	M	57.0	II	CC	high	II	I-II
+GSM363012	Liver Tumor Tissue LCS-286A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-422A	Tumor	03-422A	03-422	Tumor	M	61.0	I	CC	low	I	I-II
+GSM363013	Liver Tumor Tissue LCS-086A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-287A	Tumor	02-287A	02-287	Tumor	M	58.0	II	CC	high	II	I-II
+GSM363014	Liver Tumor Tissue LCS-023A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-082A	Tumor	03-082A	03-082	Tumor	M	61.0	I	CC	low	I	I-II
+GSM363015	Liver Tumor Tissue LCS-177A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-131A	Tumor	03-131A	03-131	Tumor	M	39.0	I	CC	high	I	I-II
+GSM363016	Liver Tumor Tissue LCS-140A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-455A	Tumor	02-455A	02-455	Tumor	M	44.0	IIIA	AVR-CC	low	III	III-IV
+GSM363017	Liver Tumor Tissue LCS-035A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-186A	Tumor	03-186A	03-186	Tumor	M	50.0	IIIB	AVR-CC	low	III	III-IV
+GSM363018	Liver Non-Tumor Tissue LCS-188B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-180B	Non-Tumor	03-180B	03-180	Non-Tumor						nan	
+GSM363019	Liver Non-Tumor Tissue LCS-185B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-165B	Non-Tumor	03-165B	03-165	Non-Tumor						nan	
+GSM363020	Liver Non-Tumor Tissue LCS-154B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-033B	Non-Tumor	03-033B	03-033	Non-Tumor						nan	
+GSM363021	Liver Non-Tumor Tissue LCS-120B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-370B	Non-Tumor	02-370B	02-370	Non-Tumor						nan	
+GSM363022	Liver Non-Tumor Tissue LCS-286B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-422B	Non-Tumor	03-422B	03-422	Non-Tumor						nan	
+GSM363023	Liver Non-Tumor Tissue LCS-238B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-285B	Non-Tumor	03-285B	03-285	Non-Tumor						nan	
+GSM363024	Liver Non-Tumor Tissue LCS-086B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-287B	Non-Tumor	02-287B	02-287	Non-Tumor						nan	
+GSM363025	Liver Non-Tumor Tissue LCS-023B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-082B	Non-Tumor	03-082B	03-082	Non-Tumor						nan	
+GSM363026	Liver Non-Tumor Tissue LCS-177B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-131B	Non-Tumor	03-131B	03-131	Non-Tumor						nan	
+GSM363027	Liver Non-Tumor Tissue LCS-035B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-186B	Non-Tumor	03-186B	03-186	Non-Tumor						nan	
+GSM363028	Liver Non-Tumor Tissue LCS-275B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-439B	Non-Tumor	03-439B	03-439	Non-Tumor						nan	
+GSM363029	Liver Tumor Tissue LCS-132A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-431A	Tumor	02-431A	02-431	Tumor	M	48.0	I	CC	low	I	I-II
+GSM363030	Liver Tumor Tissue LCS-205A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-226A	Tumor	03-226A	03-226	Tumor	M	58.0	IIIA	CC	high	III	III-IV
+GSM363031	Liver Tumor Tissue LCS-274A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-438A	Tumor	03-438A	03-438	Tumor	M	58.0	II	CC	low	II	I-II
+GSM363032	Liver Tumor Tissue LCS-159A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-049A	Tumor	03-049A	03-049	Tumor	M	52.0	IIIB	CC	high	III	III-IV
+GSM363033	Liver Tumor Tissue LCS-150A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-017A	Tumor	03-017A	03-017	Tumor	M	63.0	I	AVR-CC	high	I	I-II
+GSM363034	Liver Tumor Tissue LCS-014A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-062A	Tumor	03-062A	03-062	Tumor	F	30.0	I	CC	low	I	I-II
+GSM363035	Liver Tumor Tissue LCS-227A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-270A	Tumor	03-270A	03-270	Tumor	M	40.0	I	CC	low	I	I-II
+GSM363036	Liver Tumor Tissue LCS-283A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-460A	Tumor	03-460A	03-460	Tumor	M	65.0	II	CC	low	II	I-II
+GSM363037	Liver Tumor Tissue LCS-162A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-057A	Tumor	03-057A	03-057	Tumor	M	54.0	I	AVR-CC	low	I	I-II
+GSM363038	Liver Tumor Tissue LCS-104A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-335A	Tumor	02-335A	02-335	Tumor	M	41.0	II	CC	low	II	I-II
+GSM363039	Liver Tumor Tissue LCS-272A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-434A	Tumor	03-434A	03-434	Tumor	M	54.0	I	N	low	I	I-II
+GSM363040	Liver Non-Tumor Tissue LCS-132B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-431B	Non-Tumor	02-431B	02-431	Non-Tumor						nan	
+GSM363041	Liver Non-Tumor Tissue LCS-205B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-226B	Non-Tumor	03-226B	03-226	Non-Tumor						nan	
+GSM363042	Liver Non-Tumor Tissue LCS-274B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-438B	Non-Tumor	03-438B	03-438	Non-Tumor						nan	
+GSM363043	Liver Non-Tumor Tissue LCS-159B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-049B	Non-Tumor	03-049B	03-049	Non-Tumor						nan	
+GSM363044	Liver Non-Tumor Tissue LCS-227B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-270B	Non-Tumor	03-270B	03-270	Non-Tumor						nan	
+GSM363045	Liver Non-Tumor Tissue LCS-046B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-311B	Non-Tumor	03-311B	03-311	Non-Tumor						nan	
+GSM363046	Liver Non-Tumor Tissue LCS-283B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-460B	Non-Tumor	03-460B	03-460	Non-Tumor						nan	
+GSM363047	Liver Non-Tumor Tissue LCS-272B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-434B	Non-Tumor	03-434B	03-434	Non-Tumor						nan	
+GSM363048	Liver Tumor Tissue LCS-237A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-284A	Tumor	03-284A	03-284	Tumor	M	50.0	IIIA	AVR-CC	high	III	III-IV
+GSM363049	Liver Tumor Tissue LCS-152A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-024A	Tumor	03-024A	03-024	Tumor	M	45.0	I	AVR-CC	high	I	I-II
+GSM363050	Liver Tumor Tissue LCS-067A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-365A	Tumor	03-365A	03-365	Tumor	M	32.0	II	AVR-CC	high	II	I-II
+GSM363051	Liver Tumor Tissue LCS-209A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-231A	Tumor	03-231A	03-231	Tumor	M	43.0	IIIA	CC	high	III	III-IV
+GSM363052	Liver Tumor Tissue LCS-065A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-363A	Tumor	03-363A	03-363	Tumor	M	46.0	IIIA	CC	low	III	III-IV
+GSM363053	Liver Tumor Tissue LCS-211A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-234A	Tumor	03-234A	03-234	Tumor	F	57.0	I	CC	low	I	I-II
+GSM363054	Liver Tumor Tissue LCS-073A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-384A	Tumor	03-384A	03-384	Tumor	M	51.0	II	CC	low	II	I-II
+GSM363055	Liver Tumor Tissue LCS-230A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-274A	Tumor	03-274A	03-274	Tumor	F	55.0	I	CC	high	I	I-II
+GSM363056	Liver Tumor Tissue LCS-262A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-397A	Tumor	03-397A	03-397	Tumor	F	59.0	II	AVR-CC	high	II	I-II
+GSM363057	Liver Tumor Tissue LCS-144A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-459A	Tumor	02-459A	02-459	Tumor	M	63.0	II	CC	low	II	I-II
+GSM363058	Liver Non-Tumor Tissue LCS-158B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-047B	Non-Tumor	03-047B	03-047	Non-Tumor						nan	
+GSM363059	Liver Non-Tumor Tissue LCS-237B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-284B	Non-Tumor	03-284B	03-284	Non-Tumor						nan	
+GSM363060	Liver Non-Tumor Tissue LCS-152B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-024B	Non-Tumor	03-024B	03-024	Non-Tumor						nan	
+GSM363061	Liver Non-Tumor Tissue LCS-067B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-365B	Non-Tumor	03-365B	03-365	Non-Tumor						nan	
+GSM363062	Liver Non-Tumor Tissue LCS-209B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-231B	Non-Tumor	03-231B	03-231	Non-Tumor						nan	
+GSM363063	Liver Non-Tumor Tissue LCS-065B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-363B	Non-Tumor	03-363B	03-363	Non-Tumor						nan	
+GSM363064	Liver Non-Tumor Tissue LCS-211B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-234B	Non-Tumor	03-234B	03-234	Non-Tumor						nan	
+GSM363065	Liver Non-Tumor Tissue LCS-073B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-384B	Non-Tumor	03-384B	03-384	Non-Tumor						nan	
+GSM363066	Liver Non-Tumor Tissue LCS-230B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-274B	Non-Tumor	03-274B	03-274	Non-Tumor						nan	
+GSM363067	Liver Non-Tumor Tissue LCS-262B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-397B	Non-Tumor	03-397B	03-397	Non-Tumor						nan	
+GSM363068	Liver Non-Tumor Tissue LCS-144B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-459B	Non-Tumor	02-459B	02-459	Non-Tumor						nan	
+GSM363069	Liver Tumor Tissue LCS-024A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-088A	Tumor	03-088A	03-088	Tumor	M	34.0	IIIA	CC	high	III	III-IV
+GSM363070	Liver Tumor Tissue LCS-212A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-235A	Tumor	03-235A	03-235	Tumor	M	50.0	.	.	high	.	
+GSM363071	Liver Tumor Tissue LCS-180A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-139A	Tumor	03-139A	03-139	Tumor	M	35.0	IIIB	CC	high	III	III-IV
+GSM363072	Liver Tumor Tissue LCS-183A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-162A	Tumor	03-162A	03-162	Tumor	M	49.0	I	CC	low	I	I-II
+GSM363073	Liver Tumor Tissue LCS-153A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-025A	Tumor	03-025A	03-025	Tumor	M	41.0	II	CC	high	II	I-II
+GSM363074	Liver Tumor Tissue LCS-042A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-206A	Tumor	03-206A	03-206	Tumor	M	41.0	II	CC	low	II	I-II
+GSM363075	Liver Tumor Tissue LCS-018A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-051A	Tumor	03-051A	03-051	Tumor	F	54.0	IIIB	CC	low	III	III-IV
+GSM363076	Liver Tumor Tissue LCS-062A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-345A	Tumor	03-345A	03-345	Tumor	M	35.0	IIIB	CC	high	III	III-IV
+GSM363077	Liver Tumor Tissue LCS-275A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-439A	Tumor	03-439A	03-439	Tumor	M	40.0	I	CC	high	I	I-II
+GSM363078	Liver Tumor Tissue LCS-015A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-071A	Tumor	03-071A	03-071	Tumor	M	47.0	IIIB	CC	low	III	III-IV
+GSM363079	Liver Tumor Tissue LCS-118A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-363A	Tumor	02-363A	02-363	Tumor	M	53.0	IIIA	CC	high	III	III-IV
+GSM363080	Liver Tumor Tissue LCS-069A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-364A	Tumor	03-364A	03-364	Tumor	M	49.0	IIIB	CC	high	III	III-IV
+GSM363081	Liver Tumor Tissue LCS-234A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-280A	Tumor	03-280A	03-280	Tumor	M	34.0	IIIA	CC	low	III	III-IV
+GSM363082	Liver Tumor Tissue LCS-210A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-233A	Tumor	03-233A	03-233	Tumor	M	64.0	II	CC	low	II	I-II
+GSM363083	Liver Tumor Tissue LCS-265A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-407A	Tumor	03-407A	03-407	Tumor	M	45.0	I	AVR-CC	low	I	I-II
+GSM363084	Liver Tumor Tissue LCS-149A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-015A	Tumor	03-015A	03-015	Tumor	M	67.0	I	CC	low	I	I-II
+GSM363085	Liver Tumor Tissue LCS-040A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-215A	Tumor	03-215A	03-215	Tumor	M	49.0	IIIA	CC	high	III	III-IV
+GSM363086	Liver Tumor Tissue LCS-169A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-093A	Tumor	03-093A	03-093	Tumor	M	44.0	II	AVR-CC	high	II	I-II
+GSM363087	Liver Tumor Tissue LCS-256A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-374A	Tumor	03-374A	03-374	Tumor	M	40.0	I	N	high	I	I-II
+GSM363088	Liver Non-Tumor Tissue LCS-015B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-071B	Non-Tumor	03-071B	03-071	Non-Tumor						nan	
+GSM363089	Liver Non-Tumor Tissue LCS-190B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-187B	Non-Tumor	03-187B	03-187	Non-Tumor						nan	
+GSM363090	Liver Non-Tumor Tissue LCS-118B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-363B	Non-Tumor	02-363B	02-363	Non-Tumor						nan	
+GSM363091	Liver Non-Tumor Tissue LCS-069B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-364B	Non-Tumor	03-364B	03-364	Non-Tumor						nan	
+GSM363092	Liver Non-Tumor Tissue LCS-234B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-280B	Non-Tumor	03-280B	03-280	Non-Tumor						nan	
+GSM363093	Liver Non-Tumor Tissue LCS-210B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-233B	Non-Tumor	03-233B	03-233	Non-Tumor						nan	
+GSM363094	Liver Non-Tumor Tissue LCS-265B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-407B	Non-Tumor	03-407B	03-407	Non-Tumor						nan	
+GSM363095	Liver Non-Tumor Tissue LCS-149B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-015B	Non-Tumor	03-015B	03-015	Non-Tumor						nan	
+GSM363096	Liver Non-Tumor Tissue LCS-040B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-215B	Non-Tumor	03-215B	03-215	Non-Tumor						nan	
+GSM363097	Liver Non-Tumor Tissue LCS-169B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-093B	Non-Tumor	03-093B	03-093	Non-Tumor						nan	
+GSM363098	Liver Tumor Tissue LCS-213A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-237A	Tumor	03-237A	03-237	Tumor	M	60.0	II	AVR-CC	high	II	I-II
+GSM363099	Liver Tumor Tissue LCS-033A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-150A	Tumor	03-150A	03-150	Tumor	M	50.0	III	CC	high	III	III-IV
+GSM363100	Liver Tumor Tissue LCS-164A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-061A	Tumor	03-061A	03-061	Tumor	M	56.0	IIIB	CC	high	III	III-IV
+GSM363101	Liver Tumor Tissue LCS-223A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-263A	Tumor	03-263A	03-263	Tumor	M	50.0	I	CC	high	I	I-II
+GSM363102	Liver Tumor Tissue LCS-245A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-314A	Tumor	03-314A	03-314	Tumor	M	49.0	II	CC	low	II	I-II
+GSM363103	Liver Non-Tumor Tissue LCS-281B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-453B	Non-Tumor	03-453B	03-453	Non-Tumor						nan	
+GSM363104	Liver Tumor Tissue LCS-061A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-361A	Tumor	03-361A	03-361	Tumor	M	59.0	I	CC	low	I	I-II
+GSM363105	Liver Tumor Tissue LCS-191A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-188A	Tumor	03-188A	03-188	Tumor	M	36.0	II	AVR-CC	low	II	I-II
+GSM363106	Liver Tumor Tissue LCS-171A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-102A	Tumor	03-102A	03-102	Tumor	M	53.0	IIIA	N	high	III	III-IV
+GSM363107	Liver Tumor Tissue LCS-249A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-336A	Tumor	03-336A	03-336	Tumor	F	71.0	I	AVR-CC	high	I	I-II
+GSM363108	Liver Tumor Tissue LCS-020A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-070A	Tumor	03-070A	03-070	Tumor	M	49.0	II	CC	low	II	I-II
+GSM363109	Liver Tumor Tissue LCS-045A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-306A	Tumor	03-306A	03-306	Tumor	M	50.0	II	CC	low	II	I-II
+GSM363110	Liver Non-Tumor Tissue LCS-213B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-237B	Non-Tumor	03-237B	03-237	Non-Tumor						nan	
+GSM363111	Liver Non-Tumor Tissue LCS-033B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-150B	Non-Tumor	03-150B	03-150	Non-Tumor						nan	
+GSM363112	Liver Non-Tumor Tissue LCS-164B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-061B	Non-Tumor	03-061B	03-061	Non-Tumor						nan	
+GSM363113	Liver Non-Tumor Tissue LCS-245B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-314B	Non-Tumor	03-314B	03-314	Non-Tumor						nan	
+GSM363114	Liver Non-Tumor Tissue LCS-094B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-304B	Non-Tumor	02-304B	02-304	Non-Tumor						nan	
+GSM363115	Liver Tumor Tissue LCS-094A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-304A	Tumor	02-304A	02-304	Tumor	M	74.0	I	CC	low	I	I-II
+GSM363116	Liver Non-Tumor Tissue LCS-191B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-188B	Non-Tumor	03-188B	03-188	Non-Tumor						nan	
+GSM363117	Liver Non-Tumor Tissue LCS-171B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-102B	Non-Tumor	03-102B	03-102	Non-Tumor						nan	
+GSM363118	Liver Non-Tumor Tissue LCS-249B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-336B	Non-Tumor	03-336B	03-336	Non-Tumor						nan	
+GSM363119	Liver Non-Tumor Tissue LCS-020B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-070B	Non-Tumor	03-070B	03-070	Non-Tumor						nan	
+GSM363120	Liver Non-Tumor Tissue LCS-045B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-306B	Non-Tumor	03-306B	03-306	Non-Tumor						nan	
+GSM363121	Liver Tumor Tissue LCS-131A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-430A	Tumor	02-430A	02-430	Tumor	M	39.0	IIIC	CC	high	III	III-IV
+GSM363122	Liver Tumor Tissue LCS-241A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-295A	Tumor	03-295A	03-295	Tumor	M	49.0	I	AVR-CC	low	I	I-II
+GSM363123	Liver Tumor Tissue LCS-057A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-326A	Tumor	03-326A	03-326	Tumor	M	48.0	II	AVR-CC	low	II	I-II
+GSM363124	Liver Tumor Tissue LCS-074A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-398A	Tumor	03-398A	03-398	Tumor	M	67.0	I	CC	.	I	I-II
+GSM363125	Liver Tumor Tissue LCS-160A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-054A	Tumor	03-054A	03-054	Tumor	M	43.0	II	AVR-CC	high	II	I-II
+GSM363126	Liver Tumor Tissue LCS-179A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-138A	Tumor	03-138A	03-138	Tumor	M	65.0	IIIB	CC	high	III	III-IV
+GSM363127	Liver Tumor Tissue LCS-134A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-437A	Tumor	02-437A	02-437	Tumor	M	55.0	II	CC	high	II	I-II
+GSM363128	Liver Tumor Tissue LCS-009A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-409A	Tumor	02-409A	02-409	Tumor	M	36.0	II	AVR-CC	low	II	I-II
+GSM363129	Liver Tumor Tissue LCS-224A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-265A	Tumor	03-265A	03-265	Tumor	M	34.0	IIIA	CC	high	III	III-IV
+GSM363130	Liver Tumor Tissue LCS-078A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-269A	Tumor	02-269A	02-269	Tumor	M	72.0	II	CC	low	II	I-II
+GSM363131	Liver Non-Tumor Tissue LCS-131B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-430B	Non-Tumor	02-430B	02-430	Non-Tumor						nan	
+GSM363132	Liver Non-Tumor Tissue LCS-201B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-220B	Non-Tumor	03-220B	03-220	Non-Tumor						nan	
+GSM363133	Liver Non-Tumor Tissue LCS-057B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-326B	Non-Tumor	03-326B	03-326	Non-Tumor						nan	
+GSM363134	Liver Non-Tumor Tissue LCS-074B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-398B	Non-Tumor	03-398B	03-398	Non-Tumor						nan	
+GSM363135	Liver Non-Tumor Tissue LCS-160B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-054B	Non-Tumor	03-054B	03-054	Non-Tumor						nan	
+GSM363136	Liver Non-Tumor Tissue LCS-179B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-138B	Non-Tumor	03-138B	03-138	Non-Tumor						nan	
+GSM363137	Liver Non-Tumor Tissue LCS-134B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-437B	Non-Tumor	02-437B	02-437	Non-Tumor						nan	
+GSM363138	Liver Non-Tumor Tissue LCS-009B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-409B	Non-Tumor	02-409B	02-409	Non-Tumor						nan	
+GSM363139	Liver Non-Tumor Tissue LCS-147B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-466B	Non-Tumor	02-466B	02-466	Non-Tumor						nan	
+GSM363140	Liver Non-Tumor Tissue LCS-224B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-265B	Non-Tumor	03-265B	03-265	Non-Tumor						nan	
+GSM363141	Liver Non-Tumor Tissue LCS-078B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-269B	Non-Tumor	02-269B	02-269	Non-Tumor						nan	
+GSM363142	Liver Tumor Tissue LCS-093A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-302A	Tumor	02-302A	02-302	Tumor	M	28.0	II	CC	high	II	I-II
+GSM363143	Liver Tumor Tissue LCS-253A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-350A	Tumor	03-350A	03-350	Tumor	F	48.0	II	CC	low	II	I-II
+GSM363144	Liver Tumor Tissue LCS-279A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-450A	Tumor	03-450A	03-450	Tumor	M	72.0	I	N	low	I	I-II
+GSM363145	Liver Tumor Tissue LCS-008A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-416A	Tumor	02-416A	02-416	Tumor	M	43.0	I	CC	low	I	I-II
+GSM363146	Liver Tumor Tissue LCS-049A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-317A	Tumor	03-317A	03-317	Tumor	M	50.0	IIIA	CC	low	III	III-IV
+GSM363147	Liver Tumor Tissue LCS-291A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: AN A	Tumor	AN A	AN 	Tumor	M	44.0	II	AVR-CC	low	II	I-II
+GSM363148	Liver Tumor Tissue LCS-281A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-453A	Tumor	03-453A	03-453	Tumor	M	64.0	II	CC	high	II	I-II
+GSM363149	Liver Tumor Tissue LCS-156A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-042A	Tumor	03-042A	03-042	Tumor	M	53.0	I	CC	low	I	I-II
+GSM363150	Liver Tumor Tissue LCS-282A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-456A	Tumor	03-456A	03-456	Tumor	M	68.0	II	CC	high	II	I-II
+GSM363151	Liver Tumor Tissue LCS-090A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-295A	Tumor	02-295A	02-295	Tumor	F	70.0	II	CC	low	II	I-II
+GSM363152	Liver Tumor Tissue LCS-151A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-023A	Tumor	03-023A	03-023	Tumor	M	39.0	IIIA	CC	high	III	III-IV
+GSM363153	Liver Non-Tumor Tissue LCS-253B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-350B	Non-Tumor	03-350B	03-350	Non-Tumor						nan	
+GSM363154	Liver Non-Tumor Tissue LCS-279B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-450B	Non-Tumor	03-450B	03-450	Non-Tumor						nan	
+GSM363155	Liver Non-Tumor Tissue LCS-008B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-416B	Non-Tumor	02-416B	02-416	Non-Tumor						nan	
+GSM363156	Liver Non-Tumor Tissue LCS-172B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-105B	Non-Tumor	03-105B	03-105	Non-Tumor						nan	
+GSM363157	Liver Non-Tumor Tissue LCS-049B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-317B	Non-Tumor	03-317B	03-317	Non-Tumor						nan	
+GSM363158	Liver Non-Tumor Tissue LCS-291B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: AN B	Non-Tumor	AN B	AN 	Non-Tumor						nan	
+GSM363159	Liver Non-Tumor Tissue LCS-061B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-361B	Non-Tumor	03-361B	03-361	Non-Tumor						nan	
+GSM363160	Liver Non-Tumor Tissue LCS-156B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-042B	Non-Tumor	03-042B	03-042	Non-Tumor						nan	
+GSM363161	Liver Non-Tumor Tissue LCS-282B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-456B	Non-Tumor	03-456B	03-456	Non-Tumor						nan	
+GSM363162	Liver Non-Tumor Tissue LCS-090B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-295B	Non-Tumor	02-295B	02-295	Non-Tumor						nan	
+GSM363163	Liver Non-Tumor Tissue LCS-151B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-023B	Non-Tumor	03-023B	03-023	Non-Tumor						nan	
+GSM363164	Liver Tumor Tissue LCS-047A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-309A	Tumor	03-309A	03-309	Tumor	F	27.0	I	CC	high	I	I-II
+GSM363165	Liver Non-Tumor Tissue LCS-047B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-309B	Non-Tumor	03-309B	03-309	Non-Tumor						nan	
+GSM363166	Liver Tumor Tissue LCS-075A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-381A	Tumor	03-381A	03-381	Tumor	M	59.0	IIIB	CC	high	III	III-IV
+GSM363167	Liver Non-Tumor Tissue LCS-075B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-381B	Non-Tumor	03-381B	03-381	Non-Tumor						nan	
+GSM363168	Liver Tumor Tissue LCS-259A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-383A	Tumor	03-383A	03-383	Tumor	M	51.0	IIIA	CC	low	III	III-IV
+GSM363169	Liver Tumor Tissue LCS-010A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-424A	Tumor	02-424A	02-424	Tumor	M	45.0	IIIA	AVR-CC	high	III	III-IV
+GSM363170	Liver Tumor Tissue LCS-264A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-405A	Tumor	03-405A	03-405	Tumor	M	59.0	I	CC	low	I	I-II
+GSM363171	Liver Non-Tumor Tissue LCS-264B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-405B	Non-Tumor	03-405B	03-405	Non-Tumor						nan	
+GSM363172	Liver Tumor Tissue LCS-163A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-058A	Tumor	03-058A	03-058	Tumor	M	67.0	II	CC	low	II	I-II
+GSM363173	Liver Non-Tumor Tissue LCS-163B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-058B	Non-Tumor	03-058B	03-058	Non-Tumor						nan	
+GSM363174	Liver Tumor Tissue LCS-089A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-291A	Tumor	02-291A	02-291	Tumor	M	48.0	II	CC	high	II	I-II
+GSM363175	Liver Non-Tumor Tissue LCS-089B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-291B	Non-Tumor	02-291B	02-291	Non-Tumor						nan	
+GSM363176	Liver Tumor Tissue LCS-143A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-458A	Tumor	02-458A	02-458	Tumor	F	65.0	I	CC	low	I	I-II
+GSM363177	Liver Non-Tumor Tissue LCS-143B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-458B	Non-Tumor	02-458B	02-458	Non-Tumor						nan	
+GSM363178	Liver Tumor Tissue LCS-199A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-218A	Tumor	03-218A	03-218	Tumor	M	42.0	II	CC	low	II	I-II
+GSM363179	Liver Non-Tumor Tissue LCS-199B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-218B	Non-Tumor	03-218B	03-218	Non-Tumor						nan	
+GSM363180	Liver Tumor Tissue LCS-034A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-149A	Tumor	03-149A	03-149	Tumor	M	52.0	IIIA	CC	high	III	III-IV
+GSM363181	Liver Non-Tumor Tissue LCS-034B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-149B	Non-Tumor	03-149B	03-149	Non-Tumor						nan	
+GSM363182	Liver Tumor Tissue LCS-278A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-444A	Tumor	03-444A	03-444	Tumor	M	50.0	I	CC	low	I	I-II
+GSM363183	Liver Non-Tumor Tissue LCS-278B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-444B	Non-Tumor	03-444B	03-444	Non-Tumor						nan	
+GSM363184	Liver Tumor Tissue LCS-119A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-366A	Tumor	02-366A	02-366	Tumor	M	34.0	IIIA	AVR-CC	low	III	III-IV
+GSM363185	Liver Non-Tumor Tissue LCS-119B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-366B	Non-Tumor	02-366B	02-366	Non-Tumor						nan	
+GSM363186	Liver Tumor Tissue LCS-184A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-164A	Tumor	03-164A	03-164	Tumor	M	45.0	II	AVR-CC	low	II	I-II
+GSM363187	Liver Non-Tumor Tissue LCS-184B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-164B	Non-Tumor	03-164B	03-164	Non-Tumor						nan	
+GSM363188	Liver Tumor Tissue LCS-203A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-223A	Tumor	03-223A	03-223	Tumor	M	35.0	II	AVR-CC	low	II	I-II
+GSM363189	Liver Non-Tumor Tissue LCS-203B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-223B	Non-Tumor	03-223B	03-223	Non-Tumor						nan	
+GSM363190	Liver Tumor Tissue LCS-178A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-133A	Tumor	03-133A	03-133	Tumor	M	41.0	II	AVR-CC	low	II	I-II
+GSM363191	Liver Non-Tumor Tissue LCS-178B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-133B	Non-Tumor	03-133B	03-133	Non-Tumor						nan	
+GSM363192	Liver Tumor Tissue LCS-284A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-467A	Tumor	03-467A	03-467	Tumor	M	50.0	I	CC	low	I	I-II
+GSM363193	Liver Non-Tumor Tissue LCS-284B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-467B	Non-Tumor	03-467B	03-467	Non-Tumor						nan	
+GSM363194	Liver Tumor Tissue LCS-108A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-345A	Tumor	02-345A	02-345	Tumor	M	44.0	II	AVR-CC	high	II	I-II
+GSM363195	Liver Non-Tumor Tissue LCS-261B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-394B	Non-Tumor	03-394B	03-394	Non-Tumor						nan	
+GSM363196	Liver Tumor Tissue LCS-043A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-208A	Tumor	03-208A	03-208	Tumor	M	42.0	I	CC	low	I	I-II
+GSM363197	Liver Non-Tumor Tissue LCS-043B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-208B	Non-Tumor	03-208B	03-208	Non-Tumor						nan	
+GSM363198	Liver Tumor Tissue LCS-041A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-197A	Tumor	03-197A	03-197	Tumor	M	41.0	I	AVR-CC	low	I	I-II
+GSM363199	Liver Non-Tumor Tissue LCS-041B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-197B	Non-Tumor	03-197B	03-197	Non-Tumor						nan	
+GSM363200	Liver Tumor Tissue LCS-044A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-241A	Tumor	03-241A	03-241	Tumor	M	26.0	II	CC	high	II	I-II
+GSM363201	Liver Non-Tumor Tissue LCS-044B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-241B	Non-Tumor	03-241B	03-241	Non-Tumor						nan	
+GSM363202	Liver Tumor Tissue LCS-174A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-112A	Tumor	03-112A	03-112	Tumor	M	33.0	I	CC	low	I	I-II
+GSM363203	Liver Non-Tumor Tissue LCS-174B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-112B	Non-Tumor	03-112B	03-112	Non-Tumor						nan	
+GSM363204	Liver Tumor Tissue LCS-166A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-081A	Tumor	03-081A	03-081	Tumor	M	53.0	IIIA	CC	high	III	III-IV
+GSM363205	Liver Tumor Tissue LCS-193A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-195A	Tumor	03-195A	03-195	Tumor	M	70.0	I	CC	high	I	I-II
+GSM363206	Liver Non-Tumor Tissue LCS-193B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-195B	Non-Tumor	03-195B	03-195	Non-Tumor						nan	
+GSM363207	Liver Tumor Tissue LCS-215A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-243A	Tumor	03-243A	03-243	Tumor	M	53.0	I	CC	high	I	I-II
+GSM363208	Liver Non-Tumor Tissue LCS-215B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-243B	Non-Tumor	03-243B	03-243	Non-Tumor						nan	
+GSM363209	Liver Tumor Tissue LCS-021A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-077A	Tumor	03-077A	03-077	Tumor	F	45.0	I	CC	high	I	I-II
+GSM363210	Liver Non-Tumor Tissue LCS-021B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-077B	Non-Tumor	03-077B	03-077	Non-Tumor						nan	
+GSM363211	Liver Tumor Tissue LCS-129A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-428A	Tumor	02-428A	02-428	Tumor	M	61.0	IIIA	CC	high	III	III-IV
+GSM363212	Liver Non-Tumor Tissue LCS-129B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-428B	Non-Tumor	02-428B	02-428	Non-Tumor						nan	
+GSM363213	Liver Tumor Tissue LCS-198A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-211A	Tumor	03-211A	03-211	Tumor	M	50.0	II	N	low	II	I-II
+GSM363214	Liver Non-Tumor Tissue LCS-198B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-211B	Non-Tumor	03-211B	03-211	Non-Tumor						nan	
+GSM363215	Liver Tumor Tissue LCS-084A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-285A	Tumor	02-285A	02-285	Tumor	M	48.0	I	CC	high	I	I-II
+GSM363216	Liver Non-Tumor Tissue LCS-084B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-285B	Non-Tumor	02-285B	02-285	Non-Tumor						nan	
+GSM363217	Liver Tumor Tissue LCS-250A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-342A	Tumor	03-342A	03-342	Tumor	M	58.0	IIIC	CC	low	III	III-IV
+GSM363218	Liver Tumor Tissue LCS-011A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-461A	Tumor	02-461A	02-461	Tumor	M	48.0	IIIB	CC	high	III	III-IV
+GSM363219	Liver Non-Tumor Tissue LCS-108B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-345B	Non-Tumor	02-345B	02-345	Non-Tumor						nan	
+GSM363220	Liver Tumor Tissue LCS-071A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-370A	Tumor	03-370A	03-370	Tumor	M	59.0	IIIA	AVR-CC	high	III	III-IV
+GSM363221	Liver Non-Tumor Tissue LCS-011B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-461B	Non-Tumor	02-461B	02-461	Non-Tumor						nan	
+GSM363222	Liver Tumor Tissue LCS-219A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-255A	Tumor	03-255A	03-255	Tumor	M	59.0	I	AVR-CC	low	I	I-II
+GSM363223	Liver Non-Tumor Tissue LCS-219B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-255B	Non-Tumor	03-255B	03-255	Non-Tumor						nan	
+GSM363224	Liver Tumor Tissue LCS-194A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-199A	Tumor	03-199A	03-199	Tumor	M	70.0	I	CC	high	I	I-II
+GSM363225	Liver Non-Tumor Tissue LCS-194B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-199B	Non-Tumor	03-199B	03-199	Non-Tumor						nan	
+GSM363226	Liver Tumor Tissue LCS-170A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-098A	Tumor	03-098A	03-098	Tumor	M	54.0	IIIC	AVR-CC	low	III	III-IV
+GSM363227	Liver Non-Tumor Tissue LCS-170B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-098B	Non-Tumor	03-098B	03-098	Non-Tumor						nan	
+GSM363228	Liver Tumor Tissue LCS-204A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-225A	Tumor	03-225A	03-225	Tumor						nan	
+GSM363229	Liver Non-Tumor Tissue LCS-204B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-225B	Non-Tumor	03-225B	03-225	Non-Tumor						nan	
+GSM363230	Liver Tumor Tissue LCS-261A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-394A	Tumor	03-394A	03-394	Tumor	M	40.0	II	CC	low	II	I-II
+GSM363231	Liver Non-Tumor Tissue LCS-071B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-370B	Non-Tumor	03-370B	03-370	Non-Tumor						nan	
+GSM363232	Liver Tumor Tissue LCS-195A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-200A	Tumor	03-200A	03-200	Tumor	M	49.0	II	AVR-CC	low	II	I-II
+GSM363233	Liver Non-Tumor Tissue LCS-195B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-200B	Non-Tumor	03-200B	03-200	Non-Tumor						nan	
+GSM363234	Liver Non-Tumor Tissue LCS-200B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-219B	Non-Tumor	03-219B	03-219	Non-Tumor						nan	
+GSM363235	Liver Tumor Tissue LCS-206A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-227A	Tumor	03-227A	03-227	Tumor	M	41.0	III	CC	high	III	III-IV
+GSM363236	Liver Non-Tumor Tissue LCS-206B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-227B	Non-Tumor	03-227B	03-227	Non-Tumor						nan	
+GSM363237	Liver Tumor Tissue LCS-036A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-214A	Tumor	03-214A	03-214	Tumor	M	69.0	I	CC	high	I	I-II
+GSM363238	Liver Non-Tumor Tissue LCS-161B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-055B	Non-Tumor	03-055B	03-055	Non-Tumor						nan	
+GSM363239	Liver Tumor Tissue LCS-145A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-460A	Tumor	02-460A	02-460	Tumor	M	54.0	II	AVR-CC	low	II	I-II
+GSM363240	Liver Non-Tumor Tissue LCS-145B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-460B	Non-Tumor	02-460B	02-460	Non-Tumor						nan	
+GSM363241	Liver Tumor Tissue LCS-064A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-360A	Tumor	03-360A	03-360	Tumor	M	55.0	I	CC	high	I	I-II
+GSM363242	Liver Non-Tumor Tissue LCS-064B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-360B	Non-Tumor	03-360B	03-360	Non-Tumor						nan	
+GSM363243	Liver Tumor Tissue LCS-236A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-282A	Tumor	03-282A	03-282	Tumor	M	69.0	I	CC	low	I	I-II
+GSM363244	Liver Non-Tumor Tissue LCS-236B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-282B	Non-Tumor	03-282B	03-282	Non-Tumor						nan	
+GSM363245	Liver Tumor Tissue LCS-038A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-213A	Tumor	03-213A	03-213	Tumor	M	47.0	IIIA	CC	high	III	III-IV
+GSM363246	Liver Non-Tumor Tissue LCS-038B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-213B	Non-Tumor	03-213B	03-213	Non-Tumor						nan	
+GSM363247	Liver Tumor Tissue LCS-270A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-425A	Tumor	03-425A	03-425	Tumor	M	44.0	I	CC	low	I	I-II
+GSM363248	Liver Non-Tumor Tissue LCS-270B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-425B	Non-Tumor	03-425B	03-425	Non-Tumor						nan	
+GSM363249	Liver Tumor Tissue LCS-182A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-151A	Tumor	03-151A	03-151	Tumor	F	60.0	II	CC	high	II	I-II
+GSM363250	Liver Non-Tumor Tissue LCS-182B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-151B	Non-Tumor	03-151B	03-151	Non-Tumor						nan	
+GSM363251	Liver Tumor Tissue LCS-002A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-395A	Tumor	02-395A	02-395	Tumor	M	47.0	IIIA	CC	low	III	III-IV
+GSM363252	Liver Non-Tumor Tissue LCS-197B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-210B	Non-Tumor	03-210B	03-210	Non-Tumor						nan	
+GSM363253	Liver Non-Tumor Tissue LCS-173B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-108B	Non-Tumor	03-108B	03-108	Non-Tumor						nan	
+GSM363254	Liver Non-Tumor Tissue LCS-240B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-291B	Non-Tumor	03-291B	03-291	Non-Tumor						nan	
+GSM363255	Liver Non-Tumor Tissue LCS-266B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-416B	Non-Tumor	03-416B	03-416	Non-Tumor						nan	
+GSM363256	Liver Non-Tumor Tissue LCS-167B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-087B	Non-Tumor	03-087B	03-087	Non-Tumor						nan	
+GSM363257	Liver Non-Tumor Tissue LCS-028B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-121B	Non-Tumor	03-121B	03-121	Non-Tumor						nan	
+GSM363258	Liver Non-Tumor Tissue LCS-032B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-148B	Non-Tumor	03-148B	03-148	Non-Tumor						nan	
+GSM363259	Liver Non-Tumor Tissue LCS-050B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-319B	Non-Tumor	03-319B	03-319	Non-Tumor						nan	
+GSM363260	Liver Non-Tumor Tissue LCS-285B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-468B	Non-Tumor	03-468B	03-468	Non-Tumor						nan	
+GSM363261	Liver Non-Tumor Tissue LCS-031B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-141B	Non-Tumor	03-141B	03-141	Non-Tumor						nan	
+GSM363262	Liver Non-Tumor Tissue LCS-016B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-064B	Non-Tumor	03-064B	03-064	Non-Tumor						nan	
+GSM363263	Liver Tumor Tissue LCS-189A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-182A	Tumor	03-182A	03-182	Tumor	M	39.0	IIIA	AVR-CC	high	III	III-IV
+GSM363264	Liver Tumor Tissue LCS-277A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-443A	Tumor	03-443A	03-443	Tumor	M	43.0	III	CC	low	III	III-IV
+GSM363265	Liver Tumor Tissue LCS-117A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-361A	Tumor	02-361A	02-361	Tumor	M	41.0	II	CC	low	II	I-II
+GSM363266	Liver Tumor Tissue LCS-267A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-418A	Tumor	03-418A	03-418	Tumor	M	35.0	IIIB	CC	low	III	III-IV
+GSM363267	Liver Tumor Tissue LCS-100A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-318A	Tumor	02-318A	02-318	Tumor	M	54.0	II	CC	low	II	I-II
+GSM363268	Liver Tumor Tissue LCS-228A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-272A	Tumor	03-272A	03-272	Tumor	M	56.0	I	AVR-CC	high	I	I-II
+GSM363269	Liver Tumor Tissue LCS-054A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-322A	Tumor	03-322A	03-322	Tumor	M	55.0	I	AVR-CC	low	I	I-II
+GSM363270	Liver Tumor Tissue LCS-063A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-346A	Tumor	03-346A	03-346	Tumor	M	58.0	II	CC	low	II	I-II
+GSM363271	Liver Tumor Tissue LCS-268A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-419A	Tumor	03-419A	03-419	Tumor	M	52.0	IIIC	CC	low	III	III-IV
+GSM363272	Liver Tumor Tissue LCS-222A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-262A	Tumor	03-262A	03-262	Tumor	M	65.0	II	CC	high	II	I-II
+GSM363273	Liver Tumor Tissue LCS-192A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-192A	Tumor	03-192A	03-192	Tumor	M	56.0	I	CC	low	I	I-II
+GSM363274	Liver Tumor Tissue LCS-022A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-099A	Tumor	03-099A	03-099	Tumor	M	53.0	II	CC	high	II	I-II
+GSM363275	Liver Tumor Tissue LCS-175A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-125A	Tumor	03-125A	03-125	Tumor	F	67.0	IIIB	CC	low	III	III-IV
+GSM363276	Liver Non-Tumor Tissue LCS-277B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-443B	Non-Tumor	03-443B	03-443	Non-Tumor						nan	
+GSM363277	Liver Non-Tumor Tissue LCS-117B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-361B	Non-Tumor	02-361B	02-361	Non-Tumor						nan	
+GSM363278	Liver Non-Tumor Tissue LCS-267B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-418B	Non-Tumor	03-418B	03-418	Non-Tumor						nan	
+GSM363279	Liver Non-Tumor Tissue LCS-100B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-318B	Non-Tumor	02-318B	02-318	Non-Tumor						nan	
+GSM363280	Liver Non-Tumor Tissue LCS-228B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-272B	Non-Tumor	03-272B	03-272	Non-Tumor						nan	
+GSM363281	Liver Non-Tumor Tissue LCS-054B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-322B	Non-Tumor	03-322B	03-322	Non-Tumor						nan	
+GSM363282	Liver Non-Tumor Tissue LCS-063B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-346B	Non-Tumor	03-346B	03-346	Non-Tumor						nan	
+GSM363283	Liver Non-Tumor Tissue LCS-268B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-419B	Non-Tumor	03-419B	03-419	Non-Tumor						nan	
+GSM363284	Liver Non-Tumor Tissue LCS-222B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-262B	Non-Tumor	03-262B	03-262	Non-Tumor						nan	
+GSM363285	Liver Non-Tumor Tissue LCS-192B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-192B	Non-Tumor	03-192B	03-192	Non-Tumor						nan	
+GSM363286	Liver Non-Tumor Tissue LCS-022B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-099B	Non-Tumor	03-099B	03-099	Non-Tumor						nan	
+GSM363287	Liver Non-Tumor Tissue LCS-036B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-214B	Non-Tumor	03-214B	03-214	Non-Tumor						nan	
+GSM363288	Liver Tumor Tissue LCS-025A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-101A	Tumor	03-101A	03-101	Tumor	M	56.0	I	CC	high	I	I-II
+GSM363289	Liver Tumor Tissue LCS-066A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-354A	Tumor	03-354A	03-354	Tumor	M	46.0	I	CC	high	I	I-II
+GSM363290	Liver Tumor Tissue LCS-248A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-334A	Tumor	03-334A	03-334	Tumor	F	63.0	I	CC	low	I	I-II
+GSM363291	Liver Tumor Tissue LCS-121A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-375A	Tumor	02-375A	02-375	Tumor	M	54.0	I	CC	low	I	I-II
+GSM363292	Liver Tumor Tissue LCS-027A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-119A	Tumor	03-119A	03-119	Tumor	M	53.0	I	CC	low	I	I-II
+GSM363293	Liver Tumor Tissue LCS-157A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-043A	Tumor	03-043A	03-043	Tumor	M	54.0	I	CC	low	I	I-II
+GSM363294	Liver Tumor Tissue LCS-148A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-012A	Tumor	03-012A	03-012	Tumor	M	25.0	II	AVR-CC	high	II	I-II
+GSM363295	Liver Tumor Tissue LCS-048A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-321A	Tumor	03-321A	03-321	Tumor	M	63.0	I	CC	high	I	I-II
+GSM363296	Liver Tumor Tissue LCS-012A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-196A	Tumor	03-196A	03-196	Tumor	F	52.0	II	AVR-CC	high	II	I-II
+GSM363297	Liver Tumor Tissue LCS-126A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-415A	Tumor	02-415A	02-415	Tumor	F	58.0	IIIB	.	high	III	III-IV
+GSM363298	Liver Tumor Tissue LCS-260A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-387A	Tumor	03-387A	03-387	Tumor	M	52.0	I	CC	high	I	I-II
+GSM363299	Liver Non-Tumor Tissue LCS-223B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-263B	Non-Tumor	03-263B	03-263	Non-Tumor						nan	
+GSM363300	Liver Non-Tumor Tissue LCS-025B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-101B	Non-Tumor	03-101B	03-101	Non-Tumor						nan	
+GSM363301	Liver Non-Tumor Tissue LCS-066B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-354B	Non-Tumor	03-354B	03-354	Non-Tumor						nan	
+GSM363302	Liver Non-Tumor Tissue LCS-121B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-375B	Non-Tumor	02-375B	02-375	Non-Tumor						nan	
+GSM363303	Liver Non-Tumor Tissue LCS-027B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-119B	Non-Tumor	03-119B	03-119	Non-Tumor						nan	
+GSM363304	Liver Non-Tumor Tissue LCS-157B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-043B	Non-Tumor	03-043B	03-043	Non-Tumor						nan	
+GSM363305	Liver Non-Tumor Tissue LCS-148B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-012B	Non-Tumor	03-012B	03-012	Non-Tumor						nan	
+GSM363306	Liver Non-Tumor Tissue LCS-048B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-321B	Non-Tumor	03-321B	03-321	Non-Tumor						nan	
+GSM363307	Liver Non-Tumor Tissue LCS-012B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-196B	Non-Tumor	03-196B	03-196	Non-Tumor						nan	
+GSM363308	Liver Non-Tumor Tissue LCS-260B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-387B	Non-Tumor	03-387B	03-387	Non-Tumor						nan	
+GSM363309	Liver Tumor Tissue LCS-247A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-316A	Tumor	03-316A	03-316	Tumor	M	34.0	II	CC	low	II	I-II
+GSM363310	Liver Tumor Tissue LCS-088A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-290A	Tumor	02-290A	02-290	Tumor	M	41.0	II	AVR-CC	low	II	I-II
+GSM363311	Liver Tumor Tissue LCS-051A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-292A	Tumor	03-292A	03-292	Tumor	M	77.0	II	CC	low	II	I-II
+GSM363312	Liver Tumor Tissue LCS-243A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-303A	Tumor	03-303A	03-303	Tumor	F	53.0	II	CC	low	II	I-II
+GSM363313	Liver Tumor Tissue LCS-165A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-073A	Tumor	03-073A	03-073	Tumor	M	71.0	II	CC	low	II	I-II
+GSM363314	Liver Tumor Tissue LCS-208A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-230A	Tumor	03-230A	03-230	Tumor	F	48.0	II	AVR-CC	high	II	I-II
+GSM363315	Liver Tumor Tissue LCS-110A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-347A	Tumor	02-347A	02-347	Tumor	M	43.0	II	CC	high	II	I-II
+GSM363316	Liver Tumor Tissue LCS-056A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-333A	Tumor	03-333A	03-333	Tumor	F	35.0	I	AVR-CC	high	I	I-II
+GSM363317	Liver Tumor Tissue LCS-146A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-462A	Tumor	02-462A	02-462	Tumor	M	58.0	I	CC	high	I	I-II
+GSM363318	Liver Non-Tumor Tissue LCS-247B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-316B	Non-Tumor	03-316B	03-316	Non-Tumor						nan	
+GSM363319	Liver Non-Tumor Tissue LCS-051B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-292B	Non-Tumor	03-292B	03-292	Non-Tumor						nan	
+GSM363320	Liver Non-Tumor Tissue LCS-243B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-303B	Non-Tumor	03-303B	03-303	Non-Tumor						nan	
+GSM363321	Liver Non-Tumor Tissue LCS-165B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-073B	Non-Tumor	03-073B	03-073	Non-Tumor						nan	
+GSM363322	Liver Non-Tumor Tissue LCS-208B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-230B	Non-Tumor	03-230B	03-230	Non-Tumor						nan	
+GSM363323	Liver Non-Tumor Tissue LCS-110B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-347B	Non-Tumor	02-347B	02-347	Non-Tumor						nan	
+GSM363324	Liver Non-Tumor Tissue LCS-056B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-333B	Non-Tumor	03-333B	03-333	Non-Tumor						nan	
+GSM363325	Liver Non-Tumor Tissue LCS-146B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-462B	Non-Tumor	02-462B	02-462	Non-Tumor						nan	
+GSM363326	Liver Tumor Tissue LCS-147A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-466A	Tumor	02-466A	02-466	Tumor	M	37.0	I	CC	high	I	I-II
+GSM363327	Liver Tumor Tissue LCS-173A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-108A	Tumor	03-108A	03-108	Tumor	M	52.0	I	AVR-CC	low	I	I-II
+GSM363328	Liver Tumor Tissue LCS-240A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-291A	Tumor	03-291A	03-291	Tumor	M	63.0	I	AVR-CC	high	I	I-II
+GSM363329	Liver Tumor Tissue LCS-266A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-416A	Tumor	03-416A	03-416	Tumor	M	56.0	I	AVR-CC	low	I	I-II
+GSM363330	Liver Tumor Tissue LCS-167A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-087A	Tumor	03-087A	03-087	Tumor	M	50.0	I	CC	low	I	I-II
+GSM363331	Liver Tumor Tissue LCS-028A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-121A	Tumor	03-121A	03-121	Tumor	F	54.0	I	AVR-CC	high	I	I-II
+GSM363332	Liver Tumor Tissue LCS-032A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-148A	Tumor	03-148A	03-148	Tumor	M	54.0	I	AVR-CC	high	I	I-II
+GSM363333	Liver Tumor Tissue LCS-050A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-319A	Tumor	03-319A	03-319	Tumor	M	48.0	II	CC	high	II	I-II
+GSM363334	Liver Tumor Tissue LCS-285A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-468A	Tumor	03-468A	03-468	Tumor						nan	
+GSM363335	Liver Tumor Tissue LCS-031A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-141A	Tumor	03-141A	03-141	Tumor	M	45.0	I	CC	low	I	I-II
+GSM363336	Liver Tumor Tissue LCS-016A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-064A	Tumor	03-064A	03-064	Tumor	M	63.0	I	CC	low	I	I-II
+GSM363337	Liver Tumor Tissue LCS-106A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-339A	Tumor	02-339A	02-339	Tumor	F	53.0	I	CC	high	I	I-II
+GSM363338	Liver Non-Tumor Tissue LCS-106B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-339B	Non-Tumor	02-339B	02-339	Non-Tumor						nan	
+GSM363339	Liver Tumor Tissue LCS-107A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-344A	Tumor	02-344A	02-344	Tumor	F	49.0	II	AVR-CC	high	II	I-II
+GSM363340	Liver Non-Tumor Tissue LCS-107B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-344B	Non-Tumor	02-344B	02-344	Non-Tumor						nan	
+GSM363341	Liver Tumor Tissue LCS-109A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-346A	Tumor	02-346A	02-346	Tumor	M	32.0	II	CC	high	II	I-II
+GSM363342	Liver Non-Tumor Tissue LCS-109B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-346B	Non-Tumor	02-346B	02-346	Non-Tumor						nan	
+GSM363343	Liver Tumor Tissue LCS-116A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-359A	Tumor	02-359A	02-359	Tumor	F	30.0	I	CC	high	I	I-II
+GSM363344	Liver Tumor Tissue LCS-137A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-448A	Tumor	02-448A	02-448	Tumor	F	52.0	II	CC	low	II	I-II
+GSM363345	Liver Non-Tumor Tissue LCS-137B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-448B	Non-Tumor	02-448B	02-448	Non-Tumor						nan	
+GSM363346	Liver Tumor Tissue LCS-138A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-452A	Tumor	02-452A	02-452	Tumor	M	51.0	IIIB	AVR-CC	low	III	III-IV
+GSM363347	Liver Non-Tumor Tissue LCS-138B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-452B	Non-Tumor	02-452B	02-452	Non-Tumor						nan	
+GSM363348	Liver Tumor Tissue LCS-139A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-454A	Tumor	02-454A	02-454	Tumor	M	41.0	I	CC	low	I	I-II
+GSM363349	Liver Non-Tumor Tissue LCS-139B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-454B	Non-Tumor	02-454B	02-454	Non-Tumor						nan	
+GSM363350	Liver Tumor Tissue LCS-142A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-457A	Tumor	02-457A	02-457	Tumor	M	43.0	I	CC	high	I	I-II
+GSM363351	Liver Non-Tumor Tissue LCS-142B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-457B	Non-Tumor	02-457B	02-457	Non-Tumor						nan	
+GSM363352	Liver Tumor Tissue LCS-196A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-205A	Tumor	03-205A	03-205	Tumor	M	51.0	II	CC	high	II	I-II
+GSM363353	Liver Non-Tumor Tissue LCS-196B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-205B	Non-Tumor	03-205B	03-205	Non-Tumor						nan	
+GSM363354	Liver Tumor Tissue LCS-207A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-228A	Tumor	03-228A	03-228	Tumor	M	66.0	I	N	high	I	I-II
+GSM363355	Liver Tumor Tissue LCS-231A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-277A	Tumor	03-277A	03-277	Tumor	M	53.0	II	CC	low	II	I-II
+GSM363356	Liver Non-Tumor Tissue LCS-231B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-277B	Non-Tumor	03-277B	03-277	Non-Tumor						nan	
+GSM363357	Liver Tumor Tissue LCS-251A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-343A	Tumor	03-343A	03-343	Tumor	F	47.0	II	AVR-CC	low	II	I-II
+GSM363358	Liver Tumor Tissue LCS-072A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-375A	Tumor	03-375A	03-375	Tumor	M	56.0	II	CC	low	II	I-II
+GSM363359	Liver Non-Tumor Tissue LCS-072B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-375B	Non-Tumor	03-375B	03-375	Non-Tumor						nan	
+GSM363360	Liver Tumor Tissue LCS-263A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-404A	Tumor	03-404A	03-404	Tumor	M	71.0	I	CC	high	I	I-II
+GSM363361	Liver Non-Tumor Tissue LCS-263B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-404B	Non-Tumor	03-404B	03-404	Non-Tumor						nan	
+GSM363362	Liver Tumor Tissue LCS-269A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-424A	Tumor	03-424A	03-424	Tumor	M	53.0	II	CC	low	II	I-II
+GSM363363	Liver Non-Tumor Tissue LCS-269B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-424B	Non-Tumor	03-424B	03-424	Non-Tumor						nan	
+GSM363364	Liver Tumor Tissue LCS-273A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-435A	Tumor	03-435A	03-435	Tumor	M	49.0	I	CC	low	I	I-II
+GSM363365	Liver Non-Tumor Tissue LCS-273B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-435B	Non-Tumor	03-435B	03-435	Non-Tumor						nan	
+GSM363366	Liver Tumor Tissue LCS-289A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-457A	Tumor	03-457A	03-457	Tumor	M	73.0	I	CC	low	I	I-II
+GSM363367	Liver Non-Tumor Tissue LCS-289B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-457B	Non-Tumor	03-457B	03-457	Non-Tumor						nan	
+GSM363368	Liver Tumor Tissue LCS-290A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-469A	Tumor	03-469A	03-469	Tumor	M	66.0	.	.	high	.	
+GSM363369	Liver Non-Tumor Tissue LCS-290B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-469B	Non-Tumor	03-469B	03-469	Non-Tumor						nan	
+GSM363370	Liver Non-Tumor Tissue LCS-093B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-302B	Non-Tumor	02-302B	02-302	Non-Tumor						nan	
+GSM363371	Liver Tumor Tissue LCS-097A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-313A	Tumor	02-313A	02-313	Tumor	F	69.0	I	CC	low	I	I-II
+GSM363372	Liver Non-Tumor Tissue LCS-097B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-313B	Non-Tumor	02-313B	02-313	Non-Tumor						nan	
+GSM363373	Liver Non-Tumor Tissue LCS-104B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-335B	Non-Tumor	02-335B	02-335	Non-Tumor						nan	
+GSM363374	Liver Non-Tumor Tissue LCS-140B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 02-455B	Non-Tumor	02-455B	02-455	Non-Tumor						nan	
+GSM363375	Liver Non-Tumor Tissue LCS-150B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-017B	Non-Tumor	03-017B	03-017	Non-Tumor						nan	
+GSM363376	Liver Tumor Tissue LCS-158A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-047A	Tumor	03-047A	03-047	Tumor	M	62.0	I	CC	low	I	I-II
+GSM363378	Liver Tumor Tissue LCS-161A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-055A	Tumor	03-055A	03-055	Tumor	M	47.0	I	AVR-CC	low	I	I-II
+GSM363380	Liver Non-Tumor Tissue LCS-162B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-057B	Non-Tumor	03-057B	03-057	Non-Tumor						nan	
+GSM363381	Liver Non-Tumor Tissue LCS-014B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-062B	Non-Tumor	03-062B	03-062	Non-Tumor						nan	
+GSM363382	Liver Non-Tumor Tissue LCS-166B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-081B	Non-Tumor	03-081B	03-081	Non-Tumor						nan	
+GSM363384	Liver Tumor Tissue LCS-172A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-105A	Tumor	03-105A	03-105	Tumor	M	43.0	II	AVR-CC	low	II	I-II
+GSM363386	Liver Tumor Tissue LCS-197A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-210A	Tumor	03-210A	03-210	Tumor	M	61.0	IIIA	CC	high	III	III-IV
+GSM363388	Liver Tumor Tissue LCS-200A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-219A	Tumor	03-219A	03-219	Tumor	F	58.0	I	CC	low	I	I-II
+GSM363391	Liver Tumor Tissue LCS-201A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-220A	Tumor	03-220A	03-220	Tumor	M	55.0	II	CC	low	II	I-II
+GSM363393	Liver Tumor Tissue LCS-216A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-244A	Tumor	03-244A	03-244	Tumor	M	46.0	IIIA	AVR-CC	high	III	III-IV
+GSM363397	Liver Non-Tumor Tissue LCS-216B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-244B	Non-Tumor	03-244B	03-244	Non-Tumor						nan	
+GSM363400	Liver Tumor Tissue LCS-238A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-285A	Tumor	03-285A	03-285	Tumor	M	58.0	II	CC	low	II	I-II
+GSM363402	Liver Non-Tumor Tissue LCS-241B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-295B	Non-Tumor	03-295B	03-295	Non-Tumor						nan	
+GSM363404	Liver Tumor Tissue LCS-046A	Tissue: Liver Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-311A	Tumor	03-311A	03-311	Tumor	M	46.0	IIIA	CC	high	III	III-IV
+GSM363407	Liver Non-Tumor Tissue LCS-248B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-334B	Non-Tumor	03-334B	03-334	Non-Tumor						nan	
+GSM363417	Liver Non-Tumor Tissue LCS-259B	Tissue: Liver Non-Tumor Tissue	Disease state: Hepatocellular carcinoma (HCC)	Individual: 03-383B	Non-Tumor	03-383B	03-383	Non-Tumor						nan	
+GSM712532	Liver Tumor Tissue X02-342A	tissue: Liver Tumor Tissue	disease state: Hepatocellular carcinoma (HCC)	individual: X02-342A	Tumor	individual: X02-342A	individual: X02-342	Tumor						nan	
+GSM712533	Liver Non-Tumor Tissue X02-342B	tissue: Liver Non-Tumor Tissue	disease state: Hepatocellular carcinoma (HCC)	individual: X02-342B	Non-Tumor	individual: X02-342B	individual: X02-342	Non-Tumor						nan	
+GSM712534	Liver Tumor Tissue X02-362A	tissue: Liver Tumor Tissue	disease state: Hepatocellular carcinoma (HCC)	individual: X02-362A	Tumor	individual: X02-362A	individual: X02-362	Tumor						nan	
+GSM712535	Liver Non-Tumor Tissue X02-362B	tissue: Liver Non-Tumor Tissue	disease state: Hepatocellular carcinoma (HCC)	individual: X02-362B	Non-Tumor	individual: X02-362B	individual: X02-362	Non-Tumor						nan	
+GSM712536	Liver Non-Tumor Tissue LCS-003B	tissue: Liver Non-Tumor Tissue	disease state: Hepatocellular carcinoma (HCC)	individual: LCS-003B	Non-Tumor	individual: LCS-003B	individual: LCS-003	Non-Tumor						nan	
+GSM712537	Liver Non-Tumor Tissue LCS-006B	tissue: Liver Non-Tumor Tissue	disease state: Hepatocellular carcinoma (HCC)	individual: LCS-006B	Non-Tumor	individual: LCS-006B	individual: LCS-006	Non-Tumor						nan	
+GSM712538	Liver Non-Tumor Tissue LCS-026B	tissue: Liver Non-Tumor Tissue	disease state: Hepatocellular carcinoma (HCC)	individual: LCS-026B	Non-Tumor	individual: LCS-026B	individual: LCS-026	Non-Tumor						nan	
+GSM712539	Liver Non-Tumor Tissue LCS-128B	tissue: Liver Non-Tumor Tissue	disease state: Hepatocellular carcinoma (HCC)	individual: LCS-128B	Non-Tumor	individual: LCS-128B	individual: LCS-128	Non-Tumor						nan	
+GSM712540	Liver Non-Tumor Tissue LCS-168B	tissue: Liver Non-Tumor Tissue	disease state: Hepatocellular carcinoma (HCC)	individual: LCS-168B	Non-Tumor	individual: LCS-168B	individual: LCS-168	Non-Tumor						nan	
+GSM712541	Liver Non-Tumor Tissue LCS-181B	tissue: Liver Non-Tumor Tissue	disease state: Hepatocellular carcinoma (HCC)	individual: LCS-181B	Non-Tumor	individual: LCS-181B	individual: LCS-181	Non-Tumor						nan	
+GSM712542	Liver Tumor Tissue LCS-190A	tissue: Liver Tumor Tissue	disease state: Hepatocellular carcinoma (HCC)	individual: LCS-190A	Tumor	individual: LCS-190A	individual: LCS-190	Tumor	M	61.0	IIIA	CC	high	III	III-IV

@@ -1,0 +1,3 @@
+contraste,n,genes,consensus_correlation,degs_duplicateCorrelation,up,down,lmer_genes,lmer_degs_bh,spearman_p_lmer_vs_limma,spearman_logfc_lmer_vs_limma
+estagio,344,12401,0.0214577009163681,0,0,0,300,265,0.45727796975522,0.977476638629318
+grau,363,12401,0.0339916207364217,283,130,153,300,300,0.967571195235503,0.998923988044312

@@ -1,0 +1,4 @@
+contraste,metodo,genes_comuns,degs_limma,degs_metodo,degs_comuns,jaccard,spearman_logfc,direcao_concordante
+tumor_vs_adjacente,DESeq2_universo_comum,11547,4130,1873,1500,0.33311125916056,0.913467676820178,0.998
+estagio,DESeq2_universo_comum,11547,46,43,5,0.0595238095238095,0.827829219998906,1
+grau,DESeq2_universo_comum,11547,172,80,36,0.166666666666667,0.90144495873784,1

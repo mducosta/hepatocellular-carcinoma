@@ -1,0 +1,2 @@
+repeticoes,folds,auc_media,auc_ic95_inf,auc_ic95_sup,auc_min,auc_max,folds_sem_deg,folds_total
+20,5,0.704682713710781,0.583369963369963,0.785065217391304,0.576104746317512,0.85304347826087,0,100

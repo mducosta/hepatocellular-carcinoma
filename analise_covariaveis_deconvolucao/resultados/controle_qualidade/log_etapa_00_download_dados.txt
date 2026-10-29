@@ -1,0 +1,17 @@
+[SKIP] Já existe: C:\Users\oorie\OneDrive\Documentos\TRABALHOS\HEPATO\hepatocellular-carcinoma\analise_covariaveis_deconvolucao/dados/raw/LIHC_clinicalMatrix 
+[SKIP] Já existe: C:\Users\oorie\OneDrive\Documentos\TRABALHOS\HEPATO\hepatocellular-carcinoma\analise_covariaveis_deconvolucao/dados/raw/TCGA-LIHC.clinical.tsv.gz 
+[SKIP] Já existe: C:\Users\oorie\OneDrive\Documentos\TRABALHOS\HEPATO\hepatocellular-carcinoma\analise_covariaveis_deconvolucao/dados/raw/GTEX_phenotype.gz 
+[DOWNLOAD] https://toil.xenahubs.net/download/TcgaTargetGTEX_phenotype.txt.gz 
+trying URL 'https://toil.xenahubs.net/download/TcgaTargetGTEX_phenotype.txt.gz'
+Content type 'text/plain' length 135753 bytes (132 KB)
+==================================================
+downloaded 132 KB
+
+[SKIP] Já existe: C:\Users\oorie\OneDrive\Documentos\TRABALHOS\HEPATO\hepatocellular-carcinoma\analise_covariaveis_deconvolucao/dados/raw/GTEx_Analysis_v8_Annotations_SubjectPhenotypesDS.txt 
+
+[INFO] Transcriptoma completo não baixado (1,3 GB).
+       Defina BAIXAR_TRANSCRIPTOMA_COMPLETO=TRUE para baixar.
+       Alternativa: use a matriz processada já incluída em
+       dados/processed/expressao_log2tpm_filtrada.tsv.gz.
+
+Downloads concluídos em: C:\Users\oorie\OneDrive\Documentos\TRABALHOS\HEPATO\hepatocellular-carcinoma\analise_covariaveis_deconvolucao/dados/raw 

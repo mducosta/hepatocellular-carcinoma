@@ -1,0 +1,2 @@
+contraste,coorte_treinamento,coorte_validacao,genes_comuns,degs_tcga,degs_validacao,degs_comuns,jaccard,hipergeometrico_p,spearman_logfc,auc_assinatura_tcga,genes_assinatura_usados
+Estágio III-IV vs I-II,TCGA-LIHC (n = 344),GSE14520 (n = 219),8829,29,71,17,0.204819277108434,1.50456945490882e-29,0.51768107776217,0.756662665066027,29

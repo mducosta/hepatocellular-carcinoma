@@ -1,0 +1,2 @@
+contraste,coorte_treinamento,coorte_validacao,genes_comuns,degs_tcga,degs_validacao,degs_comuns,jaccard,hipergeometrico_p,spearman_logfc,direcao_concordante,fracao_degs_tcga_significativos_na_validacao,fracao_degs_tcga_mesma_direcao
+Tumor vs adjacente,TCGA-LIHC (n = 418),GSE14520 (n = 445),8829,4130,1044,730,0.164266426642664,4.33710617294522e-192,0.685376429447774,0.993150684931507,0.254621555633066,0.875479595395884
